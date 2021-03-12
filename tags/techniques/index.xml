@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>techniques on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/techniques/</link>
+    <description>Recent content in techniques on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 May 2019 14:45:29 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/techniques/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.
+There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments.</description>
+    </item>
+    
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>As mentioned previously, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?
+Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw my boss do a talk at PHPNW back in 2008 / 9.</description>
+    </item>
+    
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.
+ Stacks. Tools. Paradigms. The way we work. The way we deploy. The way we communicate.  There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.</description>
+    </item>
+    
+  </channel>
+</rss>

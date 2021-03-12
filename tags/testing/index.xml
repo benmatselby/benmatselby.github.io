@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>testing on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/testing/</link>
+    <description>Recent content in testing on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 09:19:38 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back.
+The tools this post is going to compare are:
+ AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions  A couple of things to note:
+ This post almost exclusively talks about AWS CodePipeline, but you will almost certainly require AWS CodeBuild too.</description>
+    </item>
+    
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.
+Web #a11y is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on.</description>
+    </item>
+    
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>As mentioned previously, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?
+Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw my boss do a talk at PHPNW back in 2008 / 9.</description>
+    </item>
+    
+  </channel>
+</rss>

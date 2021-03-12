@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Some thoughts on feature toggling">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Feature Toggling &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Feature Toggling">
+  <meta name="twitter:description"
+    content="Some thoughts on feature toggling">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-golden-gate-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-golden-gate.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Feature Toggling</h1>
+  <span class="posts__item-date">Mar 19, 2019 &middot; 8 min read</span>
+  <p>As mentioned <a href="https://benmatselby.dev/post/technology-radar/">previously</a>, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?</p>
+<p>Taking a step back, I&rsquo;ve always wanted to be a conference speaker, ever since I saw <a href="https://twitter.com/rowan_m">my boss</a> do a talk at <a href="https://conference.phpnw.org.uk/">PHPNW</a> back in 2008 / 9. However, two factors have always stopped me:</p>
+<ol>
+<li>Everything I do is &ldquo;so basic&rdquo;, people will laugh or pick fault, and</li>
+<li>I cannot stand in front of that many people and say meaningful words.</li>
+</ol>
+<p>Why do I bring this up? Back to techniques.</p>
+<p>What may be obvious to you now, was not obvious to you 10 years ago. You need to constantly be thinking about the new person in your team/company. The next generation.</p>
+<p>With that in mind, here&rsquo;s a post about Feature Toggling, something my teams have been using as part of software delivery for years. You may also be doing it, it may seem obvious, or you may not be doing, and you may not even agree 🤷‍♀️</p>
+<h2 id="outline">Outline</h2>
+<blockquote>
+<p>A feature toggle (also feature switch, feature flag, feature flipper, conditional feature, etc.) is a technique in software development that attempts to provide an alternative to maintaining multiple source-code branches (known as feature branches), such that a feature can be tested even before it is completed and ready for release.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Feature_toggle">Source</a></p>
+<h2 id="rationale">Rationale</h2>
+<p>So why would we do this, it sounds like extra work? Here are some highlights:</p>
+<ul>
+<li>Decouple the action of deploying software from customers getting features.</li>
+<li>Stability.</li>
+<li>Calm working environment.</li>
+<li>Branch management in git.</li>
+</ul>
+<p>In reality, feature toggling is the addition of some configuration, ideally dynamic, and then writing control statements in your code, to observe the feature toggle. When stated like this, it doesn&rsquo;t sound impressive, but when you embrace feature toggling, you will have a more manageable platform.</p>
+<quote class="pullquote">
+  
+Feature toggling is a really powerful technique
+
+</quote>
+
+<h3 id="decoupling-deployments-from-product-releases">Decoupling deployments from product releases</h3>
+<p>All too often, customers get features when the action of &ldquo;releasing the software&rdquo; is complete. This is fraught with issues. If you have communicated the release to customers, and there is an issue with the deployment, then customers get a bad experience from the company. By utilising feature toggles, you can decouple the action of releasing, and providing new features to customers. The feature can be turned on during normal working hours, when the engineering teams are at full strength. <sup><a href="#footnotes">[1]</a></sup></p>
+<p>This allows the philosophy of small and often software releases, which in turn, can reduce the risk of large releases introducing more change than customers <em>and</em> engineers can deal with.</p>
+<h3 id="stability">Stability</h3>
+<p>When you are in control of more aspects of the system, you have more stability. If you decouple releases and feature introduction, you have more control. If you can stop integrations to 3rd parties, or toggle features causing performance issues, you have more control.</p>
+<h3 id="working-environment">Working environment</h3>
+<p>Ideally we limit the amount of system outages on our platforms. But if a system outage is linked to a new feature, the ability to turn the feature off, reduces the anxiety around the business, whilst a fix is being investigated. If we manage the message around feature introduction, we can reduce this even more.</p>
+<p>If you have a system outage due to a new feature, and no way to back out of this, that puts the engineering teams (and others) under pressure. If you can limit this by using feature toggles there is a victory to be had.</p>
+<p>Calm working environments produce better results.</p>
+<h3 id="branch-management">Branch management</h3>
+<p>I think it&rsquo;s fair to say the industry have more or less agreed that short lived feature branches are the way to go. However there are still places that have long running branches.</p>
+<p>Feature toggling allows for continuous deployments (discussed in more detail below), therefore the notion of having long running branches seems contrary to this technique. By limiting the amount of long running branches, we reduce: cost, code rot, and the management overhead.</p>
+<hr>
+<h2 id="when-to-use">When to use</h2>
+<p>Feature toggling is a really powerful technique, and can mean different things to different people.</p>
+<p>Engineering toggling:</p>
+<ul>
+<li>Continuously deploying sprints on your cadence, even when features are not complete.</li>
+<li>A/B testing a feature, so the product owner can make data based decisions (when feature toggling is coupled with a metrics platform).</li>
+<li>The ability to turn off integrations to 3rd parties, for any reason.</li>
+<li>Refactoring of code bases (e.g. from version 1 to 2, you may want to route through different aspects of your code).</li>
+<li>Logging (e.g. Allow logging to be finer grained for the duration of a platform incident).</li>
+</ul>
+<p>Feature/Product toggling:</p>
+<ul>
+<li>Permission based.</li>
+<li>Early adopters.</li>
+<li>Industry/Product vertical (i.e. customer x pays for products 1, 3 and 6, but not 2, 4 and 5).</li>
+</ul>
+<p>This does not aim to be an exhaustive list, but provide some insight as to how this technique can be used. We will not go into depth in all of these aspects, but to provide a little more context, see below. For further reading and understanding, please follow the links at the <a href="#see-also">bottom of the page</a>.</p>
+<h3 id="continuous-deployment">Continuous deployment</h3>
+<p>Holding back releases until features are complete, make the releases larger. Large releases have more risk, as you are introducing more change to the platform. If something goes wrong, depending on the quality of your metrics/observability platform, you may struggle to pinpoint the issue since there was a vast amount of change on the platform.</p>
+<p>The idea with feature toggles is you code behind the feature toggle. Let&rsquo;s say your sprints are 2 weeks long, but it will take 3 weeks to implement a feature. You would define a feature toggle (using whatever feature toggling tool you choose) and then code your solution based on the toggle being on or off. In this example, at the end of your sprint you are 66% complete, but you deploy with the feature toggle off. You continue to work on the feature in the next sprint when you complete the solution. You then deploy the sprint with the feature toggle on, as the feature is complete. At this point you have two options: keep the feature toggle, or remove the feature toggle in your codebase.</p>
+<p>The decision on what to do with the feature toggle is a discussion to have with your product owner. They may want a grace period whilst you collate metrics to see whether the feature is working, or whether the performance is acceptable, or maybe it was a promotion being run. If you have just deployed a new feature, and there is an issue, you have the ability to toggle the feature off, whilst investigations take place in a calm, and affective manner. This mitigates risk and removes the anxiety around change, because the team is in control of the situation.</p>
+<p>This enables a constant release <a href="https://benmatselby.dev/post/pipelines/">pipeline</a>, and features may or may not meet the deadline. This becomes irrelevant because the date is defined (and does not need to move), as you can deploy with feature toggles.</p>
+<h3 id="ab-testing">A/B Testing</h3>
+<p>Let&rsquo;s say a product owner (or engineering team) want to make a change to the system, be it UI, UX, Technology change/introduction etc. However, at this moment in time they do not have enough data to make a calculated decision. This is where a feature toggle may help. Let&rsquo;s say we want to make a UI change, and some users should hit the new UI, and some should hit the old UI. You engineer the new solution, taking into account feature toggles. This time the feature toggle has a probability assigned to it, or certain customers are allocated a feature. This then allows us to test a feature in production.</p>
+<p>The information collated from production and real users can then help the product owner decide if a feature is worth building in full, or not.</p>
+<h3 id="integrations">Integrations</h3>
+<p>If we are building a product into a 3rd party vendor, we probably want the ability to isolate ourselves and our customers' experience, from external systems. What if the 3rd party system goes down, or is degraded in functionality. We need to be able to handle that appropriately for our customers, and not blame our experience on a vendor.</p>
+<p>Feature toggling can help here. If coupled with some form of queuing system (if appropriate) you could toggle the integration off until the 3rd party vendor is back to 100%.</p>
+<hr>
+<h2 id="anything-we-need-to-know">Anything we need to know?</h2>
+<p>Sounds too good to be true? Well, it kind of is. However, some advice</p>
+<h3 id="cleanliness">Cleanliness</h3>
+<p>As with everything in life, tidy up after yourselves. If your feature toggle is transient, remember to remove the code no longer required on either side of the toggle, and remove the toggle (configuration) itself.</p>
+<p>This is just good practice 😇</p>
+<h3 id="buy-in">Buy in</h3>
+<p>Engage with the stakeholders of the product and release pipeline so they can understand this technique. It&rsquo;s beneficial for multiple roles: ops, engineering, product, release, deployment, sales.</p>
+<p>Sharing this technique may bring other benefits to other people in your organisation. Sometimes people do not know what is achievable, so share.</p>
+<h2 id="thanks">Thanks to</h2>
+<p>I was lucky enough to write the vast majority of this post at work, and with a great colleague: <a href="https://twitter.com/Conski">Conrad</a></p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Writing up 1300 words about feature toggling for our Tech Radar, and totally regretting not writing this up on my blog instead.<br><br>Rookie mistake.</p>&mdash; Ben Selby (@benmatselby) <a href="https://twitter.com/benmatselby/status/1107967143767932928?ref_src=twsrc%5Etfw">March 19, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>And luckily, it turns out, I&rsquo;m OK to post this here.</p>
+<h2 id="footnotes">Footnotes</h2>
+<ul>
+<li>[1] Notice how folks like engineers to release out of hours, which is generally the worst time to release.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Feature_toggle">Wikipedia</a></li>
+<li><a href="https://martinfowler.com/articles/feature-toggles.html">Martin Fowler - Feature Toggles (aka Feature Flags)</a></li>
+<li><a href="https://medium.com/jettech/feature-toggles-give-you-superpowers-78fdeb7ab5e8">Feature Toggles Give You Superpowers</a></li>
+<li><a href="http://featureflags.io">Feature Flag Driven Development</a></li>
+<li><a href="https://benmatselby.dev/post/technology-radar/">Technology Radar</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

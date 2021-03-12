@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ben Selby</title>
+    <link>https://benmatselby.dev/post/</link>
+    <description>Recent content in Posts on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Mar 2021 21:31:48 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>Since the start of the year, I&amp;rsquo;ve been running weekly workshops with Paddy Morgan at work. These have been fun sessions to run. Some have been chats, some demos etc.
+However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.
+This post covers what we ran through.
+ Time allocation: 60 minutes</description>
+    </item>
+    
+    <item>
+      <title>Distributed, not Remote</title>
+      <link>https://benmatselby.dev/post/distributed-not-remote/</link>
+      <pubDate>Sun, 20 Dec 2020 14:40:23 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/distributed-not-remote/</guid>
+      <description>This year has seen a transformation in terms of working practices. Whether things will ever go back to the way they were, I do not know, but there is one thing I hope will remain.
+To sum up the last 3 years. I went from managing a team of engineers located in 2 geographic locations, to becoming a remote Individual Contributor in a co-located team. This year changed everything, and we all became engineers in a distributed team.</description>
+    </item>
+    
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back.
+The tools this post is going to compare are:
+ AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions  A couple of things to note:
+ This post almost exclusively talks about AWS CodePipeline, but you will almost certainly require AWS CodeBuild too.</description>
+    </item>
+    
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>If you&amp;rsquo;re happy with the automated burndown reports from tools like Jira and Azure Devops, then this post is probably not for you (except maybe the CLI tools section). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.
+My first foray into the world of work management tools starting about 13 years ago, and my team used Trac.</description>
+    </item>
+    
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.
+But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?
+There isn&amp;rsquo;t that many options in this space.
+If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the Gollum Page Watcher can help.</description>
+    </item>
+    
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.
+Make sure all commits in version control are logically atomic.  What is a logically atomic commit A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>I&amp;rsquo;ve just released version v1.2.1 of the Hugo Deploy to GitHub Pages GitHub Action.
+This means it now fully conforms to the metadata specification as defined here.
+I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a Hugo site to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?</description>
+    </item>
+    
+    <item>
+      <title>Books 2019</title>
+      <link>https://benmatselby.dev/post/books-2019/</link>
+      <pubDate>Sat, 05 Oct 2019 08:37:57 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/books-2019/</guid>
+      <description>One of my new years resolutions was to try and read 10 books this year. That may not sound a lot, but when you have a myriad of other things going on in your life, that&amp;rsquo;s a tall order. This is what I&amp;rsquo;ve managed to read.
+Books  Dark Sacred Night Michael Connelly  I&amp;rsquo;m a massive Connelly fan, I&amp;rsquo;ve read and kept all the Bosch novels he&amp;rsquo;s ever written. I&amp;rsquo;m not a hoarder at all, but this is the only series of books I&amp;rsquo;ve kept.</description>
+    </item>
+    
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.
+I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me.</description>
+    </item>
+    
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.
+There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments.</description>
+    </item>
+    
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style.</description>
+    </item>
+    
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.
+Web #a11y is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on.</description>
+    </item>
+    
+    <item>
+      <title>Software engineering team structures</title>
+      <link>https://benmatselby.dev/post/software-engineering-team-structure/</link>
+      <pubDate>Sat, 20 Apr 2019 15:50:51 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/software-engineering-team-structure/</guid>
+      <description>This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).
+For the purpose of this article, a team is going to be a product based software engineering team.</description>
+    </item>
+    
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>As mentioned previously, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?
+Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw my boss do a talk at PHPNW back in 2008 / 9.</description>
+    </item>
+    
+    <item>
+      <title>Why teams are important</title>
+      <link>https://benmatselby.dev/post/why-teams-important/</link>
+      <pubDate>Fri, 08 Mar 2019 08:08:22 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/why-teams-important/</guid>
+      <description>After talking about communication recently, it felt natural to follow up with a post about Teams.
+The beginning I love teams. I love my teams. I love building teams. I love working in teams. I love to see what a team can deliver, and grow, and evolve, and have each others back. I would describe myself as a team player, first and foremost. I don&amp;rsquo;t like to be isolated. I like to have a home to anchor me.</description>
+    </item>
+    
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.
+ Stacks. Tools. Paradigms. The way we work. The way we deploy. The way we communicate.  There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.</description>
+    </item>
+    
+    <item>
+      <title>The software development pipeline</title>
+      <link>https://benmatselby.dev/post/pipelines/</link>
+      <pubDate>Mon, 14 Jan 2019 19:29:09 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pipelines/</guid>
+      <description>Pipelines.
+They are very important in software development, in my opinion. If you do not get your pipeline right, you likely have problems within your team(s).
+So, what is a pipeline?
+Well, think of it has a conveyor belt in a factory. The software development pipeline is a conveyor belt. From projects, to requirements, to building/testing, to deploying, and to everything in between. Those processes/items are moving along the conveyor, ideally in a smooth fashion.</description>
+    </item>
+    
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.
+Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</description>
+    </item>
+    
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>It works on my machine
+ We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform.</description>
+    </item>
+    
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>SugarCRM is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.
+The Aim As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis.</description>
+    </item>
+    
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>In a previous post I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer Slack for team chat/communication.
+Spanning a 10 year period I’ve used: IRC, Google Wave, XMPP in various forms, Skype, GTalk and Google Hangouts, Slack, Microsoft Teams and Workplace. Slack is a clear winner for me, although at the time Google Wave blew me away.</description>
+    </item>
+    
+    <item>
+      <title>Communication</title>
+      <link>https://benmatselby.dev/post/communication/</link>
+      <pubDate>Wed, 01 Aug 2018 12:08:10 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication/</guid>
+      <description>It’s cliched to say, but communication really is key, and yet it’s one of the common issues folks seem to raise in departmental or company feedback. “Communication isn’t great”. However, this is both a top down, and a bottom up issue in my opinion (and everything in between).
+Top down like to send out update emails, but the flow of communication is one way. Do I reply, reply all, face to face?</description>
+    </item>
+    
+  </channel>
+</rss>

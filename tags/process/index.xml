@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>process on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/process/</link>
+    <description>Recent content in process on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Jun 2019 21:44:23 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/process/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.
+I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me.</description>
+    </item>
+    
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.
+There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments.</description>
+    </item>
+    
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style.</description>
+    </item>
+    
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.
+ Stacks. Tools. Paradigms. The way we work. The way we deploy. The way we communicate.  There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.</description>
+    </item>
+    
+    <item>
+      <title>The software development pipeline</title>
+      <link>https://benmatselby.dev/post/pipelines/</link>
+      <pubDate>Mon, 14 Jan 2019 19:29:09 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pipelines/</guid>
+      <description>Pipelines.
+They are very important in software development, in my opinion. If you do not get your pipeline right, you likely have problems within your team(s).
+So, what is a pipeline?
+Well, think of it has a conveyor belt in a factory. The software development pipeline is a conveyor belt. From projects, to requirements, to building/testing, to deploying, and to everything in between. Those processes/items are moving along the conveyor, ideally in a smooth fashion.</description>
+    </item>
+    
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>SugarCRM is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.
+The Aim As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis.</description>
+    </item>
+    
+  </channel>
+</rss>

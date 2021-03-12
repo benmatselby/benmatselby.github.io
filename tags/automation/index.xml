@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automation on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/automation/</link>
+    <description>Recent content in automation on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 09:19:38 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back.
+The tools this post is going to compare are:
+ AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions  A couple of things to note:
+ This post almost exclusively talks about AWS CodePipeline, but you will almost certainly require AWS CodeBuild too.</description>
+    </item>
+    
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.
+But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?
+There isn&amp;rsquo;t that many options in this space.
+If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the Gollum Page Watcher can help.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>I&amp;rsquo;ve just released version v1.2.1 of the Hugo Deploy to GitHub Pages GitHub Action.
+This means it now fully conforms to the metadata specification as defined here.
+I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a Hugo site to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?</description>
+    </item>
+    
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.
+Web #a11y is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on.</description>
+    </item>
+    
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>It works on my machine
+ We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform.</description>
+    </item>
+    
+  </channel>
+</rss>

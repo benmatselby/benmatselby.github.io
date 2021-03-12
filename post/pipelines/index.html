@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Why the software development pipeline is so important.">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>The software development pipeline &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="The software development pipeline">
+  <meta name="twitter:description"
+    content="Why the software development pipeline is so important.">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>The software development pipeline</h1>
+  <span class="posts__item-date">Jan 14, 2019 &middot; 4 min read</span>
+  <p>Pipelines.</p>
+<p>They are very important in software development, in my opinion. If you do not get your pipeline right, you likely have problems within your team(s).</p>
+<p>So, what is a pipeline?</p>
+<p>Well, think of it has a conveyor belt in a factory. The software development pipeline is a conveyor belt. From projects, to requirements, to building/testing, to deploying, and to everything in between. Those processes/items are moving along the conveyor, ideally in a smooth fashion.</p>
+<p>This is analogous to the <a href="https://en.wikipedia.org/wiki/Lean_manufacturing">Lean Philosophy</a>. <a href="https://www.lean.org/WhatsLean/Principles.cfm">Two principles of lean are</a>:</p>
+<ol>
+<li>Make the value-creating steps occur in tight sequence so the product will flow smoothly toward the customer.</li>
+<li>As flow is introduced, let customers pull value from the next upstream activity.</li>
+</ol>
+<p>If you have a bottleneck in the pipeline, your conveyor belt is being strained, which causes issues down the line, at some point, somewhere.</p>
+<p>For example (not making any assumptions about how the teams are formed in your organisation)</p>
+<ul>
+<li>Let’s say it takes a long time to ship software. Then the customers are not getting value quickly enough, and there is a delay taking the product to market.
+<ul>
+<li>Another issue is engineers not getting real time feedback of the features they are working on.</li>
+<li>If there is a delay from build to delivery, then the engineering teams have probably moved onto other work when the feedback starts coming in.</li>
+<li>How do they then react to the feedback?</li>
+</ul>
+</li>
+<li>If the requirements take a long time to make it to the engineering team, what value are the engineers adding, potentially working on other features?
+<ul>
+<li>Does this cause context switching issues?</li>
+</ul>
+</li>
+<li>What if you have a UX team, who have a longer lead time to design user interactions, maybe they have customer workshops etc.
+<ul>
+<li>If the UI engineers need the UX designs, but that has a longer lead time, you will need to adjust the pipeline.</li>
+</ul>
+</li>
+</ul>
+<p>What we are aiming for is “<a href="https://en.wikipedia.org/wiki/Just-in-time_manufacturing">Just in time delivery</a>” for each process along the conveyor belt, another aspect of the lean methodology. If requirements have been delivered just in time to engineers, we know they add value now. If the requirements making their way to the engineering teams are 6 months old, are they still valid? Will they still add value? I’ll take a gamble and say at the very least, you won’t know.</p>
+<p>The process flow, from initiation to deployment should be calm and seamless, in my opinion. And once you have that, you can work at that pace - constantly.</p>
+<p>Quoting the <a href="https://agilemanifesto.org/principles.html">agile manifesto</a></p>
+<blockquote>
+<p>Agile processes promote sustainable development.
+The sponsors, developers, and users should be able to maintain a constant pace indefinitely.</p>
+</blockquote>
+<p>You can only achieve that if you have a decent pipeline.</p>
+<h2 id="engineering-teams">Engineering teams</h2>
+<p>So, engineering teams. I’ve been involved in many engineering teams over the last decade or so, and they should always be able to occupy themselves without the oversight of management. I only bring this up, as I firmly believe that out of all the teams and processes in the pipeline, the engineers should be able to deal with the bottleneck, as long as you have either a strong culture or strong leader to set the expectations.</p>
+<h3 id="too-much-work-coming-down-the-conveyor-belt">Too much work coming down the conveyor belt?</h3>
+<p>This should sit with the Product Owner, or Project Manager - a role like that. It’s a planning issue mainly. Yes the engineering team may be slacking or have issues estimating, but by and large, it’s a planning issue.</p>
+<p>Even if the engineering team estimated incorrectly, the people planning projects should have plans to accommodate that. Estimating large pieces of work may be the first thing to eyeball if this is the problem, but that’s a post for another day.</p>
+<h3 id="too-little-work">Too little work</h3>
+<p>Then they should be adding value wherever they can.</p>
+<ul>
+<li>Starting a new project and don’t have the requirements?
+<ul>
+<li>I bet you know enough to get started on build tools or basic proof of conceptions for example.</li>
+<li>Any &ldquo;Scaffolding&rdquo; required for the new project, whatever that makes to the team.</li>
+</ul>
+</li>
+<li>Requirements dried up for some reason?
+<ul>
+<li>Then can you automate something in your own local processes?</li>
+<li>Can you provide more monitoring that adds value, can you write more unit tests, functional tests, end to end tests?</li>
+<li>Anything that adds value to your team, your customer, your product.</li>
+<li>Etc and so forth..</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pipelines are key to delivering constant value to your customers, and it’s worth spending time on getting the pipeline well defined and running smoothly.</p>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

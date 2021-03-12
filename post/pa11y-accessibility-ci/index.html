@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Setting up pa11y in Jenkins.">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Running pa11y in Jenkins for accessibility testing &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Running pa11y in Jenkins for accessibility testing">
+  <meta name="twitter:description"
+    content="Setting up pa11y in Jenkins.">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-home-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Running pa11y in Jenkins for accessibility testing</h1>
+  <span class="posts__item-date">Apr 24, 2019 &middot; 5 min read</span>
+  <p>The best thing about being a software engineer is all the learning you can do. I&rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&rsquo;m in full learning mode at the moment.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Web <a href="https://twitter.com/hashtag/a11y?src=hash&amp;ref_src=twsrc%5Etfw">#a11y</a> is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on. It’s rather overwhelming, but fun.</p>&mdash; Ben Selby (@benmatselby) <a href="https://twitter.com/benmatselby/status/1116601402006990848?ref_src=twsrc%5Etfw">April 12, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="backstory">Backstory</h2>
+<p>One of the blogs I’ve been following whilst trying to grok all things accessibility is <a href="https://www.a11ywithlindsey.com">A11y with Lindsey</a>. A couple of weeks ago Lindsey explained the <a href="https://www.a11ywithlindsey.com/blog/web-accessibility-testing-process">tooling she was using</a> from within the browser to help test accessibility. After I started to investigate all of those tools and get use to using them, it was great to see a follow up article about the <a href="https://www.a11ywithlindsey.com/blog/exploring-accessibility-cli-tools">CLI tools</a> being used. Since we have all our other checks running in Jenkins, and those checks have to pass before we can merge into <code>master</code>, it makes sense to try and add these tools too. This is to keep myself, and the team, honest. There is a lot to remember in modern software development, so having automated checks eases the burden.</p>
+<p>What has become clear to me, and Lindsey calls out in her articles, is that you cannot fully automate accessibility (a11y) testing. The <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a> is a substantial tome of recommendations, and I&rsquo;m not currently aware of a tool that can automate the lot.</p>
+<blockquote>
+<p>Web Content Accessibility Guidelines (WCAG) 2.1 covers a wide range of recommendations for making Web content more accessible.</p>
+</blockquote>
+<p>By having these tools in your pipeline, it does not mean your a11y testing is complete, far from it. But what it does give is clear intent, within your team, that a11y is important, as it&rsquo;s part and parcel of getting a feature merged. This is a win for me, and since the current sprint of development we are working on is really focussed on a11y, we wanted to get <a href="http://pa11y.org">pa11y</a> running in our Jenkins pipeline.</p>
+<p>This post is going to cover off what was required to run <code>pa11y</code> in Jenkins.</p>
+<h2 id="installation">Installation</h2>
+<p>So, first off <a href="https://github.com/pa11y/pa11y-ci">pa11y-ci</a></p>
+<blockquote>
+<p>Pa11y CI is a CI-centric accessibility test runner, built using <a href="http://pa11y.org">Pa11y</a>.</p>
+</blockquote>
+<p>Installing this test runner is the familiar one liner, via <code>npm</code>:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -g pa11y-ci
+</code></pre></div><p>This will install what is required for us to run the command in our pipeline.</p>
+<h2 id="automation">Automation</h2>
+<p>We are using a Makefile in our team to provide the automation hooks required, so we wrap <code>pa11y</code> in a make target:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#40ffff">PALLY_ACCEPTABLE_ISSUE_COUNT</span> = <span style="color:#3677a9">70</span>
+
+.PHONY: test-a11y
+test-a11y: <span style="color:#999;font-style:italic">## Test what we can from an accessibility point of view</span>
+  ./node_modules/.bin/pa11y-ci <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>    -c pa11y.json <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>    -T <span style="color:#6ab825;font-weight:bold">$(</span>PALLY_ACCEPTABLE_ISSUE_COUNT<span style="color:#6ab825;font-weight:bold">)</span> <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>    --sitemap http://localhost:1313/sitemap.xml <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>    --sitemap-find <span style="color:#ed9d13">&#34;http://0.0.0.0&#34;</span> <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>    --sitemap-replace <span style="color:#ed9d13">&#34;http://localhost:1313&#34;</span>
+</code></pre></div><p>That&rsquo;s potentially a lot there, so let&rsquo;s unpack this a little.</p>
+<p>Within the make target of <code>test-a11y</code> we are calling the <code>pa11y-ci</code> command. We have installed this locally within the application, and not globally, so we define the path to the application:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./node_modules/.bin/pa11y-ci
+</code></pre></div><p>The <code>-c pa11y.json</code> argument is to pass in a <a href="https://github.com/pa11y/pa11y#configuration">pa11y configuration file</a>. Our Jenkins instance is configured to delegate builds to run in Docker containers defined by the engineering teams (think TravisCI). This meant we hit <a href="https://github.com/pa11y/pa11y-ci/issues/69">this issue</a> about how we run the command.</p>
+<p>To resolve this issue, we have defined the following configuration file</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">// pa11y.json
+{
+  <span style="color:#ed9d13">&#34;defaults&#34;</span>: {
+    <span style="color:#ed9d13">&#34;chromeLaunchConfig&#34;</span>: {
+      <span style="color:#ed9d13">&#34;args&#34;</span>: [<span style="color:#ed9d13">&#34;--no-sandbox&#34;</span>]
+    }
+  }
+}
+</code></pre></div><p>Since our containers are running with minimal privileges, this was acceptable to us.</p>
+<p>Unfortunately, we have some existing accessibility issues we will need to resolve (which is going to be the case for most projects if you are adding this tool into your process - unless you have been very rigorous in testing). With this in mind we have defined <code>PALLY_ACCEPTABLE_ISSUE_COUNT</code> and passed this in as the <code>-T</code> argument, which defines the threshold of errors we are willing to accept.</p>
+<p>We have defined this as the number of existing issues. Anything above this will fail the build, and therefore block the Pull Request being merged into <code>master</code>. We are also going back to fix the existing issues, which is a vital learning experience for the team. Once we are at 0 issues, we will remove this variable from the make target.</p>
+<p>Lastly, we want to hit all URLs without really managing a separate URL list (because humans forget to do things). This is where we leverage features from <a href="http://gohugo.io">Hugo</a>. Hugo is a static site generator which we are using in various ways (another blog post maybe) to aide our product development. Luckily, Hugo generates a sitemap out of the box for you, which we can use.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">--sitemap http://localhost:1313/sitemap.xml <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>--sitemap-find <span style="color:#ed9d13">&#34;http://0.0.0.0&#34;</span> <span style="color:#ed9d13">\
+</span><span style="color:#ed9d13"></span>--sitemap-replace <span style="color:#ed9d13">&#34;http://localhost:1313&#34;</span>
+</code></pre></div><p>Our build process in Jenkins spins up the Hugo site in <code>serve</code> mode, which is running on <code>http://localhost:1313</code>, so we can point <code>pa11y</code> to that URL to run against all the URLs we want to test.</p>
+<p>All of that is then wrapped in our <code>Jenkinsfile</code>. The relevant part for this post, is as follows.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">stage(<span style="color:#ed9d13">&#39;Test&#39;</span>) {
+  steps {
+    parallel(
+      <span style="color:#ed9d13">&#34;Validate the HTML&#34;</span>: {
+        sh <span style="color:#ed9d13">&#39;make test-html&#39;</span>
+      },
+      <span style="color:#ed9d13">&#34;BackstopJS visual testing&#34;</span>: {
+        sh <span style="color:#ed9d13">&#39;make test&#39;</span>
+      },
+      <span style="color:#ed9d13">&#34;Test a11y&#34;</span>: {
+        sh <span style="color:#ed9d13">&#39;make test-a11y&#39;</span>
+      }
+    )
+  }
+}
+</code></pre></div><p>Once that has run, we are provided with this output in Jenkins.</p>
+<p><img src="/img/pa11y-jenkins-output.png" alt="Pa11y Jenkins Output"></p>
+<h2 id="summary">Summary</h2>
+<p>The main call outs for me are:</p>
+<ul>
+<li>You cannot fully automate a11y testing.</li>
+<li>Having a tool that can provide some insight, is better than nothing.</li>
+<li>This was a small change to get <code>pa11y</code> running in our existing Jenkins pipeline (and runs in parallel with other tasks, so therefore does not increase build time).</li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

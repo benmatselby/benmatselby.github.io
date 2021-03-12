@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Some thoughts on how we are using a Technology Radar to embrace and manage change.">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Technology Radar &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Technology Radar">
+  <meta name="twitter:description"
+    content="Some thoughts on how we are using a Technology Radar to embrace and manage change.">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-bay-bridge-warm-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-bay-bridge-warm.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Technology Radar</h1>
+  <span class="posts__item-date">Feb 10, 2019 &middot; 7 min read</span>
+  <p>It&rsquo;s all of a buzz at my current job at the moment. Change is in the air.</p>
+<ul>
+<li>Stacks.</li>
+<li>Tools.</li>
+<li>Paradigms.</li>
+<li>The way we work.</li>
+<li>The way we deploy.</li>
+<li><a href="https://benmatselby.dev/post/communication-tools/">The way we communicate.</a></li>
+</ul>
+<p>There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.</p>
+<h2 id="what-is-the-technology-radar">What is the Technology Radar?</h2>
+<p>The Technology Radar was something borne out of <a href="https://www.thoughtworks.com/radar/faq">ThoughtWorks</a> which helps visualise the technologies being used, and their maturity within the business. The Technology Radar is an evolving, living &ldquo;thing&rdquo;, as technologies ebb and flow.</p>
+<p><img src="/img/tech-radar-feb-2019.png" alt="Our Technology Radar">￼￼</p>
+<h2 id="why-is-it-important">Why is it important?</h2>
+<p>My current employer has always been a Microsoft shop. They have historically built native Windows applications, and everything from languages, tooling, frameworks etc has been Microsoft through and through.</p>
+<p>We are now starting to move into web applications, and everything is up for discussion.</p>
+<p>But, how do we manage this transition? How do you imbibe such a vast amount of information in areas you are not familiar with? How do you hold people to account for the choices they are making? As humans we naturally gravitate to what we already know.</p>
+<p>Well, one of the tools helping us achieve that is the Technology Radar. Our Technology Radar is a GitHub repo full of markdown files. We have defined a <a href="https://help.github.com/articles/configuring-protected-branches/">branch protection policy</a> to make sure folks are accountable for the choices being made, and that there is a thin layer of oversight. The mindset of the review team is to always try and say &ldquo;yes&rdquo;, as long as there is enough rationale and reasoning behind the technologies being put forward. We are not there as a hurdle to get over, but to facilitate the thinking and documentation.</p>
+<h3 id="how-it-works">How it works</h3>
+<ul>
+<li>We require a certain amount of reviews before something is signed off.
+<ul>
+<li>We go from assess, to trial, to adopt.</li>
+<li>If something is &ldquo;rejected&rdquo; at this moment in time, we move to hold. However, it will be reviewed in a regular cadence, in case something has changed.</li>
+</ul>
+</li>
+<li>We require reviews from <a href="https://help.github.com/articles/about-code-owners/">CODEOWNERS</a>.
+<ul>
+<li>We let anyone join the review team, and make it clear what their responsibilities will be if they want to be involved.</li>
+</ul>
+</li>
+<li>We are using a <a href="https://help.github.com/articles/about-project-boards/">GitHub project</a> to provide visibility of who is proposing what technology.</li>
+<li>We have two special interest sign off stakeholders:
+<ul>
+<li>Security - This is to make sure it fits securely within our business.</li>
+<li>Money - If there is a cost associated, the accountability sits elsewhere, and therefore we need to take this into account.</li>
+</ul>
+</li>
+<li>All of the day to day chat happens in slack, so we can get a greater engagement around the business.
+<ul>
+<li>The Technology Radar can impact far more than engineers in the development department.</li>
+<li>We have GitHub and Slack integration so updates are provided in a timely manner to keep folks in the know.</li>
+</ul>
+</li>
+<li>Every two weeks we communicate all the changes that have happened.
+<ul>
+<li>Since we are at the beginning of this journey, there is quite a lot of change at the moment (as there are a lot of technologies). We envisage this dying down, but change will still happen (it has too).</li>
+</ul>
+</li>
+<li>We have the spreadsheet that generates the ThoughtWorks Radar for us.
+<ul>
+<li>We are going to automate this, as currently this is a little manual overhead we want to remove.</li>
+</ul>
+</li>
+<li>Nothing has been <a href="https://en.wikipedia.org/wiki/Grandfather_clause">grandfathered in</a>.
+<ul>
+<li>Each team needs to explain the technology choices they have made.</li>
+<li>This is a great way to get case studies and facilitate other teams learning the technology.</li>
+</ul>
+</li>
+</ul>
+<p>Each quadrant on the Radar, has it&rsquo;s own folder, and each ring in a quadrant is another folder.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tech-radar
+  languages
+    adopt
+      tech-one.md
+      tech-two.md
+    trial
+      ...
+    assess
+      ...
+    hold
+      ...
+    README.md
+  tools
+    ...
+  platforms
+    ...
+  techniques
+    ...
+</code></pre></div><p>Within the quadrant folder, we have a <code>README.md</code> that explains what we want the engineers to document in order to propose a new technology. This is not a tick box exercise. We are actively wanting this Technology Radar to be the one stop shop for engineers. To see what is being used, how it is being used, how teams picked it up, the good, the bad, the workarounds etc. Within the next few months, we are wanting teams to document their usage as case studies, for others to understand and learn from. We are very aware that a tool/language/technique etc may fail for one team, but may be perfectly fine for another, so this needs to be taken into account.</p>
+<p>We make sure we cover off licensing, costs, management of the technology, community involvement, maturity etc. We have specifics for certain quadrants too, like &ldquo;unit testing tools&rdquo; and &ldquo;static analysis&rdquo; for the languages quadrant for example. This guidance will also change over time, once we are more mature at using this technique.</p>
+<h2 id="submarines">Submarines</h2>
+<p>What have submarines got to do with a Technology Radar? Well, a lot actually.</p>
+<p>In this analogy, the submarine is your technology stack, platform, department (however you want to look at it). You have all your engineers on your submarine, but you need supplies. The supplies is your technology stack. Where you need to be careful, is taking that technology and going to the bottom of the ocean for years at a time. It&rsquo;s not healthy. You have to come up for air (and to keep sane, I would imagine).</p>
+<p>The longer you stay at the bottom of the ocean, and not at periscope level, your technology is decaying and going stale. You must come up for air, and to look around and see what technology is now available.</p>
+<p>This is why the Technology Radar is an evolving thing for us. It&rsquo;s not a one time exercise to define and publish. You need to nurture this living thing.</p>
+<h2 id="define-use-evolve-repeat">Define, Use, Evolve, Repeat</h2>
+<p>So, how do you stay at periscope level? We are still in the early stages of this, but at the moment we anticipate the way we are going to stay relevant is:</p>
+<h3 id="review-dates">Review dates</h3>
+<p>Just because a piece of technology has been through the process, and made it to adopt, does not mean it will stay there. What is good for 2019, may not be good for 2020, or 2021.</p>
+<p>The review dates are twofold:</p>
+<ul>
+<li>Provide a mechanism for constant review, to stave the decay in technology and skills.</li>
+<li>It helps teams understand how much they can invest in the technology. If you are spinning up a new team, and they are looking at what languages and tools to use, if they see a technology being reviewed in 2 months, they may want to air on the side of caution. However, if the technology has a review date 18 months in the future, they are good to go.</li>
+</ul>
+<h3 id="constant-proposals">Constant proposals</h3>
+<p>Every day, there seems to be a new technology, be it a tool or framework (looking at you JavaScript), we are constantly getting new proposals to review. Being on the review team is quite a privilege, as you get to have a good overview of what the engineering teams are thinking.</p>
+<h3 id="deploy-to-production">Deploy to production</h3>
+<p>Without true data, you cannot gauge how useful a technology is. Therefore we mandate that a tool/language/platform needs to go into production (in some fashion) in order for a technology to transition to the adopt phase. Only when you put something through its paces, do you know how it handles.</p>
+<h3 id="small-features">Small features</h3>
+<p>With the above in mind, you need to start small. As with most things in software engineering, break it down, use, and then evolve.</p>
+<h3 id="fail-fast-and-fail-small">Fail fast and fail small</h3>
+<p>Fail fast is interesting thought process. It&rsquo;s not a free pass. You are still accountable. You still have to learn. It doesn&rsquo;t mean you can do as you please, and then say &ldquo;we failed fast&rdquo;. You still need a rationale. So, for me, you need to add the &ldquo;fail small&rdquo; comment afterwards. Fail in ways that are not meaningful, and limit the impact.</p>
+<h3 id="iterate">Iterate</h3>
+<p>This is a given in our world.</p>
+<h3 id="learn-to-throw-away">Learn to throw away</h3>
+<p>Learn to throw code away. Architect your solutions whereby throwing &ldquo;stuff&rdquo; away is not a problem. Services, apps, should be small enough to be able to be re-written (if required).</p>
+<h3 id="hold-people-to-account">Hold people to account</h3>
+<p>The phrase de jour is &ldquo;Is it on the Tech Radar&rdquo; - <a href="https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines">No</a>. &ldquo;Should it be on the Tech Radar&rdquo; - Yes. I&rsquo;ve even fell foul of this, and I&rsquo;m pushing the Technology Radar a lot in our department. It&rsquo;s important we hold each other to account, and re-affirm out culture.</p>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://www.thoughtworks.com/radar/faq">ThoughtWorks Technology Radar</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

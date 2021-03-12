@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Tooling to provide data for generating a burndown for your sprint">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Burndown reporting &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Burndown reporting">
+  <meta name="twitter:description"
+    content="Tooling to provide data for generating a burndown for your sprint">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-home-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Burndown reporting</h1>
+  <span class="posts__item-date">May 2, 2020 &middot; 7 min read</span>
+  <p>If you&rsquo;re happy with the automated burndown reports from tools like <a href="https://www.atlassian.com/software/jira">Jira</a> and <a href="https://azure.microsoft.com/en-gb/services/devops/">Azure Devops</a>, then this post is <em>probably</em> not for you (except maybe the <a href="#cli-tools">CLI tools section</a>). If you prefer to manually generate a burndown report, or use a tool that doesn&rsquo;t have that feature built in, then read on.</p>
+<p>My first foray into the world of work management tools starting about 13 years ago, and my team used <a href="https://trac.edgewall.org">Trac</a>. At the time, if my memory is correct, it did not produce a burndown report. A colleague of mine, <a href="https://twitter.com/stuartjsmith">Stuart Smith</a> introduced me to a manual spreadsheet burndown report, which I&rsquo;ve tweaked and used pretty much ever since.</p>
+<p>I heavily used <a href="https://trello.com">Trello</a> for about 6 years with one of my teams at work, <em>and loved it!</em> Trello did not create a burndown report out of the box. This meant I got into the habit of writing CLI tools that helped pull data from Trello and produce reports that my manager wanted to see. This tool chain concept carried on to future work management systems.</p>
+<h2 id="cli-tools">CLI Tools</h2>
+<p>The list of tools I&rsquo;ve built over the years to help pull data from work management systems include:</p>
+<ul>
+<li><a href="https://github.com/benmatselby/lionel">lionel</a> (Trello) - There is a <a href="https://github.com/benmatselby/trello-cli">PHP based version too</a>, which has been deprecated in favour of <code>lionel</code></li>
+<li><a href="https://github.com/benmatselby/hagen">hagen</a> (GitHub)</li>
+<li><a href="https://github.com/benmatselby/walter">walter</a> (Jira)</li>
+<li><a href="https://github.com/benmatselby/donny">donny</a> (Azure DevOps)</li>
+</ul>
+<p>They all have a very similar goal:</p>
+<blockquote>
+<p>Pull data from work management systems, in a useful format, so that I can produce reports.</p>
+</blockquote>
+<p>Using <code>lionel</code> as an example, this is what the burndown command will provide:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ lionel burndown <span style="color:#ed9d13">&#34;Sprint 2020.6&#34;</span>
+List           Cards Story Points
+----           ----- ------------
+Sprint Backlog <span style="color:#3677a9">3</span>     <span style="color:#3677a9">13</span>
+Doing          <span style="color:#3677a9">4</span>     <span style="color:#3677a9">8</span>
+Stuck          <span style="color:#3677a9">0</span>     <span style="color:#3677a9">0</span>
+Review         <span style="color:#3677a9">1</span>     <span style="color:#3677a9">1</span>
+Done           <span style="color:#3677a9">2</span>     <span style="color:#3677a9">5</span>
+-----          ----- ------------
+Total          <span style="color:#3677a9">10</span>    <span style="color:#3677a9">27</span>
+-----          ----- ------------
+</code></pre></div><p>Each tool has other useful commands around issue reporting in relation to a sprint board.</p>
+<h2 id="why-a-spreadsheet">Why a spreadsheet</h2>
+<p>Normally, I am not keen on completing arbitrary spreadsheets, but there are two main reasons here:</p>
+<ol>
+<li>I can keep the same workflow when companies decide to move Work Management tools, which seems to be more frequent than you would imagine.</li>
+<li>I like to personally review the data going into the burndown.</li>
+</ol>
+<p>Point one, I hope, is self explanatory.</p>
+<p>Point two is a little more nuanced. I&rsquo;ve personally worked in teams that focussed more on the automated burndown, as you would expect. What I personally found, was that teams seemed to ignore it. I also found that these teams <em>generally</em> lost focus in a sprint, or struggled to deliver a regular velocity.</p>
+<p>I like to review the data at the end of the day, and reflect on what the day involved. It is also part of a winding down ritual I seem to have adopted over the years. Nearly finished work? Review the day, update the burndown, post some thoughts into the Slack channel. It seems closer to the team. It feels more pertinent.</p>
+<quote class="pullquote">
+   I'd personally prefer to curate a report, so the stakeholders have the same context of the project as the team.
+</quote>
+
+<p>As a personal note, the work management tools I have enjoyed working with have been Trello, and <a href="https://github.com">GitHub</a>. In my opinion, both of these systems are perfect from an engineers point of view. They may lack some reporting for programme managers, but that doesn&rsquo;t mean they are any less useful. It will depend on who you need to report up to, and how much devolved accountability you have. I believe that automated reporting tools lack context and curation from the team. I&rsquo;d personally prefer to curate a report, so the stakeholders have the same context of the project as the team. This stance will clearly depend on your organisation, and how much it needs to scale.</p>
+<p>The spreadsheet can be downloaded in the <a href="/files/burndown.numbers">Numbers version</a> or the <a href="/files/burndown.xlsx">Excel version</a>. <em><strong>Disclaimer</strong>: I don&rsquo;t have Excel on my machine, so your mileage may vary. I simply exported from Numbers</em>.</p>
+<p>It has two main aspects to it:</p>
+<ol>
+<li>The overview of all sprints for the team/project, with graphs to show trending information.</li>
+<li>The individual sprint reports.</li>
+</ol>
+<h3 id="the-overview-sheet">The overview sheet</h3>
+<p><img src="/img/sprint-overview.png" alt="The sprint overview sheet"></p>
+<p>The overview page generates a &ldquo;3 sprint rolling average&rdquo; for your velocity. It also has some adjusted values in case your sprint lengths change, or a sprint is abandoned.</p>
+<p>I&rsquo;ve highlighted the areas that you need to complete. The red boxes are for you to complete and are entirely manually. The purple box is a formula that you need to update to get the 3 sprint rolling average. You update these formulas at the end of the sprint. The reason you have to update it, is due to my poor spreadsheet skills. I&rsquo;m sure there is a formula that would work just fine, but I&rsquo;ve not looked into it. If you know how to fix this, send me a <a href="https://twitter.com/benmatselby">tweet</a>, and I&rsquo;ll update it 🤩.</p>
+<p>You generally complete this sheet at the end of the sprint.</p>
+<h3 id="the-sprint-sheet">The sprint sheet</h3>
+<p>The next aspect of the spreadsheet is the sprint report which you complete daily. It shows you</p>
+<ol>
+<li>The ideal burn rate based on all the data you have supplied. The green line.</li>
+<li>The current burn in relation to the sprint starting point. The blue line.</li>
+<li>The actual burn in relation to what the sprint has currently. The red line.</li>
+</ol>
+<p>Points 2 and 3 are in relation to whether your team has to action &ldquo;Service&rdquo; work, or you &ldquo;pull more work in&rdquo;. This post does not aim to discuss reasoning, but highlight this spreadsheet can cater for those scenarios.</p>
+<p>Again, the boxes you need to complete are highlighted in red.</p>
+<p><img src="/img/completed-sprint.png" alt="The completed sprint sheet"></p>
+<p>Each day, you can run one of the <a href="#cli-tools">CLI tools</a> and see the value of what is in the &ldquo;Done&rdquo; column (or whatever you agree is &ldquo;done&rdquo;). Take the value from here, and calculate the difference from the &ldquo;Total&rdquo; column on the sprint sheet (In the example above <strong>48</strong>). If the new &ldquo;Done&rdquo; value is 52, then yesterday you achieve 4 story points. To get the figure to put in the &ldquo;Board&rdquo; column, add all the columns from the CLI tool, and that is the value that is left.</p>
+<p>Below tries to annotate this in the <code>lionel</code> command. I&rsquo;ve removed the data in the &ldquo;Cards&rdquo; column for ease of reading.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ lionel burndown <span style="color:#ed9d13">&#34;Sprint 2020.6&#34;</span>
+List           Cards Story Points
+----           ----- ------------
+--8&lt;--
+&gt; The number of points left in the sprint is 22.
+Sprint Backlog x     <span style="color:#3677a9">13</span>
+Doing          x     <span style="color:#3677a9">8</span>
+Stuck          x     <span style="color:#3677a9">0</span>
+Review         x     <span style="color:#3677a9">1</span>
+--8&lt;--
+
+--8&lt;--
+&gt; The number of points completed so far in the sprint is 5.
+Done           x     <span style="color:#3677a9">5</span>
+--8&lt;--
+-----          ----- ------------
+Total          x     <span style="color:#3677a9">27</span>
+-----          ----- ------------
+</code></pre></div><h2 id="next-level">Next level</h2>
+<p>To take this further, I wanted to call out what I&rsquo;ve done in the past to help the teams I&rsquo;ve worked with.</p>
+<p>I&rsquo;ve rigged up the above tooling to a <a href="https://www.jenkins.io">Jenkins</a> instance to email the team and stakeholders on a nightly basis. The tooling mentioned above can produce a text based view of a sprint board. This can help if your stakeholders are further away from your team than you would hope. There have been times when the stakeholders of projects I have worked on did not have access to the work management tools, nor attended sprint ceremonies, but were happy with an email. It&rsquo;s our job to adapt to the situation we find ourselves in.</p>
+<p>This is all about getting the right data to the right people, and for it to feel more relevant.</p>
+<p>I&rsquo;ve also duplicated the overview tables and provided project/backlog reporting information from these tools too. The tools cater for filtering using features in the tool it connects to. For example, using labels in Trello helps pivot the data being displayed.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hopefully the teams you lead or work in are allowed to use the systems and tools right for them. If so, and this tool set helps, that&rsquo;s great. Enjoy.</p>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/joining-a-new-engineering-team/">Joining a new engineering team</a></li>
+<li><a href="https://benmatselby.dev/post/onboarding/">Onboarding</a></li>
+<li><a href="https://benmatselby.dev/post/why-teams-important/">Why teams are important</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="A comparison of build tools: AWS CodePipeline, GitHub Actions, and Jenkins">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Comparison: AWS CodePipeline, GitHub Actions, and Jenkins">
+  <meta name="twitter:description"
+    content="A comparison of build tools: AWS CodePipeline, GitHub Actions, and Jenkins">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-home-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</h1>
+  <span class="posts__item-date">May 14, 2020 &middot; 10 min read</span>
+  <!-- markdownlint-disable MD033 -->
+<div class="buildtool">
+  <img src="/img/logo-aws-codepipeline.png" alt="AWS CodePipeline" class="buildtool__logo" /> <img src="/img/logo-github.png" alt="GitHub" class="buildtool__logo" /> <img src="/img/logo-jenkins.png" alt="Jenkins" class="buildtool__logo buildtool__logo-jenkins" />
+</div>
+<p>This post has come about as I&rsquo;ve written up this content in different formats multiple times, and it&rsquo;s easier to write this up once, and just reference back.</p>
+<p>The tools this post is going to compare are:</p>
+<ul>
+<li><a href="https://aws.amazon.com/codepipeline/">AWS CodePipeline</a> (As I happen to be working in the AWS space at the moment)</li>
+<li><a href="https://www.jenkins.io">Jenkins</a></li>
+<li><a href="https://github.com/features/actions">GitHub Actions</a></li>
+</ul>
+<p>A couple of things to note:</p>
+<ul>
+<li>This post almost exclusively talks about AWS CodePipeline, but you will almost certainly require AWS CodeBuild too.</li>
+<li>GitHub Actions:
+<ul>
+<li>Is free for open source projects.</li>
+<li>Chargeable in paid for plans.</li>
+<li>Can run on GitHub infrastructure, but also on your infrastructure.</li>
+</ul>
+</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<p>For an easily consumable comparison, this table aims to quickly highlight differences.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>AWS CodePipeline</th>
+<th>GitHub Actions</th>
+<th>Jenkins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#environments">Environments</a></td>
+<td>Linux</td>
+<td>Linux/Windows/macOS</td>
+<td>Linux/Windows/macOS</td>
+</tr>
+<tr>
+<td><a href="#parallelism">Parallelism</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#api">API</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#config-as-code">Config as code</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#runtime-discovery">Runtime discovery</a></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#branching-support">Branching Support</a></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#serverless">Serverless</a></td>
+<td>✅</td>
+<td>❌✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><a href="#auth">Auth</a></td>
+<td>AWS SSO</td>
+<td>GitHub</td>
+<td>GitHub</td>
+</tr>
+<tr>
+<td><a href="#status-visibility">Status visibility</a></td>
+<td>❌</td>
+<td>❌✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#ad-hoc-workflows">Ad hoc workflows</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="#cost">Cost</a></td>
+<td>AWS</td>
+<td>GitHub + Cloud Provider</td>
+<td>Cloud Provider</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation</h2>
+<p>Installation of a build tool can be the first hurdle to overcome.</p>
+<p>If you are in AWS, then the easiest tool to &ldquo;install&rdquo; is AWS CodePipeline, as there is no installation. It&rsquo;s a first class service AWS provide. As long as you have permissions to access the service, you can start to build a pipeline.</p>
+<p>The GitHub Actions installation experience will be determined by your account type and what you want to achieve. If you are running an open source project, then there is no installation. It&rsquo;s bundled into the repo. If you need to run the actions on your own Infrastructure, then you will need to <a href="https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">install some runners</a>. How you do this is likely to depend on the tooling you already use. The team I am currently working in has configured the infrastructure with AWS Cloud Developer Kit (CDK), and the agents with <a href="https://docs.ansible.com">Ansible</a>. This means we have a repeatable workflow to scale the runners up, if required.</p>
+<p>With Jenkins, you have a few options to <a href="https://www.jenkins.io/doc/book/installing/">install the application</a>.</p>
+<ul>
+<li>Using your package manager - Probably the easiest way to get up and running, if your Docker knowledge is limited.</li>
+<li>Running a WAR file.</li>
+<li>Docker.</li>
+</ul>
+<p>This will be entirely your preference based on the knowledge you have. In order to scale, you will need to understand the primary/agent configuration of Jenkins, and decide how you are going to scale the platform, so the installation can become quite involved.</p>
+<h2 id="environments">Environments</h2>
+<p>Understanding what environments you need to run builds on, can help you determine which tool is right for you. If you want to use the same build tool across projects building for windows, linux, and macOS, then that would limit the tool choice. You may decide to pick a tool that suits a platform, or stitch many tools together.</p>
+<h2 id="parallelism">Parallelism</h2>
+<p>Before you know it, you will be discussing build times, and how you can decrease them. One of the easiest ways to achieve this, is to run steps/tasks in parallel.</p>
+<p>This is possible within AWS CodePipeline, but that is where the parallel execution stops. You cannot run many steps within the AWS CodeBuild stage. For example, let&rsquo;s say you have a static analysis stage within the pipeline. Maybe you run a linter, security checker, and code style checker. This is likely to be in a <code>buildspec.yml</code> file, and you will have to execute these sequentially.</p>
+<p>In GitHub Actions you can run a <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions">matrix build</a>, which is similar. In your workflow file, you can define a matrix strategy for job execution. This currently can only be done at the workflow level. This is handy, if you want to check that your build and tests work on many versions of a language, for example. It doesn&rsquo;t help with the static analysis scenario mentioned above. However, in GitHub Actions you could define a workflow per tool, which in turn would turn it into parallel execution. Be aware, however, that it would mean you are spending more money on the action runner (depending on the pricing plan you are on). This is because you would have to clone the repo, install all the dependencies etc many times, each incuring &ldquo;runtime costs&rdquo;.</p>
+<p>Jenkins caters for this scenario the best. It can do <a href="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#parallel-execution">parallel execution</a> within the <code>Jenkinsfile</code> and at various levels. You can also use environment variables to decide what to execute, and on what type of operating system. The example in their documentation shows that they run the &ldquo;Test&rdquo; stage on Linux and Windows.</p>
+<h2 id="api">API</h2>
+<p>This may not be of interest to you, but it&rsquo;s worth stating that each tool has an API you can interact with, should you wish.</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html">AWS CodePipeline</a></li>
+<li><a href="https://developer.github.com/v3/actions/">GitHub Actions</a></li>
+<li><a href="https://jenkinsapi.readthedocs.io/en/latest/">Jenkins</a></li>
+</ul>
+<p>This is worth knowing, if you need to stitch the build tool into other processes, like change approval.</p>
+<h2 id="config-as-code">Config as code</h2>
+<p>This has been rather a big ticket item in the industry for many years. This is the idea that resource configuration should be managed like source code in your repository. There is far too much to talk about on this topic, so we shall leave it there for this post.</p>
+<p>All of the tools cater for this. To see how they differ, please see the next chapter, which covers the slight differences in their approach.</p>
+<h2 id="runtime-discovery">Runtime discovery</h2>
+<p>This section is about maintenance essentially. Can the tool &ldquo;discover&rdquo; what needs to be executed by the code and configuration within the branch and codebase.</p>
+<p>AWS CodePipeline has to have a static pipeline defined. Each stage is defined either in something like CDK/<a href="https://www.terraform.io">Terraform</a>, or manually. This can then delegate to a <code>buildspec.yml</code> file within the repo, but the pipeline itself is static. This means if your pipeline needs to change slightly between branches you need to deploy the static changes.</p>
+<p>GitHub Actions discovers the workflow, per branch and executes what it finds in the workflow file. This is desirable, as everything is within the codebase/branch/pull request. There is no hidden configuration.</p>
+<p>Jenkins uses the <code>Jenkinsfile</code> to define the pipeline per branch and execution.</p>
+<p>For both GitHub Actions and Jenkins this means there is less overhead on the team defining static infrastructure, and allows a more fluid build pipeline, based on code/config within the repo.</p>
+<h2 id="branching-support">Branching support</h2>
+<p>This is only really being mentioned, because of a limitation within AWS CodePipeline, at the moment. Right now, a CodePipeline can be linked to one git branch <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-GitHub.html#action-reference-GitHub-config">[1]</a>.</p>
+<p>Because of this, it means you will need to manage many pipelines in order to cover some branching strategies, e.g. <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">GitFlow</a>. This is an overhead on your team, so keep this in mind.</p>
+<p>GitHub Actions has an <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#on">&quot;[on]&quot; syntax</a> that allows you to define patterns to match. You can also run if statements within the workflow, to protect certain steps depending on the branch.</p>
+<p>Jenkins is very similar, but uses regex patterns to determine what to run and when.</p>
+<p>GitHub Actions and Jenkins seem more appropriate to handle different branching strategies.</p>
+<h2 id="serverless">Serverless</h2>
+<p>AWS CodePipline, and AWS CodeBuild are provided as a Serverless feature within AWS. Meaning, you will not be required to look after any servers. As long as you define your pipelines, either manually, or as code, the rest will be looked after for you.</p>
+<p>GitHub Actions is similar, unless you want to run agents on your own servers. If you do, then you need to manage that piece of infrastructure.</p>
+<p>If you want to run Jenkins then you will require some compute resource within your Cloud Provider or on premise data centres.</p>
+<h2 id="auth">Auth</h2>
+<p>Authentication and authorization for AWS CodePipline and GitHub Actions are covered by the normal access to that tool.</p>
+<p>For AWS CodePipeline, the people who need to interact with a pipeline will need IAM access to the accounts that are running the pipelines. This may or may not be desirable.</p>
+<p>This is similar for GitHub Actions, but allows you to restrict access to certain repos within your organisation.</p>
+<p>Jenkins, however, can be <a href="https://www.jenkins.io/doc/book/managing/security/#access-control">configured in many ways</a>. This will depend on your business needs.</p>
+<h2 id="status-visibility">Status visibility</h2>
+<p>You&rsquo;ve picked a tool, and you now have many jobs defined, covering many repositories and projects. Being able to see, at a glance, the status of your projects is key. You want quick, actionable feedback.</p>
+<p>AWS CodePipeline has only just recently displayed the more recent execution of a pipeline in the pipelines screen.</p>
+<p><img src="/img/aws-codepipeline-status.png" alt="AWS CodePipeline overview status"></p>
+<p>This is a much needed addition. This provides an overview of all your pipelines in the account/region you are accessing. It&rsquo;s worth noting that all members of your team, or anyone who needs to see this data will need access to your AWS Account, which may not be ideal. The suggestion here would be to create IAM roles to lock this down, but this comes with an overhead.</p>
+<p>GitHub Actions is a tab on the repo. Currently you cannot get a view, within GitHub, that would show you the status across many repositories for a given project.</p>
+<p>It cleanly shows each execution for each branch within the repo.</p>
+<p><img src="/img/github-actions-status.png" alt="GitHub Actions overview status"></p>
+<p>Jenkins has the best support for this feature, as you can define your own views, and use plugins to provide different types of view, e.g. a TV dashboard.</p>
+<p><img src="/img/jenkins-status.png" alt="Jenkins overview status"></p>
+<p>I would certainly recommend installing the <a href="https://plugins.jenkins.io/build-monitor-plugin/">Build Monitor View</a> plugin.</p>
+<h2 id="ad-hoc-workflows">Ad hoc workflows</h2>
+<p>If you are in a team that likes to automate a lot of things, then that automation is going to have to run somewhere. An obvious place seems to be your build tool.</p>
+<p>AWS CodePipeline and GitHub Actions do not cater for ad hoc jobs. AWS CodePipeline needs a trigger, and then runs a static pipeline. GitHub Actions is listening to git events.</p>
+<p>Jenkins, on the other hand, caters for many types of job. You can run bash scripts, maven, ant, powershell etc, to name just a few. If you need a job to run on a regular cadence, and for it not to be linked to a codebase, then Jenkins is capable of doing this.</p>
+<h2 id="cost">Cost</h2>
+<p>AWS CodePipline is <a href="https://aws.amazon.com/codepipeline/pricing/">chargeable</a> within the AWS pricing mode. However, as mentioned previously, you will also require the AWS CodeBuild service, which is also <a href="https://aws.amazon.com/codebuild/pricing/">chargeable</a>.</p>
+<p>GitHub Actions is <a href="https://github.com/pricing">chargeable</a> for organisations. If you need to run agents on your servers, you will incur costs for the infrastructure.</p>
+<p>Jenkins is a free open source project, but you will have infrastructure costs.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As with all decisions, the decision can be a hard one, and any recommendations will depend on a multitude of factors specific to your needs.</p>
+<p>To provide some guidance, this is my recommendation.</p>
+<p>AWS CodePipeline is recommended if you have limited knowledge of Jenkins, GitHub Actions, or any experience in other tooling. If you have a single pipeline e.g. running from your <code>master</code> branch, and it&rsquo;s not likely to get more complicated, you will be fine. If you&rsquo;re happy to have basic functionality, and grow with the service, then AWS CodePipeline is a good fit. If however, you have used other tooling, you may quickly find AWS CodePipeline to be lacking in many areas. Of course, over time, AWS may build these features, so be mindful of this.</p>
+<p>GitHub Actions is a great product, easy to use, configure, baked into a great platform. If you can run all of your workloads on their servers, then this is a perfect fit. If you require more control about your build environment, and where it is run, GitHub Actions is capable, but will require some more work. The documentation is great, and it quickly becomes intuitive. The community of actions you can use, is rich, and creating your own isn&rsquo;t that difficult [<a href="https://benmatselby.dev/post/gollum-page-watcher-github-action/">1</a>], [<a href="https://benmatselby.dev/post/hugo-deploy-github-action/">2</a>].</p>
+<p>For the most flexible/extensible experience, then Jenkins is the outright winner in my opinion. It&rsquo;s a blank canvas that allows you to use it in many scenarios. Projects like <a href="https://www.jenkins.io/projects/jenkins-x/">Jenkins X</a> are certainly worth looking at. Yes, it requires more knowledge, but with that knowledge comes more features. The community is rich, and the product has been around a long time. It&rsquo;s agnostic of Cloud Providers, so if you are a multi cloud customer, this may be of interest.</p>
+<p>Hopefully this provides some insights to help you chose a build tool.</p>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/pa11y-accessibility-ci/">Running pa11y in Jenkins for accessibility testing</a></li>
+<li><a href="https://benmatselby.dev/post/sugarcrm-deployment-process/">SugarCRM deployment process</a></li>
+<li><a href="https://benmatselby.dev/post/joining-a-new-engineering-team/">Joining a new engineering team</a></li>
+<li><a href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a></li>
+<li><a href="https://benmatselby.dev/post/communication-tools/">Communication tools</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>teams on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/teams/</link>
+    <description>Recent content in teams on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Dec 2020 14:40:23 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/teams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed, not Remote</title>
+      <link>https://benmatselby.dev/post/distributed-not-remote/</link>
+      <pubDate>Sun, 20 Dec 2020 14:40:23 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/distributed-not-remote/</guid>
+      <description>This year has seen a transformation in terms of working practices. Whether things will ever go back to the way they were, I do not know, but there is one thing I hope will remain.
+To sum up the last 3 years. I went from managing a team of engineers located in 2 geographic locations, to becoming a remote Individual Contributor in a co-located team. This year changed everything, and we all became engineers in a distributed team.</description>
+    </item>
+    
+    <item>
+      <title>Software engineering team structures</title>
+      <link>https://benmatselby.dev/post/software-engineering-team-structure/</link>
+      <pubDate>Sat, 20 Apr 2019 15:50:51 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/software-engineering-team-structure/</guid>
+      <description>This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).
+For the purpose of this article, a team is going to be a product based software engineering team.</description>
+    </item>
+    
+    <item>
+      <title>Why teams are important</title>
+      <link>https://benmatselby.dev/post/why-teams-important/</link>
+      <pubDate>Fri, 08 Mar 2019 08:08:22 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/why-teams-important/</guid>
+      <description>After talking about communication recently, it felt natural to follow up with a post about Teams.
+The beginning I love teams. I love my teams. I love building teams. I love working in teams. I love to see what a team can deliver, and grow, and evolve, and have each others back. I would describe myself as a team player, first and foremost. I don&amp;rsquo;t like to be isolated. I like to have a home to anchor me.</description>
+    </item>
+    
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.
+Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</description>
+    </item>
+    
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>In a previous post I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer Slack for team chat/communication.
+Spanning a 10 year period I’ve used: IRC, Google Wave, XMPP in various forms, Skype, GTalk and Google Hangouts, Slack, Microsoft Teams and Workplace. Slack is a clear winner for me, although at the time Google Wave blew me away.</description>
+    </item>
+    
+    <item>
+      <title>Communication</title>
+      <link>https://benmatselby.dev/post/communication/</link>
+      <pubDate>Wed, 01 Aug 2018 12:08:10 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication/</guid>
+      <description>It’s cliched to say, but communication really is key, and yet it’s one of the common issues folks seem to raise in departmental or company feedback. “Communication isn’t great”. However, this is both a top down, and a bottom up issue in my opinion (and everything in between).
+Top down like to send out update emails, but the flow of communication is one way. Do I reply, reply all, face to face?</description>
+    </item>
+    
+  </channel>
+</rss>

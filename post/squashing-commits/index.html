@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="Some thoughts around squashing commits, and when it&#39;s appropriate.">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Squashing commits &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Squashing commits">
+  <meta name="twitter:description"
+    content="Some thoughts around squashing commits, and when it&#39;s appropriate.">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-home-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Squashing commits</h1>
+  <span class="posts__item-date">Oct 2, 2018 &middot; 6 min read</span>
+  <p>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.</p>
+<p>Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</p>
+<p>Mixed emotions. Ultimately it wasn’t my project, and I had just contributed a small patch, but still.</p>
+<h2 id="version-control">Version Control</h2>
+<p>At it’s most basic level, version control gives us: What; When; and Who.</p>
+<p>When the feature PR was squashed we lost a substantial amount of the “When” and the “Who”, and was only left with the “What”. This seems wrong to me, however the team had made a decision to work like that. I discussed with the Technical Lead, who explained this was how the team wanted to work, and I should respect that. They are right, that should be respected.</p>
+<p>However, this is a new type of project, which was then shown to other people, and my contribution, whilst there, was not attributed to me. So, was this all about me, or is there something to this.</p>
+<h2 id="squashing">Squashing</h2>
+<p>Squashing commits is something I do all day long on my own feature branches. I narrate my work how I see fit before I raise a PR to the team. If the team want something to be squashed or split etc, there is a discussion where the team agrees. The reviewer, in my team, does not have the authority to override the way the developer has narrated their code, they can only start a discussion.</p>
+<p>I’ve contributed to a fair amount of open source projects, and the lead on those projects always push back to the developer to rebase, set a different base branch, make small changes etc. I cannot remember raising a PR, and the project lead then making substantial changes to that PR before merging.</p>
+<p>If you have 3 commits, such as the below</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">commit 1227109df3d746e3dad19b8af8b63ad45d4b9704 (HEAD -&gt; mojave, origin/mojave)
+Author: Ben Selby &lt;ben.selby@me.com&gt;
+Date:   Sat Sep 29 15:59:21 2018 +0100
+
+    Deal with the swift version and objc inference warnings
+
+commit 3916021eb03d2c57fcfc412d409985a69494758a
+Author: Bob Dylan &lt;bob@dylan.com&gt;
+Date:   Sat Sep 29 15:46:10 2018 +0100
+
+    FIX: Set the correct xcode version for TravisCI
+
+    If we do not set this, we get a warning from TravisCI to explain it doesn’t know how to build the project
+
+commit 76637e3b5660e39ccd0a1ad202127b153f690d63
+Author: Ben Selby &lt;ben.selby@me.com&gt;
+Date:   Wed Sep 26 20:46:43 2018 +0100
+
+    The start of it working on Mojave
+</code></pre></div><p>and you squash the entire branch, you are left with</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">commit 1f0edae3e66333389000911a2b8c57e0a407e875 (HEAD -&gt; mojave, origin/mojave)
+Author: Ben Selby &lt;ben.selby@emisgroupplc.com&gt;
+Date:   Wed Sep 26 20:46:43 2018 +0100
+
+    The start of it working on Mojave
+
+    FIX: Set the correct xcode version for TravisCI
+
+    If we do not set this, we get a warning from TravisCI to explain it doesn’t know how to build the project
+
+    Deal with the swift version and objc inference warnings
+</code></pre></div><p>See how the extra two commits are now lost. Does it matter?</p>
+<h2 id="ownership">Ownership</h2>
+<p>I think it matters, and it revolves around three things, in my opinion.</p>
+<p>Technically, I want to know who wrote the code and when. People should get the recognition they deserve, but I also want to know who to speak to 6 months from now when a change is required. If the name next to a line of code is now questionable because of project level squashing of pull requests, I lose that ability to really know who wrote the code. There is, however, a sliding scale of relevancy here, because 18 months from now, that person may have either left the business, or simply cannot remember much context around the code.</p>
+<p>Secondly, coding is a social activity in my opinion. People like to express themselves, and that should be encouraged. So if Louise wants to narrate her code and commits in a certain way, she should be free to do that, without a project lead making the ultimate call when merging. Clearly, there are likely to be rules around committing, for example, small, logically atomic commits etc, but within rules there is always flexibility.</p>
+<p>Lastly, what if I need to cherry-pick out the TravisCI commit, from the example above, for another branch? I cannot merge the commit into master, as the master branch is not ready for Swift 4.2 (Which is what this commit is telling TravisCI). What if I made a mistake with the “objc inference warnings”? I’m very new to swift, so that’s quite likely, what if I need to get rid of it? I cannot use git to do that now, I would have to code the change.</p>
+<p>I’ve spoken to a few people around this, and an argument put forward was “The team own the code when a Pull Request is merged, so it doesn’t matter who has written it”. Again, mixed emotions. I love the buy in from the team in this argument. It is absolutely right that the team own the code, and a statement like that is admirable. But. Erasing recognition of work completed is likely to strain the concept of the team. I have never worked like this, so this is coming from how I perceive the team to behave, not from a history of working like this.</p>
+<h2 id="summary">Summary</h2>
+<p>Right and wrong is subjective. I personally do not like this way of working, but that’s one opinion. I feel too many things are taken away from me as a contributor, and I cannot see any benefit.</p>
+<ul>
+<li>The commit history is not cleaner, because when squashing takes place, in the example provided above, the commit messages were not re-written. They were simply squashed together. In the example, two different people wrote the code and the commit messages, so on a squashed merge, the result looks “clunky”</li>
+<li>We lose the ability to see who wrote all of the code</li>
+<li>We lose the ability to understand when the code was written (Late on a Saturday night, or first thing Monday morning?) Does it matter?</li>
+<li>There is a clear record of work undertaken by each member of the team</li>
+</ul>
+<p>Letting people commit their code their way, whilst observing commit message rules etc gives you</p>
+<ul>
+<li>A clear commit history. Commits can be very granular, which means it’s easy to cherry pick/revert commits if need be</li>
+<li>A reliable commit history</li>
+<li>Recognition to the people contributing</li>
+<li>In my opinion (subjective here), a more team oriented feeling. A team is made up of many people, who work in different ways</li>
+</ul>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/logical-commits/">Logically atomic commits</a></li>
+<li><a href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

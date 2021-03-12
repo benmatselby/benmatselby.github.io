@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Description"
+    content="A GitHub Action to watch for GitHub Wiki Page changes, and then notify a Slack channel">
+  <meta name="generator" content="Hugo 0.81.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Gollum Page Watcher GitHub Action &middot; Ben Selby</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v2.1.1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Gollum Page Watcher GitHub Action">
+  <meta name="twitter:description"
+    content="A GitHub Action to watch for GitHub Wiki Page changes, and then notify a Slack channel">
+  <meta name="twitter:image"
+    content="https://benmatselby.dev/img/hero-home-share.jpg">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: 0;">
+    <a class="header__home" href="https://benmatselby.dev/" title="The homepage of the site"><i class="fas fa-home"></i></a>
+  </div>
+  
+</div>
+
+
+    <div class="content">
+      <div class="posts__item">
+  <h1>Gollum Page Watcher GitHub Action</h1>
+  <span class="posts__item-date">Mar 12, 2020 &middot; 1 min read</span>
+  <p>Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.</p>
+<p>But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?</p>
+<p>There isn&rsquo;t that many options in this space.</p>
+<p>If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the <a href="https://github.com/benmatselby/gollum-page-watcher-action">Gollum Page Watcher</a> can help.</p>
+<p>It&rsquo;s a <a href="https://github.com/features/actions">GitHub Action</a> that allows you to watch all pages in the GitHub wiki, or just a select few. Each time the wiki is updated, you will get a Slack notification in the channel you specify.</p>
+<p>The configuration is fairly minimal, and slots into your workflow</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">...
+- name: Wiki Watcher
+  uses: benmatselby/gollum-page-watcher-action@v1
+  env:
+    SLACK_WEBHOOK: <span style="color:#ed9d13">${</span>{ secrets.SLACK_WEBHOOK <span style="color:#ed9d13">}</span>}
+    SLACK_CHANNEL: <span style="color:#999;font-style:italic">#random</span>
+    SLACK_USERNAME: Gollum
+    PAGES_TO_WATCH: (^Home$)|(^Meeting minutes)
+...
+</code></pre></div><p>Make sure you listen to the <code>gollum</code> event:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">on: [gollum]
+</code></pre></div><p>The output looks like</p>
+<p><img src="https://github.com/benmatselby/gollum-page-watcher-action/raw/master/img/output.png" alt="Gollum Page Watcher"></p>
+<p>Hopefully others will also find this useful.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://benmatselby.dev/post/hugo-deploy-github-action/">Hugo Deploy GitHub Action</a></li>
+</ul>
+
+</div>
+    </div>
+
+    <div class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+      <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://twitter.com/benmatselby">Twitter</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section footer__section--large">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+      
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/">Posts</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/distributed-not-remote/">Distributed, not Remote</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/burndown-reporting/">Burndown reporting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deployments on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/deployments/</link>
+    <description>Recent content in deployments on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 17:34:38 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/deployments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>As mentioned previously, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?
+Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw my boss do a talk at PHPNW back in 2008 / 9.</description>
+    </item>
+    
+  </channel>
+</rss>

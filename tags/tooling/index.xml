@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tooling on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/tooling/</link>
+    <description>Recent content in tooling on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Mar 2021 21:31:48 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/tooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>Since the start of the year, I&amp;rsquo;ve been running weekly workshops with Paddy Morgan at work. These have been fun sessions to run. Some have been chats, some demos etc.
+However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.
+This post covers what we ran through.
+ Time allocation: 60 minutes</description>
+    </item>
+    
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>If you&amp;rsquo;re happy with the automated burndown reports from tools like Jira and Azure Devops, then this post is probably not for you (except maybe the CLI tools section). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.
+My first foray into the world of work management tools starting about 13 years ago, and my team used Trac.</description>
+    </item>
+    
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.
+Make sure all commits in version control are logically atomic.  What is a logically atomic commit A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.</description>
+    </item>
+    
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.
+Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</description>
+    </item>
+    
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>It works on my machine
+ We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform.</description>
+    </item>
+    
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>In a previous post I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer Slack for team chat/communication.
+Spanning a 10 year period I’ve used: IRC, Google Wave, XMPP in various forms, Skype, GTalk and Google Hangouts, Slack, Microsoft Teams and Workplace. Slack is a clear winner for me, although at the time Google Wave blew me away.</description>
+    </item>
+    
+  </channel>
+</rss>

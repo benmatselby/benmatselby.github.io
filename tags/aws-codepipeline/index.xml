@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws-codepipeline on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/aws-codepipeline/</link>
+    <description>Recent content in aws-codepipeline on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 09:19:38 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/aws-codepipeline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back.
+The tools this post is going to compare are:
+ AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions  A couple of things to note:
+ This post almost exclusively talks about AWS CodePipeline, but you will almost certainly require AWS CodeBuild too.</description>
+    </item>
+    
+  </channel>
+</rss>

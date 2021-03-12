@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>version-control on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/version-control/</link>
+    <description>Recent content in version-control on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Mar 2021 21:31:48 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>Since the start of the year, I&amp;rsquo;ve been running weekly workshops with Paddy Morgan at work. These have been fun sessions to run. Some have been chats, some demos etc.
+However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.
+This post covers what we ran through.
+ Time allocation: 60 minutes</description>
+    </item>
+    
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.
+Make sure all commits in version control are logically atomic.  What is a logically atomic commit A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.</description>
+    </item>
+    
+  </channel>
+</rss>
