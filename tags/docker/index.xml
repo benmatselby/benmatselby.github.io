@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/docker/</link>
+    <description>Recent content in docker on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Mar 2021 15:01:33 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/shell-101/</link>
+      <pubDate>Sun, 28 Mar 2021 15:01:33 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/shell-101/</guid>
+      <description>Following on from the Docker knowledge to get you through the day, and Git commands to get you through the day posts, this will cover Shell commands. Once again, it aims to get you through the day.
+First of all, it&amp;rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to Wikipedia.
+Basic commands Let&amp;rsquo;s cover off some basics that will hopefully get you on your way.</description>
+    </item>
+    
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.</description>
+    </item>
+    
+    <item>
+      <title>Docker knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/docker-101/</link>
+      <pubDate>Mon, 15 Mar 2021 18:35:56 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/docker-101/</guid>
+      <description>Following on from the &amp;ldquo;Git commands to get you through the day&amp;rdquo; post, Paddy Morgan and I delivered a Docker 101 workshop today at work.
+This post covers what we ran through.
+ Time allocation: 60 minutes
+This workshop will be a high level overview of the basic docker commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with docker on the CLI, this probably isn&amp;rsquo;t for you.</description>
+    </item>
+    
+  </channel>
+</rss>

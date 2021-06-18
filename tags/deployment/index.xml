@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deployment on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/deployment/</link>
+    <description>Recent content in deployment on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Feb 2020 20:31:58 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>I&amp;rsquo;ve just released version v1.2.1 of the Hugo Deploy to GitHub Pages GitHub Action.
+This means it now fully conforms to the metadata specification as defined here.
+I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a Hugo site to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?</description>
+    </item>
+    
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>SugarCRM is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.
+The Aim As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis.</description>
+    </item>
+    
+  </channel>
+</rss>

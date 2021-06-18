@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tooling on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/tooling/</link>
+    <description>Recent content in tooling on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Apr 2021 21:18:37 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/tooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Jenkins: Language Agent</title>
+      <link>https://benmatselby.dev/post/jenkins-language-agent/</link>
+      <pubDate>Sat, 24 Apr 2021 21:18:37 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-language-agent/</guid>
+      <description>This post follows on from the Jenkins series:
+ Getting started with Jenkins Getting started with Jenkins: Agents  This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running Go. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.</description>
+    </item>
+    
+    <item>
+      <title>Using Terratest to test your infrastructure</title>
+      <link>https://benmatselby.dev/post/terratest/</link>
+      <pubDate>Sun, 18 Apr 2021 20:01:51 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/terratest/</guid>
+      <description>This post is going to get you started with using Terratest to help test your infrastructure changes. Terratest describes itself as:
+ A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.
+ Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help.</description>
+    </item>
+    
+    <item>
+      <title>Terraform knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/terraform-101/</link>
+      <pubDate>Sun, 11 Apr 2021 09:31:36 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/terraform-101/</guid>
+      <description>As part of the &amp;ldquo;Getting through the day&amp;rdquo; series, this post is going to provide basic Terraform knowledge. We are going to setup a Terraform project that allows you to manage your repos in GitHub.
+I didn&amp;rsquo;t want to assume that you had an AWS, Azure, or Google Cloud account, but a GitHub account seemed more realistic.
+This post assumes that you have installed Terraform on your system.
+CLI Now that you have Terraform installed, you should be able to run terraform in your terminal.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Jenkins: Agents</title>
+      <link>https://benmatselby.dev/post/jenkins-basic-agent/</link>
+      <pubDate>Wed, 07 Apr 2021 19:23:54 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-basic-agent/</guid>
+      <description>Following on from Getting started with Jenkins, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the previous post.
+We will run the Jenkins agents in docker containers, like we have for the controller.
+We need to adjust the docker run command slightly this time around. But first, we need to define a Docker network. So let&amp;rsquo;s start with creating the Jenkins network.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Jenkins</title>
+      <link>https://benmatselby.dev/post/jenkins-basics/</link>
+      <pubDate>Sat, 03 Apr 2021 20:42:29 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-basics/</guid>
+      <description>Jenkins is an automation application, that is heavily used for Continuous Integration (CI) and Continuous Deployment/Delivery (CD). This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&amp;rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&amp;rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.</description>
+    </item>
+    
+    <item>
+      <title>Shell knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/shell-101/</link>
+      <pubDate>Sun, 28 Mar 2021 15:01:33 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/shell-101/</guid>
+      <description>Following on from the Docker knowledge to get you through the day, and Git commands to get you through the day posts, this will cover Shell commands. Once again, it aims to get you through the day.
+First of all, it&amp;rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to Wikipedia.
+Basic commands Let&amp;rsquo;s cover off some basics that will hopefully get you on your way.</description>
+    </item>
+    
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.</description>
+    </item>
+    
+    <item>
+      <title>Docker knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/docker-101/</link>
+      <pubDate>Mon, 15 Mar 2021 18:35:56 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/docker-101/</guid>
+      <description>Following on from the &amp;ldquo;Git commands to get you through the day&amp;rdquo; post, Paddy Morgan and I delivered a Docker 101 workshop today at work.
+This post covers what we ran through.
+ Time allocation: 60 minutes
+This workshop will be a high level overview of the basic docker commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with docker on the CLI, this probably isn&amp;rsquo;t for you.</description>
+    </item>
+    
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>Since the start of the year, I&amp;rsquo;ve been running weekly workshops with Paddy Morgan at work. These have been fun sessions to run. Some have been chats, some demos etc.
+However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.
+This post covers what we ran through.
+ Time allocation: 60 minutes</description>
+    </item>
+    
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>If you&amp;rsquo;re happy with the automated burndown reports from tools like Jira and Azure Devops, then this post is probably not for you (except maybe the CLI tools section). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.
+My first foray into the world of work management tools starting about 13 years ago, and my team used Trac.</description>
+    </item>
+    
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.
+Make sure all commits in version control are logically atomic.  What is a logically atomic commit? A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.</description>
+    </item>
+    
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.
+Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</description>
+    </item>
+    
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>It works on my machine
+ We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform.</description>
+    </item>
+    
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>In a previous post I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer Slack for team chat/communication.
+Spanning a 10 year period I’ve used: IRC, Google Wave, XMPP in various forms, Skype, GTalk and Google Hangouts, Slack, Microsoft Teams and Workplace. Slack is a clear winner for me, although at the time Google Wave blew me away.</description>
+    </item>
+    
+  </channel>
+</rss>

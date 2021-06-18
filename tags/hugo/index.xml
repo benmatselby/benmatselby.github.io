@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/hugo/</link>
+    <description>Recent content in hugo on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Feb 2020 20:31:58 +0000</lastBuildDate><atom:link href="https://benmatselby.dev/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>I&amp;rsquo;ve just released version v1.2.1 of the Hugo Deploy to GitHub Pages GitHub Action.
+This means it now fully conforms to the metadata specification as defined here.
+I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a Hugo site to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?</description>
+    </item>
+    
+  </channel>
+</rss>

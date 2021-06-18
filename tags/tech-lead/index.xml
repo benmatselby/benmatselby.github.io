@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech-lead on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/tech-lead/</link>
+    <description>Recent content in tech-lead on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 May 2020 19:21:13 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/tech-lead/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>If you&amp;rsquo;re happy with the automated burndown reports from tools like Jira and Azure Devops, then this post is probably not for you (except maybe the CLI tools section). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.
+My first foray into the world of work management tools starting about 13 years ago, and my team used Trac.</description>
+    </item>
+    
+  </channel>
+</rss>

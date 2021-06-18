@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jenkins on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/jenkins/</link>
+    <description>Recent content in jenkins on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Apr 2021 21:18:37 +0100</lastBuildDate><atom:link href="https://benmatselby.dev/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Jenkins: Language Agent</title>
+      <link>https://benmatselby.dev/post/jenkins-language-agent/</link>
+      <pubDate>Sat, 24 Apr 2021 21:18:37 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-language-agent/</guid>
+      <description>This post follows on from the Jenkins series:
+ Getting started with Jenkins Getting started with Jenkins: Agents  This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running Go. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Jenkins: Agents</title>
+      <link>https://benmatselby.dev/post/jenkins-basic-agent/</link>
+      <pubDate>Wed, 07 Apr 2021 19:23:54 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-basic-agent/</guid>
+      <description>Following on from Getting started with Jenkins, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the previous post.
+We will run the Jenkins agents in docker containers, like we have for the controller.
+We need to adjust the docker run command slightly this time around. But first, we need to define a Docker network. So let&amp;rsquo;s start with creating the Jenkins network.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Jenkins</title>
+      <link>https://benmatselby.dev/post/jenkins-basics/</link>
+      <pubDate>Sat, 03 Apr 2021 20:42:29 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/jenkins-basics/</guid>
+      <description>Jenkins is an automation application, that is heavily used for Continuous Integration (CI) and Continuous Deployment/Delivery (CD). This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&amp;rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&amp;rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.</description>
+    </item>
+    
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.
+The tools this post is going to compare are:
+ AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions  A couple of things to note:</description>
+    </item>
+    
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.
+Web #a11y is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on.</description>
+    </item>
+    
+  </channel>
+</rss>
