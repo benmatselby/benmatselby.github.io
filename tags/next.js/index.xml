@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Next.js on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/next.js/</link>
+    <description>Recent content in Next.js on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Oct 2022 20:07:19 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/next.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Upgrading to Next.js 13</title>
+      <link>https://benmatselby.dev/post/upgrading-to-next-13/</link>
+      <pubDate>Fri, 28 Oct 2022 20:07:19 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/upgrading-to-next-13/</guid>
+      <description>Next.js 13 was released this week. I&amp;rsquo;ve not had much time to work with Netlify or Next.js recently. So this was a nice opportunity to play around again for an hour.&#xA;The upgrade command I wasn&amp;rsquo;t lucky enough to just run the headline upgrade command that the above blog post suggests.&#xA;recipes on  upgrade-to-next-13 via ⬡ v16.14.2 at 19:30:07 ❯ npm i next@latest react@latest react-dom@latest eslint-config-next@latest npm ERR! code ERESOLVE npm ERR!</description>
+    </item>
+  </channel>
+</rss>

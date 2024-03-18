@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/workflow/</link>
+    <description>Recent content in Workflow on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jan 2024 18:48:56 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working with Zed for a week</title>
+      <link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+      <pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+      <description>I took Zed for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&#xA;I love it, and I&#39;m probably going to stay with it (but I miss a debugger). This is what Zed is:&#xA;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&#xA;Projects worked on: These are the projects I managed to work on this week with Zed:</description>
+    </item>
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>Does anyone remember what your Maths teacher used to say?&#xA;Show your working out!&#xA;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&#xA;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.</description>
+    </item>
+    <item>
+      <title>Automating the startup of a dev workflow</title>
+      <link>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</link>
+      <pubDate>Tue, 02 Jan 2024 18:13:03 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</guid>
+      <description>Hopefully, this is the first of many small posts showing how I automate my workflow.&#xA;Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.&#xA;One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.</description>
+    </item>
+  </channel>
+</rss>

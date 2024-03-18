@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/knowledge/</link>
+    <description>Recent content in Knowledge on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jan 2024 18:39:50 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/knowledge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>Does anyone remember what your Maths teacher used to say?&#xA;Show your working out!&#xA;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&#xA;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mephisto on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/mephisto/</link>
+    <description>Recent content in Mephisto on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Aug 2023 15:39:20 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/mephisto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>I&amp;rsquo;m currently looking into what Mephisto can do. Mephisto describes itself as&#xA;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&#xA;So I wanted to check it out and run it locally to see for myself. I started with the 10-minute Quickstart guide but hit issues with the installation of dependencies.</description>
+    </item>
+  </channel>
+</rss>

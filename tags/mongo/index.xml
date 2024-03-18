@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongo on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/mongo/</link>
+    <description>Recent content in Mongo on Ben Selby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 May 2022 15:35:41 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>I recently started a new job. The data store is MongoDB, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to tweet me if there are discrepancies.&#xA;The first thing that I became aware of, is that there are/were two cli tools:&#xA;The legacy mongo shell, which was deprecated in MongoDB v5.0. The new, and active, mongosh shell, which replaced mongo.</description>
+    </item>
+  </channel>
+</rss>
