@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ben Selby</title>
+    <link>https://benmatselby.dev/</link>
+    <description>Recent content on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jun 2024 13:26:21 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>This post is going to be an introduction to the Prolific CLI for data collectors/researchers. The Prolific CLI is not affiliated with Prolific in any way, and I work on this in my free time as an open source project.&#xA;So Prolific have this to say on their website:&#xA;Easily find vetted research participants and AI taskers at scale. An unrivalled participant pool. Data quality you can depend on. OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?</description>
+    </item>
+    <item>
+      <title>Running Ubuntu on a MacBook Pro</title>
+      <link>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</link>
+      <pubDate>Sun, 26 May 2024 09:36:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</guid>
+      <description>Note: This post is a work in progress, and mainly for my notes. It&amp;rsquo;s current as of May 2024!.&#xA;I had a ten year old MacBook Pro lying around not really doing anything. It wasn&amp;rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.&#xA;However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from.</description>
+    </item>
+    <item>
+      <title>Stop tracking changes to certain files in Git</title>
+      <link>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</link>
+      <pubDate>Sat, 04 May 2024 07:59:32 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</guid>
+      <description>If you&amp;rsquo;ve used git before, you&amp;rsquo;re probably aware of the .gitignore file. This is what the manual has to say:&#xA;A gitignore file specifies intentionally untracked files that Git should ignore.&#xA;This file is usually tracked in your Git repo, so every contributor ignores the same files. Interestingly, you can also have a global ignore file in your home directory too ~/.gitignore. I have a global ignore file for ignoring basic IDE files.</description>
+    </item>
+    <item>
+      <title>Working with Zed for a week</title>
+      <link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+      <pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+      <description>I took Zed for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&#xA;I love it, and I&#39;m probably going to stay with it (but I miss a debugger). This is what Zed is:&#xA;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&#xA;Projects worked on: These are the projects I managed to work on this week with Zed:</description>
+    </item>
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>Does anyone remember what your Maths teacher used to say?&#xA;Show your working out!&#xA;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&#xA;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.</description>
+    </item>
+    <item>
+      <title>A case for using a Makefile in your project</title>
+      <link>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</link>
+      <pubDate>Tue, 16 Jan 2024 18:10:20 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</guid>
+      <description>This post is going to present a case for using a Makefile in your project. This will be the top-level task runner for your project. You can use make to run all of your project tasks such as building, linting, testing, and deploying your project. It doesn&amp;rsquo;t matter what language your project is written in.&#xA;What is a Makefile? Make gets its knowledge of how to build your program from a file called the makefile, which lists each of the non-source files and how to compute it from other files.</description>
+    </item>
+    <item>
+      <title>Automating the startup of a dev workflow</title>
+      <link>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</link>
+      <pubDate>Tue, 02 Jan 2024 18:13:03 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</guid>
+      <description>Hopefully, this is the first of many small posts showing how I automate my workflow.&#xA;Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.&#xA;One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.</description>
+    </item>
+    <item>
+      <title>Naming Slack huddles</title>
+      <link>https://benmatselby.dev/post/2023/naming-slack-huddles/</link>
+      <pubDate>Fri, 22 Dec 2023 21:28:17 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/naming-slack-huddles/</guid>
+      <description>I&amp;rsquo;m pair programming more and more nowadays. One thing that features heavily in pair programming is a Slack huddle. My main recommendation is to name the Slack huddle.&#xA;Slack is a very useful tool to use when pair programming. For me, it&amp;rsquo;s simply the ability to draw on each others screen. Trying to describe the many buttons, areas of an IDE, or where to change a line of code is painful.</description>
+    </item>
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>I&amp;rsquo;m currently looking into what Mephisto can do. Mephisto describes itself as&#xA;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&#xA;So I wanted to check it out and run it locally to see for myself. I started with the 10-minute Quickstart guide but hit issues with the installation of dependencies.</description>
+    </item>
+    <item>
+      <title>Chicken stroganoff</title>
+      <link>https://benmatselby.dev/recipes/chicken-stroganoff/</link>
+      <pubDate>Sun, 30 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/chicken-stroganoff/</guid>
+      <description>Ingredients Chicken breasts (diced) Mushrooms (sliced) 2 onions 4 garlic gloves 400ml chicken stock 2 tbsp Worcestershire sauce (Or Henderson&amp;rsquo;s Relish) 2 tbsp Dijon mustard 1 tbsp paprika 200ml crème fraiche Fresh parsley Served with penne pasta or rice. Method Boil some water, and cook the pasta or rice. Fry off the onions, garlic, and mushrooms in oil until soft. Put the chicken in with the onions, cook until the chicken is white all over.</description>
+    </item>
+    <item>
+      <title>Joel&#39;s curry</title>
+      <link>https://benmatselby.dev/recipes/joels-curry/</link>
+      <pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/joels-curry/</guid>
+      <description>This is my son&amp;rsquo;s recipe, and it&amp;rsquo;s the best home made curry we do.&#xA;Ingredients 1 onion 1 tbsp olive oil 1 tbsp butter 3 tbsp medium curry powder 1 tsp garlic puree Crack of pepper 2 chicken breasts, diced into small cubes Small natural yoghurt pot 250m cream Spinach Method Add the oil, butter, garlic, and onion into a pan and cook until the onions are softened. Add the chicken into the pan and cook through.</description>
+    </item>
+    <item>
+      <title>Spanish chicken rub</title>
+      <link>https://benmatselby.dev/recipes/spanish-chicken-rub/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/spanish-chicken-rub/</guid>
+      <description>Ingredients Bone-in, skin on, chicken thighs 3 tbsp Olive Oil 2 tsp Smoked Paprika 1.5 tsp Oregano 1 tsp Salt 1/2 tsp Black Pepper 1/2 tsp Cayenne Pepper 1 Lemon Method Mix the oil and spices together Squeeze in the lemon juice Mix the chicken in, and make sure it is all thoroughly coated Leave in the fridge for a couple of hours Goes well with salad, rice, mash potatoes, a vegetable and Chorizo tray bake.</description>
+    </item>
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>This post was updated on June 19th 2024, to document the latest way to do this.&#xA;This post is going to show you how to define different skins for k9s, so you can quickly see which environment you&amp;rsquo;re working on.&#xA;k9s is a terminal application that allows you to manage your Kubernetes clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.</description>
+    </item>
+    <item>
+      <title>Creating custom metrics from a trace in Datadog</title>
+      <link>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</link>
+      <pubDate>Tue, 07 Mar 2023 19:23:42 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</guid>
+      <description>Recently, I wanted to create a monitor from a trace in Datadog. When creating an APM monitor, you can specify the service, and the resource, but nothing else. This didn&amp;rsquo;t cater for what I wanted to do. So this post is going to show you how you can create a custom metric, and then use that in your monitor.&#xA;Once logged into Datadog, you want to navigate to APM and then Setup &amp;amp; Configuration.</description>
+    </item>
+    <item>
+      <title>Spaghetti Con Chorizo</title>
+      <link>https://benmatselby.dev/recipes/chorizo-pasta/</link>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/chorizo-pasta/</guid>
+      <description>Ingredients A ring of Chorizo (Chunky chopped) 1 onion chopped 2 cloves of garlic finely chopped Mushrooms (Optional) Courgette (Optional) Fennel seeds 1 tin of chopped tomatoes Basil Cracked black pepper 300g of Spaghetti Method Put some oil in a pan with a good spread of Fennel seeds. Fry off the onions, garlic, and Chorizo so the oils from the Chorizo cover the onion and garlic. Once the onions are covered in Chorizo oil and are softened, add in the Mushrooms and Courgettes if you&amp;rsquo;re adding them.</description>
+    </item>
+    <item>
+      <title>Books 2023</title>
+      <link>https://benmatselby.dev/post/books-2023/</link>
+      <pubDate>Sun, 01 Jan 2023 22:23:01 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2023/</guid>
+      <description>So, the numbers are in for 2022, and I read substantially less than the 20 books I set out to read. I did really well in Quarter 1, and then it fell to pieces after that. I traded fiction for technical books, and it all just fizzled out.&#xA;So this year, I&amp;rsquo;m aiming to read 10 books.&#xA;Books Engineering Management for the Rest of Us Sarah Drasner I am a big fan of management books like this.</description>
+    </item>
+    <item>
+      <title>Introduction to APIs</title>
+      <link>https://benmatselby.dev/post/2022/introduction-to-apis/</link>
+      <pubDate>Mon, 14 Nov 2022 11:24:37 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/introduction-to-apis/</guid>
+      <description>I&amp;rsquo;ve written this post to help some of my colleagues, who traditionally don&amp;rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&amp;rsquo;ve used APIs before, this post is probably not for you ;-).&#xA;An &amp;ldquo;Application Programming Interface&amp;rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.&#xA;We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team.</description>
+    </item>
+    <item>
+      <title>Canary palm tree in Fuerteventura</title>
+      <link>https://benmatselby.dev/pictures/canary-palm/</link>
+      <pubDate>Sat, 05 Nov 2022 15:52:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/pictures/canary-palm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&#xA;A story Back in 2010, I was working for Plusnet, an ISP in the UK (Referral link). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy.</description>
+    </item>
+    <item>
+      <title>Use Keyhole to understand slow queries in MongoDB</title>
+      <link>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</link>
+      <pubDate>Wed, 02 Nov 2022 19:20:21 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</guid>
+      <description>Slow queries are a part of life. This post will show you how to use Keyhole to turn your MongoDB logs into a spreadsheet you can use to understand where to focus your efforts.&#xA;Keyhole First of all, get Keyhole up and running. Please follow their instructions on how to do this.&#xA;I was able to do the following, but things change, so check out their docs for more relevant information.</description>
+    </item>
+    <item>
+      <title>Debugging Python with a virtual environment in VSCode</title>
+      <link>https://benmatselby.dev/post/debugging-python-with-env-vscode/</link>
+      <pubDate>Sun, 30 Oct 2022 14:35:10 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/debugging-python-with-env-vscode/</guid>
+      <description>My current job is mainly Python, so there was a steep learning curve. I have done some Python previously, but mainly for writing Sublime Text plugins back in the day.&#xA;Over the last few months, I’ve set up my VSCode environment on my work machine. Last night I was wanting to do something on a different machine. I could not remember how to debug Python code inside a virtual environment within VSCode!</description>
+    </item>
+    <item>
+      <title>Westminster Abbey</title>
+      <link>https://benmatselby.dev/pictures/westminster-abbey/</link>
+      <pubDate>Fri, 28 Oct 2022 21:43:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/pictures/westminster-abbey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>St Paul&#39;s with bubbles</title>
+      <link>https://benmatselby.dev/pictures/st-pauls/</link>
+      <pubDate>Fri, 28 Oct 2022 21:30:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/pictures/st-pauls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>A heart in Union Square - San Francisco</title>
+      <link>https://benmatselby.dev/pictures/san-fran-union-square-heart/</link>
+      <pubDate>Fri, 28 Oct 2022 21:03:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/pictures/san-fran-union-square-heart/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flying to SugarCON 2016</title>
+      <link>https://benmatselby.dev/pictures/san-fran-plane/</link>
+      <pubDate>Fri, 28 Oct 2022 21:02:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/pictures/san-fran-plane/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Upgrading to Next.js 13</title>
+      <link>https://benmatselby.dev/post/upgrading-to-next-13/</link>
+      <pubDate>Fri, 28 Oct 2022 20:07:19 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/upgrading-to-next-13/</guid>
+      <description>Next.js 13 was released this week. I&amp;rsquo;ve not had much time to work with Netlify or Next.js recently. So this was a nice opportunity to play around again for an hour.&#xA;The upgrade command I wasn&amp;rsquo;t lucky enough to just run the headline upgrade command that the above blog post suggests.&#xA;recipes on  upgrade-to-next-13 via ⬡ v16.14.2 at 19:30:07 ❯ npm i next@latest react@latest react-dom@latest eslint-config-next@latest npm ERR! code ERESOLVE npm ERR!</description>
+    </item>
+    <item>
+      <title>Spaghetti carbonara</title>
+      <link>https://benmatselby.dev/recipes/spaghetti-carbonara/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/spaghetti-carbonara/</guid>
+      <description>Ingredients 300g spaghetti 100g pancetta 100g hard cheese (pecorino or/and parmesan) 50g butter 3 large eggs 2/3 garlic cloves Salt and pepper Method Boil the spaghetti in salted water. Crush the garlic and put in a wok/pan with the butter. Fry off the pancetta in the pan with the garlic and butter. Cook on medium heat for about 5-7 minutes until the pancetta is golden. Beat the eggs in a large bowl, and crack in some pepper.</description>
+    </item>
+    <item>
+      <title>Apple Crumble</title>
+      <link>https://benmatselby.dev/recipes/apple-crumble/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/apple-crumble/</guid>
+      <description>Ingredients Mixture 6 Bramley apples 2 Gala apples 2 Granny smith apples 1 pack of Blackberries 1x Lemon zest 1x Lemon juice 2 tbsp honey Pinch of cinnamon Vanilla extract 120g sugar (demerara/brown/mixture) Crumble 150g flour 150g rolled oats 75g flaked almonds 120g sugar (demerara/brown/mixture) Pinch of salt Pinch of cinnamon Splash of vanilla extract 120g unsalted butter Method Peel and cut up the apples. Heat up the sugar, cinnamon, vanilla in a pan.</description>
+    </item>
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>I recently started a new job. The data store is MongoDB, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to tweet me if there are discrepancies.&#xA;The first thing that I became aware of, is that there are/were two cli tools:&#xA;The legacy mongo shell, which was deprecated in MongoDB v5.0. The new, and active, mongosh shell, which replaced mongo.</description>
+    </item>
+    <item>
+      <title>Define a contract between autonomous teams</title>
+      <link>https://benmatselby.dev/post/contractual-json/</link>
+      <pubDate>Tue, 01 Mar 2022 20:11:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/contractual-json/</guid>
+      <description>So you have a bunch of autonomous engineering teams that are allowed to work in their own way. Fantastic. However, maybe you want to provide centralised support or build tooling that exposes things in a certain way. For example, maybe you want to build a department wide Open API documentation site for engineering teams and partners. You don&amp;rsquo;t want to enforce anything on the teams, such as making them all create specific folders in their repo.</description>
+    </item>
+    <item>
+      <title>Multi-cursor support in Obsidian</title>
+      <link>https://benmatselby.dev/post/obsidian-multi-cursor/</link>
+      <pubDate>Thu, 03 Feb 2022 13:18:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/obsidian-multi-cursor/</guid>
+      <description>This post brings together two of my favourite things: Note taking, and multiple cursors. I remember the first time an engineer introduced me to Sublime Text. The main thing he would bang on about was multiple cursors. I was very quickly sold. It&amp;rsquo;s pure magic and speeds up so many things. I instantly switched from Eclipse PDT to Sublime Text.&#xA;I&amp;rsquo;ve always liked writing notes, but always struggled with various tools.</description>
+    </item>
+    <item>
+      <title>The last few years</title>
+      <link>https://benmatselby.dev/post/the-last-few-years/</link>
+      <pubDate>Mon, 10 Jan 2022 21:19:57 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/the-last-few-years/</guid>
+      <description>It&amp;rsquo;s nice to reflect on what you&amp;rsquo;ve achieved over a certain period of time. I switched roles within the same business in 2018. I went from managing and coding in a software engineering team I built from scratch, to an Individual Contributor role in a few other engineering teams. This post aims to show at a high level what I&amp;rsquo;ve been working on during this time. It&amp;rsquo;s just about in chronological order (from memory!</description>
+    </item>
+    <item>
+      <title>Coleslaw</title>
+      <link>https://benmatselby.dev/recipes/coleslaw/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/coleslaw/</guid>
+      <description>Ingredients 2 parts cabbage 2 parts carrot (peelings/shaved) 1 part red onion 1 spoon full of dijon mustard Mayonnaise Paprika Method This recipe can scale up, which is why we mention &amp;ldquo;parts&amp;rdquo;. An example would be a quarter of a cabbage, and 2 carrots. It should be equal measures in the bowl.&#xA;Use equal measures of cabbage, finely chopped, and carrot. Get rid of the outer layer of the carrot, and then use the peeler, to create shavings.</description>
+    </item>
+    <item>
+      <title>Books 2022</title>
+      <link>https://benmatselby.dev/post/books-2022/</link>
+      <pubDate>Mon, 03 Jan 2022 20:37:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2022/</guid>
+      <description>Reading is good for you. It keeps the mind occupied. In 2019, I made a real effort to read as much as I could, and it was a good year. Certainly better than 2020, and 2021 at least. So this year, my aim is to read 20 books, which is 10 more than in 2019, and about 20 more than last year!&#xA;I&amp;rsquo;ll keep this post up to date throughout the year.</description>
+    </item>
+    <item>
+      <title>Bechamel sauce</title>
+      <link>https://benmatselby.dev/recipes/bechamel-sauce/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/bechamel-sauce/</guid>
+      <description>Ingredients 50g butter 50g flour 500ml milk Method Heat the butter over a medium to low heat. Add the flour and make into a paste. Add 100ml of milk at a time into the paste. Make sure you get all the lumps out and continually stir/whisk. </description>
+    </item>
+    <item>
+      <title>Granola</title>
+      <link>https://benmatselby.dev/recipes/granola/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/granola/</guid>
+      <description>Ingredients 400g jumbo oats 6 tablespoons coconut oil 160ml maple syrup (Vanilla infused syrup is also very nice) 1 orange Zest Juiced 70g chai seeds 50g pumpkin seeds 65g almonds, roughly chopped 65g cashews, roughly chopped Method Heat the oven to 140 degrees. Heat the coconut oil and maple syrup, until it is a liquid. Grate in the zest and juice to the maple syrup and oil. Crush all the nuts.</description>
+    </item>
+    <item>
+      <title>Lasagne</title>
+      <link>https://benmatselby.dev/recipes/lasagne/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/lasagne/</guid>
+      <description>Ingredients 2 onions (finely chopped) 2 carrots (finely chopped) 2 celery sticks (finely chopped) 2 garlic gloves (finely chopped) 1 red pepper (finely chopped) tin of kidney beans some mushrooms (7 or 8) 400ml tins of tomatoes (x2) Ideally one tin of plum tomatoes 500g mince A good chunk of cheese to grate on top Italian seasoning Some honey Balsamic vinegar Tomato paste Salt/pepper Wine (if you have some, about 100ml) Bechamel sauce Homemade Pasta Method Make the homemade pasta as per the recipe above.</description>
+    </item>
+    <item>
+      <title>Festive Cosmopolitan</title>
+      <link>https://benmatselby.dev/recipes/festive-cosmopolitan/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/festive-cosmopolitan/</guid>
+      <description>This is another Stanley Tucci classic.&#xA;Ingredients 1 tablespoon of pomegranate seeds 50ml of vodka 25ml Cointreau 25ml cranberry juice 25ml pomegranate juice Ice Raspberry to garnish Method Put the pomegranate seeds into a shaker and muddle. Add the ice. Add all the booze and juices. Shake it all. Strain into a coupe or Martini glass. Garnish. </description>
+    </item>
+    <item>
+      <title>Mojito</title>
+      <link>https://benmatselby.dev/recipes/mojito/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/mojito/</guid>
+      <description>Ingredients 45 ml white rum 20 ml lime juice Small handful mint leaves, plus extra sprig to serve 1 (or 2) tsp granulated sugar Soda water, to taste Method Muddle the lime juice, sugar, and mint leaves in a cocktail shaker. Add the ice. Pour over the rum. Stir with a long spoon. Top up with soda and serve with mint garnish. </description>
+    </item>
+    <item>
+      <title>Negroni</title>
+      <link>https://benmatselby.dev/recipes/negroni/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/negroni/</guid>
+      <description>A Stanley Tucci classic.&#xA;Ingredients Ice 50ml Gin (or vodka) 25ml sweet vermouth 25ml Campari Orange to garnish Method Add all the ice to a cocktail shaker. Add in the booze. Shake up good and proper. Serve straight up in a couple (You can also have it over the rocks). Garnish with a slice of orange. </description>
+    </item>
+    <item>
+      <title>Old Fashioned</title>
+      <link>https://benmatselby.dev/recipes/old-fashioned/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/old-fashioned/</guid>
+      <description>Ingredients 1 teaspoon of sugar (or syrup) Water A few dashes of Angostura bitters 50ml of whiskey Ice Method Add the sugar with a dash of water, and mix until the sugar is dissolved. Add a few dashes of Angostura bitters. Add 4 ice cubes. Add the whiskey. Stir until really cold. Garnish with an orange peel. </description>
+    </item>
+    <item>
+      <title>Vodka Martini</title>
+      <link>https://benmatselby.dev/recipes/vodka-martini/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/vodka-martini/</guid>
+      <description>Ingredients 60ml vodka (could be gin) 1 tbsp dry vermouth Olive or lemon peel, to garnish Method This is the Stanley Tucci way. Fill a cocktail shaker with ice and add the vermouth. Stir for 15 seconds, then let it settle for 30 seconds. Stir again and then strain the vermouth out. Pour the vodka into the shaker and stir 30 seconds. Sit for 30 seconds. Stir for 30 seconds. Strain cocktail into a chilled glass.</description>
+    </item>
+    <item>
+      <title>White Russian</title>
+      <link>https://benmatselby.dev/recipes/white-russian/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/white-russian/</guid>
+      <description>Ingredients 50ml Vodka 50ml Kahlua Milk Ice Method Add 4 ice cubes to an Old Fashioned glass. Add the Vodka. Add the Kahlua (Bailey&amp;rsquo;s could also work). Mix. Enjoy, just the way the Dude likes it. </description>
+    </item>
+    <item>
+      <title>Sausage and broccoli pasta</title>
+      <link>https://benmatselby.dev/recipes/sausage-and-broccoli-pasta/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/sausage-and-broccoli-pasta/</guid>
+      <description>Ingredients 6 to 8 sausages 1 tablespoon of garlic paste 2 tablespoons of tomato paste Small tub of Philadelphia (or equivalent cream cheese) 1 pack of cherry tomatoes, halved Broccoli 300g of fusilli pasta Method Cut the broccoli into florets. Boil the pasta and the broccoli in the same pan until its almost soft. We will continue to cook the pasta with the sausages. Meanwhile cut the sausages into small pieces and fry off.</description>
+    </item>
+    <item>
+      <title>Pappy stew</title>
+      <link>https://benmatselby.dev/recipes/pappy-stew/</link>
+      <pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/pappy-stew/</guid>
+      <description>This is a Paprika Stew. You can make it vegetarian or meaty. If you want to make it meaty, then just add whatever meat you want.&#xA;Ingredients One big onion (chopped) Potatoes (about 4 or 5) Mushrooms (very chunky chopped) 6 heaped teaspoons of Paprika Tin of coconut milk Veggie stock cube (or equivalent) 400 ml of water Serve with either rice, or crusty bread Method Parboil the potatoes. They should still be rather firm.</description>
+    </item>
+    <item>
+      <title>Use Docker Context to switch between different solutions</title>
+      <link>https://benmatselby.dev/post/docker-context/</link>
+      <pubDate>Mon, 15 Nov 2021 18:54:13 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-context/</guid>
+      <description>You may be on the lookout for a replacement to Docker Desktop at the moment. If you are, you may be wanting to trial the different solutions. You&amp;rsquo;re going to need to know what is involved, and what the different cost models include. This post is going to show you how you can use docker context to run the different systems in parallel. The two solutions this post will cover are minikube and multipass.</description>
+    </item>
+    <item>
+      <title>Chicken tagliatelle</title>
+      <link>https://benmatselby.dev/recipes/chicken-tagliatelle/</link>
+      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/chicken-tagliatelle/</guid>
+      <description>Ingredients Basil One big onion (diced) Garlic (depends on how you like garlic, I&amp;rsquo;ve used the frozen stuff) Chicken (diced) Cherry tomatoes Mushrooms Spinach 100ml of white wine 300ml of cream 300g Tagliatelle Method Cook the garlic and onion until soft/brown. Add in the chicken to brown for a minute or two. Add the white wine. Add in the mushrooms, tomatoes, and basil. Cook the pasta. Once the pasta is cooked, pour the pasta into the mix.</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container - minikube</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers-minikube/</link>
+      <pubDate>Wed, 13 Oct 2021 11:44:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers-minikube/</guid>
+      <description>This post builds on what we already learnt in Setting up a VS Code Dev Container. It&amp;rsquo;s more specific goal is to discuss running Dev Containers whilst using minikube as a Docker Desktop replacement on the Mac.&#xA;There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.&#xA;Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.</description>
+    </item>
+    <item>
+      <title>Brownies - The gooey ones</title>
+      <link>https://benmatselby.dev/recipes/brownies-the-goey-ones/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/brownies-the-goey-ones/</guid>
+      <description>Ingredients 150g butter 75g light soft brown sugar 150g plain chocolate 1 tbsp golden syrup 3 eggs 125g golden caster sugar 1 tsp vanilla extract 150g plain flour ½ tsp baking powder 3 tbsp cocoa powder 4-6 tbsp of Nutella Method Heat the oven to 160 (fan). Melt the butter, chocolate, brown sugar, and golden syrup in a pan on a very low heat. Whisk the eggs and golden caster sugar in a big bowl.</description>
+    </item>
+    <item>
+      <title>Bacon and potato gratin</title>
+      <link>https://benmatselby.dev/recipes/bacon-and-potato-gratin/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/bacon-and-potato-gratin/</guid>
+      <description>Ingredients 10 rashes of unsmoked bacon (Cubed) 1 onion finely chopped 2 cloves of garlic finely chopped 1kg potatoes peeled and sliced 300ml of single cream Cheese for topping Method Preheat the oven to 200 degrees. Fry the bacon until crispy. Add the onion, garlic, and thyme and fry until the onion is soft. Arrange half the potato slices at the bottom of the oven proof dish. Spread over the bacon and onion.</description>
+    </item>
+    <item>
+      <title>Bacon pasta</title>
+      <link>https://benmatselby.dev/recipes/bacon-pasta/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/bacon-pasta/</guid>
+      <description>Ingredients Smoked streaky bacon (Chunkily chopped) Mushrooms Tinned Tomatoes Chilli (Ideally fresh, or dried crushed) Pepper Courgette (Doesn’t matter if you don’t have this) Lemon Juice Basil Method Cook bacon in the lemon juice. Lemon juice should be used instead of oil, and roughly the same amounts. Add the mushrooms once the bacon starts to brown, this will get the mushrooms soaking up the bacon juice. Add the pepper, courgette, chilli, and stir for about 3-4 minutes.</description>
+    </item>
+    <item>
+      <title>Baked chocolate cheesecake</title>
+      <link>https://benmatselby.dev/recipes/chocolate-cheesecake/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/chocolate-cheesecake/</guid>
+      <description>Ingredients Plain chocolate (450g) Caster sugar (115g) Vanilla essence 4 eggs Cream cheese (700g) Digestive biscuits (115g) Butter (70g) Caster sugar (30g) Method Heat the oven to 170 degrees. Grease a 9 inch tin. Mix the biscuits, butter, and 30g of caster sugar to form the base. Spread the mix over the base of the tin. The base is very thin, so if you want a bigger base, increase the portions accordingly.</description>
+    </item>
+    <item>
+      <title>Basic cupcakes</title>
+      <link>https://benmatselby.dev/recipes/basic-cupcakes/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/basic-cupcakes/</guid>
+      <description>Ingredients 115g stork or butter 115g caster sugar 2 large eggs 140g self raising flour 1/2 tsp baking powder 1/2 tsp vanilla essence Icing 85g stork or butter 225 icing sugar 1/2 tsp vanilla essence 2 tbsp milk Method Beat all the ingredients with a wooden spoon in a bowl. Preheat the oven to 170 degrees. Divide between 12 cupcake paper cases. Bake for 15-20 minutes. Cool on a wire tray.</description>
+    </item>
+    <item>
+      <title>Beef madras</title>
+      <link>https://benmatselby.dev/recipes/beef-madras/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/beef-madras/</guid>
+      <description>Ingredients 1-2 fresh chillis 2 tsp ground coriander 2 tsp ground turmeric 1 tsp mustard seeds 1/2 tab ground ginger 1/4 tsp black pepper Tin of coconut milk 2 onions Some garlic Beef or Chicken 250 beef or chicken stock Method Chop up the chillis and mix in a bowl with coriander, turmeric, mustard seeds, ginger, pepper, and mix into a paste with some of the coconut milk. Cook the onions and garlic until soft.</description>
+    </item>
+    <item>
+      <title>Beef stroganoff</title>
+      <link>https://benmatselby.dev/recipes/beef-stroganoff/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/beef-stroganoff/</guid>
+      <description>Ingredients 500g frying steak 500g mushrooms 1/2 bottle of red wine Knob of butter Plain flour (for thickening) 150ml double cream 6 tsp paprika 200g onions 2 garlic cloves Beef stock cube 1 tbsp honey 3 tsp parsley 3 tsp sage White pepper Black pepper Salt Method Melt the knob of butter in a casserole dish. Fry the onions and garlic. Add the paprika, parsley, sage, and mushrooms (keep stirring). Add the beef, red wine, and cream (keep stirring).</description>
+    </item>
+    <item>
+      <title>Cauliflower cheese</title>
+      <link>https://benmatselby.dev/recipes/cauliflower-cheese/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/cauliflower-cheese/</guid>
+      <description>Ingredients 1 large cauliflower 400ml milk 4 tbsp flour 50g butter 100g grated cheese Method Cook the cauliflower for 5 minutes then put inside an oven proof dish. Melt the butter and add the flour until it is a paste. Slowly add the milk whilst constantly stirring. Once the milk has all gone, add in the grated cheese and stir until you’re happy with the consistency. Pour the sauce over the cauliflower.</description>
+    </item>
+    <item>
+      <title>Chicken ala king</title>
+      <link>https://benmatselby.dev/recipes/chicken-ala-king/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/chicken-ala-king/</guid>
+      <description>Ingredients Chicken or Turkey (Normally left overs) Onion Mushrooms Pepper, Oregano, Italian herbs 1/2 pint of milk 1 tbsp of corn flour (or plain) Method Cook the onion until soft. Cook the chicken/turkey. Add the mushrooms. Add the milk and flour. Add the seasoning. Serve with rice. </description>
+    </item>
+    <item>
+      <title>Cottage pie</title>
+      <link>https://benmatselby.dev/recipes/cottage-pie/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/cottage-pie/</guid>
+      <description>Ingredients 500g lean beef mince 1 onion 1 large carrot 1 celery stick 1 tbsp tomato puree 1 tsp Worcester sauce 1 tsp mixed dried herbs 350ml hot beef stock 1 tbsp plain flour 900g potatoes Splash of milk Knob of butter Method Fry the meat and vegetables together until lightly browned. Stir the tomato puree, Worcester sauce, and herbs into the hot stock. Sprinkle the flour over the beef and vegetables.</description>
+    </item>
+    <item>
+      <title>Fish pie</title>
+      <link>https://benmatselby.dev/recipes/fish-pie/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/fish-pie/</guid>
+      <description>Ingredients 500g Fish 500ml milk Potatoes for mashing 1 bay leaf Parsley 35g butter 1 onion 3 tbsp plain flour 40g cheese Peas Method Add the fish, parsley, bay leaf, to the milk and bring to the boil in a pan. Once boiling, turn down the heat and simmer for 5-10 minutes until the fish flakes. Boil the potatoes. Add the onion and butter to a new pan and heat. Add flour to make a paste for 1 minute.</description>
+    </item>
+    <item>
+      <title>Homemade spaghetti</title>
+      <link>https://benmatselby.dev/recipes/spaghetti/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/spaghetti/</guid>
+      <description>Ingredients 300g flour 3 medium eggs 1/2 tsp salt 1 tbsp olive oil Method Flour on the table and use a fist to make a well. Pour the eggs into the well. Mix the flour and eggs from centre out. Knead the mixture for 8 to 10 minutes until smooth and springy. Cling film the ball of pasta. Put in the fridge for 20 minutes. Flatten and then run through a spaghetti maker.</description>
+    </item>
+    <item>
+      <title>Jerk beef</title>
+      <link>https://benmatselby.dev/recipes/jerk-beef/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/jerk-beef/</guid>
+      <description>Ingredients Beef (diced) 1 large onion 1 garlic clove 1 tbsp ginger 1 green pepper 1 red pepper Thyme 2 tbsp red wine vinegar 1 tin of tomatoes 1 tbsp of “All purpose seasoning” 1 tsp of “All spice” Worcester sauce 400ml of coconut milk 1 tbsp Jerk paste Method Fry the beer and onion in some oil until it’s browning. Add everything else. Put lid on and cook for 20-30 minutes.</description>
+    </item>
+    <item>
+      <title>Jool&#39;s curry</title>
+      <link>https://benmatselby.dev/recipes/jools-curry/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/jools-curry/</guid>
+      <description>Ingredients 1 onion 4cm of ginger 2 garlic cloves Olive oil 2 tbsp of tikka masala paste 3 tbsp of natural yoghurt 2 tbsp of tomato puree 6 skinless chicken thighs Tin of tomatoes Tin of coconut milk 2 tbsp of mango chutney Method Cook the onions until browned. Add the garlic/ginger and cook for 2 minutes. Half the chicken thighs and add to a bowl. Mix the chicken with the yoghurt, masala paste, and tomato puree.</description>
+    </item>
+    <item>
+      <title>Naan bread</title>
+      <link>https://benmatselby.dev/recipes/naan-bread/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/naan-bread/</guid>
+      <description>Ingredients 250g Plain flour 2 tsp sugar 1/2 tsp salt 1/2 tsp of baking powder 110-130ml milk 2 tbsp oil Method Mix the flour, salt sugar, and baking powder. Create well in the middle of the mixture. Pour milk plus oil into well. Fold flour into the milk to make dough. Knead dough for 8 to 10 minutes. Oil up a bowl. Cover bowl with the dough in it with a wet towel.</description>
+    </item>
+    <item>
+      <title>Pancakes</title>
+      <link>https://benmatselby.dev/recipes/pancakes/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/pancakes/</guid>
+      <description>Ingredients 110g plain flour 2 large eggs 200ml milk 75ml water Method Beat everything together and fry it. </description>
+    </item>
+    <item>
+      <title>Pizza dough</title>
+      <link>https://benmatselby.dev/recipes/pizza-dough/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/pizza-dough/</guid>
+      <description>Ingredients 500g white bread flour 1 x 7g of dried yeast sachet 2 tablespoons of virgin olive oil 300ml of luke warm water Method Pour flour onto the worktop, make a well in the middle. Mix the water and yeast together with the oil. Pour the yeast water into the middle of the flour well. Fold together and knead into a dough ball until smooth and springy. Place dough ball in a bowl and cover with a wet tower and store in a warm room for 1 hour.</description>
+    </item>
+    <item>
+      <title>Prawn spaghetti</title>
+      <link>https://benmatselby.dev/recipes/prawn-spaghetti/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/prawn-spaghetti/</guid>
+      <description>Ingredients Oil Garlic Chilli Paprika Tin of tomatoes Prawns Linguine Basil Spinach Fennel seeds Method Fry the oil, garlic, chilli, and paprika. Add the tomatoes. Add the prawns. Add the cooked linguine. Add the basil and spinach. </description>
+    </item>
+    <item>
+      <title>Sausage and leek tagliatelle</title>
+      <link>https://benmatselby.dev/recipes/sausage-leak-tagliatelle/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/sausage-leak-tagliatelle/</guid>
+      <description>Ingredients 400g of sausage (Pork and Apple is nice) 1 leek Mushrooms Rosemary 100ml white wine 150ml cream 500g Tagliatelle Method Strip the meat out of the sausage skin. Cook with leek until browning. Add mushrooms until cooked. Add the wine and cook for 3-5 minutes. Add the cream and rosemary. Once the pasta is cooked, pour the pasta into the mix. Fold and stir the mix for 3-5 minutes. </description>
+    </item>
+    <item>
+      <title>Toad in the hole</title>
+      <link>https://benmatselby.dev/recipes/toad-in-the-hole/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/toad-in-the-hole/</guid>
+      <description>Ingredients 6-8 sausages 1/2 pint of milk 115g plain flour 3 eggs Method Heat the oven to around 220 degrees. Cook the sauces with minimal boil until turning to brown, about 15 minutes. Mix the flour, eggs, and milk into a batter. Pour the batter into with the sausages. Cook with the batter for about 25-30 minutes. It should look like Yorkshire puddings when ready. </description>
+    </item>
+    <item>
+      <title>Yorkshire puddings</title>
+      <link>https://benmatselby.dev/recipes/yorkshire-puddings/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/recipes/yorkshire-puddings/</guid>
+      <description>This makes 6 large puddings.&#xA;Ingredients 200ml of milk 80g of flour pinch of salt 2 large eggs Method Put a little bit of oil in a pudding tray, should cover the bottom. Put in the oven and heat the oven on the highest for 20 minutes. Mix the milk, flour, and eggs together. Beat the mixture, the longer the better. Place in the tray and cook for 30 minutes. After 15 minutes, very quickly open the door and close it.</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins: Language Agent</title>
+      <link>https://benmatselby.dev/post/jenkins-language-agent/</link>
+      <pubDate>Sat, 24 Apr 2021 21:18:37 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-language-agent/</guid>
+      <description>This post follows on from the Jenkins series:&#xA;Getting started with Jenkins Getting started with Jenkins: Agents This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running Go. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.</description>
+    </item>
+    <item>
+      <title>Using Terratest to test your infrastructure</title>
+      <link>https://benmatselby.dev/post/terratest/</link>
+      <pubDate>Sun, 18 Apr 2021 20:01:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terratest/</guid>
+      <description>This post is going to get you started with using Terratest to help test your infrastructure changes. Terratest describes itself as:&#xA;A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.&#xA;Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help.</description>
+    </item>
+    <item>
+      <title>Technical Roadmaps and Dev Sustainability</title>
+      <link>https://benmatselby.dev/post/technical-roadmaps/</link>
+      <pubDate>Wed, 14 Apr 2021 19:02:17 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/technical-roadmaps/</guid>
+      <description>At a high level, most engineers are working on product backlogs, in some way, shape, or form. What happens if that product backlog dries up? Or, as a manager or leader, you need to fill a period of uncertainty? This post is going to take you on my journey over the years, and put forward a solution that can be applied to small projects, large projects, and even at an organisational unit level.</description>
+    </item>
+    <item>
+      <title>Terraform knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/terraform-101/</link>
+      <pubDate>Sun, 11 Apr 2021 09:31:36 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terraform-101/</guid>
+      <description>As part of the &amp;ldquo;Getting through the day&amp;rdquo; series, this post is going to provide basic Terraform knowledge. We are going to setup a Terraform project that allows you to manage your repos in GitHub.&#xA;I didn&amp;rsquo;t want to assume that you had an AWS, Azure, or Google Cloud account, but a GitHub account seemed more realistic.&#xA;This post assumes that you have installed Terraform on your system.&#xA;CLI Now that you have Terraform installed, you should be able to run terraform in your terminal.</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins: Agents</title>
+      <link>https://benmatselby.dev/post/jenkins-basic-agent/</link>
+      <pubDate>Wed, 07 Apr 2021 19:23:54 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basic-agent/</guid>
+      <description>Following on from Getting started with Jenkins, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the previous post.&#xA;We will run the Jenkins agents in docker containers, like we have for the controller.&#xA;We need to adjust the docker run command slightly this time around. But first, we need to define a Docker network. So let&amp;rsquo;s start with creating the Jenkins network.</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins</title>
+      <link>https://benmatselby.dev/post/jenkins-basics/</link>
+      <pubDate>Sat, 03 Apr 2021 20:42:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basics/</guid>
+      <description>Jenkins is an automation application, that is heavily used for Continuous Integration (CI) and Continuous Deployment/Delivery (CD). This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&amp;rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&amp;rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.</description>
+    </item>
+    <item>
+      <title>Shell knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/shell-101/</link>
+      <pubDate>Sun, 28 Mar 2021 15:01:33 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/shell-101/</guid>
+      <description>Following on from the Docker knowledge to get you through the day, and Git commands to get you through the day posts, this will cover Shell commands. Once again, it aims to get you through the day.&#xA;First of all, it&amp;rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to Wikipedia.&#xA;Basic commands Let&amp;rsquo;s cover off some basics that will hopefully get you on your way.</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.</description>
+    </item>
+    <item>
+      <title>Docker knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/docker-101/</link>
+      <pubDate>Mon, 15 Mar 2021 18:35:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-101/</guid>
+      <description>Following on from the &amp;ldquo;Git commands to get you through the day&amp;rdquo; post, Paddy Morgan and I delivered a Docker 101 workshop today at work.&#xA;This post covers what we ran through.&#xA;Time allocation: 60 minutes&#xA;This workshop will be a high level overview of the basic docker commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with docker on the CLI, this probably isn&amp;rsquo;t for you.</description>
+    </item>
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>Since the start of the year, I&amp;rsquo;ve been running weekly workshops with Paddy Morgan at work. These have been fun sessions to run. Some have been chats, some demos etc.&#xA;However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.&#xA;This post covers what we ran through.&#xA;Time allocation: 60 minutes&#xA;This workshop will be a high level overview of the basic git commands you will use daily.</description>
+    </item>
+    <item>
+      <title>Distributed, not Remote</title>
+      <link>https://benmatselby.dev/post/distributed-not-remote/</link>
+      <pubDate>Sun, 20 Dec 2020 14:40:23 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/distributed-not-remote/</guid>
+      <description>This year has seen a transformation in terms of working practices. Whether things will ever go back to the way they were, I do not know, but there is one thing I hope will remain.&#xA;To sum up the last 3 years. I went from managing a team of engineers located in 2 geographic locations, to becoming a remote Individual Contributor in a co-located team. This year changed everything, and we all became engineers in a distributed team.</description>
+    </item>
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.&#xA;The tools this post is going to compare are:&#xA;AWS CodePipeline (As I happen to be working in the AWS space at the moment) Jenkins GitHub Actions A couple of things to note:</description>
+    </item>
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>If you&amp;rsquo;re happy with the automated burndown reports from tools like Jira and Azure Devops, then this post is probably not for you (except maybe the CLI tools section). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.&#xA;My first foray into the world of work management tools starting about 13 years ago, and my team used Trac.</description>
+    </item>
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.&#xA;But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?&#xA;There isn&amp;rsquo;t that many options in this space.&#xA;If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the Gollum Page Watcher can help.</description>
+    </item>
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.&#xA;Make sure all commits in version control are logically atomic. What is a logically atomic commit? A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.</description>
+    </item>
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>I&amp;rsquo;ve just released version v1.2.1 of the Hugo Deploy to GitHub Pages GitHub Action.&#xA;This means it now fully conforms to the metadata specification as defined here.&#xA;I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a Hugo site to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?</description>
+    </item>
+    <item>
+      <title>Books 2019</title>
+      <link>https://benmatselby.dev/post/books-2019/</link>
+      <pubDate>Sat, 05 Oct 2019 08:37:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2019/</guid>
+      <description>One of my new years resolutions was to try and read 10 books this year. That may not sound a lot, but when you have a myriad of other things going on in your life, that&amp;rsquo;s a tall order. This is what I&amp;rsquo;ve managed to read.&#xA;Books Dark Sacred Night Michael Connelly I&amp;rsquo;m a massive Connelly fan, I&amp;rsquo;ve read and kept all the Bosch novels he&amp;rsquo;s ever written. I&amp;rsquo;m not a hoarder at all, but this is the only series of books I&amp;rsquo;ve kept.</description>
+    </item>
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.&#xA;I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me.</description>
+    </item>
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.&#xA;There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments.</description>
+    </item>
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style.</description>
+    </item>
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.&#xA;Web #a11y is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on.</description>
+    </item>
+    <item>
+      <title>Software engineering team structures</title>
+      <link>https://benmatselby.dev/post/software-engineering-team-structure/</link>
+      <pubDate>Sat, 20 Apr 2019 15:50:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/software-engineering-team-structure/</guid>
+      <description>This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).&#xA;For the purpose of this article, a team is going to be a product based software engineering team.</description>
+    </item>
+    <item>
+      <title>Recommendations</title>
+      <link>https://benmatselby.dev/recommendations/</link>
+      <pubDate>Fri, 05 Apr 2019 18:55:24 +0100</pubDate>
+      <guid>https://benmatselby.dev/recommendations/</guid>
+      <description>I like to recommend things, and I end up frantically googling a link when I want to share something. This page aims to stop my frenetic nature of sharing.&#xA;Enjoy.&#xA;Books Being Geek Michael Lopp This was pretty much the first tech book I read. It was late 2010, when I was a couple of years into my first &amp;lsquo;proper development&amp;rsquo; job and was itching to know and do more. If you are enjoying being an Individual Contributor (IC) this is the book for you.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://benmatselby.dev/about/</link>
+      <pubDate>Thu, 28 Mar 2019 19:23:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/about/</guid>
+      <description>I&amp;rsquo;m a software engineer living and working in Yorkshire, UK, wishing I lived in London.&#xA;I studied software engineering at university for 4 years, and knocked out applications in C++, Java, Visual Basic.&#xA;I spent the best part of 16 years writing software in PHP, before I gave it all up in October 2018, and went off to write everything in Go and TypeScript.&#xA;Why TypeScript? Peer pressure at work.</description>
+    </item>
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>As mentioned previously, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?&#xA;Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw my boss do a talk at PHPNW back in 2008 / 9.</description>
+    </item>
+    <item>
+      <title>Why teams are important</title>
+      <link>https://benmatselby.dev/post/why-teams-important/</link>
+      <pubDate>Fri, 08 Mar 2019 08:08:22 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/why-teams-important/</guid>
+      <description>After talking about communication recently, it felt natural to follow up with a post about Teams.&#xA;The beginning I love teams. I love my teams. I love building teams. I love working in teams. I love to see what a team can deliver, and grow, and evolve, and have each others back. I would describe myself as a team player, first and foremost. I don&amp;rsquo;t like to be isolated. I like to have a home to anchor me.</description>
+    </item>
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.&#xA;Stacks. Tools. Paradigms. The way we work. The way we deploy. The way we communicate. There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.</description>
+    </item>
+    <item>
+      <title>The software development pipeline</title>
+      <link>https://benmatselby.dev/post/pipelines/</link>
+      <pubDate>Mon, 14 Jan 2019 19:29:09 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/pipelines/</guid>
+      <description>Pipelines.&#xA;They are very important in software development, in my opinion. If you do not get your pipeline right, you likely have problems within your team(s).&#xA;So, what is a pipeline?&#xA;Well, think of it has a conveyor belt in a factory. The software development pipeline is a conveyor belt. From projects, to requirements, to building/testing, to deploying, and to everything in between. Those processes/items are moving along the conveyor, ideally in a smooth fashion.</description>
+    </item>
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.&#xA;Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.</description>
+    </item>
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>It works on my machine&#xA;We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform.</description>
+    </item>
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>SugarCRM is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.&#xA;The Aim As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis.</description>
+    </item>
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>In a previous post I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer Slack for team chat/communication.&#xA;Spanning a 10 year period I’ve used: IRC, Google Wave, XMPP in various forms, Skype, GTalk and Google Hangouts, Slack, Microsoft Teams and Workplace. Slack is a clear winner for me, although at the time Google Wave blew me away.</description>
+    </item>
+    <item>
+      <title>Communication</title>
+      <link>https://benmatselby.dev/post/communication/</link>
+      <pubDate>Wed, 01 Aug 2018 12:08:10 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/communication/</guid>
+      <description>It’s cliched to say, but communication really is key, and yet it’s one of the common issues folks seem to raise in departmental or company feedback. “Communication isn’t great”. However, this is both a top down, and a bottom up issue in my opinion (and everything in between).&#xA;Top down like to send out update emails, but the flow of communication is one way. Do I reply, reply all, face to face?</description>
+    </item>
+  </channel>
+</rss>

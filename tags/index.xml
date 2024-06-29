@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/</link>
+    <description>Recent content in Tags on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jun 2024 13:26:21 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://benmatselby.dev/tags/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://benmatselby.dev/tags/automation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cli</title>
+      <link>https://benmatselby.dev/tags/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tooling</title>
+      <link>https://benmatselby.dev/tags/tooling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/tooling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>https://benmatselby.dev/tags/tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workflow</title>
+      <link>https://benmatselby.dev/tags/workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/workflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge</title>
+      <link>https://benmatselby.dev/tags/knowledge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/knowledge/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>https://benmatselby.dev/tags/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/notes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://benmatselby.dev/tags/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Collaboration</title>
+      <link>https://benmatselby.dev/tags/collaboration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/collaboration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Communication</title>
+      <link>https://benmatselby.dev/tags/communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/communication/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering</title>
+      <link>https://benmatselby.dev/tags/engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Newbie</title>
+      <link>https://benmatselby.dev/tags/newbie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/newbie/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>People</title>
+      <link>https://benmatselby.dev/tags/people/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/people/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Process</title>
+      <link>https://benmatselby.dev/tags/process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/process/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Teams</title>
+      <link>https://benmatselby.dev/tags/teams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/teams/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crowdsourcing</title>
+      <link>https://benmatselby.dev/tags/crowdsourcing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/crowdsourcing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mephisto</title>
+      <link>https://benmatselby.dev/tags/mephisto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/mephisto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development</title>
+      <link>https://benmatselby.dev/tags/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://benmatselby.dev/tags/devops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://benmatselby.dev/tags/web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Books</title>
+      <link>https://benmatselby.dev/tags/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/books/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading-List</title>
+      <link>https://benmatselby.dev/tags/reading-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/reading-list/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resolutions</title>
+      <link>https://benmatselby.dev/tags/resolutions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/resolutions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Beginner</title>
+      <link>https://benmatselby.dev/tags/beginner/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/beginner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Testing</title>
+      <link>https://benmatselby.dev/tags/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Work</title>
+      <link>https://benmatselby.dev/tags/work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/work/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Database</title>
+      <link>https://benmatselby.dev/tags/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mongodb</title>
+      <link>https://benmatselby.dev/tags/mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vscode</title>
+      <link>https://benmatselby.dev/tags/vscode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/vscode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Next.js</title>
+      <link>https://benmatselby.dev/tags/next.js/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/next.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://benmatselby.dev/tags/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mongo</title>
+      <link>https://benmatselby.dev/tags/mongo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/mongo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mongosh</title>
+      <link>https://benmatselby.dev/tags/mongosh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/mongosh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Note-Taking</title>
+      <link>https://benmatselby.dev/tags/note-taking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/note-taking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2022</title>
+      <link>https://benmatselby.dev/tags/2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://benmatselby.dev/tags/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workshop</title>
+      <link>https://benmatselby.dev/tags/workshop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/workshop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Minikube</title>
+      <link>https://benmatselby.dev/tags/minikube/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/minikube/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Basics</title>
+      <link>https://benmatselby.dev/tags/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/basics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jenkins</title>
+      <link>https://benmatselby.dev/tags/jenkins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>https://benmatselby.dev/tags/iac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure</title>
+      <link>https://benmatselby.dev/tags/infrastructure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://benmatselby.dev/tags/terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering-Management</title>
+      <link>https://benmatselby.dev/tags/engineering-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/engineering-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sustainable</title>
+      <link>https://benmatselby.dev/tags/sustainable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/sustainable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Version-Control</title>
+      <link>https://benmatselby.dev/tags/version-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/version-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed</title>
+      <link>https://benmatselby.dev/tags/distributed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/distributed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Remote</title>
+      <link>https://benmatselby.dev/tags/remote/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/remote/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Remote-Working</title>
+      <link>https://benmatselby.dev/tags/remote-working/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/remote-working/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws-Codepipeline</title>
+      <link>https://benmatselby.dev/tags/aws-codepipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/aws-codepipeline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Build-Tool</title>
+      <link>https://benmatselby.dev/tags/build-tool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/build-tool/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ci</title>
+      <link>https://benmatselby.dev/tags/ci/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/ci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>https://benmatselby.dev/tags/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github-Action</title>
+      <link>https://benmatselby.dev/tags/github-action/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/github-action/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Burndown</title>
+      <link>https://benmatselby.dev/tags/burndown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/burndown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-Engineering</title>
+      <link>https://benmatselby.dev/tags/software-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sprint</title>
+      <link>https://benmatselby.dev/tags/sprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/sprint/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tech-Lead</title>
+      <link>https://benmatselby.dev/tags/tech-lead/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/tech-lead/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slack</title>
+      <link>https://benmatselby.dev/tags/slack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/slack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wiki</title>
+      <link>https://benmatselby.dev/tags/wiki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/wiki/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>https://benmatselby.dev/tags/deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/deployment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://benmatselby.dev/tags/hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2019</title>
+      <link>https://benmatselby.dev/tags/2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Checklist</title>
+      <link>https://benmatselby.dev/tags/checklist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/checklist/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Team</title>
+      <link>https://benmatselby.dev/tags/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/team/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Techniques</title>
+      <link>https://benmatselby.dev/tags/techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/techniques/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Management</title>
+      <link>https://benmatselby.dev/tags/management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recruitment</title>
+      <link>https://benmatselby.dev/tags/recruitment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/recruitment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>A11y</title>
+      <link>https://benmatselby.dev/tags/a11y/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/a11y/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Accessibility</title>
+      <link>https://benmatselby.dev/tags/accessibility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/accessibility/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Structure</title>
+      <link>https://benmatselby.dev/tags/structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/structure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployments</title>
+      <link>https://benmatselby.dev/tags/deployments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/deployments/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agile</title>
+      <link>https://benmatselby.dev/tags/agile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/agile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lean</title>
+      <link>https://benmatselby.dev/tags/lean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/lean/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Environments</title>
+      <link>https://benmatselby.dev/tags/environments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/environments/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sugarcrm</title>
+      <link>https://benmatselby.dev/tags/sugarcrm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tags/sugarcrm/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

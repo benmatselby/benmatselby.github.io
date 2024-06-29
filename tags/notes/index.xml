@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/notes/</link>
+    <description>Recent content in Notes on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 May 2024 09:36:28 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Ubuntu on a MacBook Pro</title>
+      <link>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</link>
+      <pubDate>Sun, 26 May 2024 09:36:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</guid>
+      <description>Note: This post is a work in progress, and mainly for my notes. It&amp;rsquo;s current as of May 2024!.&#xA;I had a ten year old MacBook Pro lying around not really doing anything. It wasn&amp;rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.&#xA;However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from.</description>
+    </item>
+    <item>
+      <title>Multi-cursor support in Obsidian</title>
+      <link>https://benmatselby.dev/post/obsidian-multi-cursor/</link>
+      <pubDate>Thu, 03 Feb 2022 13:18:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/obsidian-multi-cursor/</guid>
+      <description>This post brings together two of my favourite things: Note taking, and multiple cursors. I remember the first time an engineer introduced me to Sublime Text. The main thing he would bang on about was multiple cursors. I was very quickly sold. It&amp;rsquo;s pure magic and speeds up so many things. I instantly switched from Eclipse PDT to Sublime Text.&#xA;I&amp;rsquo;ve always liked writing notes, but always struggled with various tools.</description>
+    </item>
+  </channel>
+</rss>

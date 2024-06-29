@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/infrastructure/</link>
+    <description>Recent content in Infrastructure on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 20:01:51 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Terratest to test your infrastructure</title>
+      <link>https://benmatselby.dev/post/terratest/</link>
+      <pubDate>Sun, 18 Apr 2021 20:01:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terratest/</guid>
+      <description>This post is going to get you started with using Terratest to help test your infrastructure changes. Terratest describes itself as:&#xA;A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.&#xA;Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help.</description>
+    </item>
+    <item>
+      <title>Terraform knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/terraform-101/</link>
+      <pubDate>Sun, 11 Apr 2021 09:31:36 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terraform-101/</guid>
+      <description>As part of the &amp;ldquo;Getting through the day&amp;rdquo; series, this post is going to provide basic Terraform knowledge. We are going to setup a Terraform project that allows you to manage your repos in GitHub.&#xA;I didn&amp;rsquo;t want to assume that you had an AWS, Azure, or Google Cloud account, but a GitHub account seemed more realistic.&#xA;This post assumes that you have installed Terraform on your system.&#xA;CLI Now that you have Terraform installed, you should be able to run terraform in your terminal.</description>
+    </item>
+  </channel>
+</rss>
