@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/knowledge/</link>
+    <description>Recent content in Knowledge on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 May 2024 09:36:28 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/knowledge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Ubuntu on a MacBook Pro</title>
+      <link>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</link>
+      <pubDate>Sun, 26 May 2024 09:36:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note: This post is a work in progress, and mainly for my notes. It&amp;rsquo;s current as of May 2024!&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I had a ten year old MacBook Pro lying around not really doing anything. It wasn&amp;rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.&lt;/p&gt;&#xA;&lt;p&gt;However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from. Also, this is a fun side project. I&amp;rsquo;m not entirely moving over to Ubuntu, so I don&amp;rsquo;t really want to change my muscle memory too much.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>&lt;p&gt;Does anyone remember what your Maths teacher used to say?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Show your working out!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&lt;/p&gt;&#xA;&lt;p&gt;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

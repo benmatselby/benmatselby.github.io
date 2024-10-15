@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slack on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/slack/</link>
+    <description>Recent content in Slack on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2020 18:39:53 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/slack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>&lt;p&gt;Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.&lt;/p&gt;&#xA;&lt;p&gt;But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?&lt;/p&gt;&#xA;&lt;p&gt;There isn&amp;rsquo;t that many options in this space.&lt;/p&gt;&#xA;&lt;p&gt;If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the &lt;a href=&#34;https://github.com/benmatselby/gollum-page-watcher-action&#34;&gt;Gollum Page Watcher&lt;/a&gt; can help.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
