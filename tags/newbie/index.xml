@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Newbie on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/newbie/</link>
+    <description>Recent content in Newbie on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jan 2024 18:39:50 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/newbie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>&lt;p&gt;Does anyone remember what your Maths teacher used to say?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Show your working out!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&lt;/p&gt;&#xA;&lt;p&gt;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container - minikube</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers-minikube/</link>
+      <pubDate>Wed, 13 Oct 2021 11:44:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers-minikube/</guid>
+      <description>&lt;p&gt;This post builds on what we already learnt in &lt;a href=&#34;https://benmatselby.dev/post/vscode-dev-containers/&#34;&gt;Setting up a VS Code Dev Container&lt;/a&gt;. It&amp;rsquo;s more specific goal is to discuss running Dev Containers whilst using &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/&#34;&gt;minikube&lt;/a&gt; as a Docker Desktop replacement on the Mac.&lt;/p&gt;&#xA;&lt;p&gt;There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.&lt;/p&gt;&#xA;&lt;p&gt;Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>&lt;p&gt;Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
