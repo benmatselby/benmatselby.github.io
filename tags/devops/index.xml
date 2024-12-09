@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/devops/</link>
+    <description>Recent content in Devops on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Mar 2023 18:24:57 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post was updated on June 19th 2024, to document the latest way to do this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This post is going to show you how to define different skins for &lt;a href=&#34;https://k9scli.io&#34;&gt;k9s&lt;/a&gt;, so you can quickly see which environment you&amp;rsquo;re working on.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;k9s&lt;/code&gt; is a terminal application that allows you to manage your &lt;a href=&#34;https://kubernetes.io&#34;&gt;Kubernetes&lt;/a&gt; clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

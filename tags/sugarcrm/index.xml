@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sugarcrm on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/sugarcrm/</link>
+    <description>Recent content in Sugarcrm on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Aug 2018 21:09:28 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/sugarcrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.sugarcrm.com&#34;&gt;SugarCRM&lt;/a&gt; is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-aim&#34;&gt;The Aim&lt;/h2&gt;&#xA;&lt;p&gt;As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis. We wanted the release to the production platform to have some manual intervention so there was ownership and accountability.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
