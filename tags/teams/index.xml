@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teams on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/teams/</link>
+    <description>Recent content in Teams on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Dec 2023 21:28:17 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/teams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Naming Slack huddles</title>
+      <link>https://benmatselby.dev/post/2023/naming-slack-huddles/</link>
+      <pubDate>Fri, 22 Dec 2023 21:28:17 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/naming-slack-huddles/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m pair programming more and more nowadays. One thing that features heavily in pair programming is a Slack huddle. My main recommendation is to &lt;strong&gt;name the Slack huddle&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Slack is a very useful tool to use when pair programming. For me, it&amp;rsquo;s simply the ability to draw on each others screen. Trying to describe the many buttons, areas of an IDE, or where to change a line of code is painful. Being able to draw on the screen is not.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to APIs</title>
+      <link>https://benmatselby.dev/post/2022/introduction-to-apis/</link>
+      <pubDate>Mon, 14 Nov 2022 11:24:37 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/introduction-to-apis/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve written this post to help some of my colleagues, who traditionally don&amp;rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&amp;rsquo;ve used APIs before, this post &lt;em&gt;is probably not for you&lt;/em&gt; ;-).&lt;/p&gt;&#xA;&lt;p&gt;An &amp;ldquo;Application Programming Interface&amp;rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.&lt;/p&gt;&#xA;&lt;p&gt;We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team. There will be a plethora of links to other sites with better content than this if you want to learn more.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Distributed, not Remote</title>
+      <link>https://benmatselby.dev/post/distributed-not-remote/</link>
+      <pubDate>Sun, 20 Dec 2020 14:40:23 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/distributed-not-remote/</guid>
+      <description>&lt;p&gt;This year has seen a transformation in terms of working practices. Whether things will ever go back to the way they were, I do not know, but there is one thing I hope will remain.&lt;/p&gt;&#xA;&lt;p&gt;To sum up the last 3 years. I went from managing a team of engineers located in 2 geographic locations, to becoming a remote Individual Contributor in a co-located team. This year changed everything, and we all became engineers in a distributed team.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software engineering team structures</title>
+      <link>https://benmatselby.dev/post/software-engineering-team-structure/</link>
+      <pubDate>Sat, 20 Apr 2019 15:50:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/software-engineering-team-structure/</guid>
+      <description>&lt;p&gt;This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).&lt;/p&gt;&#xA;&lt;p&gt;For the purpose of this article, a team is going to be a product based software engineering team. This article does not delve too deeply with the structure above the team, only that the principles are still applicable. They will be fully accountable for delivering and supporting a couple of products. They use the scrum methodology (although this doesn&amp;rsquo;t really matter).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why teams are important</title>
+      <link>https://benmatselby.dev/post/why-teams-important/</link>
+      <pubDate>Fri, 08 Mar 2019 08:08:22 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/why-teams-important/</guid>
+      <description>&lt;p&gt;After talking about &lt;a href=&#34;https://benmatselby.dev/post/communication/&#34;&gt;communication&lt;/a&gt; recently, it felt natural to follow up with a post about Teams.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-beginning&#34;&gt;The beginning&lt;/h2&gt;&#xA;&lt;p&gt;I love teams. I love &lt;strong&gt;&lt;em&gt;my&lt;/em&gt;&lt;/strong&gt; teams. I love building teams. I love working in teams. I love to see what a team can deliver, and grow, and evolve, and have each others back. I would describe myself as a team player, first and foremost. I don&amp;rsquo;t like to be isolated. I like to have a home to anchor me. A team should feel natural, and a safe place for you all to be yourselves, and thrive. That is how you build a team.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>&lt;p&gt;I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.&lt;/p&gt;&#xA;&lt;p&gt;Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>&lt;p&gt;In a &lt;a href=&#34;https://benmatselby.dev/post/communication/&#34;&gt;previous post&lt;/a&gt; I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt; for team chat/communication.&lt;/p&gt;&#xA;&lt;p&gt;Spanning a 10 year period I’ve used: IRC, &lt;a href=&#34;https://en.wikipedia.org/wiki/Apache_Wave&#34;&gt;Google Wave&lt;/a&gt;, XMPP in various forms, &lt;a href=&#34;https://www.skype.com/en/&#34;&gt;Skype&lt;/a&gt;, &lt;a href=&#34;https://hangouts.google.com&#34;&gt;GTalk and Google Hangouts&lt;/a&gt;, &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt;, &lt;a href=&#34;https://www.microsoft.com/en-us/education/products/teams/default.aspx&#34;&gt;Microsoft Teams&lt;/a&gt; and &lt;a href=&#34;https://en-gb.facebook.com/workplace&#34;&gt;Workplace&lt;/a&gt;. Slack is a clear winner for me, although at the time Google Wave blew me away.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Communication</title>
+      <link>https://benmatselby.dev/post/communication/</link>
+      <pubDate>Wed, 01 Aug 2018 12:08:10 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/communication/</guid>
+      <description>&lt;p&gt;It’s cliched to say, but communication really is key, and yet it’s one of the common issues folks seem to raise in departmental or company feedback. “Communication isn’t great”. However, this is both a top down, and a bottom up issue in my opinion (and everything in between).&lt;/p&gt;&#xA;&lt;p&gt;Top down like to send out update emails, but the flow of communication is one way. Do I reply, reply all, face to face? Engagement here is not great.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
