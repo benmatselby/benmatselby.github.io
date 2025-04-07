@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Accessibility on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/accessibility/</link>
+    <description>Recent content in Accessibility on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Apr 2019 18:21:44 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/accessibility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>&lt;p&gt;The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.&lt;/p&gt;&#xA;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Web &lt;a href=&#34;https://twitter.com/hashtag/a11y?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#a11y&lt;/a&gt; is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on. It’s rather overwhelming, but fun.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
