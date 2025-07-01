@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remote on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/remote/</link>
+    <description>Recent content in Remote on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Dec 2020 14:40:23 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/remote/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed, not Remote</title>
+      <link>https://benmatselby.dev/post/distributed-not-remote/</link>
+      <pubDate>Sun, 20 Dec 2020 14:40:23 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/distributed-not-remote/</guid>
+      <description>&lt;p&gt;This year has seen a transformation in terms of working practices. Whether things will ever go back to the way they were, I do not know, but there is one thing I hope will remain.&lt;/p&gt;&#xA;&lt;p&gt;To sum up the last 3 years. I went from managing a team of engineers located in 2 geographic locations, to becoming a remote Individual Contributor in a co-located team. This year changed everything, and we all became engineers in a distributed team.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
