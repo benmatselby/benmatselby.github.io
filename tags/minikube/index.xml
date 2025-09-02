@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minikube on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/minikube/</link>
+    <description>Recent content in Minikube on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Oct 2021 11:44:20 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/minikube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up a VS Code Dev Container - minikube</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers-minikube/</link>
+      <pubDate>Wed, 13 Oct 2021 11:44:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers-minikube/</guid>
+      <description>&lt;p&gt;This post builds on what we already learnt in &lt;a href=&#34;https://benmatselby.dev/post/vscode-dev-containers/&#34;&gt;Setting up a VS Code Dev Container&lt;/a&gt;. It&amp;rsquo;s more specific goal is to discuss running Dev Containers whilst using &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/&#34;&gt;minikube&lt;/a&gt; as a Docker Desktop replacement on the Mac.&lt;/p&gt;&#xA;&lt;p&gt;There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.&lt;/p&gt;&#xA;&lt;p&gt;Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

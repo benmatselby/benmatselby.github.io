@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2022 on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/2022/</link>
+    <description>Recent content in 2022 on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 20:37:57 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Books 2022</title>
+      <link>https://benmatselby.dev/post/books-2022/</link>
+      <pubDate>Mon, 03 Jan 2022 20:37:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2022/</guid>
+      <description>&lt;p&gt;Reading is good for you. It keeps the mind occupied. In 2019, I made a real effort to read as much as I could, and it was a good year. Certainly better than 2020, and 2021 at least. So this year, my aim is to read 20 books, which is 10 more than in 2019, and about 20 more than last year!&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll keep this post up to date throughout the year.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
