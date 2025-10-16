@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Environments on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/environments/</link>
+    <description>Recent content in Environments on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Sep 2018 07:32:05 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/environments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;It works on my machine&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform. There was a wiki page with step by step instructions, updated by each new starter along the way. The people with the least knowledge of the platform were the passing guardians of one of the most fundamental documents in the department. About 4 weeks later we had an offsite where I had to stand up and give a talk about my experience of joining the department and business. When I stood there, rabbit in headlights, I explained that the first two weeks were a complete waste of time. There were some shocked faces. I was so new, I was just blindly entering commands from a wiki page, not really understanding the why. It really did not add much value to me, nor the company. I would have rather fixed my first software bug in those two weeks, and then started to learn the mammoth platform, when I had more context.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
