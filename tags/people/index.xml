@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>People on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/people/</link>
+    <description>Recent content in People on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jan 2024 18:39:50 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/people/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>&lt;p&gt;Does anyone remember what your Maths teacher used to say?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Show your working out!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&lt;/p&gt;&#xA;&lt;p&gt;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>&lt;p&gt;This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me. This is also the first time, in the same period, where I am the only remote engineer on the team 😬.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>&lt;p&gt;My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style. With this in mind, I&amp;rsquo;m writing my thoughts down, so folks can read in an async manner, comfortable to them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software engineering team structures</title>
+      <link>https://benmatselby.dev/post/software-engineering-team-structure/</link>
+      <pubDate>Sat, 20 Apr 2019 15:50:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/software-engineering-team-structure/</guid>
+      <description>&lt;p&gt;This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).&lt;/p&gt;&#xA;&lt;p&gt;For the purpose of this article, a team is going to be a product based software engineering team. This article does not delve too deeply with the structure above the team, only that the principles are still applicable. They will be fully accountable for delivering and supporting a couple of products. They use the scrum methodology (although this doesn&amp;rsquo;t really matter).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

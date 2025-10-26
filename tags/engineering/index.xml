@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineering on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/engineering/</link>
+    <description>Recent content in Engineering on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jan 2024 18:39:50 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>&lt;p&gt;Does anyone remember what your Maths teacher used to say?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Show your working out!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&lt;/p&gt;&#xA;&lt;p&gt;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating custom metrics from a trace in Datadog</title>
+      <link>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</link>
+      <pubDate>Tue, 07 Mar 2023 19:23:42 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</guid>
+      <description>&lt;p&gt;Recently, I wanted to create a monitor from a trace in &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt;. When creating an APM monitor, you can specify the service, and the resource, but nothing else. This didn&amp;rsquo;t cater for what I wanted to do. So this post is going to show you how you can create a custom metric, and then use that in your monitor.&lt;/p&gt;&#xA;&lt;p&gt;Once logged into Datadog, you want to navigate to &lt;code&gt;APM&lt;/code&gt; and then &lt;code&gt;Setup &amp;amp; Configuration&lt;/code&gt;. On the top bar, you should be able to see &lt;code&gt;Generate Metrics&lt;/code&gt;. Go ahead and click on that link.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to APIs</title>
+      <link>https://benmatselby.dev/post/2022/introduction-to-apis/</link>
+      <pubDate>Mon, 14 Nov 2022 11:24:37 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/introduction-to-apis/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve written this post to help some of my colleagues, who traditionally don&amp;rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&amp;rsquo;ve used APIs before, this post &lt;em&gt;is probably not for you&lt;/em&gt; ;-).&lt;/p&gt;&#xA;&lt;p&gt;An &amp;ldquo;Application Programming Interface&amp;rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.&lt;/p&gt;&#xA;&lt;p&gt;We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team. There will be a plethora of links to other sites with better content than this if you want to learn more.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>&lt;p&gt;As mentioned &lt;a href=&#34;https://benmatselby.dev/post/technology-radar/&#34;&gt;previously&lt;/a&gt;, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?&lt;/p&gt;&#xA;&lt;p&gt;Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw &lt;a href=&#34;https://twitter.com/rowan_m&#34;&gt;my boss&lt;/a&gt; do a talk at &lt;a href=&#34;https://conference.phpnw.org.uk/&#34;&gt;PHPNW&lt;/a&gt; back in 2008 / 9. However, two factors have always stopped me:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
