@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cli on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/cli/</link>
+    <description>Recent content in Cli on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jun 2024 13:26:21 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently looking into what &lt;a href=&#34;https://mephisto.ai&#34;&gt;Mephisto&lt;/a&gt; can do. Mephisto describes itself as&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So I wanted to check it out and run it locally to see for myself. I started with the &lt;a href=&#34;https://mephisto.ai/docs/guides/quickstart/&#34;&gt;10-minute Quickstart&lt;/a&gt; guide but hit issues with the installation of dependencies. I tried Python 3.8, and 3.11, and with &lt;code&gt;pip install&lt;/code&gt; and &lt;code&gt;poetry install&lt;/code&gt;. I am fairly confident this is to do with my Apple Silicon Mac (I have issues with other Python projects too!). So rather than get bogged down in that world, I thought it would be easier to spin up a dev container in VS Code. This post is going to show you how you can do that (and provides a reference for me as to what the configuration is).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post was updated on June 19th 2024, to document the latest way to do this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This post is going to show you how to define different skins for &lt;a href=&#34;https://k9scli.io&#34;&gt;k9s&lt;/a&gt;, so you can quickly see which environment you&amp;rsquo;re working on.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;k9s&lt;/code&gt; is a terminal application that allows you to manage your &lt;a href=&#34;https://kubernetes.io&#34;&gt;Kubernetes&lt;/a&gt; clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to APIs</title>
+      <link>https://benmatselby.dev/post/2022/introduction-to-apis/</link>
+      <pubDate>Mon, 14 Nov 2022 11:24:37 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/introduction-to-apis/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve written this post to help some of my colleagues, who traditionally don&amp;rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&amp;rsquo;ve used APIs before, this post &lt;em&gt;is probably not for you&lt;/em&gt; ;-).&lt;/p&gt;&#xA;&lt;p&gt;An &amp;ldquo;Application Programming Interface&amp;rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.&lt;/p&gt;&#xA;&lt;p&gt;We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team. There will be a plethora of links to other sites with better content than this if you want to learn more.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>&lt;p&gt;I recently started a new job. The data store is &lt;a href=&#34;https://www.mongodb.com&#34;&gt;MongoDB&lt;/a&gt;, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to &lt;a href=&#34;http://twitter.com/benmatselby/photo&#34;&gt;tweet me&lt;/a&gt; if there are discrepancies.&lt;/p&gt;&#xA;&lt;p&gt;The first thing that I became aware of, is that there are/were two cli tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The legacy &lt;code&gt;mongo&lt;/code&gt; shell, which &lt;a href=&#34;https://www.mongodb.com/docs/manual/reference/program/mongo/&#34;&gt;was deprecated in MongoDB v5.0&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The new, and active, &lt;code&gt;mongosh&lt;/code&gt; shell, which replaced &lt;code&gt;mongo&lt;/code&gt;. The documentation for this shell is &lt;a href=&#34;https://www.mongodb.com/docs/mongodb-shell/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post will discuss &lt;code&gt;mongosh&lt;/code&gt; and assume you have MongoDB running on your machine (or access to an instance).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
