@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Use Keyhole to understand slow queries in MongoDB">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Use Keyhole to understand slow queries in MongoDB &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Use Keyhole to understand slow queries in MongoDB">
+  <meta name="twitter:description"
+    content="Use Keyhole to understand slow queries in MongoDB">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Use Keyhole to understand slow queries in MongoDB">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Use Keyhole to understand slow queries in MongoDB">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Use Keyhole to understand slow queries in MongoDB">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Use Keyhole to understand slow queries in MongoDB</h1>
+  <span class="posts__item-date">Nov 2, 2022 &middot; 2 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/mongodb" title="Posts related to mongodb">#mongodb</a></span>
+    
+    <span class="tags__tag"><a href="/tags/database" title="Posts related to database">#database</a></span>
+    
+  </div>
+
+  <p>Slow queries are a part of life. This post will show you how to use <a href="https://github.com/simagix/keyhole">Keyhole</a> to turn your MongoDB logs into a spreadsheet you can use to understand where to focus your efforts.</p>
+<h2 id="keyhole">Keyhole</h2>
+<p>First of all, get Keyhole up and running. Please <a href="https://github.com/simagix/keyhole/tree/master/build">follow their instructions</a> on how to do this.</p>
+<p>I was able to do the following, but things change, so check out their docs for more relevant information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/simagix/keyhole.git
+</span></span><span style="display:flex;"><span><span style="color:#24909d">cd</span> keyhole
+</span></span><span style="display:flex;"><span>go build main/keyhole.go
+</span></span><span style="display:flex;"><span>./keyhole --version
+</span></span><span style="display:flex;"><span>simagix/keyhole devel-20221102
+</span></span></code></pre></div><h2 id="logs">Logs</h2>
+<p>So now we want to download the logs from MongoDB. I&rsquo;m going to use the logs from MongoDB Cloud Atlas. So first of all, make sure you&rsquo;re logged into the platform and on the projects page.</p>
+<p><img src="/img/mongo-atlas-projects.png" alt="Project list in MongoDB"></p>
+<p>From here, select the project you want to check out the slow queries for. Now you&rsquo;re on the right project, you can click the three dots <code>...</code> to get the &ldquo;<strong>Download Logs</strong>&rdquo; option.</p>
+<p><img src="/img/mongo-atlas-download-logs.png" alt="Download logs in MongoDB"></p>
+<p>Go ahead and click &ldquo;<strong>Download Logs</strong>&rdquo;, and then you can select the specific server (if you have more than one) to get the logs for.</p>
+<p><img src="/img/mongo-atlas-download-logs-server.png" alt="Download logs in MongoDB"></p>
+<p>Pick the time frame you&rsquo;re interested in and then click &ldquo;<strong>Download Logs</strong>&rdquo;.</p>
+<h2 id="generate-spreadsheet">Generate spreadsheet</h2>
+<p>Now we are going to use Keyhole to take the downloaded log file, and convert it to something we can understand and manipulate.</p>
+<p>Run this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#24909d">cd</span> keyhole
+</span></span><span style="display:flex;"><span>./keyhole -loginfo ~/Downloads/acme-prod-shard-00-00.bob4.mongodb.net_2022-11-02T07_22_43_2022-11-02T19_22_43_mongodb.log.gz
+</span></span></code></pre></div><p>This will provide some pertinent information about the top ten issues.</p>
+<p>You can now open the <code>.tsv</code> file in a spreadsheet application. I&rsquo;ve done this by running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>open ./out/acme-prod-shard-00-00.bob4.mongodb.net_2022-11-02T07_22_43_2022-11-02T19_22_43_mongodb.tsv
+</span></span></code></pre></div><p>This produces something like this.</p>
+<p><img src="/img/mongo-keyhole-tsv-output.png" alt="MongoDB / Keyhole TSV output"></p>
+<p>I&rsquo;ve replaced sensitive information with <code>..</code> in the spreadsheet, but you can get the gist. From here on out, you&rsquo;re dealing with a spreadsheet you can filter and manipulate. So you can sort by Count, or Avg time, etc.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is just one small use case of what Keyhole can provide. So check out what else it can offer you.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

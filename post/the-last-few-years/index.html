@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="The last few years">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>The last few years &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="The last few years">
+  <meta name="twitter:description"
+    content="The last few years">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="The last few years">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="The last few years">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="The last few years">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>The last few years</h1>
+  <span class="posts__item-date">Jan 10, 2022 &middot; 14 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/work" title="Posts related to work">#work</a></span>
+    
+  </div>
+
+  <p>It&rsquo;s nice to reflect on what you&rsquo;ve achieved over a certain period of time. I switched roles within the same business in 2018. I went from managing and coding in a software engineering team I built from scratch, to an Individual Contributor role in a few other engineering teams. This post aims to show at a high level what I&rsquo;ve been working on during this time. It&rsquo;s just about in chronological order (from memory!). I&rsquo;ve written this as a positive way to reflect on different achievements that would otherwise be forgotten. This isn&rsquo;t everything I did, but certainly some highlights. Some of these items have been very tough to work on and see through to completion.</p>
+<p>But where there is pain, there is growth.</p>
+<h2 id="a-ui-kit">A UI Kit</h2>
+<p>Two of us had the same idea, but came at it in different ways. My mate wanted to produce some style guides on the Intranet for engineers to use in their web applications. As an engineer with limited design skills in his team, I saw value in this. We got chatting and realised that we both wanted to achieve a set of UI Components that any engineering team could use. I wanted to move away from <a href="https://getbootstrap.com">Bootstrap</a> and utilise the expertise of others within the business.</p>
+<p>We ideally wanted the UI components to be JavaScript framework agnostic. I was a firm believer of letting teams use the frameworks they were comfortable in, be it React, or Angular (two of the frameworks being used at that time).</p>
+<p>We agreed the scope of what we wanted to achieve, and then presented to the Engineering and UX directors. We were lucky enough to have convinced them. We both went about forming a team around the idea. We picked the right people for the job.</p>
+<p>I was there at the beginning and helped form the team, the engineering processes, and was lucky enough to be an engineer coding on CSS/HTML/React for a few months whilst the team got off the ground. I also helped with the infrastructure in AWS, and spun up a simple Jenkins instance so we had a decent CI tool.</p>
+<p>It was such a buzz working in an incredibly creative team. We recorded podcast like talks to showcase sprint demos etc. Such fun.</p>
+<p>We used <a href="http://getbem.com">BEM</a>, Jenkins, AWS technologies, <a href="https://storybook.js.org">Storybook</a>, React, <a href="https://gohugo.io">Hugo</a> and a raft of other tech.</p>
+<h2 id="cli-tools">CLI tools</h2>
+<p>I&rsquo;m a massive advocate of the CLI. I love writing CLI tools, and I love using them. Prior to 2018, the team I lead was the only team in GitHub within the business. Around the 2018 mark suddenly GitHub was home to around 100 repos, and increasing daily. We were onboarding hundreds of developers who hadn&rsquo;t used GitHub before.</p>
+<p>As you can imagine, scaling hurt. Based on <a href="https://github.com/genuinetools/pepper">Pepper</a> from Jess Frazelle, I started to write a Go tool that helped audit and maintain some kind of structure in GitHub.</p>
+<p>I was lucky enough to find a bunch of engineers who liked the concept and they mucked in adding more and more rules, or self healing fixes to the repos. It ended up being a GitHub application installed into our organisation, ran in an AWS Lambda, and reported back as a Pull Request Check that failed if you were not meeting the agreed standards.</p>
+<p>My aim was to influence key people within the business to get this tool open sourced. We had written it in a config based/company agnostic way, and would be beneficial for other organisations. Sadly this never came to fruition.</p>
+<p>This was using <a href="https://go.dev">Go</a>, and <a href="https://github.com/spf13/cobra">Cobra</a> which is a nice combo of Tech. The infrastructure for running as a hosted application was all writing in AWS CDK (TypeScript).</p>
+<h2 id="tech-radar">Tech Radar</h2>
+<p>I&rsquo;ve written about this <a href="https://benmatselby.dev/post/technology-radar/">before</a>. This fell out of favour with the business for various reasons that had nothing to do with the idea.</p>
+<p>I still think a Tech Radar is a great tool for many reasons. So, as of January 2022, I managed to convince one or two other engineers to help me convert the site from Hugo, over to <a href="https://kit.svelte.dev">Svelte</a>. This was nothing against Hugo, but was more about challenging ourselves to do something new, which was semi relevant. Having a break from React, and writing in Svelte was cathartic.</p>
+<p>I&rsquo;ve now streamlined our Tech Radar and reined it in, where previously it went too far. It&rsquo;s now more manageable. I&rsquo;ve started to introduce this back into the teams within my sphere as a single decent place to document stuff that will help other teams.</p>
+<h2 id="decision-making-for-tech-leads">Decision making for Tech Leads</h2>
+<p>Around the time my role changed, the business had done a restructure. My role of Tech Lead had gone, and you either were an &ldquo;Expert&rdquo; or a &ldquo;Pod Leader&rdquo;. To everyone else this was a &ldquo;Tech Lead&rdquo; and &ldquo;Engineering Manager&rdquo;. The &ldquo;Experts&rdquo; did not line manage, so we were left to be influencers. You will see that I use &ldquo;Technical Lead&rdquo; throughout the rest of this document, rather than Expert. It&rsquo;s hopefully obvious as to why.</p>
+<p>Anyway, we digress.</p>
+<p>The &ldquo;business&rdquo; wanted the &ldquo;Experts&rdquo; to lead on technical decisions as a group. At the time there was 13 or 14 of us, from differing backgrounds.</p>
+<p>In order to help us document our thinking and provide a mechanism for us to come to agreements, I setup an RFC process in GitHub. This allowed us to publicly (within the business) discuss issues/ideas, document them, and then vote via a Pull Request process.</p>
+<p>It sounds more simple than it really was. Buy me a beer if you want to know more.</p>
+<h2 id="design-authority">Design Authority</h2>
+<p>I&rsquo;ve also written about this <a href="https://benmatselby.dev/post/design-authority/">before</a>. This was a peer reviewed, community based initiative to help teams bake quality into their software. I was one of the Technical Leads who contributed content, and helped drive the process to get engagement.</p>
+<h2 id="an-auditing-solution">An auditing solution</h2>
+<p>This was a standard engineering project. I was the lead in the team, but didn&rsquo;t line manage anyone. We were tasked with building a highly available, auditing and logging solution. Other teams would send us all their audit and log data, and we would store it, and provide an API for retrieval. When I joined the team, the solution was using a plethora of languages, which I was able to streamline to Go and TypeScript. We were responsible for building the data stores (Elasticsearch and AWS S3), ingestion of data (AWS Kinesis), APIs (Go and AWS API Gateway), SDKs for consuming teams, and the front end application to view the data.</p>
+<p>The back end was written in Go, utilising AWS Lambdas, and API Gateways. The front end application was all written in TypeScript and React. This was a fun project and team to work in.</p>
+<h2 id="solution-engineering">Solution engineering</h2>
+<p>From the auditing solution I moved over to a lead role in a Solution Engineering team (a System Team if you are familiar with SAFe). This was a wide ranging role within the department. I was able to shape the projects we worked on, and the backlogs we worked through. We were lucky enough to be able to collaborate with many teams, and add value to their products along the way. My solution team focussed on the platform/backend teams, including infrastructure projects.</p>
+<p>We quickly defined and published our mission statement, so we could hold ourselves to account.</p>
+<blockquote>
+<p>Our teams&rsquo; mission is to support, guide, and provide engineering solutions to the domain teams, enabling efficient and high-quality software to be developed - resulting in a consistent, maintainable, high quality, and well-engineered solution.</p>
+</blockquote>
+<p>This team utilised many technologies in order to add value, such as AWS Cloud Formation, CDK, Terraform, Ansible, Go, TypeScript, Bash, GitHub Actions, Jenkins, etc.</p>
+<p>Some of the main projects we ran with are documented below.</p>
+<h3 id="defining-a-release-process">Defining a release process</h3>
+<p>The business was moving from a well defined Windows Desktop based software deployment model to a web based model. This meant that the release processes needed to reflect new technologies. The solution engineering team were tasked with leading on the technical aspects of deploying cloud based web products.</p>
+<p>This factored in quality gates, canary deployments, auditing of deployments, release notes, company wide notifications, etc.</p>
+<h3 id="building-an-enterprise-jenkins-deployment">Building an enterprise Jenkins deployment</h3>
+<p>For an understanding as to why we did this, <a href="https://benmatselby.dev/post/build-tool-comparison/">see the comparison we did</a>. My personal experience of deploying Jenkins was always directly onto VMs via Ansible. Over the years the ansible scripts became more polished. I had previously deployed &ldquo;Hudson&rdquo; (as it was called then) at <a href="https://www.plus.net">Plusnet</a>, using <a href="https://capistranorb.com">capistrano</a>. These deployments were used by tens of engineers.</p>
+<p>This time the business needed a cloud based solution that could scale to hundreds of developers. Luckily, the team managed to rope in a very knowledgable AWS engineer who came in and lead the design for us. It was fantastic working and learning at such a fast pace. A highlight.</p>
+<p>The solution ended up being an Elastic Container Service service, backed with EC2 nodes. It was all built with Terraform and partitioned into different clusters (Jenkins instances) for different teams, so IAM permissions could be restricted to assume different roles to deploy into different accounts.</p>
+<p>To manage this infrastructure in a production environment, and react to situations that cropped up, we built a little Go CLI tool called <code>jenk</code>. This was a neat little wrapper around the Go AWS SDK to pull out key pieces of information we needed. This could provide us information on:</p>
+<ul>
+<li>What versions of Jenkins are being used by different clusters.</li>
+<li>What build environments were supported on the Jenkins instances. e.g. Some teams wrote in C#, whilst others wrote in Go. We deployed agents with differing versions for different teams.</li>
+<li>What docker images were stored in the Elastic Container Registries for specific teams.</li>
+<li>Data around the Elastic File System mount points.</li>
+<li>Information about the ECS Tasks and services running.</li>
+</ul>
+<p>The reason as to why we built the CLI was the fact we wanted to streamline the number of clicks needed in the AWS console. We wanted to provide wholistic information on the CLI without all the drama of using the UI. Of course, this was all backed with dashboards in Grafana.</p>
+<h3 id="supporting-a-monitoring-platform">Supporting a monitoring platform</h3>
+<p>The monitoring solution had started out as a one man project outside of my team. It ultimately needed a home, so it came to my team. Two of the engineers on my team lead on uplifting this project to a more productionised quality. I provided minimal support and coding on this, so they could lead on their own thing.</p>
+<p>This is currently the defacto stack in the business. It&rsquo;s an ECS solution akin to the Jenkins solution above, running Grafana. We had hopes to take this solution further, but currently we don&rsquo;t have capacity.</p>
+<h3 id="peer-reviews">Peer reviews</h3>
+<p>As mentioned above, we had a &ldquo;Design Authority&rdquo; which is essentially a guide to help engineers provide consistent quality and solutions across the business. My proposal was for my team to conduct weekly reviews and write up reports to help teams achieve the standards required. We notified teams we were doing this, but it was passive. We didn&rsquo;t get in their way, and we provided constructive suggestions and feedback where it was appropriate.</p>
+<p>When you&rsquo;re in an overarching role, you really can provide more context to teams. You have more suggestions based on what other teams are doing. Since we were also coding on the solutions day to day too, we were still very close to the detail. It&rsquo;s a privileged role to have.</p>
+<h2 id="acmejson">acme.json</h2>
+<p>This is a JSON Schema specification for all engineering teams to expose their internals to an automated tooling set. Each GitHub repo had a specific [company].json file in the root.</p>
+<p>This project had the following aims:</p>
+<blockquote>
+<p>This should be seen as a public contract between a team and the rest of the engineering department. The schema is there to expose internals (the way your team wants to work) to other teams, and tooling, so they can consistently understand information they need, without dictating an implementation to you.</p>
+</blockquote>
+<p>This project provided:</p>
+<ul>
+<li>A full detailed list of AWS accounts owned by teams. This could have gone further to store in a queryable back end.</li>
+<li>A schema that could show flow in the system. Using the auditing example I talk about above, you could determine who had integrated with auditing, and which AWS accounts talked to which AWS accounts. Again, we could have gone further to show automated architectural diagrams based on real life Config as as Code that teams were shipping.</li>
+<li>It provided a centralised touch point that allowed teams to structure their repos internally how they wanted, but still expose key details, such as their Open API Specifications for the Developer Portal. Without this project, in order for the Developer Portal to work, it would have had to have been mandated teams have a certain folder structure in their repo.</li>
+<li>A support file for the CLI tools we were building up.</li>
+</ul>
+<h2 id="technical-roadmap">Technical Roadmap</h2>
+<p>I&rsquo;ve written about this in more detail <a href="https://benmatselby.dev/post/technical-roadmaps/">here</a>. The basic concept is making sure engineering teams know what to work on, why they are working on it, and where they are going. It&rsquo;s slightly more nuanced, so check out the post.</p>
+<h2 id="weekly-workshops">Weekly workshops</h2>
+<p>I was lucky enough to have <a href="https://github.com/paddymorgan84">a mate</a> who was willing to run weekly workshops over Slack/Teams with me. We decided on a topic the week before, and let the rest of the department know. Then we would spend time building an agenda, discussion points, provide demos and coding examples. On the day, one of us would be the compère for the session, and the other would drive the screen. It was really really enjoyable, and produced a load of valuable content for us, and for our colleagues.</p>
+<p>Sadly, my mate has left the business now, so I&rsquo;m hoping for a YouTube channel or Twitch stream one day with him.</p>
+<h2 id="centralised-dockerfiles">Centralised Dockerfiles</h2>
+<p>About 3 and a bit years a go, a few of us had a similar idea to centralise and standardise the Dockerfiles we were using. The idea was a complete copy of <a href="https://github.com/jessfraz/dockerfiles">this from Jess Frazelle again</a>. It was a pet project that had minimal momentum.</p>
+<p>However, as we started to containerise more and more of our applications, this project became a business need. It was no longer a pet project.</p>
+<p>I was tasked with leading on it, so quickly formed a team from the original group of engineers who were interested. Luckily I could convince them all to help me out on this. We wrote a build process in JavaScript using <a href="https://github.com/tj/commander.js/">Commander.js</a> since JavaScript was the most common language in the team. This work built on top of the work my team had done in the Jenkins solution for different build agents. This meant we provided Production, Testing, and Development (<a href="https://benmatselby.dev/post/vscode-dev-containers/">dev containers</a>) Dockerfiles for the main languages being used in the business. We pushed the images to Azure Container Registry, Elastic Container Registry, and GitHub Package Registry.</p>
+<p>We used <a href="https://github.com/aquasecurity/trivy">Trivy</a> to scan all the images we were building. It provided a centralised touch point for any other specific business requirements. It was deemed easier to do this at a central touch point.</p>
+<h2 id="jamstack-hosting">JAMStack hosting</h2>
+<p>After the solution engineering team was disbanded (buy me a Jack Daniels and we can discuss this), I found myself in a front end team writing React applications again. I joined late to the party, so the team was already formed.</p>
+<p>So, as you can see, I&rsquo;m almost full circle in which to conclude this post.</p>
+<p>Having to write Infrastructure as Code (IaC) in the Jenkins project was fun and exhilarating. Writing it to host a <a href="https://jamstack.org">JAMStack</a> site, is not. I set out to demo that as a team we could move at a faster pace if we used more modern hosting providers. I used Netlify (other providers exist in the same space, I just happened to advocate for Netlify). I provided a demo back to team, who loved it. I provided demos to other stakeholders. In the end, the team agreed to write a white paper on why Netlify was a key technology to embrace.</p>
+<p>The team have been able to remove 28% of the code they write and manage by using Netlify. We are able to spend that saving on adding more value to our customers.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You forget, during the day to day grind, what you&rsquo;ve achieved. As you can imagine, I cannot go into all the details. The projects above represent a volume of work that I&rsquo;m really proud of. I&rsquo;m proud of the teams I worked with to deliver all of this. Building software is a team sport, and that should never be forgotten.</p>
+<blockquote>
+<p>Go fast, go alone; Go far, go together</p>
+</blockquote>
+<p>Thanks</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

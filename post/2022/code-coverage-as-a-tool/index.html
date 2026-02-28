@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="How useful are code coverage reports?">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>How useful are code coverage reports? &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="How useful are code coverage reports?">
+  <meta name="twitter:description"
+    content="How useful are code coverage reports?">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="How useful are code coverage reports?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="How useful are code coverage reports?">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="How useful are code coverage reports?">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>How useful are code coverage reports?</h1>
+  <span class="posts__item-date">Nov 5, 2022 &middot; 5 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/work" title="Posts related to work">#work</a></span>
+    
+    <span class="tags__tag"><a href="/tags/testing" title="Posts related to testing">#testing</a></span>
+    
+    <span class="tags__tag"><a href="/tags/development" title="Posts related to development">#development</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/engineering" title="Posts related to engineering">#engineering</a></span>
+    
+  </div>
+
+  <p>This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&rsquo;m going to reminisce about 2010.</p>
+<h2 id="a-story">A story</h2>
+<p>Back in 2010, I was working for <a href="https://www.plus.net">Plusnet, an ISP in the UK</a> (<a href="https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760">Referral link</a>). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So <a href="https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7">I wrote</a> the <code>--assert-strict</code> feature in <a href="https://phpunit.de">PHPUnit</a> (which has subsequently become <code>fail-on-incomplete</code>). This helped us raise the quality of our tests at Plusnet.</p>
+<p>Why mention this? Opinions mostly come from experience, and I wanted to share mine before talking about this.</p>
+<h2 id="tools">Tools</h2>
+<p>I value coverage reports. It&rsquo;s <strong><em>a tool</em></strong> in the toolbox, it is not <strong><em>the</em></strong> tool in the toolbox! It is also not perfect (nothing is).</p>
+<p>When I started a new job this year I found the project had thousands of tests, which is lovely. As a new engineer, I wanted to see what that looked like in terms of coverage. Did we have thousands of tests and high coverage or thousands of tests and low coverage? Why does it matter? For me, it gives me the confidence to make changes in the code. Once I have the confidence, it unlocks the ability to move at pace.</p>
+<p>Getting the coverage report is not easy, as we lack test suites to help figure this out. I briefly mentioned we could work on this, and a colleague mentioned that coverage reports aren&rsquo;t helpful, and folks end up chasing the metric.</p>
+<p>At this point, I want to agree with the latter statement. I value coverage reports, but I do not think you should chase unrealistic metrics.</p>
+<quote class="pullquote">
+  I value coverage reports, but I do not think you should chase unrealistic metrics.
+</quote>
+
+<p>Many testing tools allow you to ignore code in coverage reports. I&rsquo;m genuinely against this concept because I want to gain confidence. I&rsquo;m personally not after 100%. I&rsquo;m after the highest coverage you can get, for the maximum benefit, and no more. If there is a gap in coverage, I&rsquo;m fine with that, as long as it&rsquo;s clear and upfront.</p>
+<p>It&rsquo;s also worth noting that bikeshedding over the last 5% of code coverage, is <em>more than likely</em> not going to add overall value. You will get diminishing returns, in my opinion.</p>
+<h2 id="metrics">Metrics</h2>
+<p>So, back to coverage reports. Line coverage is handy, but try and get a branch coverage report. This shows which paths through the code are tested. That&rsquo;s two metrics that can and should be used with many other metrics you can get from your code, e.g. <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">Cyclomatic Complexity</a>, and Static Analysis. No single metric can tell the entire story. Let&rsquo;s take a well-known example from the past that no one uses anymore. If you judged a software engineer on one single metric: lines of code written, you are not getting a realistic picture of that engineer!</p>
+<p>Software is no different, you need to weigh all these metrics together. Each metric provides a different lens to look through in terms of quality.</p>
+<p>So, meh, does it really matter?</p>
+<h2 id="importance">Importance</h2>
+<p>Well, I would argue that if you don&rsquo;t have visibility of what code your tests are covering, you&rsquo;re now going to rely on monitoring and analytics platforms to identify quality issues with your code. When we say monitoring and analytics platforms, we actually mean our users. Our users are doing things on our platform, and the monitoring systems alert the engineers when things fail.</p>
+<p>This week, as a relevant anecdote, we saw some notifications from <a href="https://rollbar.com">Rollbar</a> that showed us something was wrong with a new feature. We managed to get a coverage report for a single module of our code (took a little while), and we saw that the bugs identified in Rollbar were actually not covered by tests.</p>
+<p>I personally want to know about this in development, not from our users, via Rollbar. It&rsquo;s more costly to fix it for one thing, and it&rsquo;s also impacting our customers, which isn&rsquo;t great. It&rsquo;s also stressful working in an environment where you know you have production issues impacting real people.</p>
+<h2 id="summary">Summary</h2>
+<p>In conclusion, this is how I would summarise my views on this.</p>
+<ul>
+<li>I value a holistic set of data points that help us understand quality in software development.</li>
+<li>Code coverage is a single metric that can be part of that set of metrics you monitor.</li>
+<li>No single metric can stand by itself, and be meaningful.</li>
+<li>Nothing is perfect, which is why we should value a toolbox.</li>
+<li>I don&rsquo;t believe in gaming the system and &ldquo;hiding&rdquo; uncovered code to get to 100%.
+<ul>
+<li>You need engineering teams who are prepared and confident enough to publicly share their coverage reports. This sets the tone of the culture.</li>
+</ul>
+</li>
+<li>Context is needed, always.
+<ul>
+<li>There will be reasons why the coverage is as it is.</li>
+</ul>
+</li>
+<li>Use tools that help engineering teams with confidence/delivering at pace and ultimately delivering customer satisfaction.</li>
+<li>You cannot compare reports from different teams or projects.
+<ul>
+<li>More than likely the same with most metrics.</li>
+</ul>
+</li>
+<li>Striving to improve is a mindset we should engage with, so use tools that help that improvement.</li>
+</ul>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://testing.googleblog.com/2020/08/code-coverage-best-practices.html">Code Coverage Best Practices</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

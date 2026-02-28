@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="My findings after using Zed for a week.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Working with Zed for a week &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Working with Zed for a week">
+  <meta name="twitter:description"
+    content="My findings after using Zed for a week.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Working with Zed for a week">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Working with Zed for a week">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="My findings after using Zed for a week.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Working with Zed for a week</h1>
+  <span class="posts__item-date">Jan 30, 2024 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/collaboration" title="Posts related to collaboration">#collaboration</a></span>
+    
+  </div>
+
+  <p>I took <a href="https://zed.dev/">Zed</a> for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.</p>
+<quote class="pullquote">
+  I love it, and I'm probably going to stay with it (but I miss a debugger).
+</quote>
+
+<p>This is what Zed is:</p>
+<blockquote>
+<p>Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&rsquo;s also open source.</p>
+</blockquote>
+<h2 id="projects-worked-on">Projects worked on:</h2>
+<p>These are the projects I managed to work on this week with Zed:</p>
+<ul>
+<li>Python project - 4m+ lines of code</li>
+<li>Go project - 7k+ lines of code</li>
+<li>Markdown - This blog post</li>
+</ul>
+<h2 id="no-debugger">No debugger</h2>
+<p>Honestly, I thought I would miss this a lot more than I did. However, to remove VS Code from my setup, I&rsquo;d need the debugger. Firing up a second editor, to find the files, to then debug is a little tedious.</p>
+<h2 id="its-fast">It&rsquo;s fast</h2>
+<p>Apart from searching for a symbol, which feels slower than VS Code, Zed seems quicker overall. I prefer the slim-down nature of it in comparison to VS Code. It certainly reminds me of Sublime Text, which I loved (and also now struggle to remember why I stopped using it!).</p>
+<h2 id="collaboration-ui">Collaboration UI</h2>
+<p>I managed to get a colleague to pair with me for 15 minutes using Zed, and it took us a wee while to get used to what the user interface was telling us. It&rsquo;s handy though:</p>
+<ul>
+<li>Screensharing - Although we couldn&rsquo;t seem to configure which screen to share, so it shared my work diary, not the screen with the editor on. You live and learn.</li>
+<li>Audio 1:1 calling - This was the first thing we tried, and the quality levels were very good.</li>
+<li>Channel audio - It seems like you have to join the audio even if you just want to use the text chat. Maybe this was an oversight by us though?</li>
+<li>Channel messaging - Slight <a href="https://github.com/zed-industries/zed/issues/6706">bug</a> that you couldn&rsquo;t copy the messages from the chat window.</li>
+</ul>
+<p>I have one slight concern about this feature: Normally all this context is in Slack (for me at least), but it would be in Zed. Does this lose a collaboration touch point with the rest of the team who aren&rsquo;t in Zed? One to ponder. You may want to pull in a Product Manager, or a designer into the conversation (They are generally saviours to any given situation). I highly doubt they would install an editor to do that. It does, however, remind me of the early 2000&rsquo;s when engineers had to use IRC to communicate with each other. It&rsquo;s a little bit secret, which makes it fun.</p>
+<h2 id="git-integration">Git integration</h2>
+<p>This was a surprise to me, as I hadn&rsquo;t anticipated this impacting me. I use <code>git</code> on the CLI. I&rsquo;ve never used a UI, and I struggle with them for <code>git</code>. However, what I did miss was the little &ldquo;git insights&rdquo; you can get in VS Code. e.g. &ldquo;Developer Alice modified this code last week&rdquo;.</p>
+<p>This gives you a sense of &ldquo;freshness&rdquo; of the code. Back to <code>git blame</code>.</p>
+<h2 id="keymaps">Keymaps</h2>
+<p>Although it says I was using the VS Code one, there were a <a href="https://github.com/benmatselby/dotfiles/blob/main/zed/keybindings.json">few keymap changes</a> I needed to make. No big drama.</p>
+<h2 id="outline-view">Outline view</h2>
+<p>It would be nice to have the Outline View as a scrollable dock item, rather than a modal. It feels prohibitive as a modal, and it doesn&rsquo;t allow you to collapse certain symbols. So in a codebase that may have 15 classes in a file, you couldn&rsquo;t focus on the class you want to look at. It&rsquo;s all expanded.</p>
+<h2 id="unused-variables">Unused variables</h2>
+<p>It would be good to highlight unused variables, assuming this comes from the language server. It wasn&rsquo;t a biggy, as pre-commit hooks captured it, but it slows you down ever so slightly.</p>
+<h2 id="copilot">Copilot</h2>
+<p>Easily configured, but I did miss having Copilot Chat. You can use the <a href="https://docs.zed.dev/general/assistant-panel">Open AI integration</a>, but I already have a license for GitHub Copilot, so not sure I want to pay for both services.</p>
+<h2 id="it-seems-to-just-work-tm">It seems to &ldquo;Just work (tm)&rdquo;</h2>
+<p>I&rsquo;ve pretty much <a href="https://github.com/benmatselby/dotfiles/tree/main/vscode">automated the install for VS Code</a>, but it feels like there is a &ldquo;lot going on&rdquo;. That doesn&rsquo;t feel the same with Zed. I opened a Python file for the first time, and it downloaded the language server. Same with the Go codebase.</p>
+<p>Apart from the debugger, it had the right level of tools I needed. I also work on TypeScript and PHP projects, so that will be the next test to see how it handles those languages.</p>
+<h2 id="summary">Summary</h2>
+<p>I&rsquo;m going to stick with it. I suspect I will fire VS Code up when I need to debug something, but let&rsquo;s see how we go with Zed for a little bit longer.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/">Automating the startup of a dev workflow</a></li>
+<li><a href="https://github.com/benmatselby/dotfiles">My dotfiles</a></li>
+<li><a href="https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/">Setting up k9s skins for different Kubernetes clusters</a></li>
+<li><a href="https://benmatselby.dev/post/communication-tools/">Collaborative Communication Tools</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

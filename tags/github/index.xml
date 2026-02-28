@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/github/</link>
+    <description>Recent content in Github on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 09:19:38 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>&lt;!-- markdownlint-disable MD033 --&gt;&#xA;&lt;div class=&#34;buildtool&#34;&gt;&#xA;  &lt;img src=&#34;https://benmatselby.dev/img/logo-aws-codepipeline.png&#34; alt=&#34;AWS CodePipeline&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-github.png&#34; alt=&#34;GitHub&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-jenkins.png&#34; alt=&#34;Jenkins&#34; class=&#34;buildtool__logo buildtool__logo-jenkins&#34; /&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.&lt;/p&gt;&#xA;&lt;p&gt;The tools this post is going to compare are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/codepipeline/&#34;&gt;AWS CodePipeline&lt;/a&gt; (As I happen to be working in the AWS space at the moment)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.jenkins.io&#34;&gt;Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A couple of things to note:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>&lt;p&gt;Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.&lt;/p&gt;&#xA;&lt;p&gt;But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?&lt;/p&gt;&#xA;&lt;p&gt;There isn&amp;rsquo;t that many options in this space.&lt;/p&gt;&#xA;&lt;p&gt;If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the &lt;a href=&#34;https://github.com/benmatselby/gollum-page-watcher-action&#34;&gt;Gollum Page Watcher&lt;/a&gt; can help.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just released version &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages/releases/tag/v1.2.1&#34;&gt;v1.2.1&lt;/a&gt; of the &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages&#34;&gt;Hugo Deploy to GitHub Pages&lt;/a&gt; GitHub Action.&lt;/p&gt;&#xA;&lt;p&gt;This means it now fully conforms to the metadata specification as defined &lt;a href=&#34;https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo site&lt;/a&gt; to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

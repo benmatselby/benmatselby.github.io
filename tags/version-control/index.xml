@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Version-Control on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/version-control/</link>
+    <description>Recent content in Version-Control on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Mar 2021 21:31:48 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>&lt;p&gt;Since the start of the year, I&amp;rsquo;ve been running weekly workshops with &lt;a href=&#34;https://github.com/paddymorgan84&#34;&gt;Paddy Morgan&lt;/a&gt; at work. These have been fun sessions to run. Some have been chats, some demos etc.&lt;/p&gt;&#xA;&lt;p&gt;However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.&lt;/p&gt;&#xA;&lt;p&gt;This post covers what we ran through.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Time allocation:&lt;/strong&gt; 60 minutes&lt;/p&gt;&#xA;&lt;p&gt;This workshop will be a high level overview of the basic git commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with git on the CLI, this probably isn&amp;rsquo;t for you.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>&lt;p&gt;When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.&lt;/p&gt;&#xA;&lt;quote class=&#34;pullquote&#34;&gt;&#xA;  &#xA;Make sure all commits in version control are logically atomic.&#xA;&#xA;&lt;/quote&gt;&#xA;&#xA;&lt;h2 id=&#34;what-is-a-logically-atomic-commit&#34;&gt;What is a logically atomic commit?&lt;/h2&gt;&#xA;&lt;p&gt;A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

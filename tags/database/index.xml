@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/database/</link>
+    <description>Recent content in Database on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Nov 2022 19:20:21 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Keyhole to understand slow queries in MongoDB</title>
+      <link>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</link>
+      <pubDate>Wed, 02 Nov 2022 19:20:21 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</guid>
+      <description>&lt;p&gt;Slow queries are a part of life. This post will show you how to use &lt;a href=&#34;https://github.com/simagix/keyhole&#34;&gt;Keyhole&lt;/a&gt; to turn your MongoDB logs into a spreadsheet you can use to understand where to focus your efforts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;keyhole&#34;&gt;Keyhole&lt;/h2&gt;&#xA;&lt;p&gt;First of all, get Keyhole up and running. Please &lt;a href=&#34;https://github.com/simagix/keyhole/tree/master/build&#34;&gt;follow their instructions&lt;/a&gt; on how to do this.&lt;/p&gt;&#xA;&lt;p&gt;I was able to do the following, but things change, so check out their docs for more relevant information.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/simagix/keyhole.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#24909d&#34;&gt;cd&lt;/span&gt; keyhole&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go build main/keyhole.go&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./keyhole --version&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;simagix/keyhole devel-20221102&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;logs&#34;&gt;Logs&lt;/h2&gt;&#xA;&lt;p&gt;So now we want to download the logs from MongoDB. I&amp;rsquo;m going to use the logs from MongoDB Cloud Atlas. So first of all, make sure you&amp;rsquo;re logged into the platform and on the projects page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>&lt;p&gt;I recently started a new job. The data store is &lt;a href=&#34;https://www.mongodb.com&#34;&gt;MongoDB&lt;/a&gt;, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to &lt;a href=&#34;http://twitter.com/benmatselby/photo&#34;&gt;tweet me&lt;/a&gt; if there are discrepancies.&lt;/p&gt;&#xA;&lt;p&gt;The first thing that I became aware of, is that there are/were two cli tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The legacy &lt;code&gt;mongo&lt;/code&gt; shell, which &lt;a href=&#34;https://www.mongodb.com/docs/manual/reference/program/mongo/&#34;&gt;was deprecated in MongoDB v5.0&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The new, and active, &lt;code&gt;mongosh&lt;/code&gt; shell, which replaced &lt;code&gt;mongo&lt;/code&gt;. The documentation for this shell is &lt;a href=&#34;https://www.mongodb.com/docs/mongodb-shell/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post will discuss &lt;code&gt;mongosh&lt;/code&gt; and assume you have MongoDB running on your machine (or access to an instance).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

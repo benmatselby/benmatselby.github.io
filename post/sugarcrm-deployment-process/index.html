@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Sharing how we successfully released SugarCRM every two weeks, without fail, for over 5 years.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>SugarCRM deployment process &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="SugarCRM deployment process">
+  <meta name="twitter:description"
+    content="Sharing how we successfully released SugarCRM every two weeks, without fail, for over 5 years.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="SugarCRM deployment process">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="SugarCRM deployment process">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+  <meta property="og:description"
+    content="Sharing how we successfully released SugarCRM every two weeks, without fail, for over 5 years.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-chinatown.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>SugarCRM deployment process</h1>
+  <span class="posts__item-date">Aug 26, 2018 &middot; 11 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/sugarcrm" title="Posts related to sugarcrm">#sugarcrm</a></span>
+    
+    <span class="tags__tag"><a href="/tags/deployment" title="Posts related to deployment">#deployment</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p><a href="https://www.sugarcrm.com">SugarCRM</a> is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.</p>
+<h2 id="the-aim">The Aim</h2>
+<p>As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis. We wanted the release to the production platform to have some manual intervention so there was ownership and accountability.</p>
+<p>It should be: Easy; A click of a button; Monitored</p>
+<p>Although we have a release schedule of every 2 weeks, we also wanted to be able to release instantly for hot fixes, should the need arise.</p>
+<h2 id="flow">Flow</h2>
+<p>We wanted a flow that pushed up through our platforms, starting from a developers&rsquo; virtual machine, then to staging, then to production. This means you cut all the deployment bugs down, as we have to uplift the release candidate to the relevant platform, proving we can release to production. There should be no manual steps to the staging platform, as this could be missed when we deploy to production.</p>
+<h2 id="tools">Tools</h2>
+<p>In order to achieve our automated release pipeline, we use the following tools</p>
+<ul>
+<li>Makefile</li>
+<li>Bash scripts</li>
+<li><a href="https://jenkins.io">Jenkins</a></li>
+<li><a href="https://grafana.com">Grafana</a>/<a href="https://graphiteapp.org">Graphite</a>/<a href="https://github.com/etsy/statsd">Statsd</a></li>
+</ul>
+<h3 id="makefile">Makefile</h3>
+<p>Makefiles are pervasive in our software. It’s the default build tool, irrelevant of the underlying language being used. Each time we onboard a developer into our team, the first thing they do is checkout the git repo, and run <code>$ make</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ make
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Welcome</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Makefile for the SugarCRM application</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Installation</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># New repo from scratch?</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#  -&gt; $ make clean install</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### ....</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### [more explanations and documentation to developers]</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### ....</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Targets</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>check-release                  Check to see <span style="color:#6ab825;font-weight:bold">if</span> the release can happen
+</span></span><span style="display:flex;"><span>clean                          Clean the <span style="color:#24909d">local</span> filesystem
+</span></span><span style="display:flex;"><span>deploy-holding-off             Take the holding pages down
+</span></span><span style="display:flex;"><span>deploy-holding-on              Deploy the holding pages (config/deployment.tmp has the details you may want to change)
+</span></span><span style="display:flex;"><span>deploy-hotfix                  Deploy a <span style="color:#ed9d13">&#34;hotfix&#34;</span> from a git commit to a specific platform
+</span></span><span style="display:flex;"><span>deploy                         Create and deploy the tarballs
+</span></span><span style="display:flex;"><span>install-vendors                Install all the vendors we need (Differs when run on vagrant and host)
+</span></span><span style="display:flex;"><span>install                        Install the application
+</span></span><span style="display:flex;"><span>promote                        Promote a release candidate to being <span style="color:#ed9d13">&#34;live&#34;</span>
+</span></span><span style="display:flex;"><span>release-complete               Commit all changes, branches and tags back to Git
+</span></span><span style="display:flex;"><span>release-create                 Create the release locally ready <span style="color:#6ab825;font-weight:bold">for</span> git commit
+</span></span><span style="display:flex;"><span>release                        Release the tarballs. Expected to be run on the live platform via another application (e.g Jenkins)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### ....</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">## [cut down to release specific targets]</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### ....</span></span></span></code></pre></div>
+<p>In relation to the release process, the Makefile documents how to clean the local area, install dependencies, package the software, install the software, understand how to do any auxiliary work like running a &ldquo;Repair and Rebuild&rdquo; in SugarCRM.</p>
+<p>It does not understand the topology of the target platform.</p>
+<h3 id="bash-scripts">Bash Scripts</h3>
+<p>We have a <code>deploy.sh</code> script that co-ordinates all of the deployment activities into one place. This historically was in Jenkins, however, changes to the release process seemed to be stuck with one or two individuals who maintained Jenkins. The aim of moving this into the git repo of the application is to create a sense of ownership. The file is right there in OUR repo, WE own it, WE change it, WE love it 💚</p>
+<p>This script is responsible for tying all the release items up together, and covers:</p>
+<ul>
+<li>Turn the crontab off - This is important because we are trying to reduce load on the SugarCRM application. During a release you have to run “Repair and Rebuild”, and SugarCRM gets very upset when the system is under load</li>
+<li>Clean the local build directories</li>
+<li>Install all the dependencies - We have our own <code>composer.json</code> file above and beyond what SugarCRM provide. We also have a <a href="https://symfony.com">Symfony</a> application integrated into SugarCRM. So this process covers all the dependencies we have</li>
+<li>Deploying the tarball to the relevant platforms - This does not impact the live application, as it’s simply a deployment mechanism. We store a config file for each platform, so the deployment process identifies the target platform and copies the relevant configuration files for SugarCRM, Cron and Symfony</li>
+<li>Promotion of the release - This is where we start to impact the running of the application, because of the way SugarCRM’s caching system works. When running “Repair and Rebuild” it impacts the filesystem and the database, therefore you cannot prime the environment and simply switch the symlink, you have a couple of minutes of down time whilst the cache is warmed</li>
+<li>Turn the crontab on - Now the promotion has happened, we can turn the crontab back on</li>
+<li>Rebooting of Apache for all the servers - This clears the Opcache, and is done one at a time so there is always web servers active</li>
+<li>If we are deploying to production we merge the release into <code>master</code> and create all the necessary tags in git etc, and push back to GitHub</li>
+<li>We ping Grafana to notify that a release has taken place</li>
+</ul>
+<p>This script is fairly basic in the logic used and outputs clean section headers for each step etc. It also has some sanity checks in there to make sure we are not doing something we will later regret. Some of the above should be self explanatory, but the interesting items are discussed below</p>
+<h4 id="promotion">Promotion</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#447fcf">release</span>: check-release <span style="color:#999;font-style:italic">## Release the tarballs. Expected to be run on the live platform via another application (e.g Jenkins)
+</span></span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Symfony cache:clear</span>
+</span></span><span style="display:flex;"><span>        subdomains/app/bin/console --env=prod cache:clear --no-warmup
+</span></span><span style="display:flex;"><span>        subdomains/app/bin/console --env=dev cache:clear --no-warmup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Symfony assets:install</span>
+</span></span><span style="display:flex;"><span>        subdomains/app/bin/console --env=prod assets:install subdomains/app/web/
+</span></span><span style="display:flex;"><span>        subdomains/app/bin/console --env=dev assets:install subdomains/app/web/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Executing Pre Release Scripts</span>
+</span></span><span style="display:flex;"><span>        bin/cli.php crm:run-release-scripts --type=pre --branch=<span style="color:#6ab825;font-weight:bold">$(</span>BRANCH<span style="color:#6ab825;font-weight:bold">)</span> --folder=<span style="color:#6ab825;font-weight:bold">$(</span>RELEASE_FOLDER<span style="color:#6ab825;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Running automated repair and rebuild</span>
+</span></span><span style="display:flex;"><span>        bin/cli.php sugar:repair-rebuild
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Running automated repair and rebuild (again)</span>
+</span></span><span style="display:flex;"><span>        bin/cli.php sugar:repair-rebuild
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Running automated rebuild relationships</span>
+</span></span><span style="display:flex;"><span>        bin/cli.php sugar:rebuild-relationships
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf">promote</span>: <span style="color:#999;font-style:italic">## Promote a release candidate to being &#34;live&#34;
+</span></span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Executing Post Release Scripts</span>
+</span></span><span style="display:flex;"><span>        bin/cli.php crm:run-release-scripts --type=post --branch=<span style="color:#6ab825;font-weight:bold">$(</span>BRANCH<span style="color:#6ab825;font-weight:bold">)</span> --folder=<span style="color:#6ab825;font-weight:bold">$(</span>RELEASE_FOLDER<span style="color:#6ab825;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Copy the platform SugarCRM Config over</span>
+</span></span><span style="display:flex;"><span>        cp config/config.php.<span style="color:#6ab825;font-weight:bold">$(</span>PLATFORM<span style="color:#6ab825;font-weight:bold">)</span> src/config.php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Link us into the live folder</span>
+</span></span><span style="display:flex;"><span>        rm -fr /path/to/app/sugarcrm &amp;&amp; ln -s /path/to/app/sugarcrm-<span style="color:#6ab825;font-weight:bold">$(</span>RELEASE_VERSION<span style="color:#6ab825;font-weight:bold">)</span> /path/to/app/sugarcrm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Installing new crontab scripts/cron/crontab-master</span>
+</span></span><span style="display:flex;"><span>        crontab scripts/cron/crontab-master
+</span></span></code></pre></div>
+<p>We have built our own Symfony CLI application, which wraps some of the SugarCRM administration, to make our operational tasks easier. This is similar to the <code>bin/sugarcrm</code> application which has subsequently been released in the core product.</p>
+<p>We have found that it is necessary sometimes to run the “Repair and Rebuild” process a couple of times, so this is now the standard. We do not really want to fire up the SugarCRM administration UI either, so we have automated the rebuilding of relationships too, in case anything has changed in the sprint.</p>
+<p>The other section of interest is we have a Symfony command that automates some of the release scripts we may need to run. This can be run in <code>pre</code> or <code>post</code> mode, which enables us to automate the running of Bash, PHP or SQL scripts in a given order before and after the &ldquo;Repair and Rebuild&rdquo;.</p>
+<h4 id="notifying-grafana">Notifying Grafana</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#447fcf">.PHONY</span>: notify-grafana <span style="color:#999;font-style:italic">## Send a release marker to Grafana
+</span></span></span><span style="display:flex;"><span><span style="color:#447fcf">notify-grafana</span>:
+</span></span><span style="display:flex;"><span>        curl -H <span style="color:#ed9d13">&#34;Authorization: Bearer [Token]&#34;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>                -X POST <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>                -H <span style="color:#ed9d13">&#34;Content-Type: application/json&#34;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>                -d <span style="color:#ed9d13">&#39;{&#34;tags&#34;:[&#34;release&#34;,&#34;release-sugarcrm”,”release-sugarcrm-$(RELEASE_VERSION)&#34;], &#34;text”:”SugarCRM Release $(RELEASE_VERSION)&#34;}&#39;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>                <span style="color:#ed9d13">&#34;http://grafana.instance.url:8080/api/annotations&#34;</span>
+</span></span></code></pre></div>
+<p>As mentioned at the start, we wanted our releases to be monitored, so we ping Grafana to notify a release has taken place.</p>
+<h3 id="jenkins">Jenkins</h3>
+<p>Jenkins is the UI mechanism we interact with to deploy our software. It checks out the application from GitHub, and then runs <code>deploy.sh</code>. It asks the developer: Which branch to release; whether to bounce apache, and whether to do all the version control work.</p>
+<p><img src="/img/sugarcrm-deploy-jenkins-ui.png" alt="Jenkins UI to deploy SugarCRM"></p>
+<p>You could deploy from a developers&rsquo; machine if you wished, but Jenkins gives a nice UI and is globally available to us. It’s a nice tool to be able to provide read access to other people who may want to know when a release is finished. Jenkins also posts into our Slack channels, so folks know if a deployment was successful or not. It&rsquo;s also clean, in the sense that you know what is on the platform (nothing). If you did this on a developers machine, although we check and clean the local environment, it just seems riskier to me.</p>
+<h2 id="monitoring">Monitoring</h2>
+<p>Releases are risky business.</p>
+<p>However, if you have an automated release which is tested, constantly, the risk is lowered. If you have enough telemetry to know if a release is good or bad, the risk is lowered. Telemetry is the lifeblood of a release. Without it, I don’t know how you gain the courage to release. If I couldn’t see error rates, or traffic, or CPU usage, or memory usage, or feature usage, I would be horrified releasing software.</p>
+<p>When we deploy SugarCRM, we are looking for</p>
+<ul>
+<li>412 HTTP Response codes. This is what happens when you clear and generate a new cache (From “Repair and Rebuild”). You will see a big spike in these responses before the system calms down after a release</li>
+<li>Successful SugarCRM logins</li>
+<li>The average API response time (All the calls running through <code>api/rest.php</code>)</li>
+<li>Overall traffic to the site (Have we broken apache for example)</li>
+<li>Database connections, CPU, Memory</li>
+<li>The health of the applications that integrate into SugarCRM. We have 2 other applications that are heavily integrated into the SugarCRM application, and luckily it’s all monitored in Grafana so we can see if they are &ldquo;healthy&rdquo; too after a release</li>
+</ul>
+<p>We are generally monitoring the software on any given day, but rely more on <a href="https://benmatselby.dev/post/communication-tools/">Slack notifications</a> for any issues we need to immediately focus on. However, during a release we are more hands on, actively looking through the hundreds of graphs and dashboards we have built over the years. After a while, you naturally know what the system should “look like” at any given time (9am, lunchtime, a release, bank holidays etc). This makes it much easier to understand issues when the graphs deviate from what is “normal”. We know, for example, that we will see Apache Segfaults and Apache Bus Errors (Seems to be NFS related, a long, long story) during the Repair and Rebuild process! We know we will see the spike in 412 HTTP response codes and the average API time will increase for about 15 to 20 minutes before it calms down again.</p>
+<p>And of course, with rich telemetry you can zoom out and see historical trends. For example we knew that for our installation, with our customisations, SugarCRM 7.8 was slightly less performant than SugarCRM 7.7. It is vital you have this kind of telemetry to understand the systems you build.</p>
+<p><img src="/img/sugarcrm-performance-change-78.png" alt="SugarCRM 7.8 Performance change"></p>
+<h2 id="what-does-it-mean-as-a-sugarcrm-administrator-to-release-this-way">What does it mean as a SugarCRM administrator to release this way</h2>
+<p>As with anything, there is a trade off. In order to have a very slick flow from development to production, and for it all to be version controlled, administrators lose some tools.</p>
+<p>One such tool is “<a href="http://support.sugarcrm.com/Documentation/Sugar_Versions/8.0/Ent/Administration_Guide/Developer_Tools/Studio/">Studio</a>”. This enables administrators/product owners to add/remove/edit fields, relationships, change views etc. However, if we let them do this, because of the way SugarCRM splits the cache between the filesystem and the database, developers would not get these changes, nor would they be version controlled. For an enterprise solution, there are more benefits than negatives by taking this away from administrators. It is more beneficial to have clear ownership and version controlled software, which is easily deployed via an automated procedure.</p>
+<p>Another area that is slightly more awkward than you would hope is a SugarCRM upgrade. A SugarCRM upgrade can be done in the UI or the CLI. I have never done one in the UI, so cannot comment. However, the CLI documentation generally hints at you running this on production, after running it on your staging platform to confirm it works. Again, this would mean nothing is version controlled, which is scary. Or, would rely on developers coping all the files down from production, again, scary. So, we run the upgrade on a development machine, commit all the changes, and then pull down onto a secondary machine to see if we have upgraded correctly. Then we build a SQL script to replay the database changes the CLI upgrade script has completed for us. It’s not great. Ideally, I would like to see SugarCRM become a vendor in the <code>composer.json</code> file, so that easily sorts the code out. Then if the CLI application could be broken down into logical sections such as schema changes, data cleanup etc, they could be run on each platform.</p>
+<p>Lastly, the area that has caused us some grief, so worth calling out, is Enums (Drop down list items). Enums seem to upset people the most, the fact that they cannot just change an Enum themselves in the administration area as <a href="http://support.sugarcrm.com/Documentation/Sugar_Versions/8.0/Ent/Administration_Guide/Developer_Tools/#Editing_Dropdown_Lists">documented here</a>. Why can they not do this? The tool makes code changes to files that need to be version controlled. So, Enums need to be controlled by development and uplifted to the relevant platforms as per the release process. It would be very good if SugarCRM built a database solution for this, as this would also help Data Warehouse solutions, which want to know what the value is for the key stored (In any language they pick).</p>
+<h2 id="the-end">The end</h2>
+<p>Hopefully this covers off how we have been successfully releasing SugarCRM every two weeks, without fail, for over 5 years. Whether it&rsquo;s a small release from the Holiday season, or a massive SugarCRM upgrade (Looking at you SugarCRM 7.9 with your full re-write of the Quotes module 🤯), the automation and monitoring put in place makes these releases no different.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

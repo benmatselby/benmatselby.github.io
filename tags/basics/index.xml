@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/basics/</link>
+    <description>Recent content in Basics on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Apr 2021 21:18:37 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Jenkins: Language Agent</title>
+      <link>https://benmatselby.dev/post/jenkins-language-agent/</link>
+      <pubDate>Sat, 24 Apr 2021 21:18:37 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-language-agent/</guid>
+      <description>&lt;p&gt;This post follows on from the Jenkins series:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;Getting started with Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/jenkins-basic-agent/&#34;&gt;Getting started with Jenkins: Agents&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt;. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.&lt;/p&gt;&#xA;&lt;p&gt;All of the example code used throughout this post is in a &lt;a href=&#34;https://github.com/benmatselby/jenkins-example&#34;&gt;GitHub Repo&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins: Agents</title>
+      <link>https://benmatselby.dev/post/jenkins-basic-agent/</link>
+      <pubDate>Wed, 07 Apr 2021 19:23:54 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basic-agent/</guid>
+      <description>&lt;p&gt;Following on from &lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;Getting started with Jenkins&lt;/a&gt;, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the &lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;previous post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We will run the Jenkins agents in docker containers, like we have for the controller.&lt;/p&gt;&#xA;&lt;p&gt;We need to adjust the &lt;code&gt;docker run&lt;/code&gt; command slightly this time around. But first, we need to define a Docker network. So let&amp;rsquo;s start with creating the Jenkins network.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins</title>
+      <link>https://benmatselby.dev/post/jenkins-basics/</link>
+      <pubDate>Sat, 03 Apr 2021 20:42:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.jenkins.io/&#34;&gt;Jenkins&lt;/a&gt; is an automation application, that is heavily used for &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;Continuous Integration (CI)&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;Continuous Deployment/Delivery (CD)&lt;/a&gt;. This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&amp;rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&amp;rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

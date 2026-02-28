@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="What it has been like working with the GitHub coding agent for the last two weeks.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Two weeks with the GitHub Coding Agent &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Two weeks with the GitHub Coding Agent">
+  <meta name="twitter:description"
+    content="What it has been like working with the GitHub coding agent for the last two weeks.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-ai-human-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Two weeks with the GitHub Coding Agent">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Two weeks with the GitHub Coding Agent">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-ai-human-share.jpg">
+  <meta property="og:description"
+    content="What it has been like working with the GitHub coding agent for the last two weeks.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-ai-human.jpg); background-position: center center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Two weeks with the GitHub Coding Agent</h1>
+  <span class="posts__item-date">Jun 28, 2025 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/ai" title="Posts related to ai">#ai</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p>For the last two weeks, we&rsquo;ve been learning to work with the new <a href="https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/">GitHub Coding Agent</a>. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.</p>
+<p>From now on we will call the GitHub Coding Agent &ldquo;Mx Robot&rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).</p>
+<h2 id="how-we-did-it">How we did it</h2>
+<p>First off, I&rsquo;m in a team of two people at the moment. So the first week, it was very much an after thought. &ldquo;Oh I could have given this to AI&rdquo;. Only <strong>7% of the pull requests merged were from Mx Robot</strong>. The second week we were much more intentional. Each morning at 9am, we had an informal review of the backlog and agreed what to delegate to Mx Robot. We currently work in Jira, with no integration with the coding agent. This meant we had to re-write/copy/paste the Jira ticket into a GitHub Issue, or the Copilot agent window on GitHub.</p>
+<quote class="pullquote">
+  In the second week, 24% of our pull requests were created by Mx Robot.
+</quote>
+
+<p>Once the prompt had initiated work, we copied our prompt back to the Jira ticket so we had a reference of what was asked. The intention here is to learn which phrasing provides the most success.</p>
+<p>The process took an hour each morning. This was mainly due to learning and then demoing our process to another team. In reality this could have been 30 minutes. I would say roughly 60% of the work last week was ear marked as &ldquo;AI achievable&rdquo;. This means that we believed we could delegate to AI if we wanted to and get some level of success.</p>
+<p>We agreed to only have 2 tickets in progress with Mx Robot at a time. Maybe it&rsquo;s a coincidence, or maybe 1 AI ticket per dev (plus their own work) is a workable heuristic. We haven&rsquo;t gathered enough data to make a determination yet. Our team grows to three devs next week, so we can see if this holds true.</p>
+<p>We also agreed to only have three interactions with Mx Robot on the pull request. If we couldn&rsquo;t get it over the line with three interactions then we either:</p>
+<ol>
+<li>Scrap it entirely and get humans to do the work, or</li>
+<li>Take over from the pull request if there was a good foundation to build on.</li>
+</ol>
+<p>Lastly, and maybe we were too pessimistic, we agreed that green field development that needed a wide range of thought we would leave to the humans.</p>
+<p>In week two, <strong>24% of our pull requests were created by Mx Robot</strong>. We went from a statistic of 1.1 tickets per human per day, to 1.8. This is over a 3 week rolling average.</p>
+<h2 id="what-worked">What worked</h2>
+<p>We&rsquo;ve given Mx Robot the following types of work</p>
+<ul>
+<li>Refactoring configuration files.</li>
+<li>Removing old feature flags.</li>
+<li>Adding indexes.</li>
+<li>Adding throttling configuration to API endpoints.</li>
+<li>Fixing bugs in a user interface.</li>
+<li>A very small feature that builds on top of an existing data structure we have.</li>
+</ul>
+<p>Most of those changes were then reviewed, tested, approved, and merged within three interactions. I personally feel like I&rsquo;ve had more of a &ldquo;testing&rdquo; mindset when reviewing the work from Mx Robot. I don&rsquo;t trust that it will have caught everything, so there is more testing overhead here. Keep this in mind when thinking about productivity. You don&rsquo;t get the results entirely for free without human productivity helping.</p>
+<p>How did it all play out then?</p>
+<ul>
+<li>11% of pull requests were abandoned as way off the mark.</li>
+<li>22% of pull requests had 2 comments to get the change ready for human review.</li>
+<li>22% of pull requests had no feedback, were tested locally, and then merged.</li>
+<li>56% of pull requests had one piece of feedback.</li>
+<li>22% of pull requests took a further 2 commits to get them over the line.
+<ul>
+<li>Looking at the feedback, this was consistently due to bad linting and/or fixing tests.</li>
+<li>This was the case even though we have a <code>copilot-instructions.md</code> file explaining all linting and tests need to pass for each change.</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-didnt-work">What didn’t work</h2>
+<p>The flow of going from Jira to a GitHub Issue or Copilot window is very clunky. So much so, that we aim to trial not working in Jira for an entire week. We want to bring the product managers and designers closer to Mx Robot, not make engineers a proxy from ticket to pull request. &ldquo;Pushing left&rdquo; is still a thing in this new era.</p>
+<p>The other big take away from the two weeks would be specificity. When we were super clear what we wanted, it did well. Where we were more vague we had to be more involved with the pull request. I suspect this is the distinction between AI Assisted and Vibe Coding. We did care about the code, and the solution, in comparison to vibe coding where you&rsquo;re less concerned with the output of code.</p>
+<h2 id="next-experiments">Next experiments</h2>
+<p>Next week we are going to mix it up a little.</p>
+<ul>
+<li>Remove the 9am call and let each engineer decide what is given to Mx Robot. We believe we learnt a lot last week to the point where pairing on delegation is less fruitful.</li>
+<li>We are going to try giving Mx Robot some more complicated work.</li>
+<li>We may try being more vague again on the assignment. We need to find a balance here.</li>
+<li>We are going to keep a good and a bad change and then review. The aim is to see what changes we can make to hit the target quicker.</li>
+<li>Delve a little deeper into <a href="https://docs.github.com/en/copilot/how-tos/context/copilot-spaces/creating-and-using-copilot-spaces">Copilot Spaces</a>.</li>
+</ul>
+<p>Speaking for myself, I believe it increased the cognitive load and context switching to some extent. However, I think this is about letting the flow bed in. Removing the sync call at 9am will give us some time back, that means we can spread the AI reviews throughout the day a little more.</p>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Be direct. We asked &ldquo;Can you create a pull request&rdquo;, and the answer was &ldquo;Yes&rdquo;. Did it create the pull request - No. Changing this to &ldquo;Create a pull request that&hellip;&rdquo; helped.</li>
+<li>Keep tasks small and scoped. I personally like creating lists. It turns out, AI like lists too.</li>
+<li>Review the PRs like you would a junior dev’s. It’s good, but not infallible.</li>
+</ul>
+<hr>
+<p>It’s early days, but I can see this becoming a core part of my workflow. Not because it’s flashy, but because it quietly gets things done. I&rsquo;m curious to see when our Mx Robot might be up for promotion too.</p>
+<p>&hellip; and yes, the banner image was created by Copilot (and Leonardo da Vinci).</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

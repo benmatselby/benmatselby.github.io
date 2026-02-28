@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Setting up k9s skins for different Kubernetes clusters">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Setting up k9s skins for different Kubernetes clusters &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Setting up k9s skins for different Kubernetes clusters">
+  <meta name="twitter:description"
+    content="Setting up k9s skins for different Kubernetes clusters">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Setting up k9s skins for different Kubernetes clusters">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Setting up k9s skins for different Kubernetes clusters">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Setting up k9s skins for different Kubernetes clusters">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Setting up k9s skins for different Kubernetes clusters</h1>
+  <span class="posts__item-date">Mar 31, 2023 &middot; 3 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/development" title="Posts related to development">#development</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/devops" title="Posts related to devops">#devops</a></span>
+    
+    <span class="tags__tag"><a href="/tags/cli" title="Posts related to cli">#cli</a></span>
+    
+  </div>
+
+  <blockquote>
+<p>This post was updated on June 19th 2024, to document the latest way to do this.</p>
+</blockquote>
+<p>This post is going to show you how to define different skins for <a href="https://k9scli.io">k9s</a>, so you can quickly see which environment you&rsquo;re working on.</p>
+<p><code>k9s</code> is a terminal application that allows you to manage your <a href="https://kubernetes.io">Kubernetes</a> clusters. So if you&rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&rsquo;re doing.</p>
+<p>Every time I jump onto a production database for nearly two decades, I have set the background to red. Danger! Over the years better tooling has come out, so I now have iTerm profiles that allow me to quickly change the colour of the background when in different environments. Recently I was doing a bit of work on a Kubernetes platform using <code>k9s</code> and was doing the same thing, setting my iTerm profile. Then I checked on the <code>k9s</code> docs and realised you can do this within <code>k9s</code>.</p>
+<p>So, I&rsquo;ve set up the following skins:</p>
+<ul>
+<li>A standard skin</li>
+<li>A testing skin</li>
+<li>A production skin</li>
+</ul>
+<p>You can check out the <a href="https://github.com/derailed/k9s/tree/master/skins">official skins on GitHub</a>. I&rsquo;ve based my skins on <code>monokai.yaml</code>.</p>
+<p>Once you have picked your base skin, save it to this path:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~/Library/Application<span style="color:#ed9d13">\ </span>Support/k9s/skins/[skin-name].yaml
+</span></span></code></pre></div><p>Now we can set the base skin in the <code>k9s</code> configuration file. On the mac this is <code>~/Library/Application Support/k9s/config.yaml</code>. Open this file in your favourite editor and set:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">k9s</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">ui</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">skin</span>:<span style="color:#666"> </span>[skin-name]<span style="color:#666">
+</span></span></span></code></pre></div><p>When you now fire up <code>k9s</code>, you should have the skin you have picked. This is what mine looks like as standard.</p>
+<p><img src="/img/k9s-standard.png" alt="k9s monokai skin"></p>
+<p>Now we want to move on to the good stuff and have different skins for different clusters. As mentioned above, I have production and testing skins. We set the skin per cluster/context.</p>
+<p>For my google kubernetes cluster/contexts I open this file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~/Library/Application<span style="color:#ed9d13">\ </span>Support/k9s/clusters/gke_my_account_europe-west1-b_production/gke_my_account_europe-west1-b_production/config.yaml
+</span></span></code></pre></div><p>I then set:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">k9s</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">skin</span>:<span style="color:#666"> </span>[skin-name]<span style="color:#666">
+</span></span></span></code></pre></div><p><em>Note</em>: There is no <code>ui</code> key in this file, like there is in the default <code>config.yaml</code> file.</p>
+<p>The theme for my production skin is still based on <code>monokai.yaml</code> skin, but I changed the <code>background</code> value to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">background</span>:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">&amp;background</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;#41000c&#39;</span><span style="color:#666">
+</span></span></span></code></pre></div><p>So now, when I connect to the <code>production</code> cluster using <code>k9s</code>, my experience looks like this:</p>
+<p><img src="/img/k9s-prod.png" alt="k9s production skin"></p>
+<p>I&rsquo;ve also gotten into the habit of having a specific colour for testing environments. So basically only my local development environment looks &ldquo;normal&rdquo;. Everything else has a colour that can imply how worried I should be about making changes. My testing skin has a dark purple background.</p>
+<p><img src="/img/k9s-testing.png" alt="k9s testing skin"></p>
+<p>All of these skins are defined in my <a href="https://github.com/benmatselby/dotfiles/tree/main/k9s">dotfiles repo</a> and you can see I <a href="https://github.com/benmatselby/dotfiles/blob/main/k9s/install.sh">symlink</a> the skins, so I can easily track changes in git.</p>
+<p>Hopefully, you found this useful.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

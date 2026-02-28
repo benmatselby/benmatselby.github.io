@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading-List on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/reading-list/</link>
+    <description>Recent content in Reading-List on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Jan 2023 22:23:01 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/reading-list/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Books 2023</title>
+      <link>https://benmatselby.dev/post/books-2023/</link>
+      <pubDate>Sun, 01 Jan 2023 22:23:01 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2023/</guid>
+      <description>&lt;p&gt;So, the numbers are in for 2022, and I read substantially less than the 20 books I set out to read. I did really well in Quarter 1, and then it fell to pieces after that. I traded fiction for technical books, and it all just fizzled out.&lt;/p&gt;&#xA;&lt;p&gt;So this year, I&amp;rsquo;m aiming to read 10 books.&lt;/p&gt;&#xA;&lt;div class=&#34;recommendation&#34;&gt;&#xA;  &lt;div class=&#34;recommendation__group&#34;&gt;&#xA;    &lt;div class=&#34;recommendation__category&#34;&gt;&#xA;      Books&#xA;    &lt;/div&gt;&#xA;    &lt;div class=&#34;recommendation__list&#34;&gt;&#xA;      &#xA;      &#xA;      &lt;div class=&#34;recommendation__item&#34;&gt;&#xA;        &lt;a href=&#34;https://www.engmanagement.dev&#34; class=&#34;recommendation__item-link&#34;&gt;&#xA;          &lt;span class=&#34;recommendation__item-title&#34;&gt;Engineering Management for the Rest of Us&lt;/span&gt;&#xA;          &lt;span class=&#34;recommendation__item-by&#34;&gt;Sarah Drasner&lt;/span&gt;&#xA;        &lt;/a&gt;&#xA;&#xA;        &#xA;        &lt;p class=&#34;recommendation__blurb&#34;&gt;I am a big fan of management books like this. Actionable content that takes you on a personal journey. I found myself taking notes of things I wanted to try out and understand more. I was an IC when I was reading this book, and still found value in it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Books 2022</title>
+      <link>https://benmatselby.dev/post/books-2022/</link>
+      <pubDate>Mon, 03 Jan 2022 20:37:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2022/</guid>
+      <description>&lt;p&gt;Reading is good for you. It keeps the mind occupied. In 2019, I made a real effort to read as much as I could, and it was a good year. Certainly better than 2020, and 2021 at least. So this year, my aim is to read 20 books, which is 10 more than in 2019, and about 20 more than last year!&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll keep this post up to date throughout the year.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Books 2019</title>
+      <link>https://benmatselby.dev/post/books-2019/</link>
+      <pubDate>Sat, 05 Oct 2019 08:37:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/books-2019/</guid>
+      <description>&lt;p&gt;One of my new years resolutions was to try and read 10 books this year. That may not sound a lot, but when you have a myriad of other things going on in your life, that&amp;rsquo;s a tall order. This is what I&amp;rsquo;ve managed to read.&lt;/p&gt;&#xA;&lt;div class=&#34;recommendation&#34;&gt;&#xA;  &lt;div class=&#34;recommendation__group&#34;&gt;&#xA;    &lt;div class=&#34;recommendation__category&#34;&gt;&#xA;      Books&#xA;    &lt;/div&gt;&#xA;    &lt;div class=&#34;recommendation__list&#34;&gt;&#xA;      &#xA;      &#xA;      &lt;div class=&#34;recommendation__item&#34;&gt;&#xA;        &lt;a href=&#34;https://www.waterstones.com/book/dark-sacred-night/michael-connelly/9781409182740&#34; class=&#34;recommendation__item-link&#34;&gt;&#xA;          &lt;span class=&#34;recommendation__item-title&#34;&gt;Dark Sacred Night&lt;/span&gt;&#xA;          &lt;span class=&#34;recommendation__item-by&#34;&gt;Michael Connelly&lt;/span&gt;&#xA;        &lt;/a&gt;&#xA;&#xA;        &#xA;        &lt;p class=&#34;recommendation__blurb&#34;&gt;I&amp;rsquo;m a massive Connelly fan, I&amp;rsquo;ve read and kept all the Bosch novels he&amp;rsquo;s ever written. I&amp;rsquo;m not a hoarder at all, but this is the only series of books I&amp;rsquo;ve kept. There seems to be a transition here with the introduction of Renée Ballard and I think she&amp;rsquo;s great. Maybe more of the Ballard books are to come, whilst the TV show focuses on Bosch?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Git commands to get you through the day">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Git commands to get you through the day &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Git commands to get you through the day">
+  <meta name="twitter:description"
+    content="Git commands to get you through the day">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-seaside-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Git commands to get you through the day">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Git commands to get you through the day">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-seaside-share.jpg">
+  <meta property="og:description"
+    content="Git commands to get you through the day">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-seaside.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Git commands to get you through the day</h1>
+  <span class="posts__item-date">Mar 12, 2021 &middot; 7 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/git" title="Posts related to git">#git</a></span>
+    
+    <span class="tags__tag"><a href="/tags/version-control" title="Posts related to version-control">#version-control</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>Since the start of the year, I&rsquo;ve been running weekly workshops with <a href="https://github.com/paddymorgan84">Paddy Morgan</a> at work. These have been fun sessions to run. Some have been chats, some demos etc.</p>
+<p>However, this week we ran a &ldquo;Git 101&rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.</p>
+<p>This post covers what we ran through.</p>
+<hr>
+<p><strong>Time allocation:</strong> 60 minutes</p>
+<p>This workshop will be a high level overview of the basic git commands you will use daily. It&rsquo;s an entry level workshop, so if you&rsquo;re comfortable with git on the CLI, this probably isn&rsquo;t for you.</p>
+<ul>
+<li>Cloning</li>
+<li>Fetching</li>
+<li>Pulling/Pushing</li>
+<li>Branching</li>
+<li>Logging</li>
+<li>Rebasing</li>
+</ul>
+<p>If we have time (intermediate)</p>
+<ul>
+<li>Hooks</li>
+<li>Configuration (Global and repo level)</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<blockquote>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+</blockquote>
+<p><a href="https://git-scm.com">Source</a></p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>There are different ways to achieve the same thing. Here are some cheat sheets:</p>
+<ul>
+<li><a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Atlassian</a></li>
+<li><a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">GitLab</a></li>
+</ul>
+<h2 id="cloning">Cloning</h2>
+<p>Git is a distributed version control system, so doesn’t require a centralised server. You can clone from another machine on a network, GitHub, GitLab, or your own git server.</p>
+<p>For this example, however, we will use GitHub.</p>
+<p><code>git clone https://github.com/benmatselby/dotfiles.git</code></p>
+<p><code>git clone</code> gets the codebase from GitHub, in this instance, and keeps a copy on your machine. You have now “cloned” the repo.</p>
+<p>How do you know where the original end point is?</p>
+<p><code>git remote show</code></p>
+<p>This will show you the <code>origin</code> remote in the first instance.</p>
+<p><code>git remote show origin</code></p>
+<p>This gives you all the details of the <code>origin</code> remote. What the URL is etc.</p>
+<p>But, you can have many, many origins.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git remote add github https://github.com/benmatselby/dotfiles.git
+</span></span><span style="display:flex;"><span>git remote show
+</span></span><span style="display:flex;"><span>git remote show github
+</span></span></code></pre></div><p>This adds another remote, called <code>github</code> that points to the same endpoint, in this example (which is contrived).</p>
+<h2 id="fetching">Fetching</h2>
+<p>Git is a distributed version control system. So you have the full repo locally, but changes are being made elsewhere. You need to <code>fetch</code> those changes.</p>
+<p>Benefits of this include being able to work &ldquo;offline&rdquo; and still commit code. You do not need an internet connection to commit code!</p>
+<p><code>git fetch origin</code></p>
+<p>This pulls the latest information from the <code>origin</code> remote. This includes branches, tags etc.</p>
+<p>But,</p>
+<p><code>git fetch github</code></p>
+<p>Also fetches from the <code>github remote</code>.</p>
+<h2 id="pulling">Pulling</h2>
+<p>So, we have cloned and fetched. Now we need to pull the code into your branch.</p>
+<p><code>git pull origin main</code></p>
+<p>This pulls the code from the <code>origin</code> remote, and the <code>main</code> branch. You can change both of these values to match your remote and your branch.</p>
+<p>At this point, you are “up to date” with what is on the server, wherever that server is.</p>
+<h2 id="branching">Branching</h2>
+<p>You have a clone, you have the code, now you want to change it.</p>
+<p><code>git checkout -b workshop origin/main</code></p>
+<p>So <code>git checkout</code> is the command. <code>-b</code> is the option to create a branch. <code>workshop</code> is the name of the new branch. <code>origin/main</code> is what I am branching from. It can be from any remote, or branch. You can even create a branch from a local branch:</p>
+<p><code>git checkout -b workshop main</code></p>
+<h2 id="committing">Committing</h2>
+<p>You&rsquo;re on your branch, you&rsquo;ve made some changes, now you need to commit.</p>
+<p>We have a few options here:</p>
+<p><code>git add .</code></p>
+<p>This can be risky, if you are not overly disciplined on file management, or working logically.</p>
+<p>or</p>
+<p><code>git add [file] [file]</code></p>
+<p>This can be better as it allows you to pick the files to stage, ready for commit.</p>
+<p>Both of these options have staged files ready to be committed.</p>
+<p>How do you know what to commit?</p>
+<ul>
+<li><code>git diff</code> shows you what is not staged, that has changed.</li>
+<li><code>git diff --cached</code> shows you what has been staged ready for commit.</li>
+<li><code>git diff -w</code> shows you the diff, without whitespace changes.</li>
+</ul>
+<p><code>git status</code></p>
+<p>This shows you what is and is not staged, and what will be committed.</p>
+<p>Again, a couple of options:</p>
+<p><code>git commit -a</code></p>
+<p>Again, this can be risky, if not overly disciplined as it will commit all changes you have made. This is the equivalent of <code>git add .</code> mentioned above.</p>
+<p>or</p>
+<p><code>git commit</code></p>
+<p>Other options:</p>
+<ul>
+<li><code>git commit -n</code> Very naughty. The <code>-n</code> means naughty, I promise. This essentially ignores any local hooks.</li>
+<li><code>git commit -m &quot;This is my commit message&quot;</code></li>
+</ul>
+<p>Soap box:</p>
+<ul>
+<li><a href="https://benmatselby.dev/post/logical-commits/">Logically atomic commits</a></li>
+<li>Please be liberal in information in your commit history. It&rsquo;s the only thing that stays with us.</li>
+</ul>
+<h2 id="pushing">Pushing</h2>
+<p>Committing code, does not make it available for everyone, since git is distributed. So, we need to push the changes</p>
+<p><code>git push origin workshop</code></p>
+<p>So <code>git push</code> is the command. <code>origin</code> is the location of the server we want to push to. <code>workshop</code> is the branch we are pushing to.</p>
+<h2 id="rebasing">Rebasing</h2>
+<p>So you now commit all day long, but at the end of the day, you want to make <a href="https://benmatselby.dev/post/logical-commits/">logically atomic commits</a>. This means you need to learn rebasing.</p>
+<p>I always think of rebasing as &ldquo;replaying your work over the top of the latest code changes on the branch&rdquo;.</p>
+<p>But you can also do much more with an &ldquo;interactive rebase&rdquo;.</p>
+<p>Normal rebase:</p>
+<p><code>git rebase origin/main</code></p>
+<p>Interactive rebase:</p>
+<p><code>git rebase -i origin/main</code></p>
+<p>Interactive rebase provides you a menu of options, such as squashing, picking, editing, dropping.</p>
+<h2 id="configuration-global-and-repo-level">Configuration (Global and repo level)</h2>
+<p><code>git config --list</code> will show you all your configuration items.</p>
+<p>You can break that down</p>
+<ul>
+<li><code>git config --list --local</code></li>
+<li><code>git config --list --global</code></li>
+</ul>
+<p>So to add config</p>
+<p><code>git config --add user.email engineer@gmail.com</code></p>
+<p>This sets configuration locally to the repo you are in, and overrides global configuration.</p>
+<p>To unset configuration</p>
+<p><code>git config --unset-all user.email</code></p>
+<p>Or to add configuration globally</p>
+<p><code>git config --global --add user.email engineer@gmail.com</code></p>
+<p>You can also edit <code>~/.gitconfig</code> for global configuration, and <code>.git/config</code> for the local repo configuration.</p>
+<p>Let&rsquo;s say you want to have version controlled git configuration, but you need different email addresses (e.g. one for work, one for home), you can set the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">[include]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#bbb">path</span> = <span style="color:#ed9d13">~/.gitconfig.local</span>
+</span></span></code></pre></div><p>The contents of <code>~/.gitconfig.local</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>[user]
+</span></span><span style="display:flex;"><span>  <span style="color:#40ffff">name</span> = Ben Selby
+</span></span><span style="display:flex;"><span>  <span style="color:#40ffff">email</span> = engineer@gmail.com
+</span></span></code></pre></div><h2 id="logging">Logging</h2>
+<p>Logging is what it is, but here are some useful commands:</p>
+<ul>
+<li><code>git log</code> - Show the log.</li>
+<li><code>git log --stat</code> - Shows the log and the files changed.</li>
+<li><code>git log --stat -p</code> - Shows the log and the files changed, and the diff!</li>
+<li><code>git log --graph</code> - Shows the log and graphs how the commits came in.</li>
+<li><code>git log --oneline --decorate</code> - Shows the title of the commits, and curates tags/branches. This is why useful git commits are important.</li>
+<li><code>git shortlog</code> - Commits by engineer.</li>
+<li><code>git shortlog -ns</code> - Commit totals by engineer, in order.</li>
+</ul>
+<h2 id="hooks">Hooks</h2>
+<p>The <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">book</a>.</p>
+<p>Note that there are server and client side hooks. If you maintain your own git server, you can have both. If you use GitHub, you have &ldquo;GitHub Actions&rdquo; as the server hooks.</p>
+<p>Normally, we deal with local hooks, which are stored in <code>.git/hooks</code>.</p>
+<h2 id="tidbits">Tidbits</h2>
+<ul>
+<li><code>master</code> is being moved away from. If you <code>git init</code> a new repo now, git explains this. GitHub is also moving away from <code>master</code> in favour of <code>main</code>.
+<ul>
+<li>This is a good thing.</li>
+</ul>
+</li>
+<li><code>git init</code> creates a new repo.</li>
+<li><code>git show [commit]</code> will show you the contents of the commit.</li>
+<li><code>git ls-files</code> will give you a list of files in git.</li>
+<li><code>git reset --soft HEAD~1</code> will undo the last commit from your local history.</li>
+<li><code>git checkout origin/main -- README.md</code> will checkout <code>README.md</code> by itself from the <code>origin/main</code> branch.</li>
+<li><code>git add -i [file]</code> will allow you to selectively add changes within a given file, using a menu.</li>
+</ul>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/shell-101/">Shell commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/squashing-commits/">Squashing commits</a></li>
+<li><a href="https://benmatselby.dev/post/logical-commits/">Logically atomic commits</a></li>
+<li><a href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

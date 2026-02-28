@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="An argument for managing your project dependencies and ensuring they are up to date.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Dependency Management &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Dependency Management">
+  <meta name="twitter:description"
+    content="An argument for managing your project dependencies and ensuring they are up to date.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Dependency Management">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Dependency Management">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="An argument for managing your project dependencies and ensuring they are up to date.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Dependency Management</h1>
+  <span class="posts__item-date">Jan 18, 2025 &middot; 5 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/automation" title="Posts related to automation">#automation</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p>This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.</p>
+<p>Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.</p>
+<p>Checkout the <a href="https://dora.dev/capabilities/code-maintainability/">Code maintainability</a> capability on the DORA website for a more robust argument.</p>
+<h2 id="what-is-a-project-dependency">What is a project dependency?</h2>
+<p>A dependency, or library, is essentially someone else&rsquo;s code. You would install this via your language&rsquo;s package manager, for example <code>npm</code> (Node), <code>composer</code> (PHP), or <code>pip</code> (Python).</p>
+<p>The dependency is likely to give you some functionality that you do not want to write yourself. This could be as grand as a framework, such as React, Django, or Symfony. Or, it could be a dev tool like a code linter, and everything in between.</p>
+<p>You essentially outsource the responsibility of logic to another project or engineer to perform a capability for you. In most cases, you will interact with it through its public API or contract within your project.</p>
+<p>Before you keep adding dependencies to your project, you may want to consider if it’s better to use a third-party project, or to write it yourself. Whilst it is quicker to install other libraries into your project, in the long run it may actually be harder to support. We delve into this next.</p>
+<h2 id="so-why-do-we-need-to-keep-dependencies-up-to-date">So why do we need to keep dependencies up to date?</h2>
+<p>It&rsquo;s a valid question. For me, it breaks down as follows:</p>
+<p><strong>Security</strong> - If a dependency has a security exploit, you want to be able to update it as soon as possible. This is to ensure your project is not vulnerable to attack. The longer you have left the dependency to decay, the harder it could be to update it. For example if there have been major version changes, you might need to refactor your code to integrate with the new version.</p>
+<p><strong>Bug fixes</strong> - It&rsquo;s likely that your dependency has been worked on by the project owners. Just like your code, the library may have had bug fixes, and performance improvements applied. Your application could benefit from these changes.</p>
+<p><strong>Improvements</strong> - Maybe the library has had some new features added to it, that could improve your project. By updating frequently, the changeset you need to understand is minimal. You might be able to do small refactors to your existing code to take advantage of the new features.</p>
+<p><strong>Compatibility</strong> - If you&rsquo;re using a library that is not being updated, you could find yourself in a situation where you&rsquo;re unable to update other dependencies. This could be because the old library version is no longer compatible with the newer versions of other dependencies.</p>
+<p><strong>Maintenance</strong> - Regular updates prevent the accumulation of technical debt, making it easier to maintain your project in the long run.</p>
+<h2 id="how-to-keep-the-dependencies-up-to-date">How to keep the dependencies up to date?</h2>
+<p>We have a few options available to us here. As mentioned above, really think about if a dependency is even required.</p>
+<p>If you really need the dependency, then you can either update your dependencies manually, or you can automate the process.</p>
+<p>I&rsquo;d recommend automating the process, which takes the burden away from keeping them up to date (almost).</p>
+<p>Some options would include:</p>
+<ul>
+<li><a href="https://github.com/dependabot">Dependabot</a> - Built within the GitHub product set, this will create pull requests for you to update your dependencies.</li>
+<li><a href="https://docs.renovatebot.com">Renovate</a> - A vendor agnostic solution, that can be used with GitHub, GitLab, Bitbucket, and Azure DevOps.</li>
+</ul>
+<p>I&rsquo;ve personally only ever worked with Dependabot, and never really had any issues with it.</p>
+<p>An example of what a simple Dependabot configuration looks like is as follows. This will monitor your <code>npm</code> dependencies on a weekly schedule and raise pull requests for you, if your dependencies are out of date. Check out <a href="https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories">the docs</a> to see if your package repository is supported.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># .github/dependabot.yml</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">version</span>:<span style="color:#666"> </span><span style="color:#3677a9">2</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">updates</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Maintain dependencies for npm</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- <span style="color:#6ab825;font-weight:bold">package-ecosystem</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#39;npm&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">directory</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#39;/&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">schedule</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#6ab825;font-weight:bold">interval</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#39;weekly&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">commit-message</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#6ab825;font-weight:bold">prefix</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#39;npm&#39;</span><span style="color:#666">
+</span></span></span></code></pre></div><p>However you update your dependencies, I would recommend at least reviewing the changelog for the updated version. Automation is fantastic, and you can get all your automated tests running, and merge without a human being involved. However, you lose context. You would not find out about new features and improvements unless you review the changelog. It&rsquo;s also a good habit to know what you&rsquo;re installing into your project.</p>
+<h2 id="summary">Summary</h2>
+<p>In this post, we explored the importance of managing and regularly updating your project dependencies. Keeping dependencies up to date is crucial for maintaining security, fixing bugs, accessing new features, ensuring compatibility, and improving performance. Outdated dependencies can lead to significant issues such as security vulnerabilities, compatibility problems, and technical debt.</p>
+<p>I highly recommend you get them up to date, and then automate the process for keeping them up to to date. Good luck.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/">Automating the startup of a dev workflow</a></li>
+<li><a href="https://benmatselby.dev/post/technical-roadmaps/">Technical Roadmaps and Dev Sustainability</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

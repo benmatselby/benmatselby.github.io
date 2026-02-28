@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Setting up a VS Code Dev Container">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Setting up a VS Code Dev Container &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Setting up a VS Code Dev Container">
+  <meta name="twitter:description"
+    content="Setting up a VS Code Dev Container">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-train-station-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Setting up a VS Code Dev Container">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Setting up a VS Code Dev Container">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-train-station-share.jpg">
+  <meta property="og:description"
+    content="Setting up a VS Code Dev Container">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-train-station.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Setting up a VS Code Dev Container</h1>
+  <span class="posts__item-date">Mar 21, 2021 &middot; 7 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/vscode" title="Posts related to vscode">#vscode</a></span>
+    
+    <span class="tags__tag"><a href="/tags/newbie" title="Posts related to newbie">#newbie</a></span>
+    
+    <span class="tags__tag"><a href="/tags/docker" title="Posts related to docker">#docker</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+  </div>
+
+  <p>Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.</p>
+<p>My first reaction was to get a working environment that I could use, and then share with my team. OK, maybe that wasn&rsquo;t my first reaction 😅.</p>
+<p>This post outlines how to setup a <a href="https://code.visualstudio.com/docs/remote/create-dev-container">VS Code Dev Container</a>, so your team can share the same development environment.</p>
+<h2 id="why-use-a-dev-container">Why use a Dev Container?</h2>
+<p>I am not a fan of the &ldquo;Works on my machine&rdquo; mentality. I&rsquo;ve <a href="https://benmatselby.dev/post/development-environments/">blogged</a> about this before. Engineers need to work in a consistent environment for their project. Ideally this would be closely aligned to the environment you ultimately ship to, i.e. Production.</p>
+<p>We don&rsquo;t want engineers wasting time on maintaining language versions, or OS libraries, or anything that slows them down. We want that burden to be taken away from them, or at least shared amongst the team. If you&rsquo;re in a team that works on multiple projects, keeping everything in sync will become a burden.</p>
+<p>Dev Containers provide the perfect solution in VS Code. With just a few files, you can configure VS Code to have a consistent environment (including plugins) for all your team.</p>
+<h2 id="setting-up-a-dev-container">Setting up a Dev Container</h2>
+<p>As a pre-requisite, you will need the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">&ldquo;Remote - Containers&rdquo; extension</a> from Microsoft.</p>
+<p>To setup a Dev Container environment, you have two options:</p>
+<ol>
+<li>Manually write the files required.</li>
+<li>Get VS Code to take you through the configuration screen and create the boilerplate files for you.</li>
+</ol>
+<p>For your first attempt, I&rsquo;d recommend option 2. Irrelevant of the option you pick, make sure you commit the <code>.devcontainer</code> folder to your version control system.</p>
+<h3 id="manually">Manually</h3>
+<p>You will require two files (which we go over in more depth later in the post):</p>
+<ul>
+<li>A <code>Dockerfile</code> defining your environment. If you&rsquo;re new to Docker, you can read <a href="https://benmatselby.dev/post/docker-101/">this</a>, or the <a href="https://docs.docker.com">official documentation</a>. The definition is whatever you need it to be, with no special requirements for VS Code. For example, you could base it on <code>node:latest</code> and add some extra packages if you wish.</li>
+<li>A <code>devcontainer.json</code>. This helps configure the VS Code environment, for example naming the environment.</li>
+</ul>
+<h3 id="using-the-configuration-screen">Using the configuration screen</h3>
+<p>Open your project in VS Code, and run the Command Palette (On the mac this is on the &ldquo;View&rdquo; menu or <code>shift+command+p</code>). This will allow us to Type &ldquo;Remote Containers&rdquo; and get a list of options.</p>
+<p>We want to pick &ldquo;Add Development Container Configuration Files&hellip;&rdquo;</p>
+<p><img src="/img/dev-container-all-defs.png" alt="Dev Container Base Options"></p>
+<p>This will give us some standard Linux OS options, or you can select &ldquo;Show All Definitions&hellip;&rdquo; to get a more specific configuration, such as Go, Java, Node.js, Python, PHP etc. There are many options, so select the one that closely aligns to what you want.</p>
+<p><img src="/img/dev-container-more-defs.png" alt="Dev Container Base Options"></p>
+<p>For my project, I needed PHP, but obviously you pick what you require. In the PHP setup, it then asked me what PHP version I wanted, and if I wanted Node.js installing too. I selected PHP 7, and to install Node.js.</p>
+<p><img src="/img/dev-container-php-version.png" alt="Dev Container Base Options"></p>
+<p><img src="/img/dev-container-install-node.png" alt="Dev Container Base Options"></p>
+<p>Once you have finished selecting your options, VS Code will open the <code>devcontainer.json</code> file, ready to edit.</p>
+<h2 id="the-dockerfile">The Dockerfile</h2>
+<p>The Dockerfile is dropped into the <code>.devcontainer</code> folder within your project. If you have used the VS Code configuration screen, you&rsquo;re likely to be using a <a href="https://github.com/microsoft/vscode-dev-containers/tree/master/containers">base image provided by Microsoft</a>.</p>
+<p>They have done a great job of annotating the <code>Dockerfile</code> with touch points you can override.</p>
+<p>You really are free to do whatever is required here. I simply added the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Install additional OS packages.</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">RUN</span> apt-get update &amp;&amp; <span style="color:#24909d">export</span> <span style="color:#40ffff">DEBIAN_FRONTEND</span>=noninteractive <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  &amp;&amp; apt-get -y install --no-install-recommends <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  vim git libzip-dev unzip fzf software-properties-common<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Install PHP modules</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">RUN</span> docker-php-ext-install zip<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Install gh</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">RUN</span>  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0 &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  apt-add-repository -u https://cli.github.com/packages &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  apt update &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  apt install gh<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span></code></pre></div><p>This is just to show an example, clearly your packages and dependencies are likely to be different.</p>
+<h2 id="the-devcontainerjson-file">The devcontainer.json file</h2>
+<p>This settings file let&rsquo;s you configure VS Code and the way the container runs. It&rsquo;s named <code>devcontainer.json</code> and is also dropped into the <code>.devcontainer</code> folder in your project. For comprehensive documentation on the structure and values, please refer to the <a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference">official docs</a>.</p>
+<p>For completeness, this is what I&rsquo;ve addded:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>: <span style="color:#ed9d13">&#34;my-simple-project&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;build&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;dockerfile&#34;</span>: <span style="color:#ed9d13">&#34;Dockerfile&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;args&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;VARIANT&#34;</span>: <span style="color:#ed9d13">&#34;7&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;INSTALL_NODE&#34;</span>: <span style="color:#ed9d13">&#34;true&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;NODE_VERSION&#34;</span>: <span style="color:#ed9d13">&#34;lts/*&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;containerEnv&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;GITHUB_TOKEN&#34;</span>: <span style="color:#ed9d13">&#34;${localEnv:GITHUB_TOKEN}&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;GITHUB_USER&#34;</span>: <span style="color:#ed9d13">&#34;${localEnv:GITHUB_USER}&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;runArgs&#34;</span>: [<span style="color:#ed9d13">&#34;--name=my-simple-project&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;terminal.integrated.shell.linux&#34;</span>: <span style="color:#ed9d13">&#34;/bin/zsh&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;php.validate.executablePath&#34;</span>: <span style="color:#ed9d13">&#34;/usr/local/bin/php&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;editor.tabSize&#34;</span>: <span style="color:#3677a9">4</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;extensions&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;bmewburn.vscode-intelephense-client&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;davidanson.vscode-markdownlint&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;dbaeumer.vscode-eslint&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;esbenp.prettier-vscode&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;felixfbecker.php-debug&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;ikappas.phpcs&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;ms-azuretools.vscode-docker&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;timonwong.shellcheck&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;tyriar.sort-lines&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Some key call outs:</p>
+<ul>
+<li>The <code>build</code> section allows us to pass arguments to the Docker build process, making this really flexible.</li>
+<li><code>containerEnv</code> allows us to share environment variables from the host machine into the container.</li>
+<li><code>runArgs</code> are passed to the Docker <code>run</code> command. Here, we have named the container, so it&rsquo;s slightly easier to <code>exec</code> into it, outside of VS Code, should we want to.</li>
+<li><code>settings</code> allows us to define consistent VS Code settings for the project.</li>
+<li><code>extensions</code> allows your team to agree on plugins required for the project.</li>
+</ul>
+<h2 id="dotfiles">Dotfiles</h2>
+<p>Everything discussed so far brings project alignment for the teams working on it. That&rsquo;s great news, but engineers also like to be individuals. For example, to be productive, I want my shell aliases, my exports, my functions, my prompt, my oh-my-zsh plugins etc.</p>
+<p>After a bit of searching I found that you can define where your <code>dotfiles</code> are stored and VS Code will install them for you. There are three settings you can set, or override.</p>
+<ol>
+<li>Where your dotfiles are (<code>dotfiles.repository</code>).</li>
+<li>Where they should be cloned to in the Docker container (<code>dotfiles.targetPath</code>).</li>
+<li>How to install them (<code>dotfiles.installCommand</code>).</li>
+</ol>
+<p>Luckily for me, my dotfiles are in <a href="https://github.com/benmatselby/dotfiles">GitHub</a>, and you can install them via an <code>install.sh</code> script, which turns out to be the default in VS Code.</p>
+<p>Once you configure these options, you will get your <code>dotfile</code> experience in the VS Code container. This, for me, is the knock out feature that tips this solution over the edge. Consistency and individuality in the right places. Excellent.</p>
+<h2 id="load-the-project">Load the project</h2>
+<p>Having said all of the above, you can now load your project in VS Code.</p>
+<p>There are two ways of doing this:</p>
+<ol>
+<li>Load VS Code, and it <em>should</em> ask you to re-open the project in a container, if it finds the <code>.devcontainer</code> folder.</li>
+<li>If not, you can open the Command Palette, and run &ldquo;Remote-Containers: Rebuild and Reopen in Container&rdquo;.</li>
+</ol>
+<p>The first time you do this, it may take a little while as it needs to build the Docker image. After the first load, each time you open the project, it should be much quicker (Unless you change the <code>Dockerfile</code>).</p>
+<p>You are now using the Dev Container in VS Code. When you open the terminal, you are inside the container. Plugins are running inside the container too.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Much like I was sold on <a href="https://www.vagrantup.com">Vagrant</a> about 8 years ago, I&rsquo;m now completely sold on VS Code Dev Containers. It feels natural, and more light weight than Vagrant in some ways. The <code>dotfiles</code> aspect was pure polish for me. What a great feature, and well implemented too. For folks who like control over their host machine, this makes for a cleaner dev experience too, as all configuration and setup is inside a container. And of course, it is project scoped.</p>
+<p>Why don&rsquo;t you take some time to setup a Dev Container on your current project, and see if it helps you out?</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/development-environments/">Development environments</a></li>
+<li><a href="https://benmatselby.dev/post/vscode-dev-containers-minikube/">Setting up a VS Code Dev Container - Minikube</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

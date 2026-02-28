@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Getting started with Jenkins: Language Agent">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Getting started with Jenkins: Language Agent &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Getting started with Jenkins: Language Agent">
+  <meta name="twitter:description"
+    content="Getting started with Jenkins: Language Agent">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Getting started with Jenkins: Language Agent">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Getting started with Jenkins: Language Agent">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Getting started with Jenkins: Language Agent">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-fruit-choice.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Getting started with Jenkins: Language Agent</h1>
+  <span class="posts__item-date">Apr 24, 2021 &middot; 5 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/jenkins" title="Posts related to jenkins">#jenkins</a></span>
+    
+    <span class="tags__tag"><a href="/tags/basics" title="Posts related to basics">#basics</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>This post follows on from the Jenkins series:</p>
+<ul>
+<li><a href="https://benmatselby.dev/post/jenkins-basics/">Getting started with Jenkins</a></li>
+<li><a href="https://benmatselby.dev/post/jenkins-basic-agent/">Getting started with Jenkins: Agents</a></li>
+</ul>
+<p>This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running <a href="https://golang.org">Go</a>. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.</p>
+<p>All of the example code used throughout this post is in a <a href="https://github.com/benmatselby/jenkins-example">GitHub Repo</a>.</p>
+<h2 id="the-dockerfile">The Dockerfile</h2>
+<p>Since we are building our own agent, we need to define a <code>Dockerfile</code> that is based on a Jenkins agent. From that base, we will then install Go.</p>
+<p>From the <a href="https://github.com/benmatselby/jenkins-example">example repo</a>, let&rsquo;s look at the <code>Dockerfile</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Source: https://github.com/benmatselby/jenkins-example/blob/main/agents/go/Dockerfile</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Base Dockerfile image: https://hub.docker.com/r/jenkins/inbound-agent/dockerfile</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span><span style="color:#ed9d13">jenkins/inbound-agent:4.7-1-jdk11</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Where we are going to install Go.</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">ENV</span> GO_INSTALL_PATH /home/jenkins/go<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># We need to add the GO_INSTALL_PATH to the PATH so `go` works.</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">ENV</span> PATH /home/jenkins/bin:<span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/bin:/usr/local/go/bin:<span style="color:#40ffff">$PATH</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># The version of Go we want to install</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">ENV</span> GO_VERSION 1.16<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Define the GOPATH</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">ENV</span> GOPATH <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># CI/CD platforms normally define CI=true, so let&#39;s follow suit</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">ENV</span> CI true<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Install Go</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">RUN</span> curl -sL https://dl.google.com/go/go<span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_VERSION</span><span style="color:#ed9d13">}</span>.linux-amd64.tar.gz &gt; /tmp/go.tar.gz &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  tar -C /tmp -xf /tmp/go.tar.gz &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  mv /tmp/go <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span> &amp;&amp; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  rm -rf <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/pkg/*/cmd <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/pkg/bootstrap <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/pkg/obj <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/pkg/tool/*/api <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/pkg/tool/*/go_bootstrap <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">${</span><span style="color:#40ffff">GO_INSTALL_PATH</span><span style="color:#ed9d13">}</span>/src/cmd/dist/dist <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>    /tmp/go.tag.gz<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span></code></pre></div><p>Although the above code is curated, let&rsquo;s explain each stage.</p>
+<ul>
+<li>To save us from installing a Jenkins Agent within the container, we are going to start with a Jenkins Agent as the base Docker image.</li>
+<li>We then define 5 environment variables that:
+<ul>
+<li>Explain where we are going to install Go.</li>
+<li>Puts the Go binaries in the <code>PATH</code>.</li>
+<li>Define the version of Go we want to build.
+<ul>
+<li>Arguably you could define an <code>ARG</code> here and override at build time.</li>
+</ul>
+</li>
+<li>Define the <code>GOPATH</code> using the <code>GO_INSTALL_PATH</code> environment variable.</li>
+<li>Most CI/CD systems will define <code>CI=true</code>, so we are following suit.</li>
+</ul>
+</li>
+<li>The last block of code defines the installation commands required to install Go. Extra points for trying to streamline the image we are building by removing unnecessary files.</li>
+</ul>
+<h2 id="building-the-image">Building the image</h2>
+<p>Now we have defined the image, we want to build it. The easiest way to build the image, is to run this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker build -f agents/go/Dockerfile -t jenkins-agent:go agents/go
+</span></span></code></pre></div><p>This command will take the Dockerfile defined by <code>-f</code>, and call the image <code>jenkins-agent:go</code> using the <code>-t</code> argument. The last aspect of the command <code>agents/go</code> explains the context that <code>docker build</code> should build in (which is the folder the Dockerfile is defined in).</p>
+<p>In the <a href="https://github.com/benmatselby/jenkins-example">benmatselby/jenkins-example</a> repo, I&rsquo;ve created a Make target that is agnostic of the language you may be using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-make" data-lang="make"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Source: https://github.com/benmatselby/jenkins-example/blob/main/Makefile
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Find all the agents, which are all folders in the `agents` folder.
+</span></span></span><span style="display:flex;"><span><span style="color:#40ffff">AGENTS</span>=<span style="color:#6ab825;font-weight:bold">$(</span>shell <span style="color:#24909d">cd</span> <span style="color:#ed9d13">${</span><span style="color:#40ffff">AGENT_PATH</span><span style="color:#ed9d13">}</span> &amp;&amp; find * -type d<span style="color:#6ab825;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># We then define a build target, which depends on the make targets defined by
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># the $(AGENTS) variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#447fcf">.PHONY</span>: build <span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#40ffff">AGENTS</span><span style="color:#6ab825;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf">build</span>: <span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#40ffff">AGENTS</span><span style="color:#6ab825;font-weight:bold">)</span> <span style="color:#999;font-style:italic">## Build the Jenkins agents
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># This is the Make targets for each image found
+</span></span></span><span style="display:flex;"><span><span style="color:#447fcf">$(AGENTS)</span>: <span style="color:#999;font-style:italic">## Build each Jenkins agent
+</span></span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># This is the docker command defined above, but with variables</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#24909d">cd</span> <span style="color:#ed9d13">${</span><span style="color:#40ffff">AGENT_PATH</span><span style="color:#ed9d13">}</span>/<span style="color:#ed9d13">${</span>@<span style="color:#ed9d13">}</span> &amp;&amp; docker build -t <span style="color:#ed9d13">${</span><span style="color:#40ffff">AGENT_NAME</span><span style="color:#ed9d13">}</span>:<span style="color:#ed9d13">${</span>@<span style="color:#ed9d13">}</span> .
+</span></span></code></pre></div><p>The more <code>Dockerfile</code>s we add into the repo, e.g. Node, Python, PHP, etc, the command will still work.</p>
+<h2 id="running-the-agent">Running the agent</h2>
+<p>Not to cover old ground, at this point you can re-use the &ldquo;<a href="https://benmatselby.dev/post/jenkins-basic-agent/">Getting started with Jenkins: Agents</a>&rdquo; post to connect your agent.</p>
+<p>Differences I would recommend:</p>
+<ul>
+<li>Name your node after the language, so instead of <code>smith</code> this would be called <code>go</code>.</li>
+</ul>
+<h2 id="pulling-the-solution-together">Pulling the solution together</h2>
+<p>If you have followed the previous post to setup your agent, you should now be able to define a new job with the <code>go</code> label.</p>
+<p>Let&rsquo;s create a Freestyle project called <code>go-project</code>. This time let&rsquo;s set the <strong>Restrict where this project can be run</strong> to <code>go</code>.</p>
+<p><img src="/img/jenkins-agent-go-label.png" alt="Jenkins project for Go builds"></p>
+<p>Leave everything else as default (for this post, but feel free to play around later), and set the shell command to <code>go version</code>.</p>
+<p><img src="/img/jenkins-agent-go-shell-command.png" alt="Jenkins project for Go builds - The command"></p>
+<p>Now click <strong>Save</strong>, and you will be taken back to the Job. Click <strong>Build Now</strong>. After a few moments, you will See <strong>#1</strong> appear in the <strong>Build History</strong> on the left hand side. Click on the blue ball. You will see the version details for Go.</p>
+<p><img src="/img/jenkins-agent-go-output.png" alt="Jenkins project for Go builds - The output"></p>
+<p>Congratulations, you&rsquo;ve now successfully:</p>
+<ul>
+<li>Defined a language specific agent: Go.
+<ul>
+<li>This could be any language or environment you require.</li>
+</ul>
+</li>
+<li>Built the docker image for the language specific agent.</li>
+<li>Connected the language specific agent to the Jenkins Controller.</li>
+<li>Run a job that has executed Go, in your agent.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>Want to go further? Then you could:</p>
+<ul>
+<li>Define more languages and play around with &ldquo;tags&rdquo; to make sure builds get directed to the correct agents.</li>
+<li>Use something like <code>ngrok</code> to expose your installation back to GitHub, to get GitHub Events.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This was a quick overview for getting a language specific Jenkins agent connected to the Jenkins controller application.</p>
+<hr>
+<p>Photo by <a href="https://unsplash.com/@alschim?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alexander Schimmeck</a> on <a href="https://unsplash.com/s/photos/choice?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/jenkins-basics/">Getting started with Jenkins</a></li>
+<li><a href="https://benmatselby.dev/post/jenkins-basic-agent/">Getting started with Jenkins: Agents</a></li>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

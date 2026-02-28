@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crowdsourcing on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/crowdsourcing/</link>
+    <description>Recent content in Crowdsourcing on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Aug 2023 15:39:20 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/crowdsourcing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently looking into what &lt;a href=&#34;https://mephisto.ai&#34;&gt;Mephisto&lt;/a&gt; can do. Mephisto describes itself as&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So I wanted to check it out and run it locally to see for myself. I started with the &lt;a href=&#34;https://mephisto.ai/docs/guides/quickstart/&#34;&gt;10-minute Quickstart&lt;/a&gt; guide but hit issues with the installation of dependencies. I tried Python 3.8, and 3.11, and with &lt;code&gt;pip install&lt;/code&gt; and &lt;code&gt;poetry install&lt;/code&gt;. I am fairly confident this is to do with my Apple Silicon Mac (I have issues with other Python projects too!). So rather than get bogged down in that world, I thought it would be easier to spin up a dev container in VS Code. This post is going to show you how you can do that (and provides a reference for me as to what the configuration is).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

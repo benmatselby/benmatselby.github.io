@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/tools/</link>
+    <description>Recent content in Tools on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jun 2025 22:42:42 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two weeks with the GitHub Coding Agent</title>
+      <link>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</link>
+      <pubDate>Sat, 28 Jun 2025 22:42:42 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</guid>
+      <description>&lt;p&gt;For the last two weeks, we&amp;rsquo;ve been learning to work with the new &lt;a href=&#34;https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/&#34;&gt;GitHub Coding Agent&lt;/a&gt;. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.&lt;/p&gt;&#xA;&lt;p&gt;From now on we will call the GitHub Coding Agent &amp;ldquo;Mx Robot&amp;rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&amp;rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dependency Management</title>
+      <link>https://benmatselby.dev/post/2025/managing-dependencies/</link>
+      <pubDate>Sat, 18 Jan 2025 09:19:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2025/managing-dependencies/</guid>
+      <description>&lt;p&gt;This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&amp;rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.&lt;/p&gt;&#xA;&lt;p&gt;Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running Ubuntu on a MacBook Pro</title>
+      <link>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</link>
+      <pubDate>Sun, 26 May 2024 09:36:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note: This post is a work in progress, and mainly for my notes. It&amp;rsquo;s current as of May 2024!&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I had a ten year old MacBook Pro lying around not really doing anything. It wasn&amp;rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.&lt;/p&gt;&#xA;&lt;p&gt;However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from. Also, this is a fun side project. I&amp;rsquo;m not entirely moving over to Ubuntu, so I don&amp;rsquo;t really want to change my muscle memory too much.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stop tracking changes to certain files in Git</title>
+      <link>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</link>
+      <pubDate>Sat, 04 May 2024 07:59:32 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve used &lt;code&gt;git&lt;/code&gt; before, you&amp;rsquo;re probably aware of the &lt;code&gt;.gitignore&lt;/code&gt; file. This is what the &lt;a href=&#34;https://git-scm.com/docs/gitignore&#34;&gt;manual&lt;/a&gt; has to say:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A gitignore file specifies intentionally untracked files that Git should ignore.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This file is usually tracked in your Git repo, so every contributor ignores the same files. Interestingly, you can also have a global ignore file in your home directory too &lt;code&gt;~/.gitignore&lt;/code&gt;. I have a &lt;a href=&#34;https://github.com/benmatselby/dotfiles/blob/main/git/.gitignore&#34;&gt;global ignore file&lt;/a&gt; for ignoring basic IDE files.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Working with Zed for a week</title>
+      <link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+      <pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+      <description>&lt;p&gt;I took &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&lt;/p&gt;&#xA;&lt;quote class=&#34;pullquote&#34;&gt;&#xA;  I love it, and I&#39;m probably going to stay with it (but I miss a debugger).&#xA;&lt;/quote&gt;&#xA;&#xA;&lt;p&gt;This is what Zed is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;projects-worked-on&#34;&gt;Projects worked on:&lt;/h2&gt;&#xA;&lt;p&gt;These are the projects I managed to work on this week with Zed:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A case for using a Makefile in your project</title>
+      <link>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</link>
+      <pubDate>Tue, 16 Jan 2024 18:10:20 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</guid>
+      <description>&lt;p&gt;This post is going to present a case for using a &lt;code&gt;Makefile&lt;/code&gt; in your project. This will be the top-level task runner for your project. You can use &lt;code&gt;make&lt;/code&gt; to run all of your project tasks such as building, linting, testing, and deploying your project. It doesn&amp;rsquo;t matter what language your project is written in.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-makefile&#34;&gt;What is a Makefile?&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Make gets its knowledge of how to build your program from a file called the makefile, which lists each of the non-source files and how to compute it from other files. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post was updated on June 19th 2024, to document the latest way to do this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This post is going to show you how to define different skins for &lt;a href=&#34;https://k9scli.io&#34;&gt;k9s&lt;/a&gt;, so you can quickly see which environment you&amp;rsquo;re working on.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;k9s&lt;/code&gt; is a terminal application that allows you to manage your &lt;a href=&#34;https://kubernetes.io&#34;&gt;Kubernetes&lt;/a&gt; clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating custom metrics from a trace in Datadog</title>
+      <link>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</link>
+      <pubDate>Tue, 07 Mar 2023 19:23:42 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</guid>
+      <description>&lt;p&gt;Recently, I wanted to create a monitor from a trace in &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt;. When creating an APM monitor, you can specify the service, and the resource, but nothing else. This didn&amp;rsquo;t cater for what I wanted to do. So this post is going to show you how you can create a custom metric, and then use that in your monitor.&lt;/p&gt;&#xA;&lt;p&gt;Once logged into Datadog, you want to navigate to &lt;code&gt;APM&lt;/code&gt; and then &lt;code&gt;Setup &amp;amp; Configuration&lt;/code&gt;. On the top bar, you should be able to see &lt;code&gt;Generate Metrics&lt;/code&gt;. Go ahead and click on that link.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re happy with the automated burndown reports from tools like &lt;a href=&#34;https://www.atlassian.com/software/jira&#34;&gt;Jira&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com/en-gb/services/devops/&#34;&gt;Azure Devops&lt;/a&gt;, then this post is &lt;em&gt;probably&lt;/em&gt; not for you (except maybe the &lt;a href=&#34;#cli-tools&#34;&gt;CLI tools section&lt;/a&gt;). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.&lt;/p&gt;&#xA;&lt;p&gt;My first foray into the world of work management tools starting about 13 years ago, and my team used &lt;a href=&#34;https://trac.edgewall.org&#34;&gt;Trac&lt;/a&gt;. At the time, if my memory is correct, it did not produce a burndown report. A colleague of mine, &lt;a href=&#34;https://twitter.com/stuartjsmith&#34;&gt;Stuart Smith&lt;/a&gt; introduced me to a manual spreadsheet burndown report, which I&amp;rsquo;ve tweaked and used pretty much ever since.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>&lt;p&gt;This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.&lt;/p&gt;&#xA;&lt;p&gt;There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments. As with most things in life, the best solution is probably a blend of many methodologies to get the desired outcome. This post will focus on peer reviewed assessments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Stacks.&lt;/li&gt;&#xA;&lt;li&gt;Tools.&lt;/li&gt;&#xA;&lt;li&gt;Paradigms.&lt;/li&gt;&#xA;&lt;li&gt;The way we work.&lt;/li&gt;&#xA;&lt;li&gt;The way we deploy.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/communication-tools/&#34;&gt;The way we communicate.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

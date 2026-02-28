@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Shell knowledge to get you through the day">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Shell knowledge to get you through the day &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Shell knowledge to get you through the day">
+  <meta name="twitter:description"
+    content="Shell knowledge to get you through the day">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/tartini-square-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Shell knowledge to get you through the day">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Shell knowledge to get you through the day">
+  <meta property="og:image" content="https://benmatselby.dev/img/tartini-square-share.jpg">
+  <meta property="og:description"
+    content="Shell knowledge to get you through the day">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/tartini-square.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Shell knowledge to get you through the day</h1>
+  <span class="posts__item-date">Mar 28, 2021 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/docker" title="Posts related to docker">#docker</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>Following on from the <a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a>, and <a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a> posts, this will cover Shell commands. Once again, it aims to get you through the day.</p>
+<p>First of all, it&rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to <a href="https://en.wikipedia.org/wiki/Comparison_of_command_shells">Wikipedia</a>.</p>
+<h2 id="basic-commands">Basic commands</h2>
+<p>Let&rsquo;s cover off some basics that will hopefully get you on your way.</p>
+<hr>
+<p><code>man</code> is the manual application. Use this to find information about all the other commands, and options. e.g. <code>man ls</code> will give you the manual page for the <code>ls</code> command.</p>
+<p>For extra points, you can define an environment variable that changes how you view the manual. e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#40ffff">MANPAGER</span>=cat man ls
+</span></span></code></pre></div><p>This will output the entire manual to the screen, without any interaction. My <code>MANPAGER</code> is set to <code>less -X</code>. With your new knowledge of the <code>man</code> command, find out what <code>-X</code> means for <code>less</code>.</p>
+<hr>
+<p><code>ls</code> lists files in a given directory. <code>ls -lGh</code> is a favourite of mine which lists all the files in the current directory, enables colourised output, and provides human readable file sizes! There are many options to <code>ls</code>, so I recommend you read the output from <code>man ls</code> and find what output suits your needs.</p>
+<p>Whilst we are talking about listing files, I always like to remind folks about <code>git ls-files</code> which lists all the files in a git repo. Sorry to slip in a <code>git</code> command there.</p>
+<hr>
+<p><code>df</code> and <code>du</code> are two disk related commands that I use quite often.</p>
+<p><code>df</code> displays information about free disk space. I recommend running it with <code>df -h</code> so the output is a little more human readable.</p>
+<p><code>du</code> comes in really handy when you want summary information about folder/file sizes. The <code>-d</code> flag allows you to define the depth of the summary. For example to find the total size of your <code>node_modules</code> folder:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ du -d <span style="color:#3677a9">0</span> -h node_modules
+</span></span><span style="display:flex;"><span>198M  node_modules
+</span></span></code></pre></div><p>If you want to know the size of all the packages, individually, in <code>node_modules</code>, then you can run</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ du -d <span style="color:#3677a9">1</span> -h node_modules
+</span></span><span style="display:flex;"><span> 16K  node_modules/write
+</span></span><span style="display:flex;"><span> 12K  node_modules/callsites
+</span></span><span style="display:flex;"><span> 16K  node_modules/is-extendable
+</span></span><span style="display:flex;"><span> ...
+</span></span></code></pre></div><hr>
+<p><code>vim</code>, <code>less</code>, <code>tail</code>, and <code>cat</code> allow you to view file content. Each of these commands take a file as a parameter. <code>vim</code> is too big to cover here, so try running <code>vimtutor</code> to see if that helps you learn vim.</p>
+<p><code>tail</code> is handy when coupled with the <code>-f</code> flag, to &ldquo;follow&rdquo; the output of a file, e.g. a log file <code>tail -f /path/to/file</code>.</p>
+<p><code>cat</code> simply outputs all the content to the terminal, with no paging.</p>
+<p><code>less</code> allows you to page through content with <code>ctrl+f</code> and <code>crtl+b</code>.</p>
+<hr>
+<p>The following commands help with process management: <code>ps</code>, <code>kill</code>, <code>pgrep</code>, <code>top</code> or <code>htop</code>.</p>
+<p><code>ps aux</code> will output all the processes, for any user, running on the machine. You can drop the <code>x</code> if you want to get processes running for any user with a controlling terminal, i.e. you ran the command from a terminal. Another way to get process information is <code>pgrep</code> which takes a command parameter. For example we can run <code>pgrep -l vim</code> which will output the process IDs (PID) of all running <code>vim</code> commands.</p>
+<p>The output from <code>ps</code> and <code>pgrep</code> then can be used to stop a proces. For example <code>kill [pid]</code> will kill the process with the same <code>[pid]</code>.</p>
+<p><code>top</code>, and the more functional sister command <code>htop</code>, will show you statistical information about running commands. This covers memory, CPU, how long it&rsquo;s been running etc.</p>
+<hr>
+<p>Understanding where things are installed is really handy, and there are a few commands that can help.</p>
+<p><code>which</code> will explain where the command you pass in as a parameter is being run. So <code>which go</code> will show you the version of go being used when you run <code>go</code>.</p>
+<p><code>where</code> will show you all the versions of the command you pass in. So I have two versions of bash right now.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ where bash
+</span></span><span style="display:flex;"><span>/opt/homebrew/bin/bash
+</span></span><span style="display:flex;"><span>/bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>❯ which bash
+</span></span><span style="display:flex;"><span>/opt/homebrew/bin/bash
+</span></span></code></pre></div><p>So I have two versions of <code>bash</code>, but the one I would use is the <code>homebrew</code> version, as shown by the output of <code>which</code>.</p>
+<p><code>type</code> helps explain what kind of &ldquo;thing&rdquo; the command is. Some examples are shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ <span style="color:#24909d">type</span> bash
+</span></span><span style="display:flex;"><span>bash is /opt/homebrew/bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>❯ <span style="color:#24909d">type</span> envg
+</span></span><span style="display:flex;"><span>envg is an <span style="color:#24909d">alias</span> <span style="color:#6ab825;font-weight:bold">for</span> env | grep -i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>❯ <span style="color:#24909d">type</span> dhagen
+</span></span><span style="display:flex;"><span>dhagen is a shell <span style="color:#6ab825;font-weight:bold">function</span> from /Users/ben/.oh-my-zsh/custom/docker.zsh
+</span></span></code></pre></div><p>The order of precedence for determining which commands to run, is defined by the <code>$PATH</code> environment variable. Run <code>echo $PATH</code> to understand the ordering, with the first path taking priority.</p>
+<hr>
+<p><code>sed</code> is really useful for automating changes to files/content.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>date | sed <span style="color:#ed9d13">&#34;s| |-|g&#34;</span>
+</span></span><span style="display:flex;"><span>Sun-28-Mar-2021-21:22:58-BST
+</span></span></code></pre></div><p>This takes the output of <code>date</code> (an arbitrary example) and replaces spaces for hyphens.</p>
+<hr>
+<p>Remember the time when you ran that command, but cannot quite remember it? Well <code>history</code> has your back. By running this command, it will output all the commands you have ran previously.</p>
+<p>Two tips:</p>
+<ul>
+<li>Add a space before running a command, and it won&rsquo;t be stored in your history file. Handy if you are entering a password, for example.</li>
+<li><code>ctrl+r</code> will reverse look up your history.</li>
+</ul>
+<hr>
+<p>Some little tidbits I find useful:</p>
+<ul>
+<li><code>echo $?</code> will get you the exit code of the last command executed.</li>
+<li><code>!$</code> will get the last parameter of the previous command.</li>
+<li><code>!!</code> will get the entire last command, so <code>sudo !!</code> runs the previous command as <code>sudo</code>.</li>
+<li><code>{1..5}</code> represents numbers 1 to 5. So we can run <code>for x in {1..5}; do echo $x; done</code>.</li>
+</ul>
+<hr>
+<h2 id="pipes">Pipes</h2>
+<p>Pipes allow you to chain commands together. It allows you to take the output from one command and <strong>pipe</strong> it into the next command.</p>
+<p><code>env | sort</code> will sort all your environment variables, so it&rsquo;s easier to find what you&rsquo;re looking for. You could even create this as an <a href="#aliases">alias</a>.</p>
+<p><code>history | grep [command]</code> will find a command in your history (commands you have run before).</p>
+<p>These are just arbitrary examples, but you can keep chaining commands together, to deliver the output you want.</p>
+<h2 id="environment-variables">Environment variables</h2>
+<p>Environment variables help you configure your system and applications. You can set them in the following way:</p>
+<p><code>export MY_ENV_VAR=boo</code> It&rsquo;s customary to capitalise the name of the environment, but it&rsquo;s not mandatory. To remove an environment variable you can run <code>unset MY_ENV_VAR</code>.</p>
+<p>You can set environment variables to be loaded when you start your shell/terminal, if you add the <code>export</code> statements to something like <code>~/.bashrc</code>, <code>~/.bash_profile</code>, <code>~/.zshrc</code> etc.</p>
+<h2 id="aliases">Aliases</h2>
+<p>Aliases are great. They can be used to provide a shorter command so you are more efficient. A great community project for aliases, is <a href="https://ohmyz.sh">oh-my-zsh</a>.</p>
+<p>Just like environment variables, we can set, unset, and store them in a config file.</p>
+<p><code>alias week='date +%V'</code> will get you the week number if you run <code>week</code>. To get rid of this alias, you can run <code>unalias week</code>.</p>
+<hr>
+<p>I hope this provides some useful knowledge to get you through your day in the terminal.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a></li>
+<li><a href="https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je">101 Bash Commands and Tips for Beginners to Experts</a></li>
+<li><a href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh</a> - &ldquo;A delightful community-driven (with 1800+ contributors) framework for managing your zsh configuration.&rdquo;</li>
+<li><a href="https://github.com/junegunn/fzf">fzf</a> - A command line fuzzy finder. You can hook this into <code>crtl-r</code> which I highly recommend.</li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Setting up a VS Code Dev Container - minikube">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Setting up a VS Code Dev Container - minikube &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Setting up a VS Code Dev Container - minikube">
+  <meta name="twitter:description"
+    content="Setting up a VS Code Dev Container - minikube">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-train-station-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Setting up a VS Code Dev Container - minikube">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Setting up a VS Code Dev Container - minikube">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-train-station-share.jpg">
+  <meta property="og:description"
+    content="Setting up a VS Code Dev Container - minikube">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-train-station.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Setting up a VS Code Dev Container - minikube</h1>
+  <span class="posts__item-date">Oct 13, 2021 &middot; 3 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/vscode" title="Posts related to vscode">#vscode</a></span>
+    
+    <span class="tags__tag"><a href="/tags/newbie" title="Posts related to newbie">#newbie</a></span>
+    
+    <span class="tags__tag"><a href="/tags/docker" title="Posts related to docker">#docker</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/minikube" title="Posts related to minikube">#minikube</a></span>
+    
+  </div>
+
+  <p>This post builds on what we already learnt in <a href="https://benmatselby.dev/post/vscode-dev-containers/">Setting up a VS Code Dev Container</a>. It&rsquo;s more specific goal is to discuss running Dev Containers whilst using <a href="https://minikube.sigs.k8s.io/docs/">minikube</a> as a Docker Desktop replacement on the Mac.</p>
+<p>There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.</p>
+<p>Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.</p>
+<p>Some good articles to read:</p>
+<ul>
+<li><a href="https://matt-rickard.com/docker-desktop-alternatives/">An Overview of Docker Desktop Alternatives.</a></li>
+<li><a href="https://itnext.io/goodbye-docker-desktop-hello-minikube-3649f2a1c469">Goodbye Docker Desktop, Hello Minikube!</a></li>
+</ul>
+<h2 id="recap-on-getting-minikube-working">Recap on getting minikube working</h2>
+<p>I first had to uninstall Docker Desktop. Once this was done, I used <a href="https://brew.sh/">brew.sh</a> to install the necessary packages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install hyperkit
+</span></span><span style="display:flex;"><span>brew install minikube
+</span></span><span style="display:flex;"><span>brew install docker
+</span></span><span style="display:flex;"><span>brew install docker-compose
+</span></span></code></pre></div><p>I had previously been using minikube, so I had to delete the old config. If you have never used minikube before, or you&rsquo;re happy with your existing config, then ignore the following command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rm ~/.minikube/config/config.json
+</span></span></code></pre></div><p>Once this was complete, I could start the minikube application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minikube start
+</span></span></code></pre></div><p>Now we need to get Docker talking to minikube</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#24909d">eval</span> <span style="color:#6ab825;font-weight:bold">$(</span>minikube -p minikube docker-env<span style="color:#6ab825;font-weight:bold">)</span>
+</span></span></code></pre></div><p>This command populates the following environment variables (as of the time of writing):</p>
+<ul>
+<li><code>DOCKER_TLS_VERIFY</code></li>
+<li><code>DOCKER_HOST</code></li>
+<li><code>DOCKER_CERT_PATH</code></li>
+<li><code>MINIKUBE_ACTIVE_DOCKERD</code></li>
+</ul>
+<p>If you&rsquo;re going to be using minikube going forward, you&rsquo;re going to want the <code>eval</code> command in your dotfiles (<code>.bashrc</code>, or <code>.zshrc</code>, etc). This means you don&rsquo;t need to manually remember to perform the command each time you want to use Docker in a new shell.</p>
+<p>Now we need the docker url in our hosts file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;`minikube ip` docker.local&#34;</span> | sudo tee -a /etc/hosts &gt; /dev/null
+</span></span></code></pre></div><p>At this point, running <code>docker run hello-world</code> should run the container.</p>
+<h2 id="minikube-and-vs-code-dev-containers">minikube and VS Code Dev Containers</h2>
+<p>If you are use to running VS Code Dev Containers, you know that it will build the image, and then run the container before updating your VS Code.</p>
+<p>The first time I did this after switching to minikube I got the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Error response from daemon: invalid mount config for type &#34;bind&#34;: bind source path does not exist: &lt;path to project&gt;
+</span></span></code></pre></div><p>This is because Docker is trying to interact with the Hyperkit VM. Therefore, we need to share our project (from the host) into the Hyperkit VM.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minikube mount <span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#24909d">pwd</span><span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">&#34;</span>:<span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#24909d">pwd</span><span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">&#34;</span>
+</span></span></code></pre></div><p>You will need to keep this process running whilst you want to use VS Code Dev Containers.</p>
+<p>Once you&rsquo;ve run the <code>mount</code> command, you can restart your Dev Container, and it should be working fine.</p>
+<h2 id="summary">Summary</h2>
+<p>Docker Desktop is certainly more developer friendly. You install it, and you can kind of forget about it. If you&rsquo;re migrating to <code>minikube</code> there is a little up front work, that can be easily automated. Once it is done, again, you can kind of forget about it. It&rsquo;s also a gateway into Kubernetes, if that is where your path is taking you.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://benmatselby.dev/post/vscode-dev-containers/">Setting up a VS Code Dev Container</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

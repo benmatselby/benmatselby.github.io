@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/docker/</link>
+    <description>Recent content in Docker on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Nov 2021 18:54:13 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Docker Context to switch between different solutions</title>
+      <link>https://benmatselby.dev/post/docker-context/</link>
+      <pubDate>Mon, 15 Nov 2021 18:54:13 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-context/</guid>
+      <description>&lt;p&gt;You may be on the lookout for a replacement to Docker Desktop &lt;a href=&#34;https://www.docker.com/blog/roi-of-docker-desktop-vs-diy-considerations-risks-and-benefits-for-business/&#34;&gt;at the moment&lt;/a&gt;. If you are, you may be wanting to trial the different solutions. You&amp;rsquo;re going to need to know what is involved, and what the different cost models include. This post is going to show you how you can use &lt;code&gt;docker context&lt;/code&gt; to run the different systems in parallel. The two solutions this post will cover are &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/start/&#34;&gt;minikube&lt;/a&gt; and &lt;a href=&#34;https://multipass.run&#34;&gt;multipass&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container - minikube</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers-minikube/</link>
+      <pubDate>Wed, 13 Oct 2021 11:44:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers-minikube/</guid>
+      <description>&lt;p&gt;This post builds on what we already learnt in &lt;a href=&#34;https://benmatselby.dev/post/vscode-dev-containers/&#34;&gt;Setting up a VS Code Dev Container&lt;/a&gt;. It&amp;rsquo;s more specific goal is to discuss running Dev Containers whilst using &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/&#34;&gt;minikube&lt;/a&gt; as a Docker Desktop replacement on the Mac.&lt;/p&gt;&#xA;&lt;p&gt;There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.&lt;/p&gt;&#xA;&lt;p&gt;Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shell knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/shell-101/</link>
+      <pubDate>Sun, 28 Mar 2021 15:01:33 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/shell-101/</guid>
+      <description>&lt;p&gt;Following on from the &lt;a href=&#34;https://benmatselby.dev/post/docker-101/&#34;&gt;Docker knowledge to get you through the day&lt;/a&gt;, and &lt;a href=&#34;https://benmatselby.dev/post/git-101/&#34;&gt;Git commands to get you through the day&lt;/a&gt; posts, this will cover Shell commands. Once again, it aims to get you through the day.&lt;/p&gt;&#xA;&lt;p&gt;First of all, it&amp;rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to &lt;a href=&#34;https://en.wikipedia.org/wiki/Comparison_of_command_shells&#34;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-commands&#34;&gt;Basic commands&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s cover off some basics that will hopefully get you on your way.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>&lt;p&gt;Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/docker-101/</link>
+      <pubDate>Mon, 15 Mar 2021 18:35:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-101/</guid>
+      <description>&lt;p&gt;Following on from the &amp;ldquo;&lt;a href=&#34;https://benmatselby.dev/post/git-101/&#34;&gt;Git commands to get you through the day&lt;/a&gt;&amp;rdquo; post, &lt;a href=&#34;https://github.com/paddymorgan84&#34;&gt;Paddy Morgan&lt;/a&gt; and I delivered a Docker 101 workshop today at work.&lt;/p&gt;&#xA;&lt;p&gt;This post covers what we ran through.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Time allocation:&lt;/strong&gt; 60 minutes&lt;/p&gt;&#xA;&lt;p&gt;This workshop will be a high level overview of the basic docker commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with docker on the CLI, this probably isn&amp;rsquo;t for you.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

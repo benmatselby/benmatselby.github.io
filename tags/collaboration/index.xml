@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Collaboration on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/collaboration/</link>
+    <description>Recent content in Collaboration on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jan 2024 18:48:56 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/collaboration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working with Zed for a week</title>
+      <link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+      <pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+      <description>&lt;p&gt;I took &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&lt;/p&gt;&#xA;&lt;quote class=&#34;pullquote&#34;&gt;&#xA;  I love it, and I&#39;m probably going to stay with it (but I miss a debugger).&#xA;&lt;/quote&gt;&#xA;&#xA;&lt;p&gt;This is what Zed is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;projects-worked-on&#34;&gt;Projects worked on:&lt;/h2&gt;&#xA;&lt;p&gt;These are the projects I managed to work on this week with Zed:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

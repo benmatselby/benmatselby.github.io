@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Docker knowledge to get you through the day">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Docker knowledge to get you through the day &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Docker knowledge to get you through the day">
+  <meta name="twitter:description"
+    content="Docker knowledge to get you through the day">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Docker knowledge to get you through the day">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Docker knowledge to get you through the day">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="Docker knowledge to get you through the day">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Docker knowledge to get you through the day</h1>
+  <span class="posts__item-date">Mar 15, 2021 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/docker" title="Posts related to docker">#docker</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>Following on from the &ldquo;<a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a>&rdquo; post, <a href="https://github.com/paddymorgan84">Paddy Morgan</a> and I delivered a Docker 101 workshop today at work.</p>
+<p>This post covers what we ran through.</p>
+<hr>
+<p><strong>Time allocation:</strong> 60 minutes</p>
+<p>This workshop will be a high level overview of the basic docker commands you will use daily. It&rsquo;s an entry level workshop, so if you&rsquo;re comfortable with docker on the CLI, this probably isn&rsquo;t for you.</p>
+<p>What we will cover:</p>
+<ul>
+<li><a href="#pulling">Pulling</a></li>
+<li><a href="#running-basic-commands">Running basic commands</a></li>
+<li><a href="#defining">Defining</a></li>
+<li><a href="#building">Building</a></li>
+<li><a href="#running-more-advanced-commands">Running more advanced commands</a></li>
+<li><a href="#process-management">Process management</a></li>
+<li><a href="#clean-up">Cleanup</a></li>
+<li><a href="#tidbits">Tidbits</a></li>
+</ul>
+<p>Some up front terminology</p>
+<ul>
+<li>Image - A definition of an environment.</li>
+<li>Container - A virtualised run time environment of a docker image.</li>
+</ul>
+<h2 id="commands">Commands</h2>
+<p>We need to make sure we have <code>docker</code> installed, so let&rsquo;s run that first.</p>
+<p><code>docker</code></p>
+<p>If Docker is installed, this will output a raft of commands that we can make use of. If you haven&rsquo;t got Docker, checkout <a href="https://docs.docker.com/engine/install/">the installation page</a>.</p>
+<p>You may notice that some of the commands are the same, e.g.</p>
+<ul>
+<li><code>docker images</code></li>
+<li><code>docker image ls</code></li>
+</ul>
+<p>Take some time to review the output from the main <code>docker</code> command.</p>
+<h2 id="pulling">Pulling</h2>
+<p>Let&rsquo;s start with understanding what images we have on our machine.</p>
+<p><code>docker images</code></p>
+<p>This shows us all the images that are pre-built and stored on your machine. Any images listed here are available to be run locally. If you have not used Docker before, the list is likely to be empty.</p>
+<p>Let&rsquo;s pull down the <code>hello-world</code> image.</p>
+<p><code>docker pull hello-world</code></p>
+<p>If you now run <code>docker images</code> you should see something very similar to this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ docker images
+</span></span><span style="display:flex;"><span>REPOSITORY      TAG       IMAGE ID       CREATED        SIZE
+</span></span><span style="display:flex;"><span>hello-world     latest    d1165f221234   <span style="color:#3677a9">7</span> days ago     13.3kB
+</span></span></code></pre></div><h2 id="running-basic-commands">Running basic commands</h2>
+<p>Let&rsquo;s now run that image as a container.</p>
+<p><code>docker run hello-world</code></p>
+<p>So <code>docker</code> is the main command. <code>run</code> is the subcommand which allows us to run the <code>hello-world</code> image as a container.</p>
+<p>If we now run <code>docker ps -a</code> you will see containers that are: running, have ran and stopped.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ docker ps -a
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE         COMMAND    CREATED              STATUS                          PORTS     NAMES
+</span></span><span style="display:flex;"><span>1fd4a9f1b80b   hello-world   <span style="color:#ed9d13">&#34;/hello&#34;</span>   About a minute ago   Exited (0) About a minute ago             practical_blackwell
+</span></span></code></pre></div><p>Ideally, we want to clean-up after ourselves. So lets run the container again.</p>
+<p><code>docker run --rm hello-world</code></p>
+<p>Notice the <code>--rm</code> flag, which will remove the container once execution has finished.</p>
+<p>If we run <code>docker ps -a</code> again you will notice there isn&rsquo;t a new entry in the list.</p>
+<h2 id="defining">Defining</h2>
+<p>Let&rsquo;s cover two scenarios</p>
+<ol>
+<li>An environment you want to work in.</li>
+<li>Shipping something.</li>
+</ol>
+<h3 id="environment">Environment</h3>
+<p>Let&rsquo;s look at a <a href="https://github.com/microsoft/vscode-dev-containers/blob/v0.163.1/containers/go/.devcontainer/base.Dockerfile">VS Code Dev Environment</a>.</p>
+<p>Key items to cover off are:</p>
+<ul>
+<li><code>FROM</code> - The base image is <code>golang:1</code>.
+<ul>
+<li>This in turn will have a base image, so essentially these can be chained.</li>
+<li>Some base images will be low level linux distructions like Ubuntu, or Alpine.</li>
+<li>Some base images will provide extra capabilities on top of the OS, like <code>golang</code>.</li>
+</ul>
+</li>
+<li><code>ENV</code> - Environment variables for the image.</li>
+<li><code>ARG</code> - Arguments that can be overridden when building the image.</li>
+<li><code>COPY</code> - The ability to copy files from the host into the image (These will persist in the image).
+<ul>
+<li>The host file is on the left, whilst the image location is on the right hand side of the declaration.</li>
+</ul>
+</li>
+<li><code>RUN</code> - Running commands to build the image.
+<ul>
+<li>You can see that commands are grouped together as one <code>RUN</code> command.</li>
+<li>This is to keep those defined as a &ldquo;layer&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<h3 id="shipping-something">Shipping something</h3>
+<p>Let&rsquo;s look at <a href="https://github.com/benmatselby/hagen/blob/main/Dockerfile">Hagen</a> which is a CLI tool for getting some data out of GitHub. This is running a Go binary inside the container.</p>
+<p>Key items to cover off are:</p>
+<ul>
+<li><code>alpine</code> - Base images are generally linux based.
+<ul>
+<li><a href="https://www.alpinelinux.org">Alpine</a> is a very small linux distribution.</li>
+<li>If you can use it, it will keep your images small (which ultimately saves time and money).</li>
+<li>Alpine, by default, uses <code>apk</code> not <code>apt</code> to install packages, this may catch people out to start with.</li>
+</ul>
+</li>
+<li><code>FROM scratch</code> - Start with a bare bones container, nothing in there.
+<ul>
+<li>This is classed as a <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds">multi-stage build</a>.</li>
+</ul>
+</li>
+<li><code>ENTRYPOINT</code> - This defines what should be executed when the image is instantiated as a container.
+<ul>
+<li>Here you can see we are running the <code>hagen</code> command, which has been placed in <code>/usr/bin/</code>.</li>
+</ul>
+</li>
+<li><code>CMD</code> - Here we using <code>CMD</code> to pass <code>--help</code> to <code>hagen</code>.
+<ul>
+<li>So if you do not pass any other arguments into the container when running it, it will provide you will a help menu.</li>
+</ul>
+</li>
+</ul>
+<h2 id="building">Building</h2>
+<p>Let&rsquo;s look at the Hagen example again.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker build -t benmatselby/hagen .
+</span></span></code></pre></div><p>Breaking this down we have <code>docker build</code> as the command.</p>
+<p><code>-t</code> defines the string we will tag the image with. You can specify multiple tags, and they will all show when you run <code>docker images</code>.</p>
+<p>And finally the <code>.</code> provides the context to the build command.</p>
+<h2 id="running-more-advanced-commands">Running more advanced commands</h2>
+<p>For a more in-depth review of what you can do whilst running containers, please see the <a href="https://docs.docker.com/engine/reference/commandline/run/">documentation</a>.</p>
+<p>An example of sharing environment variables, and files from the host to the container.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --rm <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -t <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -eGITHUB_OWNER <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -eGITHUB_ORG <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -eGITHUB_TOKEN <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -v <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span><span style="color:#40ffff">HOME</span><span style="color:#ed9d13">}</span><span style="color:#ed9d13">/.benmatselby&#34;</span>:/root/.benmatselby <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  benmatselby/hagen
+</span></span></code></pre></div><p>Breaking this down.</p>
+<ul>
+<li><code>--rm</code> will remove the container from the system once finished execution.</li>
+<li><code>-t</code> allocates a <code>tty</code>. See <a href="https://stackoverflow.com/questions/30137135/confused-about-docker-t-option-to-allocate-a-pseudo-tty">this</a>.</li>
+<li><code>-e</code> provides environment variables to the container.
+<ul>
+<li>If the names match you can do it this way.</li>
+<li>If not you can provide them in the <code>-e foo=bar</code> format.</li>
+</ul>
+</li>
+<li><code>-v</code> defines a <a href="https://docs.docker.com/engine/reference/commandline/volume_create/">volume</a>, which is essentially a file share between the host and the container.
+<ul>
+<li>The format is <code>host:container</code>.</li>
+<li>This allows us to share the configuration used for hagen, with the container.</li>
+</ul>
+</li>
+</ul>
+<p>What if you want to get your terminal back, and run the container unsupervised? Then you can do this</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --rm <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -p 8080:80 <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -v <span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span><span style="color:#24909d">pwd</span><span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">:/usr/share/nginx/html&#34;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  -d <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  nginx
+</span></span><span style="display:flex;"><span>dcc55061e1118f7b6ccf2c3708d717531bf0c92327ed42f94f08d13020e901ea
+</span></span><span style="display:flex;"><span>$ curl http://localhost:8080/
+</span></span></code></pre></div><p>The extra bits here are:</p>
+<ul>
+<li><code>-p 8080:80</code> links the host port (<code>8080</code>) to the container port (<code>80</code>) that has been exposed.</li>
+<li><code>-d</code> will disconnect the container from your terminal, and then output the container id back to you.</li>
+<li>You can see after the <code>docker run</code> command, a unique ID presented back to you. This is the running container process ID.</li>
+<li>The example above then hits <code>nginx</code> and tries to retrieve some HTML. If your <code>pwd</code> (current working directory) does not have any HTML, this will give a 404.</li>
+</ul>
+<h2 id="process-management">Process management</h2>
+<p>Want to know what processes are running?</p>
+<p><code>docker ps</code> will give the current containers running.</p>
+<p><code>docker ps -a</code> will give you all the containers that are running and stopped.</p>
+<p>Want to connect to a container that is running, then you can do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker <span style="color:#24909d">exec</span> -it dcc55061e1118f7b6ccf2c3708d717531bf0c92327ed42f94f08d13020e901ea bash
+</span></span></code></pre></div><p>Breaking this down, we have <code>docker exec</code> for executing something, but we run interactively with <code>-it</code> options and then run <code>bash</code>. This could be <code>zsh</code> or actually any command that is available in the container. Notice we are using the same container from the <code>nginx</code> example.</p>
+<p>Want to know more about a running container, then run</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker inspect dcc55061e1118f7b6ccf2c3708d717531bf0c92327ed42f94f08d13020e901ea
+</span></span></code></pre></div><p>To stop a container you can run</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker stop dcc55061e1118f7b6ccf2c3708d717531bf0c92327ed42f94f08d13020e901ea
+</span></span></code></pre></div><h2 id="clean-up">Clean-up</h2>
+<p>These commands will help keep your machine tidy:</p>
+<ul>
+<li><code>docker rm $(docker ps -aq)</code> - Remove all containers.</li>
+<li><code>docker rmi $(docker images -q)</code> - Remove all images stored locally.</li>
+<li><code>docker rmi $(docker images -f &quot;dangling=true&quot; -q)</code> - Remove all images that are not being used - &ldquo;dangling&rdquo;.</li>
+<li><code>docker stop $(docker ps -aq)</code> - Stop all containers running.</li>
+</ul>
+<p>Or</p>
+<p><code>docker system prune</code></p>
+<h2 id="tidbits">Tidbits</h2>
+<ul>
+<li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices">Dockerfile best practices</a></li>
+</ul>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/shell-101/">Shell commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/vscode-dev-containers-minikube/">Setting up a VS Code Dev Container - Minikube</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Tips and configurations for setting up Ubuntu on an old MacBook Pro.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Running Ubuntu on a MacBook Pro &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Running Ubuntu on a MacBook Pro">
+  <meta name="twitter:description"
+    content="Tips and configurations for setting up Ubuntu on an old MacBook Pro.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Running Ubuntu on a MacBook Pro">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Running Ubuntu on a MacBook Pro">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="Tips and configurations for setting up Ubuntu on an old MacBook Pro.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Running Ubuntu on a MacBook Pro</h1>
+  <span class="posts__item-date">May 26, 2024 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/knowledge" title="Posts related to knowledge">#knowledge</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/notes" title="Posts related to notes">#notes</a></span>
+    
+  </div>
+
+  <p><strong>Note: This post is a work in progress, and mainly for my notes. It&rsquo;s current as of May 2024!</strong>.</p>
+<p>I had a ten year old MacBook Pro lying around not really doing anything. It wasn&rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.</p>
+<p>However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from. Also, this is a fun side project. I&rsquo;m not entirely moving over to Ubuntu, so I don&rsquo;t really want to change my muscle memory too much.</p>
+<p>This post tries to explain how <strong>best</strong> to modify Ubuntu to make it more like the macOS experience from a keyboard point of view. For example Copy and Paste is <code>cmd+c</code> and <code>cmd+v</code> respectively.</p>
+<h2 id="hardware">Hardware</h2>
+<p>This post centres around the following hardware:</p>
+<ul>
+<li>MacBook Pro (Retina, 13-inch, Early 2015)</li>
+<li>Model Identifier: <code>MacBookPro12,1</code></li>
+<li>Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz</li>
+<li>8GB Ram</li>
+</ul>
+<p>Identified by <code>lscpu</code> and <code>dmidecode</code>.</p>
+<p>I&rsquo;ve also run a second Samsung monitor with this setup, and all is working fine (tm)!</p>
+<h2 id="key-mapping">Key mapping</h2>
+<p>As per <a href="https://askubuntu.com/questions/131900/how-do-i-switch-the-command-key-and-control-key-on-a-macbook-pro">this article</a> we need to update the <code>/usr/share/X11/xkb/symbols/pc</code> file.</p>
+<p>So let&rsquo;s go ahead and update it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vim /usr/share/X11/xkb/symbols/pc
+</span></span></code></pre></div><p>We need to make these changes (Replace what is already defined for those key mappings).</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>key &lt;LCTL&gt; {    [ Super_L       ]   };
+</span></span><span style="display:flex;"><span>key &lt;LWIN&gt; {    [ Control_L     ]   };
+</span></span><span style="display:flex;"><span>key &lt;RCTL&gt; {    [ Super_R       ]   };
+</span></span><span style="display:flex;"><span>key &lt;RWIN&gt; {    [ Control_R     ]   };
+</span></span></code></pre></div><p>Once you have made these changes, you need to restart your machine.</p>
+<h2 id="keyboard-settings">Keyboard settings</h2>
+<p>Now let&rsquo;s change some keyboard shortcuts in settings.</p>
+<ul>
+<li>Open <strong>Settings</strong></li>
+<li>Go to the <strong>Keyboard</strong> section</li>
+<li>Click <strong>View and Customize Shortcuts</strong></li>
+</ul>
+<p>Let&rsquo;s update the following sections. Note that the UI here will still say <code>ctrl</code> instead of <code>cmd</code> as we mapped that at an underlying system level.</p>
+<h3 id="navigation">Navigation</h3>
+<ul>
+<li><strong>Switch applications</strong> - Set this to <code>cmd+tab</code>.</li>
+<li><strong>Hide all normal windows</strong> - Set this to <code>cmd+shift+h</code>. This is because in terminal, I&rsquo;m so use to do <code>ctrl+d</code> this is really jarring, when all the windows go.</li>
+</ul>
+<h3 id="system">System</h3>
+<ul>
+<li><strong>Show all apps</strong> - Set this to <code>cmd+space</code> - This gives a spotlight feel to it.</li>
+</ul>
+<h2 id="camera">Camera</h2>
+<p>The camera did not work after the standard install. However, <a href="https://github.com/patjak/facetimehd">this open source project</a> worked fine for me. Just follow their <a href="https://github.com/patjak/facetimehd/wiki/Installation#get-started-on-ubuntu">instructions</a>.</p>
+<h2 id="tmux">Tmux</h2>
+<p>If you use <a href="https://github.com/tmux/tmux/wiki">tmux</a>, and you did the above, depending on what your leader key was, you might have some issues. Prior to this exercise, I had the leader key set to <code>C-a</code>. This now becomes <code>cmd+a</code> with the above key mapping changes. Yep, this means it&rsquo;s different depending on whether I&rsquo;m on macOS, or Linux. I did consider using a different <code>tmux.conf</code> or have an extended one for each OS. However, mapping <code>cmd</code> looked a little tricky.</p>
+<p>I&rsquo;ve capitulated, and moved my leader key to be <code>M-a</code>. This means it will be consistent on both OS&rsquo;s. This is a minimal change to the way I work, but I can live with it.</p>
+<p>However, I did have to make a <a href="https://github.com/benmatselby/dotfiles/tree/main/terminal">slight change to iTerm</a>.</p>
+<p><strong>Settings&hellip;</strong> &gt; <strong>Profiles</strong> and pick your profile. Then <strong>Keys</strong>, and change <strong>Left Option Key</strong> to be <code>Esc+</code>.</p>
+<h2 id="what-i-like">What I like</h2>
+<p>So, after all this, what do I actually like about it?</p>
+<ul>
+<li>The <code>cmd+alt+ctrl+shift+arrow</code> combination to move a window to a new workspace is just :chef-kiss:</li>
+<li>The control centre widget (top right) is really nice. I can even control the keyboard lights from there.
+<ul>
+<li>Much improved from Ubuntu 8.04 (The first Ubuntu I used).</li>
+</ul>
+</li>
+<li>It&rsquo;s nice to (re)try new things.</li>
+</ul>
+<h2 id="what-im-missing">What I&rsquo;m missing</h2>
+<p>&hellip; but will learn, or learn to adapt.</p>
+<ul>
+<li>The <code>#</code> is now right <code>alt+3</code>.</li>
+<li>Wording shifting is now <code>cmd</code> and not <code>alt</code>.</li>
+<li>Tab shifting is catching me out all the time. e.g. <code>cmd+shift+[]</code> etc, vs <code>fn+cmd+arrows</code>.</li>
+<li>Navigation in browsers (Chrome): <code>cmd+[]</code> vs <code>alt-arrows</code>.</li>
+<li>I think iTerm is richer than Gnome Terminal, but tmux softens the edges a little.</li>
+<li>I actually miss copy/pasting stuff between iCloud accounts!</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>I could certainly be a fully functional software engineer on an Ubuntu OS. The fact that a lot of apps are now in your browser really helps. This entire weekend was backed with Spotify playing seamlessly.</p>
+<p>Onwards&hellip;</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

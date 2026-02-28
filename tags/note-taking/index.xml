@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note-Taking on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/note-taking/</link>
+    <description>Recent content in Note-Taking on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Feb 2022 13:18:48 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/note-taking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multi-cursor support in Obsidian</title>
+      <link>https://benmatselby.dev/post/obsidian-multi-cursor/</link>
+      <pubDate>Thu, 03 Feb 2022 13:18:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/obsidian-multi-cursor/</guid>
+      <description>&lt;p&gt;This post brings together two of my favourite things: Note taking, and multiple cursors. I remember the first time an engineer introduced me to &lt;a href=&#34;https://www.sublimetext.com&#34;&gt;Sublime Text&lt;/a&gt;. The main thing he would bang on about was multiple cursors. I was very quickly sold. It&amp;rsquo;s pure magic and speeds up so many things. I instantly switched from Eclipse PDT to Sublime Text.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve always liked writing notes, but always struggled with various tools. I have a work diary going back to 2009! I&amp;rsquo;ve used &lt;code&gt;vim&lt;/code&gt;, VSCode, Sublime Text, but they never really got it right. I have even tried hand writing notes in journals, it&amp;rsquo;s not for me, no matter how much I want it to be!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
