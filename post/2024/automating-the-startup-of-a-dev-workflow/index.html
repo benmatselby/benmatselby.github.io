@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Automating the startup of a dev workflow">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Automating the startup of a dev workflow &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Automating the startup of a dev workflow">
+  <meta name="twitter:description"
+    content="Automating the startup of a dev workflow">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Automating the startup of a dev workflow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Automating the startup of a dev workflow">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Automating the startup of a dev workflow">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Automating the startup of a dev workflow</h1>
+  <span class="posts__item-date">Jan 2, 2024 &middot; 3 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/automation" title="Posts related to automation">#automation</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+  </div>
+
+  <p>Hopefully, this is the first of many small posts showing how I automate my workflow.</p>
+<p>Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.</p>
+<p>One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.g. logs, database, git, and codebases etc).</p>
+<p>He asked me:</p>
+<p>&ldquo;How much time would you save if you could automate that?&rdquo;</p>
+<p>Sitting there, stunned, I wasn&rsquo;t sure how to do what he said, but that question has stuck with me throughout my career. Then over the years, I&rsquo;ve started to automate more and more, because I would remember Rys asking me how much time I would save.</p>
+<p>So, I now have an alias defined as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>start-company() {
+</span></span><span style="display:flex;"><span>  open -a Music
+</span></span><span style="display:flex;"><span>  open -a Slack
+</span></span><span style="display:flex;"><span>  open -a <span style="color:#ed9d13">&#34;Google Chrome&#34;</span>
+</span></span><span style="display:flex;"><span>  open -a Obsidian
+</span></span><span style="display:flex;"><span>  open -a Notion
+</span></span><span style="display:flex;"><span>  open -a Miro
+</span></span><span style="display:flex;"><span>  open -a <span style="color:#ed9d13">&#34;Visual Studio Code&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where <code>company</code> is the name of the company I work for. This may seem small, and maybe even obvious, but running <code>start-company</code> each time I boot my machine is substantially quicker than opening each application in turn.</p>
+<p>Running this command is the first of many stacked habits I have in the morning. For more information on stacking habits, check out <a href="https://jamesclear.com/atomic-habits">Atomic Habits</a>. I&rsquo;m hopefully going to write up other habits I have for my workflow.</p>
+<p>So I have my terminal and other applications open, but how about naming those darn terminal windows Rys asked me about all those years ago?</p>
+<p>Well, I now use <a href="https://github.com/tmux/tmux">tmux</a> and <a href="https://github.com/tmuxinator/tmuxinator">tmuxinator</a>. I have had many failed <code>tmux</code> attempts over the years, but I&rsquo;m firmly bedded in now.</p>
+<p>What is <code>tmux</code>?</p>
+<blockquote>
+<p>tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.</p>
+</blockquote>
+<p>That nicely brings us to <code>tmuxinator</code>:</p>
+<blockquote>
+<p>Create and manage tmux sessions easily.</p>
+</blockquote>
+<p>Therefore I can start a <code>tmux</code> session, via <code>tmuxinator</code>, which has a defined configuration. So one example would be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>name: dotfiles
+</span></span><span style="display:flex;"><span>root: ~/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>windows:
+</span></span><span style="display:flex;"><span>  - bms: cd ~/git/github/benmatselby
+</span></span><span style="display:flex;"><span>  - work: cd ~/git/github/[company-name]
+</span></span><span style="display:flex;"><span>  - dotfiles: cd ~/git/github/benmatselby/dotfiles
+</span></span><span style="display:flex;"><span>  - life: cd ~/git/github/benmatselby/life
+</span></span></code></pre></div><p>When I now run <code>tmuxinator start dotfiles</code> (I have this aliased to <code>txs</code>), I get 4 named windows/tabs in a <code>tmux</code> session, all in the correct working directory. This is a massive time saving for me. I have many <code>tmuxinator</code> configuration files now. Each project generally gets its own configuration.</p>
+<p>Hopefully, this setup is useful, or maybe interesting to you. Happy automating folks 😊</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://github.com/benmatselby/dotfiles">My dotfiles</a></li>
+<li><a href="https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/">Setting up k9s skins for different Kubernetes clusters</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

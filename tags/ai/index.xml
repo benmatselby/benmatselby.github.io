@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/ai/</link>
+    <description>Recent content in Ai on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jun 2025 22:42:42 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two weeks with the GitHub Coding Agent</title>
+      <link>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</link>
+      <pubDate>Sat, 28 Jun 2025 22:42:42 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</guid>
+      <description>&lt;p&gt;For the last two weeks, we&amp;rsquo;ve been learning to work with the new &lt;a href=&#34;https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/&#34;&gt;GitHub Coding Agent&lt;/a&gt;. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.&lt;/p&gt;&#xA;&lt;p&gt;From now on we will call the GitHub Coding Agent &amp;ldquo;Mx Robot&amp;rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&amp;rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently looking into what &lt;a href=&#34;https://mephisto.ai&#34;&gt;Mephisto&lt;/a&gt; can do. Mephisto describes itself as&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So I wanted to check it out and run it locally to see for myself. I started with the &lt;a href=&#34;https://mephisto.ai/docs/guides/quickstart/&#34;&gt;10-minute Quickstart&lt;/a&gt; guide but hit issues with the installation of dependencies. I tried Python 3.8, and 3.11, and with &lt;code&gt;pip install&lt;/code&gt; and &lt;code&gt;poetry install&lt;/code&gt;. I am fairly confident this is to do with my Apple Silicon Mac (I have issues with other Python projects too!). So rather than get bogged down in that world, I thought it would be easier to spin up a dev container in VS Code. This post is going to show you how you can do that (and provides a reference for me as to what the configuration is).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

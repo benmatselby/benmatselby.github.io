@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tooling on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/tooling/</link>
+    <description>Recent content in Tooling on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jun 2025 22:42:42 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/tooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two weeks with the GitHub Coding Agent</title>
+      <link>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</link>
+      <pubDate>Sat, 28 Jun 2025 22:42:42 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</guid>
+      <description>&lt;p&gt;For the last two weeks, we&amp;rsquo;ve been learning to work with the new &lt;a href=&#34;https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/&#34;&gt;GitHub Coding Agent&lt;/a&gt;. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.&lt;/p&gt;&#xA;&lt;p&gt;From now on we will call the GitHub Coding Agent &amp;ldquo;Mx Robot&amp;rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&amp;rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dependency Management</title>
+      <link>https://benmatselby.dev/post/2025/managing-dependencies/</link>
+      <pubDate>Sat, 18 Jan 2025 09:19:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2025/managing-dependencies/</guid>
+      <description>&lt;p&gt;This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&amp;rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.&lt;/p&gt;&#xA;&lt;p&gt;Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running Ubuntu on a MacBook Pro</title>
+      <link>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</link>
+      <pubDate>Sun, 26 May 2024 09:36:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note: This post is a work in progress, and mainly for my notes. It&amp;rsquo;s current as of May 2024!&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I had a ten year old MacBook Pro lying around not really doing anything. It wasn&amp;rsquo;t doing very well with the macOS either, so decided to run Ubuntu on it. Ubuntu was my main development environment from about 2008 until about 2011, and I miss it.&lt;/p&gt;&#xA;&lt;p&gt;However, as a life long Mac user, the keyboard shortcuts and combinations are too much muscle memory for me to try and move away from. Also, this is a fun side project. I&amp;rsquo;m not entirely moving over to Ubuntu, so I don&amp;rsquo;t really want to change my muscle memory too much.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Automating the startup of a dev workflow</title>
+      <link>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</link>
+      <pubDate>Tue, 02 Jan 2024 18:13:03 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</guid>
+      <description>&lt;p&gt;Hopefully, this is the first of many small posts showing how I automate my workflow.&lt;/p&gt;&#xA;&lt;p&gt;Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.&lt;/p&gt;&#xA;&lt;p&gt;One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.g. logs, database, git, and codebases etc).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Naming Slack huddles</title>
+      <link>https://benmatselby.dev/post/2023/naming-slack-huddles/</link>
+      <pubDate>Fri, 22 Dec 2023 21:28:17 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/naming-slack-huddles/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m pair programming more and more nowadays. One thing that features heavily in pair programming is a Slack huddle. My main recommendation is to &lt;strong&gt;name the Slack huddle&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Slack is a very useful tool to use when pair programming. For me, it&amp;rsquo;s simply the ability to draw on each others screen. Trying to describe the many buttons, areas of an IDE, or where to change a line of code is painful. Being able to draw on the screen is not.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mephisto and dev containers</title>
+      <link>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</link>
+      <pubDate>Sun, 06 Aug 2023 15:39:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/mephisto-and-devcontainers/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently looking into what &lt;a href=&#34;https://mephisto.ai&#34;&gt;Mephisto&lt;/a&gt; can do. Mephisto describes itself as&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Mephisto was designed from the ground up to work with different &amp;ldquo;crowd providers&amp;rdquo;. You can use Amazon Mechanical Turk, an internal platform for your organization, or something else. Additionally, launch your tasks on Heroku, EC2, etc.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So I wanted to check it out and run it locally to see for myself. I started with the &lt;a href=&#34;https://mephisto.ai/docs/guides/quickstart/&#34;&gt;10-minute Quickstart&lt;/a&gt; guide but hit issues with the installation of dependencies. I tried Python 3.8, and 3.11, and with &lt;code&gt;pip install&lt;/code&gt; and &lt;code&gt;poetry install&lt;/code&gt;. I am fairly confident this is to do with my Apple Silicon Mac (I have issues with other Python projects too!). So rather than get bogged down in that world, I thought it would be easier to spin up a dev container in VS Code. This post is going to show you how you can do that (and provides a reference for me as to what the configuration is).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post was updated on June 19th 2024, to document the latest way to do this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This post is going to show you how to define different skins for &lt;a href=&#34;https://k9scli.io&#34;&gt;k9s&lt;/a&gt;, so you can quickly see which environment you&amp;rsquo;re working on.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;k9s&lt;/code&gt; is a terminal application that allows you to manage your &lt;a href=&#34;https://kubernetes.io&#34;&gt;Kubernetes&lt;/a&gt; clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Keyhole to understand slow queries in MongoDB</title>
+      <link>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</link>
+      <pubDate>Wed, 02 Nov 2022 19:20:21 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/use-keyhole-to-understand-slow-queries-in-mongo/</guid>
+      <description>&lt;p&gt;Slow queries are a part of life. This post will show you how to use &lt;a href=&#34;https://github.com/simagix/keyhole&#34;&gt;Keyhole&lt;/a&gt; to turn your MongoDB logs into a spreadsheet you can use to understand where to focus your efforts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;keyhole&#34;&gt;Keyhole&lt;/h2&gt;&#xA;&lt;p&gt;First of all, get Keyhole up and running. Please &lt;a href=&#34;https://github.com/simagix/keyhole/tree/master/build&#34;&gt;follow their instructions&lt;/a&gt; on how to do this.&lt;/p&gt;&#xA;&lt;p&gt;I was able to do the following, but things change, so check out their docs for more relevant information.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/simagix/keyhole.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#24909d&#34;&gt;cd&lt;/span&gt; keyhole&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go build main/keyhole.go&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./keyhole --version&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;simagix/keyhole devel-20221102&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;logs&#34;&gt;Logs&lt;/h2&gt;&#xA;&lt;p&gt;So now we want to download the logs from MongoDB. I&amp;rsquo;m going to use the logs from MongoDB Cloud Atlas. So first of all, make sure you&amp;rsquo;re logged into the platform and on the projects page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Debugging Python with a virtual environment in VSCode</title>
+      <link>https://benmatselby.dev/post/debugging-python-with-env-vscode/</link>
+      <pubDate>Sun, 30 Oct 2022 14:35:10 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/debugging-python-with-env-vscode/</guid>
+      <description>&lt;p&gt;My current job is mainly Python, so there was a steep learning curve. I have done some Python previously, but mainly for writing &lt;a href=&#34;https://github.com/benmatselby/sublime-phpcs&#34;&gt;Sublime&lt;/a&gt; &lt;a href=&#34;https://github.com/benmatselby/sublime-jenkins-dashboard&#34;&gt;Text&lt;/a&gt; &lt;a href=&#34;https://github.com/benmatselby/sublime-phpdocumentor&#34;&gt;plugins&lt;/a&gt; &lt;a href=&#34;https://github.com/benmatselby/sublime-pman&#34;&gt;back in the day&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Over the last few months, I’ve set up my VSCode environment on my work machine. Last night I was wanting to do something on a different machine. I could not remember how to debug Python code inside a virtual environment within VSCode!&lt;/p&gt;&#xA;&lt;p&gt;I kept getting this error&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>&lt;p&gt;I recently started a new job. The data store is &lt;a href=&#34;https://www.mongodb.com&#34;&gt;MongoDB&lt;/a&gt;, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to &lt;a href=&#34;http://twitter.com/benmatselby/photo&#34;&gt;tweet me&lt;/a&gt; if there are discrepancies.&lt;/p&gt;&#xA;&lt;p&gt;The first thing that I became aware of, is that there are/were two cli tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The legacy &lt;code&gt;mongo&lt;/code&gt; shell, which &lt;a href=&#34;https://www.mongodb.com/docs/manual/reference/program/mongo/&#34;&gt;was deprecated in MongoDB v5.0&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The new, and active, &lt;code&gt;mongosh&lt;/code&gt; shell, which replaced &lt;code&gt;mongo&lt;/code&gt;. The documentation for this shell is &lt;a href=&#34;https://www.mongodb.com/docs/mongodb-shell/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post will discuss &lt;code&gt;mongosh&lt;/code&gt; and assume you have MongoDB running on your machine (or access to an instance).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Multi-cursor support in Obsidian</title>
+      <link>https://benmatselby.dev/post/obsidian-multi-cursor/</link>
+      <pubDate>Thu, 03 Feb 2022 13:18:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/obsidian-multi-cursor/</guid>
+      <description>&lt;p&gt;This post brings together two of my favourite things: Note taking, and multiple cursors. I remember the first time an engineer introduced me to &lt;a href=&#34;https://www.sublimetext.com&#34;&gt;Sublime Text&lt;/a&gt;. The main thing he would bang on about was multiple cursors. I was very quickly sold. It&amp;rsquo;s pure magic and speeds up so many things. I instantly switched from Eclipse PDT to Sublime Text.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve always liked writing notes, but always struggled with various tools. I have a work diary going back to 2009! I&amp;rsquo;ve used &lt;code&gt;vim&lt;/code&gt;, VSCode, Sublime Text, but they never really got it right. I have even tried hand writing notes in journals, it&amp;rsquo;s not for me, no matter how much I want it to be!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Docker Context to switch between different solutions</title>
+      <link>https://benmatselby.dev/post/docker-context/</link>
+      <pubDate>Mon, 15 Nov 2021 18:54:13 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-context/</guid>
+      <description>&lt;p&gt;You may be on the lookout for a replacement to Docker Desktop &lt;a href=&#34;https://www.docker.com/blog/roi-of-docker-desktop-vs-diy-considerations-risks-and-benefits-for-business/&#34;&gt;at the moment&lt;/a&gt;. If you are, you may be wanting to trial the different solutions. You&amp;rsquo;re going to need to know what is involved, and what the different cost models include. This post is going to show you how you can use &lt;code&gt;docker context&lt;/code&gt; to run the different systems in parallel. The two solutions this post will cover are &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/start/&#34;&gt;minikube&lt;/a&gt; and &lt;a href=&#34;https://multipass.run&#34;&gt;multipass&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container - minikube</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers-minikube/</link>
+      <pubDate>Wed, 13 Oct 2021 11:44:20 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers-minikube/</guid>
+      <description>&lt;p&gt;This post builds on what we already learnt in &lt;a href=&#34;https://benmatselby.dev/post/vscode-dev-containers/&#34;&gt;Setting up a VS Code Dev Container&lt;/a&gt;. It&amp;rsquo;s more specific goal is to discuss running Dev Containers whilst using &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/&#34;&gt;minikube&lt;/a&gt; as a Docker Desktop replacement on the Mac.&lt;/p&gt;&#xA;&lt;p&gt;There is lots of chatter about the new license for Docker Desktop. The license changes impacts the business I work for. I wanted to know what our options were.&lt;/p&gt;&#xA;&lt;p&gt;Getting minikube as a drop in replacement for Docker Desktop on the Mac, was relatively straight forward.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins: Language Agent</title>
+      <link>https://benmatselby.dev/post/jenkins-language-agent/</link>
+      <pubDate>Sat, 24 Apr 2021 21:18:37 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-language-agent/</guid>
+      <description>&lt;p&gt;This post follows on from the Jenkins series:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;Getting started with Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/jenkins-basic-agent/&#34;&gt;Getting started with Jenkins: Agents&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post is going to get you running a language specific Jenkins Agent. In the example we are going to follow, we will setup a Jenkins Agent running &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt;. This means you will be able to run Go builds within your local Jenkins instance. This method can then be extrapolated to other languages.&lt;/p&gt;&#xA;&lt;p&gt;All of the example code used throughout this post is in a &lt;a href=&#34;https://github.com/benmatselby/jenkins-example&#34;&gt;GitHub Repo&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using Terratest to test your infrastructure</title>
+      <link>https://benmatselby.dev/post/terratest/</link>
+      <pubDate>Sun, 18 Apr 2021 20:01:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terratest/</guid>
+      <description>&lt;p&gt;This post is going to get you started with using &lt;a href=&#34;https://terratest.gruntwork.io&#34;&gt;Terratest&lt;/a&gt; to help test your infrastructure changes. Terratest describes itself as:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help. What I personally like about Terratest is the fact it can test many different systems. This means my team can utilise one tool for many testing scenarios.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/terraform-101/</link>
+      <pubDate>Sun, 11 Apr 2021 09:31:36 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terraform-101/</guid>
+      <description>&lt;p&gt;As part of the &amp;ldquo;&lt;a href=&#34;#see-also&#34;&gt;Getting through the day&lt;/a&gt;&amp;rdquo; series, this post is going to provide basic Terraform knowledge. We are going to setup a Terraform project that allows you to manage your repos in GitHub.&lt;/p&gt;&#xA;&lt;p&gt;I didn&amp;rsquo;t want to assume that you had an AWS, Azure, or Google Cloud account, but a GitHub account seemed more realistic.&lt;/p&gt;&#xA;&lt;p&gt;This post assumes that you have &lt;a href=&#34;https://www.terraform.io/downloads.html&#34;&gt;installed Terraform on your system&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;cli&#34;&gt;CLI&lt;/h2&gt;&#xA;&lt;p&gt;Now that you have Terraform installed, you should be able to run &lt;code&gt;terraform&lt;/code&gt; in your terminal. For this tutorial I am running the following version:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins: Agents</title>
+      <link>https://benmatselby.dev/post/jenkins-basic-agent/</link>
+      <pubDate>Wed, 07 Apr 2021 19:23:54 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basic-agent/</guid>
+      <description>&lt;p&gt;Following on from &lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;Getting started with Jenkins&lt;/a&gt;, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the &lt;a href=&#34;https://benmatselby.dev/post/jenkins-basics/&#34;&gt;previous post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We will run the Jenkins agents in docker containers, like we have for the controller.&lt;/p&gt;&#xA;&lt;p&gt;We need to adjust the &lt;code&gt;docker run&lt;/code&gt; command slightly this time around. But first, we need to define a Docker network. So let&amp;rsquo;s start with creating the Jenkins network.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Jenkins</title>
+      <link>https://benmatselby.dev/post/jenkins-basics/</link>
+      <pubDate>Sat, 03 Apr 2021 20:42:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/jenkins-basics/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.jenkins.io/&#34;&gt;Jenkins&lt;/a&gt; is an automation application, that is heavily used for &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;Continuous Integration (CI)&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;Continuous Deployment/Delivery (CD)&lt;/a&gt;. This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&amp;rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&amp;rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shell knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/shell-101/</link>
+      <pubDate>Sun, 28 Mar 2021 15:01:33 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/shell-101/</guid>
+      <description>&lt;p&gt;Following on from the &lt;a href=&#34;https://benmatselby.dev/post/docker-101/&#34;&gt;Docker knowledge to get you through the day&lt;/a&gt;, and &lt;a href=&#34;https://benmatselby.dev/post/git-101/&#34;&gt;Git commands to get you through the day&lt;/a&gt; posts, this will cover Shell commands. Once again, it aims to get you through the day.&lt;/p&gt;&#xA;&lt;p&gt;First of all, it&amp;rsquo;s worth noting that there are many shells: bash, sh, zsh etc. For a comprehensive list of shells, and their comparison, head over to &lt;a href=&#34;https://en.wikipedia.org/wiki/Comparison_of_command_shells&#34;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-commands&#34;&gt;Basic commands&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s cover off some basics that will hopefully get you on your way.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VS Code Dev Container</title>
+      <link>https://benmatselby.dev/post/vscode-dev-containers/</link>
+      <pubDate>Sun, 21 Mar 2021 09:15:35 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/vscode-dev-containers/</guid>
+      <description>&lt;p&gt;Last week my team was tasked with picking up a project that I had last worked on 4 years ago. The deadline was tight, and we had a week to complete it. It was written in PHP, a language I&amp;rsquo;d barely written in the last 3 years. Obviously a lot has changed in 4 years (both in the language, setup, and the team I work in). I am the only engineer in my team now who knows PHP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker knowledge to get you through the day</title>
+      <link>https://benmatselby.dev/post/docker-101/</link>
+      <pubDate>Mon, 15 Mar 2021 18:35:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/docker-101/</guid>
+      <description>&lt;p&gt;Following on from the &amp;ldquo;&lt;a href=&#34;https://benmatselby.dev/post/git-101/&#34;&gt;Git commands to get you through the day&lt;/a&gt;&amp;rdquo; post, &lt;a href=&#34;https://github.com/paddymorgan84&#34;&gt;Paddy Morgan&lt;/a&gt; and I delivered a Docker 101 workshop today at work.&lt;/p&gt;&#xA;&lt;p&gt;This post covers what we ran through.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Time allocation:&lt;/strong&gt; 60 minutes&lt;/p&gt;&#xA;&lt;p&gt;This workshop will be a high level overview of the basic docker commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with docker on the CLI, this probably isn&amp;rsquo;t for you.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/git-101/</link>
+      <pubDate>Fri, 12 Mar 2021 21:31:48 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/git-101/</guid>
+      <description>&lt;p&gt;Since the start of the year, I&amp;rsquo;ve been running weekly workshops with &lt;a href=&#34;https://github.com/paddymorgan84&#34;&gt;Paddy Morgan&lt;/a&gt; at work. These have been fun sessions to run. Some have been chats, some demos etc.&lt;/p&gt;&#xA;&lt;p&gt;However, this week we ran a &amp;ldquo;Git 101&amp;rdquo; workshop. Weirdly, this was the most attended workshop we have run, with around 50 engineers joining throughout the hour session.&lt;/p&gt;&#xA;&lt;p&gt;This post covers what we ran through.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Time allocation:&lt;/strong&gt; 60 minutes&lt;/p&gt;&#xA;&lt;p&gt;This workshop will be a high level overview of the basic git commands you will use daily. It&amp;rsquo;s an entry level workshop, so if you&amp;rsquo;re comfortable with git on the CLI, this probably isn&amp;rsquo;t for you.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re happy with the automated burndown reports from tools like &lt;a href=&#34;https://www.atlassian.com/software/jira&#34;&gt;Jira&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com/en-gb/services/devops/&#34;&gt;Azure Devops&lt;/a&gt;, then this post is &lt;em&gt;probably&lt;/em&gt; not for you (except maybe the &lt;a href=&#34;#cli-tools&#34;&gt;CLI tools section&lt;/a&gt;). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.&lt;/p&gt;&#xA;&lt;p&gt;My first foray into the world of work management tools starting about 13 years ago, and my team used &lt;a href=&#34;https://trac.edgewall.org&#34;&gt;Trac&lt;/a&gt;. At the time, if my memory is correct, it did not produce a burndown report. A colleague of mine, &lt;a href=&#34;https://twitter.com/stuartjsmith&#34;&gt;Stuart Smith&lt;/a&gt; introduced me to a manual spreadsheet burndown report, which I&amp;rsquo;ve tweaked and used pretty much ever since.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Logically atomic commits</title>
+      <link>https://benmatselby.dev/post/logical-commits/</link>
+      <pubDate>Sun, 23 Feb 2020 10:21:25 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/logical-commits/</guid>
+      <description>&lt;p&gt;When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.&lt;/p&gt;&#xA;&lt;quote class=&#34;pullquote&#34;&gt;&#xA;  &#xA;Make sure all commits in version control are logically atomic.&#xA;&#xA;&lt;/quote&gt;&#xA;&#xA;&lt;h2 id=&#34;what-is-a-logically-atomic-commit&#34;&gt;What is a logically atomic commit?&lt;/h2&gt;&#xA;&lt;p&gt;A logically atomic commit is the smallest, most meaningful change you can make to the software. It&amp;rsquo;s big enough to add value, but small enough to be manageable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Squashing commits</title>
+      <link>https://benmatselby.dev/post/squashing-commits/</link>
+      <pubDate>Tue, 02 Oct 2018 07:23:48 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/squashing-commits/</guid>
+      <description>&lt;p&gt;I recently got involved in a project where I contributed a patch to an inflight feature branch. I then raised a Pull Request into the feature branch, so I could annotate the code in the GitHub PR to explain why I had done it a certain way. After a bit of back and forth the PR was merged into the feature branch.&lt;/p&gt;&#xA;&lt;p&gt;Later, I found that the feature branch I had worked on had been merged into master, but the entire branch was squashed down into one commit.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;It works on my machine&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform. There was a wiki page with step by step instructions, updated by each new starter along the way. The people with the least knowledge of the platform were the passing guardians of one of the most fundamental documents in the department. About 4 weeks later we had an offsite where I had to stand up and give a talk about my experience of joining the department and business. When I stood there, rabbit in headlights, I explained that the first two weeks were a complete waste of time. There were some shocked faces. I was so new, I was just blindly entering commands from a wiki page, not really understanding the why. It really did not add much value to me, nor the company. I would have rather fixed my first software bug in those two weeks, and then started to learn the mammoth platform, when I had more context.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Team communication tools</title>
+      <link>https://benmatselby.dev/post/communication-tools/</link>
+      <pubDate>Mon, 06 Aug 2018 07:30:00 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/communication-tools/</guid>
+      <description>&lt;p&gt;In a &lt;a href=&#34;https://benmatselby.dev/post/communication/&#34;&gt;previous post&lt;/a&gt; I talked about communication, and what it’s like as a remote engineer. I also hinted at the tooling I prefer, and outlined what I look for. This post is going to cover off why I prefer &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt; for team chat/communication.&lt;/p&gt;&#xA;&lt;p&gt;Spanning a 10 year period I’ve used: IRC, &lt;a href=&#34;https://en.wikipedia.org/wiki/Apache_Wave&#34;&gt;Google Wave&lt;/a&gt;, XMPP in various forms, &lt;a href=&#34;https://www.skype.com/en/&#34;&gt;Skype&lt;/a&gt;, &lt;a href=&#34;https://hangouts.google.com&#34;&gt;GTalk and Google Hangouts&lt;/a&gt;, &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt;, &lt;a href=&#34;https://www.microsoft.com/en-us/education/products/teams/default.aspx&#34;&gt;Microsoft Teams&lt;/a&gt; and &lt;a href=&#34;https://en-gb.facebook.com/workplace&#34;&gt;Workplace&lt;/a&gt;. Slack is a clear winner for me, although at the time Google Wave blew me away.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

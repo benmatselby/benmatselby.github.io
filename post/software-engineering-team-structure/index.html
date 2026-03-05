@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Some thoughts around structuring software engineering teams.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Software engineering team structures &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Software engineering team structures">
+  <meta name="twitter:description"
+    content="Some thoughts around structuring software engineering teams.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/sheffield-steelers-face-off-share.png">
+
+  
+  <meta property="og:site_name"
+    content="Software engineering team structures">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Software engineering team structures">
+  <meta property="og:image" content="https://benmatselby.dev/img/sheffield-steelers-face-off-share.png">
+  <meta property="og:description"
+    content="Some thoughts around structuring software engineering teams.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/sheffield-steelers-face-off.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Software engineering team structures</h1>
+  <span class="posts__item-date">Apr 20, 2019 &middot; 8 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/people" title="Posts related to people">#people</a></span>
+    
+    <span class="tags__tag"><a href="/tags/teams" title="Posts related to teams">#teams</a></span>
+    
+    <span class="tags__tag"><a href="/tags/structure" title="Posts related to structure">#structure</a></span>
+    
+    <span class="tags__tag"><a href="/tags/management" title="Posts related to management">#management</a></span>
+    
+  </div>
+
+  <p>This post aims to outline a useful structure for software engineering teams. This feels like a fairly standard structure, or at least with the teams I’ve had exposure to. The main principles here are: to keep communication flowing; accountability is defined and understood; and the ability to scale horizontally when your teams become saturated (and for this to be easily quantified).</p>
+<p>For the purpose of this article, a team is going to be a product based software engineering team. This article does not delve too deeply with the structure above the team, only that the principles are still applicable. They will be fully accountable for delivering and supporting a couple of products. They use the scrum methodology (although this doesn&rsquo;t really matter).</p>
+<h2 id="people">People</h2>
+<p>A team size should be 7 +/- 3, or as Jeff Bezos calls it “The two-pizza size rule”. If you can’t feed the team on two pizzas, the team is too big.</p>
+<p>I’ve provided links in the footer that provide some more context as to why this works.</p>
+<p>The composition of the team should involve these people. There are other roles in the team that may or may not be distinct individuals. Or, depending on the org and team size, these roles may in fact be tasks picked up by folks in the team (more on that later).</p>
+<ul>
+<li>Technical Lead</li>
+<li>Senior Engineers</li>
+<li>Engineers</li>
+<li>Junior Engineers</li>
+<li>Graduates (if your company has this kind of programme)</li>
+</ul>
+<p>There is no desire to break this down into “dev” and/or “test” engineers, because at this stage in our industry, it’s starting to become the norm for this distinction to be removed. These boundaries cause a “you/me” or “over the fence” culture that can ruin teams, and the quality of the product. I also believe it can harm an individuals career progression, as they are labelled one or the other.</p>
+<p>Earlier we defined people, not roles, here come the roles that augment the team:</p>
+<ul>
+<li>Product owner</li>
+<li>Architecture</li>
+<li>Scrum master</li>
+</ul>
+<p>Now, these roles could be people in the team, but not every organisation will have enough people to fulfil a Full Time Equivalent (FTE) in each role, and for each team. When this occurs, the team will naturally need to pick up the duties of these roles. Who and how this is allocated in the team, should be a team discussion, and a team decision.</p>
+<p>A quick note on Technical Leads. They do not necessarily need to be the most technical on the team, in my opinion, but they need leadership and management skills. They need to know who can solve an issue in their team (or org) if they are not the most technical. This thinking is only going to work if that&rsquo;s the culture of your org. If your organisation naturally sees the Technical Lead position as a promotion from Senior Engineer, then your mileage may vary.</p>
+<h2 id="accountability">Accountability</h2>
+<p>So at this point, we know the people, we know the roles, but what are they responsible and accountable for. What&rsquo;s the difference?</p>
+<ul>
+<li><strong>Responsibility</strong> - Who feels guilty when the team don&rsquo;t deliver, or something goes wrong.</li>
+<li><strong>Accountability</strong> - Who gets it in the neck when the team don&rsquo;t deliver, or something goes wrong.</li>
+</ul>
+<p>In new age parlance:</p>
+<ul>
+<li><strong>Responsibility</strong> - 😬</li>
+<li><strong>Accountability</strong> - 💩</li>
+</ul>
+<p>In my opinion, when a team is formed, they are all responsible for everything the team needs to do. As a member of the team, you do whatever is needed to “get over the line”. Your process should not create single points of failure, or knowledge siloes. Your process should provide mentoring to junior team members, and be supportive of learning.</p>
+<p>The Technical Lead is accountable for making sure everything is complete and to the desired standard.</p>
+<p>So what is everything? A none exhaustive list would include:</p>
+<ul>
+<li>Technical/Solution design.</li>
+<li>Backlog management.
+<ul>
+<li>Both product and technical.</li>
+</ul>
+</li>
+<li>Development and testing.</li>
+<li>Deploy and release management.</li>
+<li>Support and documentation.</li>
+<li>Monitoring and telemetry.</li>
+<li>Reporting up the chain - whatever that means in your org.
+<ul>
+<li>Sprint reports.</li>
+<li>Roadmaps.</li>
+<li>Quality metrics.</li>
+</ul>
+</li>
+<li>Quality control.</li>
+</ul>
+<p>There are some notable absences in there. A couple that I would call out specifically are:</p>
+<ul>
+<li>Line management.</li>
+<li>Context and stakeholder management.</li>
+</ul>
+<p>I’ve worked in teams where line management was with the Technical Lead; where it was split between the Technical Lead and other people; and where it was solely other people outside of the team. I personally don’t see a reason why line management has to be the Technical Lead, but something I would call out is <em>ambiguity</em>. If you have other people line managing members of the team, you need to have clear accountability defined. There should be no second guessing of either party. It creates a stifled, and toxic environment that will stop the team delivering their best. Inertia will kick in.</p>
+<p>Context and stakeholder management is potentially something outside of this team dynamic, but needs to feed into it. This is potentially where a Product Owner and Engineering Manager/Director can support the team. If you don’t have a Product Owner in the team, you are going to need some direction from product management. And likewise the context of what you’re doing, and what other teams are doing, is likely to come from Engineering Managers/Directors (depending on the size of your org).</p>
+<h2 id="scaling">Scaling</h2>
+<p>Scaling needs to be horizontal, when a team unit becomes saturated.</p>
+<quote class="pullquote">
+  
+You do not make teams incrementally larger to scale your output. You add more teams.
+
+</quote>
+
+<p>You give accountability to new teams.</p>
+<p>I say a team unit, because this works across the org. If you have (for example) 5 teams reporting to an Engineering Manager, when that engineering manager becomes saturated, you add an entirely new unit to scale horizontally.</p>
+<p>This is common thinking across our industry. Be it 7 +/- 3, or pizza sizing, or the <a href="https://www.mountaingoatsoftware.com/articles/advice-on-conducting-the-scrum-of-scrums-meeting">scrum of scrums</a> layering.</p>
+<p>When do you know if you need to add a new team? If the average velocity of the team is not delivering the quantity you require. If you are asking the Technical Lead if they need more people to deliver, and they are already at the top end of the 7 +/- 3 bracket, you need to add another team.</p>
+<p>If you are scaling, you are likely to come across engineering teams that need to work across product teams. Examples potentially could be: security; auth; UI pattern libraries; or overall platform stability/accountability. Whilst these are individual products in their own right, they are servicing other development teams. This is a nuanced difference, but a difference that needs to be understood. The engineers/designers on these teams need to be more collaborative, open, and aware of the business needs of other teams. Their decisions will impact more people, than decisions made in a single focus team. They will need to be honest and clearly communicate priorities.</p>
+<p>If you have senior Individual Contributors who want to progress their careers, then these teams may be a good fit. It will provide them an overarching view of key products, it will require them to collaborate more, think of others, and provide pragmatic solutions. Their mindset will need to shift from a singular product focus to a broader org way of thinking - i.e. strategic. This may also be a good fit for a Technical Lead who wants a wider technical accountability either before, or instead of, the Engineering Manager role, which would focus more on the strategic aspects of the business and people side. If there is a need to name these roles differently from Senior and Technical Lead then potentially Staff Engineer and Principal would be fitting. These are roles that would not only generate work for the team, but drive the implementation across a business unit or division.</p>
+<p>That’s not to say these teams should only be formed with senior people, on the contrary (see below) but not all engineers are potentially going to want to be in this kind of team.</p>
+<h2 id="a-quick-note-on-junior-team-members">A quick note on junior team members</h2>
+<p>Juniors (or graduate schemes) are an important part of growing your business. We have all been there, the standard “2 years experience” being asked of you in job adverts. Recruit juniors into your team and teach them, mentor then, shape them into the engineers you need.</p>
+<p>A team needs to be a blend of skills, strengths, personalities. A junior engineer is a part of that blend. It keeps the senior members in the team on their toes, as they need to coach, mentor, and explain concepts to receptive minds. This can ground the team, and make them more productive.</p>
+<p>This is an interesting view point:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The world needs ex-beginners. They&#39;re the best to write blog posts, to speak at conferences, to write docs (with some assistance by experts, to avoid a few misconceptions). Experts are cursed with too much knowledge that they lose perception and empathy toward beginner problems.</p>&mdash; André Staltz (@andrestaltz) <a href="https://twitter.com/andrestaltz/status/995966615421374464?ref_src=twsrc%5Etfw">May 14, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>I had a quick 2 year stint at a startup where there were only 2 engineers (and I was one of them). I relied on books to get me through (felt like university life). We didn’t really have many customers or a live platform. My learning was academic. My next job was at an ISP where I had a plethora of mentors to support me. The platform was huge, and sprawling. I was certainly junior and the learning was much faster paced and based in the real world, not just theory. That job pretty much defined the engineer I am today. And it’s thanks to certain individuals. Pay it forward. Mentor the next generation.</p>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://www.theguardian.com/technology/2018/apr/24/the-two-pizza-rule-and-the-secret-of-amazons-success">The two-pizza rule and the secret of Amazon&rsquo;s success</a></li>
+<li><a href="http://blog.idonethis.com/two-pizza-team/">Why Jeff Bezos’ Two-Pizza Team Rule Still Holds True in 2018</a></li>
+<li><a href="http://randsinrepose.com/archives/seven-plus-or-minus-three/">Seven Plus or Minus Three</a></li>
+<li><a href="https://benmatselby.dev/post/why-teams-important/">Why teams are important</a></li>
+<li><a href="https://www.amazon.co.uk/Manager%60s-Path-Camille-Fournier/dp/1491973897">The Manager&rsquo;s Path</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

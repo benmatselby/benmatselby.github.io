@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="A case for using a Makefile in your project">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>A case for using a Makefile in your project &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="A case for using a Makefile in your project">
+  <meta name="twitter:description"
+    content="A case for using a Makefile in your project">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-golden-gate-share.png">
+
+  
+  <meta property="og:site_name"
+    content="A case for using a Makefile in your project">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="A case for using a Makefile in your project">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-golden-gate-share.png">
+  <meta property="og:description"
+    content="A case for using a Makefile in your project">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-golden-gate.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>A case for using a Makefile in your project</h1>
+  <span class="posts__item-date">Jan 16, 2024 &middot; 5 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p>This post is going to present a case for using a <code>Makefile</code> in your project. This will be the top-level task runner for your project. You can use <code>make</code> to run all of your project tasks such as building, linting, testing, and deploying your project. It doesn&rsquo;t matter what language your project is written in.</p>
+<h2 id="what-is-a-makefile">What is a Makefile?</h2>
+<blockquote>
+<p>Make gets its knowledge of how to build your program from a file called the makefile, which lists each of the non-source files and how to compute it from other files. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program.</p>
+</blockquote>
+<p><a href="https://www.gnu.org/software/make/">Source</a></p>
+<p>Straight out of the gate, this doesn&rsquo;t necessarily seem like something we could make use of, does it? However, at its core, a <code>Makefile</code> allows you to define a bunch of instructions together. Each set of instructions can then be given a name, and this becomes the &ldquo;target&rdquo;. We use a tool called <code>make</code> to run one of the targets defined in a <code>Makefile</code>.</p>
+<p>If you&rsquo;re working on JavaScript projects, for example, you may be using tools like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code> to run your tasks. A <code>Makefile</code> is a very similar concept, and I&rsquo;d recommend you have both.</p>
+<p>The reason for this recommendation is abstractions.</p>
+<h2 id="abstraction">Abstraction</h2>
+<p>We can use <code>make</code> to define an abstraction layer between your internal project decisions, and the outside world (a contract). The outside world could include what gets run in your CI/CD pipeline, or what engineers run in their terminals to build and test the project. By defining and making use of a <code>Makefile</code>, you can change your internal project workings, but leave the contract intact.</p>
+<p>A concrete example for a JavaScript project could be switching your project from using <code>npm</code> to <code>pnpm</code>. If you&rsquo;re using tasks within your <code>package.json</code> you have probably exposed <code>npm run ...</code> tasks in your CI/CD pipeline, your README, and your engineers will be running those commands. If you change your tool to <code>pnpm</code> you suddenly need to change a lot more code to bed this in. Your engineers also need to change their muscle memory to use the new version of the command. However, if you had a <code>Makefile</code> as a facade for your project, your <code>make build</code> task would stay the same to the outside world, but the internals of what <code>make build</code> does would change to use <code>pnpm</code>.</p>
+<p>Another example could be for a project written in Go, where there really isn&rsquo;t a task runner, and you may need to remember a rather complicated command to build your Go binaries. By having a <code>Makefile</code> you can document all the key commands in one place, and reference them.</p>
+<h2 id="example">Example</h2>
+<p>Let&rsquo;s take a look at a single <code>make</code> target from <a href="https://github.com/benmatselby/walter/blob/main/Makefile">this repo</a>, which is a Go project.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#447fcf">.PHONY</span>: test
+</span></span><span style="display:flex;"><span><span style="color:#447fcf">test</span>: <span style="color:#999;font-style:italic">## Run the unit tests
+</span></span></span><span style="display:flex;"><span>  go <span style="color:#24909d">test</span> ./... -coverprofile=coverage.out
+</span></span><span style="display:flex;"><span>  go tool cover -func=coverage.out
+</span></span></code></pre></div><p>Above shows a single <code>make</code> target called <code>test</code>. We can execute this target by running <code>make test</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ make <span style="color:#24909d">test</span>
+</span></span><span style="display:flex;"><span>go <span style="color:#24909d">test</span> ./... -coverprofile=coverage.out
+</span></span><span style="display:flex;"><span>ok      github.com/benmatselby/walter/cmd       0.504s  coverage: 18.2% of statements
+</span></span><span style="display:flex;"><span>ok      github.com/benmatselby/walter/cmd/board 0.243s  coverage: 75.7% of statements
+</span></span><span style="display:flex;"><span>ok      github.com/benmatselby/walter/cmd/search        0.844s  coverage: 90.6% of statements
+</span></span><span style="display:flex;"><span>ok      github.com/benmatselby/walter/cmd/sprint        1.052s  coverage: 85.5% of statements
+</span></span><span style="display:flex;"><span>go tool cover -func=coverage.out
+</span></span><span style="display:flex;"><span>github.com/benmatselby/walter/cmd/board/board.go:9:             NewBoardCommand100.0%
+</span></span><span style="display:flex;"><span>github.com/benmatselby/walter/cmd/board/issues.go:15:           NewIssueCommand33.3%
+</span></span><span style="display:flex;"><span>github.com/benmatselby/walter/cmd/board/issues.go:33:           ListIssues     93.8%
+</span></span><span style="display:flex;"><span>github.com/benmatselby/walter/cmd/board/list.go:13:             NewListCommand 33.3%
+</span></span><span style="display:flex;"><span>github.com/benmatselby/walter/cmd/board/list.go:30:             DisplayBoards  100.0%
+</span></span></code></pre></div><p>As you can see, we have output from the two commands defined in the <code>test</code> target. This is the same command engineers use when testing the software on their machines, to what is run in the <a href="https://github.com/benmatselby/walter/blob/main/.github/workflows/go.yml#L36">CI/CD platform</a> for quality checks.</p>
+<p>If we wanted to change the options to <code>go test</code>, we could do this in one place, and it not impact everywhere else. It would be a trivial encapsulated change. We could also switch out <code>go test</code> for another test runner, and it wouldn&rsquo;t impact anything else either.</p>
+<h2 id="automation">Automation</h2>
+<p>Taking this further, if you can define a standard <code>Makefile</code> for all of your projects with the same target names, you can probably automate more things at a higher level. For example, you could do the following:</p>
+<ul>
+<li>Clone your all git repos for your solution.</li>
+<li>Iterate over each one and install their dependencies (<code>make install</code>).</li>
+<li>Run the unit tests to make sure they work (<code>make test</code>).</li>
+<li>Run each application (<code>make run</code>).</li>
+</ul>
+<p>Perhaps this could be part of an automated system to spin up your entire project stack on your local machine. It wouldn&rsquo;t matter if some of those projects were Go, React, Python, PHP for example, as the public contract (The <code>Makefile</code>) is the same.</p>
+<h2 id="summary">Summary</h2>
+<p>As with most things, you have to decide if adding an extra abstraction layer is worth it. I&rsquo;ve been using a <code>Makefile</code> in my projects since about 2013 when we transitioned a PHP project away from <code>ant</code>/<code>phing</code>. These projects have ranged in the language used, but what is consistent is the name of the Make targets. I can pretty much clone any personal repo, and remember all the <code>make</code> commands irrelevant if the project is PHP, Python, JavaScript, Go etc.</p>
+<p>As outlined in <a href="https://benmatselby.dev/post/development-environments/">this post (2018)</a> using <code>make</code> to define how to run and test your project has gone into a full ecosystem to build development environments for engineers.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/development-environments/">Development environments</a></li>
+<li><a href="https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/">Automating the startup of a dev workflow</a></li>
+<li><a href="https://benmatselby.dev/post/vscode-dev-containers/">Setting up a VS Code Dev Container</a></li>
+<li><a href="https://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

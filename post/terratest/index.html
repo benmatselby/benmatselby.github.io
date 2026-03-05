@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Using Terratest to test your infrastructure">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Using Terratest to test your infrastructure &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Using Terratest to test your infrastructure">
+  <meta name="twitter:description"
+    content="Using Terratest to test your infrastructure">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Using Terratest to test your infrastructure">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Using Terratest to test your infrastructure">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Using Terratest to test your infrastructure">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Using Terratest to test your infrastructure</h1>
+  <span class="posts__item-date">Apr 18, 2021 &middot; 7 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/terraform" title="Posts related to terraform">#terraform</a></span>
+    
+    <span class="tags__tag"><a href="/tags/iac" title="Posts related to iac">#iac</a></span>
+    
+    <span class="tags__tag"><a href="/tags/infrastructure" title="Posts related to infrastructure">#infrastructure</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tutorial" title="Posts related to tutorial">#tutorial</a></span>
+    
+    <span class="tags__tag"><a href="/tags/beginner" title="Posts related to beginner">#beginner</a></span>
+    
+    <span class="tags__tag"><a href="/tags/testing" title="Posts related to testing">#testing</a></span>
+    
+  </div>
+
+  <p>This post is going to get you started with using <a href="https://terratest.gruntwork.io">Terratest</a> to help test your infrastructure changes. Terratest describes itself as:</p>
+<blockquote>
+<p>A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.</p>
+</blockquote>
+<p>Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help. What I personally like about Terratest is the fact it can test many different systems. This means my team can utilise one tool for many testing scenarios.</p>
+<p>Terratest has many <a href="https://terratest.gruntwork.io/docs/getting-started/packages-overview/">packages</a> that you can import into your project. For this post, I&rsquo;m going to cover:</p>
+<ul>
+<li>Terraform</li>
+<li>AWS</li>
+<li>Docker</li>
+<li>Test Structure</li>
+</ul>
+<p>This post requires the following pre-requisites:</p>
+<ul>
+<li><a href="https://www.docker.com/products/docker-desktop">Docker</a></li>
+<li><a href="https://www.terraform.io/downloads.html">Terraform</a></li>
+<li><a href="https://golang.org/dl/">Go 1.16+</a></li>
+<li>An AWS account that you can create resources in.</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">The AWS CLI (v2)</a></li>
+</ul>
+<p>To focus on what the code does, rather than copying and pasting, you can get the code from <a href="https://github.com/benmatselby/terratest-examples">here</a>. I will still paste relevant code snippets into this post to help understanding.</p>
+<h2 id="aws">AWS</h2>
+<p>For this section we are going to define some Terraform that creates a new S3 bucket, with versioning enabled. We are then going to use the <code>terraform</code> and <code>aws</code> Terratest packages to test that the code works. Terratest allows us to actually deploy, test, and then destroy the infrastructure from the tests.</p>
+<p>If you don&rsquo;t know about Terraform, then checkout my &ldquo;<a href="https://benmatselby.dev/post/terraform-101/">Terraform knowledge to get you through the day</a>&rdquo; post first.</p>
+<p>Let&rsquo;s take a look at the <a href="https://github.com/benmatselby/terratest-examples/blob/main/aws/s3.tf">aws/s3.tf</a> Terraform file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_version = <span style="color:#ed9d13">&#34;0.15.0&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_providers {
+</span></span><span style="display:flex;"><span>    aws = {
+</span></span><span style="display:flex;"><span>      source  = <span style="color:#ed9d13">&#34;hashicorp/aws&#34;</span>
+</span></span><span style="display:flex;"><span>      version = <span style="color:#ed9d13">&#34;&gt;= 3.36.0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">provider</span> <span style="color:#ed9d13">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  region = <span style="color:#ed9d13">&#34;eu-west-2&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">variable</span> <span style="color:#ed9d13">&#34;bucket_name&#34;</span> {
+</span></span><span style="display:flex;"><span>  description = <span style="color:#ed9d13">&#34;The name of the bucket&#34;</span>
+</span></span><span style="display:flex;"><span>  default     = <span style="color:#ed9d13">&#34;-example&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">resource</span> <span style="color:#ed9d13">&#34;aws_s3_bucket&#34;</span> <span style="color:#ed9d13">&#34;terratest_bucket&#34;</span> {
+</span></span><span style="display:flex;"><span>  bucket = <span style="color:#ed9d13">&#34;terratest</span><span style="color:#ed9d13">${</span><span style="color:#24909d">var</span>.bucket_name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  versioning {
+</span></span><span style="display:flex;"><span>    enabled = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">output</span> <span style="color:#ed9d13">&#34;bucket_id&#34;</span> {
+</span></span><span style="display:flex;"><span>  value = aws_s3_bucket.terratest_bucket.id
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There are three main items to focus on:</p>
+<ul>
+<li>The <code>bucket_name</code> variable.
+<ul>
+<li>This means we can provide a unique suffix for the tests, but defaults to <code>-example</code> if not overridden.</li>
+</ul>
+</li>
+<li>The <code>aws_s3_bucket</code> resource block.
+<ul>
+<li>Here we are defining the <code>versioning.enabled</code> attribute to be <code>true</code>.</li>
+<li>This will form the test we want to make.</li>
+</ul>
+</li>
+<li>The <code>bucket_id</code> output.
+<ul>
+<li>We can use this to then query AWS for the bucket information.</li>
+</ul>
+</li>
+</ul>
+<p>Let&rsquo;s take a look at the <a href="https://github.com/benmatselby/terratest-examples/blob/main/tests/bucket_test.go">tests/bucket_test.go</a> Go test.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package</span><span style="color:#666"> </span>test<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span><span style="color:#666"> </span>(<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;fmt&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;strings&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;testing&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/gruntwork-io/terratest/modules/aws&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/gruntwork-io/terratest/modules/random&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/gruntwork-io/terratest/modules/terraform&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/stretchr/testify/assert&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Standard Go test, with the &#34;Test&#34; prefix and accepting the *testing.T struct.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">func</span><span style="color:#666"> </span><span style="color:#447fcf">TestS3Bucket</span>(t<span style="color:#666"> </span>*testing.T)<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// I work in eu-west-2, you may differ</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>awsRegion<span style="color:#666"> </span>:=<span style="color:#666"> </span><span style="color:#ed9d13">&#34;eu-west-2&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// This is using the terraform package that has a sensible retry function.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>terraformOpts<span style="color:#666"> </span>:=<span style="color:#666"> </span>terraform.<span style="color:#447fcf">WithDefaultRetryableErrors</span>(t,<span style="color:#666"> </span>&amp;terraform.Options{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// Our Terraform code is in the /aws folder.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>TerraformDir:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;../aws/&#34;</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// This allows us to define Terraform variables. We have a variable named</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// &#34;bucket_name&#34; which essentially is a suffix. Here we are are using the</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// random package to get a unique id we can use for testing, as bucket names</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// have to be unique.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>Vars:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">map</span>[<span style="color:#6ab825;font-weight:bold">string</span>]<span style="color:#6ab825;font-weight:bold">interface</span>{}{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#ed9d13">&#34;bucket_name&#34;</span>:<span style="color:#666"> </span>fmt.<span style="color:#447fcf">Sprintf</span>(<span style="color:#ed9d13">&#34;-%v&#34;</span>,<span style="color:#666"> </span>strings.<span style="color:#447fcf">ToLower</span>(random.<span style="color:#447fcf">UniqueId</span>())),<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// Setting the environment variables, specifically the AWS region.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>EnvVars:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">map</span>[<span style="color:#6ab825;font-weight:bold">string</span>]<span style="color:#6ab825;font-weight:bold">string</span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#ed9d13">&#34;AWS_DEFAULT_REGION&#34;</span>:<span style="color:#666"> </span>awsRegion,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>})<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// We want to destroy the infrastructure after testing.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">defer</span><span style="color:#666"> </span>terraform.<span style="color:#447fcf">Destroy</span>(t,<span style="color:#666"> </span>terraformOpts)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Deploy the infrastructure with the options defined above</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>terraform.<span style="color:#447fcf">InitAndApply</span>(t,<span style="color:#666"> </span>terraformOpts)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Get the bucket ID so we can query AWS</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>bucketID<span style="color:#666"> </span>:=<span style="color:#666"> </span>terraform.<span style="color:#447fcf">Output</span>(t,<span style="color:#666"> </span>terraformOpts,<span style="color:#666"> </span><span style="color:#ed9d13">&#34;bucket_id&#34;</span>)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Get the versioning status to test that versioning is enabled</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>actualStatus<span style="color:#666"> </span>:=<span style="color:#666"> </span>aws.<span style="color:#447fcf">GetS3BucketVersioning</span>(t,<span style="color:#666"> </span>awsRegion,<span style="color:#666"> </span>bucketID)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Test that the status we get back from AWS is &#34;Enabled&#34; for versioning</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>assert.<span style="color:#447fcf">Equal</span>(t,<span style="color:#666"> </span><span style="color:#ed9d13">&#34;Enabled&#34;</span>,<span style="color:#666"> </span>actualStatus)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span>}<span style="color:#666">
+</span></span></span></code></pre></div><p>I&rsquo;ve curated the code above so you get an explanation of what each line is doing. Now we want to see the tests in action, so let&rsquo;s get the dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>go get ./...
+</span></span></code></pre></div><p>Now we can run the tests:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ go <span style="color:#24909d">test</span> -count=<span style="color:#3677a9">1</span> -v ./...
+</span></span><span style="display:flex;"><span>ok  github.com/benmatselby/terratest-examples/tests 16.702s
+</span></span></code></pre></div><p>If everything went to plan, the tests will pass. We have used <code>-count=1</code> so there is no Go test caching.</p>
+<p>Let&rsquo;s check what happens if the tests fail. If we open <code>aws/s3.tf</code> and update the following code block:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">resource</span> <span style="color:#ed9d13">&#34;aws_s3_bucket&#34;</span> <span style="color:#ed9d13">&#34;terratest_bucket&#34;</span> {
+</span></span><span style="display:flex;"><span>  bucket = <span style="color:#ed9d13">&#34;terratest</span><span style="color:#ed9d13">${</span><span style="color:#24909d">var</span>.bucket_name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  versioning {
+</span></span><span style="display:flex;"><span>    enabled = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>and set it to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">resource</span> <span style="color:#ed9d13">&#34;aws_s3_bucket&#34;</span> <span style="color:#ed9d13">&#34;terratest_bucket&#34;</span> {
+</span></span><span style="display:flex;"><span>  bucket = <span style="color:#ed9d13">&#34;terratest</span><span style="color:#ed9d13">${</span><span style="color:#24909d">var</span>.bucket_name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  versioning {
+</span></span><span style="display:flex;"><span>    enabled = <span style="color:#6ab825;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If we run the tests now, they will fail as versioning is &ldquo;Suspended&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ go <span style="color:#24909d">test</span> -count=<span style="color:#3677a9">1</span> -v ./...
+</span></span><span style="display:flex;"><span>[truncated]
+</span></span><span style="display:flex;"><span>    bucket_test.go:41:
+</span></span><span style="display:flex;"><span>          Error Trace:  bucket_test.go:41
+</span></span><span style="display:flex;"><span>          Error:        Not equal:
+</span></span><span style="display:flex;"><span>                        expected: <span style="color:#ed9d13">&#34;Enabled&#34;</span>
+</span></span><span style="display:flex;"><span>                        actual  : <span style="color:#ed9d13">&#34;Suspended&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        Diff:
+</span></span><span style="display:flex;"><span>                        --- Expected
+</span></span><span style="display:flex;"><span>                        +++ Actual
+</span></span><span style="display:flex;"><span>                        @@ -1 +1 @@
+</span></span><span style="display:flex;"><span>                        -Enabled
+</span></span><span style="display:flex;"><span>                        +Suspended
+</span></span><span style="display:flex;"><span>          Test:         TestS3Bucket
+</span></span><span style="display:flex;"><span>[truncated]
+</span></span></code></pre></div><p>You can, if required, also pull in the <a href="https://aws.amazon.com/sdk-for-go/">aws-sdk-go</a> package for more detailed API calls to test your infrastructure. I&rsquo;ve used the ECR and ECS packages to help understand what is running in an ECS cluster etc.</p>
+<h2 id="docker">Docker</h2>
+<p>This is my personal favourite of the Terratest suite of packages. This package allows us to build our Docker images, and then run a suite of tests over them. This is essentially testing your software runtime environments.</p>
+<p>We are going to use a very basic example. See the <a href="https://github.com/benmatselby/terratest-examples/blob/main/docker/Dockerfile">docker/Dockerfile</a> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># A standard image</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span><span style="color:#ed9d13">node:14</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># We want to show something inside the image,</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># so creating a file</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">RUN</span> touch /tmp/testing.txt<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span></code></pre></div><p>As you can see, nothing special at all. We are using a base version of <code>node</code>, and adding a <code>testing.txt</code> file. This gives us enough to showcase the <code>docker</code> package within Terratest.</p>
+<p>Let&rsquo;s now look at the test for it in the <a href="https://github.com/benmatselby/terratest-examples/blob/main/tests/docker_test.go">tests/docker_test.go</a> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package</span><span style="color:#666"> </span>test<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span><span style="color:#666"> </span>(<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;testing&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/gruntwork-io/terratest/modules/docker&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>test_structure<span style="color:#666"> </span><span style="color:#ed9d13">&#34;github.com/gruntwork-io/terratest/modules/test-structure&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#ed9d13">&#34;github.com/stretchr/testify/assert&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Standard Go test, with the &#34;Test&#34; prefix and accepting the *testing.T struct.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">func</span><span style="color:#666"> </span><span style="color:#447fcf">TestDockerImage</span>(t<span style="color:#666"> </span>*testing.T)<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Define the docker tag</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>tag<span style="color:#666"> </span>:=<span style="color:#666"> </span><span style="color:#ed9d13">&#34;terratest-examples:docker&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// The build options we would pass to `docker build`</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// We may want to only test images already built, so let&#39;s use the</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// `test_structure.RunTestStage` function.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// If you want to skip this stage, then define an environment variable:</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// SKIP_docker_build=true</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>test_structure.<span style="color:#447fcf">RunTestStage</span>(t,<span style="color:#666"> </span><span style="color:#ed9d13">&#34;docker_build&#34;</span>,<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">func</span>()<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>buildOptions<span style="color:#666"> </span>:=<span style="color:#666"> </span>&amp;docker.BuildOptions{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>Tags:<span style="color:#666"> </span>[]<span style="color:#6ab825;font-weight:bold">string</span>{tag},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>OtherOptions:<span style="color:#666"> </span>[]<span style="color:#6ab825;font-weight:bold">string</span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#ed9d13">&#34;--pull&#34;</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#ed9d13">&#34;--no-cache&#34;</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#ed9d13">&#34;-f&#34;</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#ed9d13">&#34;../docker/Dockerfile&#34;</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>}<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// The wrapped docker build command, with the `../docker` folder as the</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// build context</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>docker.<span style="color:#447fcf">Build</span>(t,<span style="color:#666"> </span><span style="color:#ed9d13">&#34;../docker&#34;</span>,<span style="color:#666"> </span>buildOptions)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>})<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// A testing table to test different aspects of the image.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>tt<span style="color:#666"> </span>:=<span style="color:#666"> </span>[]<span style="color:#6ab825;font-weight:bold">struct</span><span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>name<span style="color:#666">       </span><span style="color:#6ab825;font-weight:bold">string</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>entrypoint<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">string</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>command<span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">string</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>expected<span style="color:#666">   </span><span style="color:#6ab825;font-weight:bold">string</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>}{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// We want to test that node 14 is installed.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>{name:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;test that node is installed&#34;</span>,<span style="color:#666"> </span>entrypoint:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;node&#34;</span>,<span style="color:#666"> </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;--version&#34;</span>,<span style="color:#666"> </span>expected:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;14&#34;</span>},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic">// We want to test that the testing.txt file is in the image.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>{name:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;test that the testing.txt is present&#34;</span>,<span style="color:#666"> </span>entrypoint:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;ls&#34;</span>,<span style="color:#666"> </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;/tmp/testing.txt&#34;</span>,<span style="color:#666"> </span>expected:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;testing.txt&#34;</span>},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>}<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#999;font-style:italic">// Iterate over the testing table to create test cases</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">for</span><span style="color:#666"> </span>_,<span style="color:#666"> </span>tc<span style="color:#666"> </span>:=<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">range</span><span style="color:#666"> </span>tt<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>tc<span style="color:#666"> </span>:=<span style="color:#666"> </span>tc<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>t.<span style="color:#447fcf">Run</span>(tc.name,<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">func</span>(t<span style="color:#666"> </span>*testing.T)<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#999;font-style:italic">// Allow the tests to run in parallel</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>t.<span style="color:#447fcf">Parallel</span>()<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#999;font-style:italic">// The docker run options</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>opts<span style="color:#666"> </span>:=<span style="color:#666"> </span>&amp;docker.RunOptions{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic">// Remove the container once finished</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span>Remove:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic">// Entrypoint is variable from the test table</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span>Entrypoint:<span style="color:#666"> </span>tc.entrypoint,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic">// The command we will run for the test</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span>Command:<span style="color:#666"> </span>[]<span style="color:#6ab825;font-weight:bold">string</span>{tc.command},<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>}<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#999;font-style:italic">// Run the container, and get the output</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>output<span style="color:#666"> </span>:=<span style="color:#666"> </span>docker.<span style="color:#447fcf">Run</span>(t,<span style="color:#666"> </span>tag,<span style="color:#666"> </span>opts)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span><span style="color:#999;font-style:italic">// The test check to assert we get what we expected.</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>assert.<span style="color:#447fcf">Contains</span>(t,<span style="color:#666"> </span>output,<span style="color:#666"> </span>tc.expected)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>})<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>}<span style="color:#666">
+</span></span></span><span style="display:flex;"><span>}<span style="color:#666">
+</span></span></span></code></pre></div><p>The code is curated above, so please review each line. However, to boil it down:</p>
+<ul>
+<li>We are using the <code>docker</code> Terratest package.</li>
+<li>We define a load of <code>docker build</code> options, which we use to build the image.
+<ul>
+<li>This is using the <code>test-structure</code> package, which means we can optionally run the build process. See below.</li>
+</ul>
+</li>
+<li>We then use the &ldquo;testing table&rdquo; paradigm from Go to essentially create a data provider.</li>
+<li>We then run the docker container with entry points to allow us to assert facts about our docker image.</li>
+</ul>
+<p>Let&rsquo;s now run the tests:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ go <span style="color:#24909d">test</span> -count=<span style="color:#3677a9">1</span> -run Docker ./...
+</span></span><span style="display:flex;"><span>ok  github.com/benmatselby/terratest-examples/tests 2.090s
+</span></span></code></pre></div><p>Let&rsquo;s say you have built the images, and now only care about running assertions, then you can run the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ <span style="color:#40ffff">SKIP_docker_build</span>=<span style="color:#24909d">true</span> go <span style="color:#24909d">test</span> -count=<span style="color:#3677a9">1</span> -run Docker -v ./...
+</span></span></code></pre></div><p>Here we have turned on verbosity using the <code>-v</code> flag. You can see now that there is no <code>docker build</code> functionality happening, make our tests substantially quicker. Clearly, you need to be aware when to use these <code>SKIP_*</code> environment variables. For example, you may have defined your Docker images, and are now adding a lot of assertions. You don&rsquo;t need to keep building your Docker images in this case.</p>
+<h2 id="summary">Summary</h2>
+<p>Automated testing gives us the ability to facilitate change, at pace. What I personally like about Terratest is the fact we can use the same package for many kinds of tests, be it AWS infrastructure, Docker images, wrapping up the Terraform commands, and much much more.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://terratest.gruntwork.io/docs/#testing-best-practices">Terratest Best practices</a></li>
+<li><a href="https://benmatselby.dev/post/terraform-101/">Terraform knowledge to get you through the day</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

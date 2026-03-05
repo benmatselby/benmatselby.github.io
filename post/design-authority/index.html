@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Some thoughts on how we are using a Design Authority to define quality for our engineering teams.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Design Authority &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Design Authority">
+  <meta name="twitter:description"
+    content="Some thoughts on how we are using a Design Authority to define quality for our engineering teams.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/tartini-square-share.png">
+
+  
+  <meta property="og:site_name"
+    content="Design Authority">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Design Authority">
+  <meta property="og:image" content="https://benmatselby.dev/img/tartini-square-share.png">
+  <meta property="og:description"
+    content="Some thoughts on how we are using a Design Authority to define quality for our engineering teams.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/tartini-square.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Design Authority</h1>
+  <span class="posts__item-date">May 12, 2019 &middot; 9 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/techniques" title="Posts related to techniques">#techniques</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p>This post aims to cover off how to drive quality in your software products, by defining and using a &ldquo;Design Authority&rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.</p>
+<p>There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments. As with most things in life, the best solution is probably a blend of many methodologies to get the desired outcome. This post will focus on peer reviewed assessments.</p>
+<h2 id="the-problem">The problem</h2>
+<p>Quality, in a broad sense, is subjective.</p>
+<p>Take a Formula 1 car for example. The tyres last for about 20 laps (very roughly, 80 miles) and these are deemed to be of a high quality. If I had to change tyres on my car every 80 miles, I would not be happy. Whilst tyres are required for both Formula 1 and road cars, their use case is vastly different. The quality levels needed for Formula 1 are different to road cars. A team of engineers will have decided what quality controls will be in place for both situations.</p>
+<p>The software industry is no different, so you need to try and define the quality metrics for your software, in your business.</p>
+<p>If you have multiple software engineering teams building features and fixing bugs, you need to have quality baked in. You cannot have a platform going down, data loss, or other issues that stop your users doing what they need to do. The quality defined in your organisation, is going to be relative to your industry. If you are in a clinical environment, where a software issue could have fatal consequences, your quality bar should be very high. If you are a research and development team within a company, you may accept certain issues, or defer certain quality gates as it adds no value to your situation or objective.</p>
+<p>Another aspect to all of this is the human side. If you are training up junior Technical Leads, how can you help them succeed and show case what quality is? If something is not up to scratch, how do you quantify that, and let the engineers know? How do you define quality gates before software can be released to customers?</p>
+<h2 id="the-solution">The solution</h2>
+<p>The solution is multi faceted, from the helicopter view to the low level view of the code base.</p>
+<p>If you are reading this post, I suspect you already have code reviews as part of your day to day process. If you don’t, it may be worth reading up on that first.</p>
+<p>For the teams I have worked in, a pull request or code review normally has some guidance as to what the team are looking for when reviewing the code. This is a checklist <sup><a href="#footnotes">[1]</a></sup> that not only helps the developers raising the pull request, but also helps the reviewers be consistent. Consistency is key. I generally have the code review guidance up whilst reviewing the pull request so I remember all the things to check.</p>
+<p>So if you scale this a little more, and zoom out to a wider view, teams should be doing the same for their products. This is where <strong>a Design Authority can be helpful</strong>. This section aims to cover off how my current employer is using a Design Authority to help quantify what quality is, and help all engineering teams reach that level.</p>
+<p>First off, you need to define what <a href="http://camilletalk.com">Camille Fournier</a> calls &ldquo;True North&rdquo; in <a href="https://www.amazon.co.uk/Manager%60s-Path-Camille-Fournier/dp/1491973897">The Manager’s Path</a>. Camille talks about technical leaders defining what is acceptable for software quality, and this being the &ldquo;True North&rdquo; for your organisation. The senior technical leaders in your organisation need to come together and collaboratively define what quality looks like for your business. Much like the <a href="https://aws.amazon.com/architecture/well-architected/">Well Architected programme from AWS</a> is there to provide guidance, support, and a marker for quality within the AWS ecosystem, a <strong>Design Authority can be used in a similar way</strong>.</p>
+<p>In simple terms, a Design Authority is an assessment that asks probing questions about:</p>
+<ul>
+<li>All levels of your software engineering process.</li>
+<li>The maintainability of your software.</li>
+<li>How easy it is to support your software, and what process you have in place.</li>
+<li>Is your software secure and robust.</li>
+<li>Is the software reusable across the organisation, or very niche to certain areas, and if so, why?</li>
+<li>How is your software architected, and why? Can it sustain an outage for example, can it self heal?</li>
+<li>Does the software scale?</li>
+</ul>
+<p>With the assessment, we have corresponding documentation that breaks down each discipline, section, and question into helpful insight into what is being requested of the team, and why.</p>
+<h2 id="assessment">Assessment</h2>
+<p>Much like the AWS programme mentioned above has five pillars, our programme has 6 disciplines, which fortunately provides a nifty little acronym to remember.</p>
+<ul>
+<li><strong>M</strong>aintainable</li>
+<li><strong>A</strong>rchitected</li>
+<li><strong>S</strong>upportable</li>
+<li><strong>T</strong>oughened</li>
+<li><strong>E</strong>lastic</li>
+<li><strong>R</strong>eusable</li>
+<li><strong>E</strong>ngineering ready</li>
+<li><strong>D</strong>efined</li>
+</ul>
+<p>Each discipline within our Design Authority is a tab on a spreadsheet (don’t worry, it will hopefully evolve past a spreadsheet <sup><a href="#footnotes">[2]</a></sup>). Each discipline is then broken down into sections, and each section into questions. A discipline and section has a reference number which then corresponds to the documentation outlining all the details.</p>
+<p>To provide a concrete example, in our <em>Maintainable</em> discipline we have a pull request section.</p>
+<p><strong><em>M2.1 Status checks are conducted before a merge</em></strong></p>
+<ul>
+<li>M is the Maintainable discipline.</li>
+<li>2 is the pull requests section in the discipline.</li>
+<li>1 is the first question in the section.</li>
+</ul>
+<p>In GitHub (where our documentation is stored, and versioned!) we go onto to explain what we mean by the statement in the assessment. We try and provide useful examples within our business to provide a benchmark.</p>
+<p>Each software engineering team is expected to complete this assessment each month, and for each statement/question, you can answer “Met” or “Not met” and you have to provide evidence.</p>
+<p>Each statement/question is defined as a MUST or a SHOULD. Quality gates are defined at:</p>
+<ul>
+<li>Not all MUSTs are met</li>
+<li>All MUSTs are met</li>
+<li>All MUSTs and some SHOULDs (50+%)</li>
+<li>All MUSTs and some SHOULDs</li>
+</ul>
+<p>We have badges that are awarded based on the quality gates above. The benchmark to even release software is at the “All MUSTs are met” gate. But that is not the level the senior leadership team are after, quite rightly too.</p>
+<p>All assessments are published publicly, which helps drive quality and collaboration. If your team is struggling in a certain area, you can look at other teams who have scored higher, and engage with them on how to achieve the same standard. The data being produced during the assessment is actually useful information to other teams to learn from. It&rsquo;s not simply a tick box exercise with a score at the end. The benefits from the output are tangible.</p>
+<h2 id="standards">Standards</h2>
+<p>So where do you start?</p>
+<p>We started with a bunch of senior engineers and talked around what we believed to be the definition of &ldquo;quality&rdquo; within our software products. This was broken down into backend/infrastructure, and front end/application structure. This helped focus the meetings, and engage relevant technical authorities at the right level, which allowed for many voices to be heard. This was not a top down management decision, but lead from within the engineering community.</p>
+<p>The output from the above sessions was then whittled down into the disciplines mentioned above. We iterated on the assessment a couple of times, and removed specific targeted questions, in favour of more inquisitive generic questions. This allows teams the freedom to “meet” the objective in their own way.</p>
+<p>For example, we went from</p>
+<blockquote>
+<p>Are you conducting mutation testing?</p>
+</blockquote>
+<p>to</p>
+<blockquote>
+<p>How are you proving the quality of your unit tests?</p>
+</blockquote>
+<p>There is a subtle difference there. We, as a team of engineers setting standards, care that unit test quality is in the mind of the teams. Some teams will provide mutation testing reports to explain how their unit tests are of a certain quality, other teams may just produce branch coverage reports. There is merit in both, and issues in both. The aim is to drive the behaviour, not be dogmatic in the implementation.</p>
+<p>Another thing to call out is the standard is really high. The expectation from all involved was that no team is likely to pass their first assessment, and if they had, the standard would have needed to be increased. When you lift your head above the parapet and look at what other teams are doing, you soon realise the plethora of techniques and tools you can deploy to make your software of higher quality. By using the best of bread from all teams, you raise the bar across the business.</p>
+<h2 id="process">Process</h2>
+<p>Some important call outs from what we have learnt.</p>
+<ul>
+<li>The assessment needs to be version controlled. I guarantee that the assessment you are starting with will change within the first 3 months, and quite rightly too. And if it hasn’t changed in 6 months, or a year, I think you may want to deep dive on that.</li>
+<li>The assessment and documentation need to have reference numbers, otherwise it becomes a little 🤯 to tie it all together. Trust me on this one.</li>
+<li>The assessment should be tech agnostic, and generic.</li>
+<li>The assessment needs to ask for evidence that can be investigated.</li>
+<li>The documentation surrounding the assessment needs to be clear, concise, and informative. Don’t leave folks hanging on what is required and why. Set the scene on why something is important.</li>
+</ul>
+<p>When it comes to process, the first step is to start, then iterate. What works for one team, department, organisation, may not work for others. You won&rsquo;t really know until you start, get feedback, and then iterate.</p>
+<p>We have started to look into whether we can automate some of the checks on the Design Authority Assessment, and use something like <a href="https://shields.io">shields.io</a> to add badges to the code bases in GitHub. Some of the &ldquo;Engineering ready&rdquo; items can be checked with automation, whereas the vast majority will need evidence and explanations.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Design Authority process we have implemented is yet another tool in the box to help drive quality, just like a code review, or unit tests, or linting your code is a tool/technique you use daily withing your development processes.</p>
+<p>I have certainly found it useful to help engagement in another project I am part of - <a href="https://benmatselby.dev/post/technology-radar/">The Technology Radar</a> - as you have to answer &ldquo;Met&rdquo; in the &ldquo;Supportable&rdquo; discipline when we ask if you are using technology defined on the radar. This is a mechanism that holds teams accountable for engaging in the Technology Radar project.</p>
+<h2 id="footnotes">Footnotes</h2>
+<ul>
+<li><sup>[1]</sup> The checklist should be broken down into key areas for your product. It should not involve anything that is automated. A code review, in my opinion, should not feature anything that could have been automated, and stopped the pull request from being raised in the first place.</li>
+<li><sup>[2]</sup> I say hopefully, because it&rsquo;s en vogue to sniff at spreadsheets, but in reality, they are pretty darn good for prototyping stuff.</li>
+</ul>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/technology-radar/">Some thoughts on how we are using a Technology Radar to embrace and manage change.</a></li>
+<li><a href="https://www.digitalmarketplace.service.gov.uk/g-cloud/services/345445603601899">Gov.UK Design Authority</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Ben Selby - Just another person on the planet">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Logically atomic commits &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Logically atomic commits">
+  <meta name="twitter:description"
+    content="Ben Selby - Just another person on the planet">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-seaside-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Logically atomic commits">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Logically atomic commits">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-seaside-share.jpg">
+  <meta property="og:description"
+    content="Ben Selby - Just another person on the planet">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-seaside.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Logically atomic commits</h1>
+  <span class="posts__item-date">Feb 23, 2020 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/git" title="Posts related to git">#git</a></span>
+    
+    <span class="tags__tag"><a href="/tags/version-control" title="Posts related to version-control">#version-control</a></span>
+    
+  </div>
+
+  <p>When forming a new team (or joining a team for that matter), I always try to get the following item in our code review standards, or ways of working.</p>
+<quote class="pullquote">
+  
+Make sure all commits in version control are logically atomic.
+
+</quote>
+
+<h2 id="what-is-a-logically-atomic-commit">What is a logically atomic commit?</h2>
+<p>A logically atomic commit is the smallest, most meaningful change you can make to the software. It&rsquo;s big enough to add value, but small enough to be manageable.</p>
+<p>It bundles useful changes together essentially.</p>
+<p>Let&rsquo;s walk through a theoretical example. The example change is to a web application and involves the following changes:</p>
+<ul>
+<li>A change to a back end API.</li>
+<li>A change in the UI to utilise the API change mentioned above.</li>
+<li>A change to the README to explain that the UI feature can be toggled on/off.</li>
+</ul>
+<p>Let&rsquo;s say we have a couple of code reviews from other team members too, for good measure. So you may think that would be 5 commits, the three mentioned above, and 2 code review feedback changes.</p>
+<p>This <strong>would not produce logically atomic commits</strong>.</p>
+<p>So, what would be logically atomic?</p>
+<p>It would boil down, in my opinion, to the API change.</p>
+<ul>
+<li>If the API change is <em>only</em> for the UI, then everything mentioned above, including the code review feedback would be a single &ldquo;logically atomic commit&rdquo;.</li>
+<li>If the API change could be used for other use cases, either now or in the future, then there would be two &ldquo;logically atomic commits&rdquo;.
+<ul>
+<li>A commit for the API change (including any code review feedback changes required).</li>
+<li>A commit for the UI and documentation changes.</li>
+</ul>
+</li>
+</ul>
+<h2 id="why-is-it-important">Why is it important?</h2>
+<p>As with most things in life, you can absolutely get by without doing the above. However, to move at pace, to have confidence in changes to software, then this is a technique that should be embraced.</p>
+<p>If you work in this manner, and <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">rebase/squash/move</a> commits to keep them logically atomic, you can:</p>
+<ul>
+<li>Use your tools effectively, for example you could use <code>git revert</code> if you are using Git.
+<ul>
+<li>This saves you have to code a reversal of the features, if the product team want the feature removing.</li>
+</ul>
+</li>
+<li>It keeps your commit history useful, rather than a dumping ground of &ldquo;fix&rdquo;, &ldquo;typo&rdquo;, &ldquo;testing&rdquo;.
+<ul>
+<li>This adds no value to the team.</li>
+</ul>
+</li>
+<li>Curate commits to provide learning material to new developers.
+<ul>
+<li>If a piece of work needs to be conducted again in a similar manner, you could provide a commit id to the developer.</li>
+</ul>
+</li>
+<li>Code review the changes in a more meaningful way, and see how a solution hangs together.
+<ul>
+<li>An engineer I work with always reviews a pull request, one commit at a time.</li>
+<li>This way of working helps identify when commits are logical.</li>
+</ul>
+</li>
+<li>It helps to reduce obsolete code.
+<ul>
+<li>If you came across a commit of code with no useful commit message, and with no seemingly linked usage, it could be tricky to find out if the code is used.</li>
+</ul>
+</li>
+<li>It saves development time.
+<ul>
+<li>Another example may be coding standards. Let&rsquo;s say your team have now defined coding standards, and you work on a large codebase. You come across a file that does not adhere to the coding standards, so you update the code. You also code the feature change or bug fix. You commit sparingly, meaning at the end of your work, you commit everything as one change. Let&rsquo;s say that your change turns out to be redundant, and gets reverted, you also lose the coding standards change, which you want to keep. This means we have wasted even more development time. This should have been two commits: a coding standard change, and the feature/bug fix.</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hopefully this post helps explain what a &ldquo;locally atomic commit&rdquo; is, and why it&rsquo;s important to even care about such a thing.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/squashing-commits/">Squashing commits</a></li>
+<li><a href="https://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

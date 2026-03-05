@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Process on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/process/</link>
+    <description>Recent content in Process on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jun 2025 22:42:42 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/process/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two weeks with the GitHub Coding Agent</title>
+      <link>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</link>
+      <pubDate>Sat, 28 Jun 2025 22:42:42 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</guid>
+      <description>&lt;p&gt;For the last two weeks, we&amp;rsquo;ve been learning to work with the new &lt;a href=&#34;https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/&#34;&gt;GitHub Coding Agent&lt;/a&gt;. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.&lt;/p&gt;&#xA;&lt;p&gt;From now on we will call the GitHub Coding Agent &amp;ldquo;Mx Robot&amp;rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&amp;rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dependency Management</title>
+      <link>https://benmatselby.dev/post/2025/managing-dependencies/</link>
+      <pubDate>Sat, 18 Jan 2025 09:19:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2025/managing-dependencies/</guid>
+      <description>&lt;p&gt;This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&amp;rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.&lt;/p&gt;&#xA;&lt;p&gt;Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A case for using a Makefile in your project</title>
+      <link>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</link>
+      <pubDate>Tue, 16 Jan 2024 18:10:20 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/a-case-for-a-makefile/</guid>
+      <description>&lt;p&gt;This post is going to present a case for using a &lt;code&gt;Makefile&lt;/code&gt; in your project. This will be the top-level task runner for your project. You can use &lt;code&gt;make&lt;/code&gt; to run all of your project tasks such as building, linting, testing, and deploying your project. It doesn&amp;rsquo;t matter what language your project is written in.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-makefile&#34;&gt;What is a Makefile?&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Make gets its knowledge of how to build your program from a file called the makefile, which lists each of the non-source files and how to compute it from other files. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Technical Roadmaps and Dev Sustainability</title>
+      <link>https://benmatselby.dev/post/technical-roadmaps/</link>
+      <pubDate>Wed, 14 Apr 2021 19:02:17 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/technical-roadmaps/</guid>
+      <description>&lt;p&gt;At a high level, most engineers are working on product backlogs, in some way, shape, or form. What happens if that product backlog dries up? Or, as a manager or leader, you need to fill a period of uncertainty? This post is going to take you on my journey over the years, and put forward a solution that can be applied to small projects, large projects, and even at an organisational unit level.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>&lt;p&gt;This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me. This is also the first time, in the same period, where I am the only remote engineer on the team 😬.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>&lt;p&gt;This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.&lt;/p&gt;&#xA;&lt;p&gt;There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments. As with most things in life, the best solution is probably a blend of many methodologies to get the desired outcome. This post will focus on peer reviewed assessments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>&lt;p&gt;My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style. With this in mind, I&amp;rsquo;m writing my thoughts down, so folks can read in an async manner, comfortable to them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Stacks.&lt;/li&gt;&#xA;&lt;li&gt;Tools.&lt;/li&gt;&#xA;&lt;li&gt;Paradigms.&lt;/li&gt;&#xA;&lt;li&gt;The way we work.&lt;/li&gt;&#xA;&lt;li&gt;The way we deploy.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/communication-tools/&#34;&gt;The way we communicate.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The software development pipeline</title>
+      <link>https://benmatselby.dev/post/pipelines/</link>
+      <pubDate>Mon, 14 Jan 2019 19:29:09 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/pipelines/</guid>
+      <description>&lt;p&gt;Pipelines.&lt;/p&gt;&#xA;&lt;p&gt;They are very important in software development, in my opinion. If you do not get your pipeline right, you likely have problems within your team(s).&lt;/p&gt;&#xA;&lt;p&gt;So, what is a pipeline?&lt;/p&gt;&#xA;&lt;p&gt;Well, think of it has a conveyor belt in a factory. The software development pipeline is a conveyor belt. From projects, to requirements, to building/testing, to deploying, and to everything in between. Those processes/items are moving along the conveyor, ideally in a smooth fashion.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.sugarcrm.com&#34;&gt;SugarCRM&lt;/a&gt; is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-aim&#34;&gt;The Aim&lt;/h2&gt;&#xA;&lt;p&gt;As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis. We wanted the release to the production platform to have some manual intervention so there was ownership and accountability.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

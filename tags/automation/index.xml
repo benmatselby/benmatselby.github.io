@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/automation/</link>
+    <description>Recent content in Automation on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Jan 2025 09:19:07 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dependency Management</title>
+      <link>https://benmatselby.dev/post/2025/managing-dependencies/</link>
+      <pubDate>Sat, 18 Jan 2025 09:19:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2025/managing-dependencies/</guid>
+      <description>&lt;p&gt;This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&amp;rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.&lt;/p&gt;&#xA;&lt;p&gt;Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Automating the startup of a dev workflow</title>
+      <link>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</link>
+      <pubDate>Tue, 02 Jan 2024 18:13:03 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</guid>
+      <description>&lt;p&gt;Hopefully, this is the first of many small posts showing how I automate my workflow.&lt;/p&gt;&#xA;&lt;p&gt;Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.&lt;/p&gt;&#xA;&lt;p&gt;One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.g. logs, database, git, and codebases etc).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>&lt;!-- markdownlint-disable MD033 --&gt;&#xA;&lt;div class=&#34;buildtool&#34;&gt;&#xA;  &lt;img src=&#34;https://benmatselby.dev/img/logo-aws-codepipeline.png&#34; alt=&#34;AWS CodePipeline&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-github.png&#34; alt=&#34;GitHub&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-jenkins.png&#34; alt=&#34;Jenkins&#34; class=&#34;buildtool__logo buildtool__logo-jenkins&#34; /&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.&lt;/p&gt;&#xA;&lt;p&gt;The tools this post is going to compare are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/codepipeline/&#34;&gt;AWS CodePipeline&lt;/a&gt; (As I happen to be working in the AWS space at the moment)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.jenkins.io&#34;&gt;Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A couple of things to note:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gollum Page Watcher GitHub Action</title>
+      <link>https://benmatselby.dev/post/gollum-page-watcher-github-action/</link>
+      <pubDate>Thu, 12 Mar 2020 18:39:53 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/gollum-page-watcher-github-action/</guid>
+      <description>&lt;p&gt;Finding out when code changes in your project is easy. Whether it is version control, build notifications, GitHub/GitLab notifications, there are many delivery mechanisms to notify you.&lt;/p&gt;&#xA;&lt;p&gt;But what about all that documentation you spend a lot of time on. Curating your system, tweaking guidelines, and examples. How do you get teams of engineers to know about changes?&lt;/p&gt;&#xA;&lt;p&gt;There isn&amp;rsquo;t that many options in this space.&lt;/p&gt;&#xA;&lt;p&gt;If you are a Slack user, and if you use GitHub as your documentation/wiki space, then the &lt;a href=&#34;https://github.com/benmatselby/gollum-page-watcher-action&#34;&gt;Gollum Page Watcher&lt;/a&gt; can help.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just released version &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages/releases/tag/v1.2.1&#34;&gt;v1.2.1&lt;/a&gt; of the &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages&#34;&gt;Hugo Deploy to GitHub Pages&lt;/a&gt; GitHub Action.&lt;/p&gt;&#xA;&lt;p&gt;This means it now fully conforms to the metadata specification as defined &lt;a href=&#34;https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo site&lt;/a&gt; to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>&lt;p&gt;The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.&lt;/p&gt;&#xA;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Web &lt;a href=&#34;https://twitter.com/hashtag/a11y?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#a11y&lt;/a&gt; is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on. It’s rather overwhelming, but fun.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Development environments</title>
+      <link>https://benmatselby.dev/post/development-environments/</link>
+      <pubDate>Wed, 19 Sep 2018 07:32:05 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/development-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;It works on my machine&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform. There was a wiki page with step by step instructions, updated by each new starter along the way. The people with the least knowledge of the platform were the passing guardians of one of the most fundamental documents in the department. About 4 weeks later we had an offsite where I had to stand up and give a talk about my experience of joining the department and business. When I stood there, rabbit in headlights, I explained that the first two weeks were a complete waste of time. There were some shocked faces. I was so new, I was just blindly entering commands from a wiki page, not really understanding the why. It really did not add much value to me, nor the company. I would have rather fixed my first software bug in those two weeks, and then started to learn the mammoth platform, when I had more context.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

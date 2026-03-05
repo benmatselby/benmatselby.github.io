@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Getting started with Jenkins: Agents">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Getting started with Jenkins: Agents &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Getting started with Jenkins: Agents">
+  <meta name="twitter:description"
+    content="Getting started with Jenkins: Agents">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Getting started with Jenkins: Agents">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Getting started with Jenkins: Agents">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+  <meta property="og:description"
+    content="Getting started with Jenkins: Agents">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-chinatown.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Getting started with Jenkins: Agents</h1>
+  <span class="posts__item-date">Apr 7, 2021 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/jenkins" title="Posts related to jenkins">#jenkins</a></span>
+    
+    <span class="tags__tag"><a href="/tags/basics" title="Posts related to basics">#basics</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>Following on from <a href="https://benmatselby.dev/post/jenkins-basics/">Getting started with Jenkins</a>, this post will get a Jenkins Agent up and running your builds. Please make sure you have completed the instructions on the <a href="https://benmatselby.dev/post/jenkins-basics/">previous post</a>.</p>
+<p>We will run the Jenkins agents in docker containers, like we have for the controller.</p>
+<p>We need to adjust the <code>docker run</code> command slightly this time around. But first, we need to define a Docker network. So let&rsquo;s start with creating the Jenkins network.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker network create jenkins
+</span></span></code></pre></div><p>The above command will define a Docker network that both our containers (controller and agent) will run in.</p>
+<p>We want to adjust the original <code>docker run</code> command to utilise the new network. Please run the following command to get the Jenkins controller up and running.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm -p 8080:8080 --network jenkins -v <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span><span style="color:#40ffff">HOME</span><span style="color:#ed9d13">}</span><span style="color:#ed9d13">/.jenkins:/var/jenkins_home&#34;</span> --name jenkins-controller jenkins/jenkins:lts
+</span></span></code></pre></div><p>Now we have Jenkins running, let&rsquo;s browse to <a href="http://localhost:8080">http://localhost:8080</a>, and follow the steps below:</p>
+<ol>
+<li>Click on <strong>Manage Jenkins</strong> on the left hand side.</li>
+<li>Under the <strong>System Configuration</strong> section, click on <strong>Manage Nodes and Clouds</strong>.</li>
+<li>On the left hand side, click on <strong>New Node</strong>.</li>
+<li>You can name this whatever you like.
+<ul>
+<li>I&rsquo;m going to call my agent <strong>smith</strong>.</li>
+<li>You will need to remember this for later.</li>
+</ul>
+</li>
+<li>Click on the <strong>Permenant Agent</strong> radio box.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<p>Now we are going to configure the agent a little more. You can play around with different settings, but to keep us on the same page, please follow the steps below for now.</p>
+<ol>
+<li>For the <strong>Description</strong> field, please complete something descriptive so you know what it can be used for. Fow now, enter <strong>This is agent smith</strong>, which is really not descriptive!</li>
+<li>Leave the number of executors to <strong>1</strong>.
+<ul>
+<li>Executors define how many Jenkins Jobs an agent can run concurrently.</li>
+<li>The more CPU/Memory you give, the more concurrent jobs you can have running.</li>
+</ul>
+</li>
+<li>Enter <strong>/home/jenkins/agent/</strong> into the <strong>Remote root directory</strong> text field.</li>
+<li>The <strong>Label</strong> allows us to tie specific jobs to specific agents.
+<ul>
+<li>For example, you may have Windows, Mac, and Linux agents, that run specific software, such as iOS builds.</li>
+<li>This can be used for defining those kinds of things.</li>
+<li>For now, this isn&rsquo;t important to us, so we can leave this blank.</li>
+</ul>
+</li>
+<li>Go ahead and click <strong>Save</strong>.</li>
+</ol>
+<p>Once you have completed the above, and clicked <strong>Save</strong> you will be presented with the agent list. As you can see, <strong>smith</strong> is listed.</p>
+<p><img src="/img/jenkins-agent-list.png" alt="Jenkins agent list"></p>
+<p>Click on <strong>smith</strong>, so we can see the connection details.</p>
+<p>You should be able to see some text such as this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -jar agent.jar -jnlpUrl http://localhost:8080/computer/smith/jenkins-agent.jnlp -secret 91af70f19b975b97eef81d42f624f1c44bl1d216b380905c9c27531d2259d823 -workDir <span style="color:#ed9d13">&#34;/home/jenkins/agent/&#34;</span>
+</span></span></code></pre></div><p>Copy the value from the <code>-secret</code> option. In this case, it is <code>91af70f19b975b97eef81d42f624f1c44bl1d216b380905c9c27531d2259d823</code>, but your secret will be different.</p>
+<p>In a terminal, now run the following command, replacing</p>
+<ul>
+<li><code>&lt;secret-from-above&gt;</code> to your secret.</li>
+<li><code>&lt;agent-name-from-above&gt;</code> to your agent name.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> -eJENKINS_SECRET=&lt;secret-from-above&gt; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> -eJENKINS_URL=http://jenkins-controller:8080 <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> -eJENKINS_AGENT_NAME=&lt;agent-name-from-above&gt; <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> --network jenkins <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> --init <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> -it <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span> jenkins/inbound-agent:4.7-1
+</span></span></code></pre></div><p>This will pull the <code>jenkins/inbound-agent</code> image down to your machine and then start to run it. All the different types of agent can be found on <a href="https://hub.docker.com/r/jenkins/inbound-agent/tags">Docker Hub</a>.</p>
+<p>The URL may look a little odd here. The <code>jenkins-controller</code> part is the name of the container running your Jenkins Controller. This is important due to us running both containers inside a network.</p>
+<p>There should be no errors whilst running the above command, so now let&rsquo;s go back to Jenkins in the browser. You should now see <code>smith</code> as an agent on the left hand side.</p>
+<p><img src="/img/jenkins-agent-smith-connected.png" alt="Jenkins Agent Smith connected and waiting"></p>
+<p>As you can see, we now have two build executors: <code>master</code> and <code>smith</code>. We don&rsquo;t want to run any builds on the controller container (<code>master</code>), so let&rsquo;s go ahead and stop that from happening.</p>
+<ol>
+<li>Click on <strong>Manage Jenkins</strong> on the left hand side.</li>
+<li>Under the <strong>System Configuration</strong> section, click on <strong>Configure System</strong>.</li>
+<li>Scroll to <strong># of executors</strong> and change the value from <strong>2</strong> to <strong>0</strong>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>When Jenkins now loads the home page again, you will only see the <code>smith</code> agent. We now want to run our <strong>hello-world</strong> job from the <a href="https://benmatselby.dev/post/jenkins-basics/">previous post</a>, and see that it will execute inside the <code>smith</code> agent.</p>
+<ol>
+<li>Click on the <strong>hello-world</strong> job from the list.</li>
+<li>Click <strong>Build Now</strong> on the left hand side.</li>
+<li>After a few moments the build job will appear in the build history.</li>
+<li>Click on the blue ball, and see the &ldquo;Hello World&rdquo; output again.</li>
+</ol>
+<p><img src="/img/jenkins-hello-world-smith.png" alt="Jenkins Hello World running on an agent"></p>
+<p><img src="/img/jenkins-hello-world-smith-output.png" alt="Jenkins Hello World running on an agent with output"></p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>If you are adventurous, then the next steps would be:</p>
+<ul>
+<li>Define your own Jenkins agent in a Dockerfile, and run that.
+<ul>
+<li>For example, get a Go or Node runtime inside it.</li>
+</ul>
+</li>
+<li>Use something like <code>ngrok</code> to expose your installation back to GitHub, to get GitHub Events.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This was a quick overview for getting a Jenkins agent connected to the Jenkins Controller application.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/jenkins-basics/">Getting started with Jenkins</a></li>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

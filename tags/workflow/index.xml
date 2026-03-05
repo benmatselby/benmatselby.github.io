@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/workflow/</link>
+    <description>Recent content in Workflow on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Feb 2026 20:18:38 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flow state - Where did it go?</title>
+      <link>https://benmatselby.dev/post/2026/flow-where-did-it-go/</link>
+      <pubDate>Fri, 27 Feb 2026 20:18:38 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2026/flow-where-did-it-go/</guid>
+      <description>&lt;p&gt;Flow state, being &amp;ldquo;in the zone&amp;rdquo;. It&amp;rsquo;s magical, enjoyable, highly productive, but also elusive.&lt;/p&gt;&#xA;&lt;p&gt;I used to have it more than I do nowadays, and I&amp;rsquo;m wondering more and more why this is the case. It&amp;rsquo;s addictive, so you want more of it, and it&amp;rsquo;s frustrating to not have it as much.&lt;/p&gt;&#xA;&lt;p&gt;First of all, let&amp;rsquo;s clarify what it is.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Flow in positive psychology, also known colloquially as being in the zone or locked in, is the mental state in which a person performing some activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Two weeks with the GitHub Coding Agent</title>
+      <link>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</link>
+      <pubDate>Sat, 28 Jun 2025 22:42:42 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/</guid>
+      <description>&lt;p&gt;For the last two weeks, we&amp;rsquo;ve been learning to work with the new &lt;a href=&#34;https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/&#34;&gt;GitHub Coding Agent&lt;/a&gt;. This is a shift for me. Moving from working with AI in my IDE, to actually delegating entire tasks to an agent that works asynchronously in the cloud. The aim is to be more efficient, and provide a bigger impact for the business.&lt;/p&gt;&#xA;&lt;p&gt;From now on we will call the GitHub Coding Agent &amp;ldquo;Mx Robot&amp;rdquo;. Why? I think you need to think of this as a colleague that may or may not deliver what you need. I see in the community we are comparing a Coding Agent to be like a Junior Developer, and this makes sense to be at the moment. I&amp;rsquo;m learning new ways to think of solving the issue, which you also get with Junior engineers (fresh eyes!).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dependency Management</title>
+      <link>https://benmatselby.dev/post/2025/managing-dependencies/</link>
+      <pubDate>Sat, 18 Jan 2025 09:19:07 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2025/managing-dependencies/</guid>
+      <description>&lt;p&gt;This post is going to be an advocate for managing your project dependencies and ensuring they are up to date. This seems to be a controversial topic, so I suspect we won&amp;rsquo;t all agree. I think it comes down to your personal experience as to how you might view dependencies.&lt;/p&gt;&#xA;&lt;p&gt;Back in my early career days, I had to deal with fixing dependencies when a security exploit was discovered in one of them. It was a real pain, and I never wanted to do it again under those circumstances: super stressful and time-sensitive. So, I made a firm decision: keeping dependencies up to date was the way to go.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Prolific CLI</title>
+      <link>https://benmatselby.dev/post/2024/the-prolific-cli/</link>
+      <pubDate>Fri, 28 Jun 2024 13:26:21 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/the-prolific-cli/</guid>
+      <description>&lt;p&gt;This post is going to be an introduction to the &lt;a href=&#34;https://github.com/prolific-oss/cli&#34;&gt;Prolific CLI&lt;/a&gt; for data collectors/researchers.&lt;/p&gt;&#xA;&lt;p&gt;So &lt;a href=&#34;https://www.prolific.com/&#34;&gt;Prolific&lt;/a&gt; have this to say on their website:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Easily find vetted research participants and AI taskers at scale.&lt;/li&gt;&#xA;&lt;li&gt;An unrivalled participant pool.&lt;/li&gt;&#xA;&lt;li&gt;Data quality you can depend on.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;OK, so you want to collect some data to train your AI model (I mean, who doesn&amp;rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stop tracking changes to certain files in Git</title>
+      <link>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</link>
+      <pubDate>Sat, 04 May 2024 07:59:32 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2024/git-stop-tracking-changes/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve used &lt;code&gt;git&lt;/code&gt; before, you&amp;rsquo;re probably aware of the &lt;code&gt;.gitignore&lt;/code&gt; file. This is what the &lt;a href=&#34;https://git-scm.com/docs/gitignore&#34;&gt;manual&lt;/a&gt; has to say:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A gitignore file specifies intentionally untracked files that Git should ignore.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This file is usually tracked in your Git repo, so every contributor ignores the same files. Interestingly, you can also have a global ignore file in your home directory too &lt;code&gt;~/.gitignore&lt;/code&gt;. I have a &lt;a href=&#34;https://github.com/benmatselby/dotfiles/blob/main/git/.gitignore&#34;&gt;global ignore file&lt;/a&gt; for ignoring basic IDE files.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Working with Zed for a week</title>
+      <link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+      <pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+      <description>&lt;p&gt;I took &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&lt;/p&gt;&#xA;&lt;quote class=&#34;pullquote&#34;&gt;&#xA;  I love it, and I&#39;m probably going to stay with it (but I miss a debugger).&#xA;&lt;/quote&gt;&#xA;&#xA;&lt;p&gt;This is what Zed is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;projects-worked-on&#34;&gt;Projects worked on:&lt;/h2&gt;&#xA;&lt;p&gt;These are the projects I managed to work on this week with Zed:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Show your working out</title>
+      <link>https://benmatselby.dev/post/2024/show-your-working-out/</link>
+      <pubDate>Mon, 22 Jan 2024 18:39:50 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/show-your-working-out/</guid>
+      <description>&lt;p&gt;Does anyone remember what your Maths teacher used to say?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Show your working out!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I mean, I bet they said more than that, but this is what I remembered. I think we used to get marked down if you just provided the answer. You got more marks when you showed how you derived your answer.&lt;/p&gt;&#xA;&lt;p&gt;This post is a plea for software engineers to do the same when answering technical questions, or debugging an issue in group communication channels.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Automating the startup of a dev workflow</title>
+      <link>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</link>
+      <pubDate>Tue, 02 Jan 2024 18:13:03 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2024/automating-the-startup-of-a-dev-workflow/</guid>
+      <description>&lt;p&gt;Hopefully, this is the first of many small posts showing how I automate my workflow.&lt;/p&gt;&#xA;&lt;p&gt;Back around 2008, I had a mentor/buddy for my new job. Rys. He was a wonderful, knowledgeable, and supportive buddy who always seemed to be one step ahead.&lt;/p&gt;&#xA;&lt;p&gt;One day he noticed that I came into the office each day, opened the terminal, and created x amount of tabs, which I then named (So I knew what each terminal was there for, e.g. logs, database, git, and codebases etc).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

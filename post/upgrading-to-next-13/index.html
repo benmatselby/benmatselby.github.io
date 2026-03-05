@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Upgrading to Next.js 13">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Upgrading to Next.js 13 &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Upgrading to Next.js 13">
+  <meta name="twitter:description"
+    content="Upgrading to Next.js 13">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-bay-bridge-warm-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Upgrading to Next.js 13">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Upgrading to Next.js 13">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-bay-bridge-warm-share.jpg">
+  <meta property="og:description"
+    content="Upgrading to Next.js 13">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-bay-bridge-warm.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Upgrading to Next.js 13</h1>
+  <span class="posts__item-date">Oct 28, 2022 &middot; 3 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/next.js" title="Posts related to next.js">#next.js</a></span>
+    
+    <span class="tags__tag"><a href="/tags/web" title="Posts related to web">#web</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tutorial" title="Posts related to tutorial">#tutorial</a></span>
+    
+  </div>
+
+  <p><a href="https://nextjs.org/blog/next-13">Next.js 13 was released this week</a>. I&rsquo;ve not had much time to work with Netlify or Next.js recently. So this was a nice opportunity to play around again for an hour.</p>
+<h2 id="the-upgrade-command">The upgrade command</h2>
+<p>I wasn&rsquo;t lucky enough to just run the headline upgrade command that the above blog post suggests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>recipes on  upgrade-to-next-13 via ⬡ v16.14.2
+</span></span><span style="display:flex;"><span>at 19:30:07 ❯ npm i next@latest react@latest react-dom@latest eslint-config-next@latest
+</span></span><span style="display:flex;"><span>npm ERR! code ERESOLVE
+</span></span><span style="display:flex;"><span>npm ERR! ERESOLVE could not resolve
+</span></span><span style="display:flex;"><span>npm ERR!
+</span></span><span style="display:flex;"><span>npm ERR! While resolving: recipes@0.1.0
+</span></span><span style="display:flex;"><span>npm ERR! Found: next@12.3.1
+</span></span><span style="display:flex;"><span>npm ERR! node_modules/next
+</span></span><span style="display:flex;"><span>npm ERR!   next@<span style="color:#ed9d13">&#34;13.0.0&#34;</span> from the root project
+</span></span><span style="display:flex;"><span>npm ERR!
+</span></span><span style="display:flex;"><span>npm ERR! Could not resolve dependency:
+</span></span><span style="display:flex;"><span>npm ERR! next@<span style="color:#ed9d13">&#34;13.0.0&#34;</span> from the root project
+</span></span><span style="display:flex;"><span>npm ERR!
+</span></span><span style="display:flex;"><span>npm ERR! Conflicting peer dependency: react@18.2.0
+</span></span><span style="display:flex;"><span>npm ERR! node_modules/react
+</span></span><span style="display:flex;"><span>npm ERR!   peer react@<span style="color:#ed9d13">&#34;^18.0.0-0&#34;</span> from next@13.0.0
+</span></span><span style="display:flex;"><span>npm ERR!   node_modules/next
+</span></span><span style="display:flex;"><span>npm ERR!     next@<span style="color:#ed9d13">&#34;13.0.0&#34;</span> from the root project
+</span></span><span style="display:flex;"><span>npm ERR!
+</span></span><span style="display:flex;"><span>npm ERR! Fix the upstream dependency conflict, or retry
+</span></span><span style="display:flex;"><span>npm ERR! this <span style="color:#24909d">command</span> with --force, or --legacy-peer-deps
+</span></span><span style="display:flex;"><span>npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+</span></span><span style="display:flex;"><span>npm ERR!
+</span></span><span style="display:flex;"><span>npm ERR! See /Users/ben/.npm/eresolve-report.txt <span style="color:#6ab825;font-weight:bold">for</span> a full report.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>npm ERR! A <span style="color:#24909d">complete</span> log of this run can be found in:
+</span></span><span style="display:flex;"><span>npm ERR!     /Users/ben/.npm/_logs/2022-10-28T18_30_14_743Z-debug-0.log
+</span></span></code></pre></div><h2 id="this-is-what-i-did">This is what I did</h2>
+<p>This is what I had to do, maybe this helps others.</p>
+<p>I installed the latest versions of React.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm i react react-dom
+</span></span></code></pre></div><p>After this, I was then able to run the headline upgrade command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm i next@latest react@latest react-dom@latest eslint-config-next@latest
+</span></span></code></pre></div><p>The react part is redundant since we did it above, but still, copy and paste!</p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<p>After this, I then hit some issues with the <code>Link</code> component. This is documented in the <a href="https://nextjs.org/blog/next-13#breaking-changes">release post</a>.</p>
+<blockquote>
+<p>The next/link child can no longer be <code>&lt;a&gt;</code>. Add the legacyBehavior prop to use the legacy behavior or remove the <code>&lt;a&gt;</code> to upgrade. A codemod is available to automatically upgrade your code.</p>
+</blockquote>
+<p>So this was an easy fix, just remove the inner <code>&lt;a&gt;</code> tag.</p>
+<h2 id="netlify-change">Netlify change</h2>
+<p>There was one more change to make, and this was on the Netlify side. I had to update where the output of the site was.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>--- netlify.toml
+</span></span><span style="display:flex;"><span>+++ netlify.toml
+</span></span><span style="display:flex;"><span>@@ -2,7 +2,7 @@
+</span></span><span style="display:flex;"><span> [build]
+</span></span><span style="display:flex;"><span>   command = &#34;next build&#34;
+</span></span><span style="display:flex;"><span>   functions = &#34;netlify/functions&#34;
+</span></span><span style="display:flex;"><span>-  publish = &#34;out&#34;
+</span></span><span style="display:flex;"><span>+  publish = &#34;.next&#34;
+</span></span></code></pre></div><h2 id="thoughts">Thoughts</h2>
+<p>I&rsquo;ve not been able to work with Netlify for about 6 months. I was heavily using it at my previous job. My team wrote the whitepaper to convince the business it was cheaper to pay Netlify than it was to manage our infrastructure in AWS. Coming back to Netlify after this time hasn&rsquo;t changed my views. It&rsquo;s still slick, well-documented, and intuitive.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

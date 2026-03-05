@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="An introduction to APIs for people who have not worked with APIs before">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Introduction to APIs &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Introduction to APIs">
+  <meta name="twitter:description"
+    content="An introduction to APIs for people who have not worked with APIs before">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-tower-bridge-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Introduction to APIs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Introduction to APIs">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-tower-bridge-share.jpg">
+  <meta property="og:description"
+    content="An introduction to APIs for people who have not worked with APIs before">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-tower-bridge.jpg); background-position: center center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Introduction to APIs</h1>
+  <span class="posts__item-date">Nov 14, 2022 &middot; 8 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/engineering" title="Posts related to engineering">#engineering</a></span>
+    
+    <span class="tags__tag"><a href="/tags/development" title="Posts related to development">#development</a></span>
+    
+    <span class="tags__tag"><a href="/tags/web" title="Posts related to web">#web</a></span>
+    
+    <span class="tags__tag"><a href="/tags/cli" title="Posts related to cli">#cli</a></span>
+    
+    <span class="tags__tag"><a href="/tags/teams" title="Posts related to teams">#teams</a></span>
+    
+    <span class="tags__tag"><a href="/tags/beginner" title="Posts related to beginner">#beginner</a></span>
+    
+  </div>
+
+  <p>I&rsquo;ve written this post to help some of my colleagues, who traditionally don&rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&rsquo;ve used APIs before, this post <em>is probably not for you</em> ;-).</p>
+<p>An &ldquo;Application Programming Interface&rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.</p>
+<p>We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team. There will be a plethora of links to other sites with better content than this if you want to learn more.</p>
+<h2 id="types-of-api">Types of API</h2>
+<p>There are many types of APIs on the internet. For example</p>
+<ul>
+<li><a href="https://aws.amazon.com/what-is/restful-api/">RESTful (Representational State Transfer)</a></li>
+<li><a href="https://www.soapui.org/learn/api/soap-vs-rest-api/">Soap (Simple Object Access Protocol)</a></li>
+<li><a href="https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql">RPC (Remote procedure call)</a></li>
+<li><a href="https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql#graphql">GraphQL</a></li>
+</ul>
+<p>Each type of API has pros and cons, and also rules you need to follow. This post will not get into all that, but some of the links above do. If you&rsquo;re interested, checkout the links and go down the rabbit hole. The rest of this post will focus on RESTful APIs, since that is currently what my team is working with. We are going to use examples from the <a href="https://docs.prolific.com/docs/api-docs/public/">Prolific API</a>.</p>
+<p><strong>Note</strong>, <a href="https://www.prolific.com">Prolific</a> is an online platform that allows you to conduct research with 130,000+ vetted participants. This gives you insights you can rely on.</p>
+<h2 id="endpoints">Endpoints</h2>
+<p>We often talk about endpoints when it comes to APIs. An endpoint is a location that allows you to send or retrieve data. Using the API mentioned above, we could send a <code>POST</code> request to the <code>https://api.prolific.com/api/v1/studies/</code> endpoint to create a Study resource on the Prolific Platform. It&rsquo;s like the address of the API on the internet.</p>
+<p>Each endpoint allows you to do certain things with it.</p>
+<h2 id="methods">Methods</h2>
+<p>There is a language to talk to APIs. It&rsquo;s worth understanding these in the context of what you&rsquo;re building, as it facilitates knowledge transfer.</p>
+<p>Let&rsquo;s agree on some terminology here.</p>
+<ul>
+<li>A <code>document</code> or <code>resource</code> is a bunch of information related to a single &ldquo;thing&rdquo;. For example, a Study document would have a title, description, who created it, and a bunch of other details.</li>
+<li>A <code>collection</code> stores many <code>documents</code>/<code>resources</code>. A collection keeps a related set of documents together. So you would have a study collection, a user collection, etc.</li>
+</ul>
+<p>For those two categories, we can do the following things with them.</p>
+<ul>
+<li><code>GET</code> - Fetches a collection of documents, or retrieves a single document.</li>
+<li><code>POST</code> - Creates a document in a collection.</li>
+<li><code>PUT</code> - Replaces an existing document in a collection.</li>
+<li><code>PATCH</code> - Partially updates an existing document.</li>
+<li><code>DELETE</code> - Deletes an existing document in a collection.</li>
+<li><code>OPTIONS</code> - Fetches the available operations you can do on an endpoint.</li>
+</ul>
+<p>These are called <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP Verbs</a>, and we are going to see this in action, next.</p>
+<h2 id="requests">Requests</h2>
+<p>At this point, we now actually want to communicate with the API. This is done via an <code>HTTP Request</code>. When you search google, that is generating an HTTP Request. When you log into Twitter (if you can), that is generating an HTTP Request, and so on. In fact, everything you are doing on the internet is generating requests in some way.</p>
+<p>In its basic form, a request takes an endpoint, a method, and a payload of some kind and sends that to the API.</p>
+<p>Rather than using a browser, we will use a command line tool to see more of what is happening under the hood for this example.</p>
+<p>This HTTP Request is asking the API to respond with information about my user account.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X GET <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#39;https://api.prolific.com/api/v1/users/me/&#39;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --header <span style="color:#ed9d13">&#39;Accept: */*&#39;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --header <span style="color:#ed9d13">&#39;User-Agent: curl&#39;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --header <span style="color:#ed9d13">&#39;Authorization: Token &lt;redacted&gt;&#39;</span>
+</span></span></code></pre></div><p>With this command you can see a few things happening:</p>
+<ul>
+<li><code>curl</code> is simply a command line browser, akin to Chrome/Safari etc.</li>
+<li><code>-X GET</code> is the HTTP verb/method being used. As mentioned above, that means we want to retrieve this resource from the API.</li>
+<li><code>--header</code>, think of this as extra information on an envelope you send in the mail. It helps the payload (the letter you&rsquo;re sending), get to the destination. These are called <code>Headers</code>, and you can <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">define a lot more</a> than described in the example above.
+<ul>
+<li>In this case, we define the following.</li>
+<li><code>Accept</code> defines what we will accept as content. This could be <code>text/html</code>, <code>application/json</code>, etc. The server will respond in turn, with the content type used. You will see this in a moment.</li>
+<li><code>User-Agent</code> allows us to tell the server how we are communicating with it. This helps identify libraries being used, applications etc. It&rsquo;s basically a string of text.</li>
+<li>Lastly, in this example, we define the <code>Authorization</code> header, which allows us to gain access to information via the API. If we did not define this header, we would be denied access to the data.</li>
+</ul>
+</li>
+</ul>
+<p>At this point, we are now sending a semantically correct request to the <a href="https://www.prolific.co">Prolific Platform API</a>.</p>
+<h2 id="responses">Responses</h2>
+<p>Once a request is received by the API, the API needs to respond. It&rsquo;s only polite to do so!</p>
+<p>Based on the example HTTP Request above, this is the response we have received from the API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt; HTTP/2 200
+</span></span><span style="display:flex;"><span>&lt; date: Fri, 18 Nov 2022 13:51:04 GMT
+</span></span><span style="display:flex;"><span>&lt; content-type: application/json
+</span></span><span style="display:flex;"><span>&lt; content-length: 1802
+</span></span><span style="display:flex;"><span>&lt; allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+</span></span><span style="display:flex;"><span>&lt; x-frame-options: DENY
+</span></span><span style="display:flex;"><span>&lt; vary: Origin, Cookie
+</span></span><span style="display:flex;"><span>&lt; x-content-type-options: nosniff
+</span></span><span style="display:flex;"><span>&lt; referrer-policy: same-origin
+</span></span><span style="display:flex;"><span>&lt; cross-origin-opener-policy: unsafe-none
+</span></span><span style="display:flex;"><span>&lt; via: 1.1 google
+</span></span><span style="display:flex;"><span>&lt; alt-svc: h3=&#34;:443&#34;; ma=2592000,h3-29=&#34;:443&#34;; ma=2592000
+</span></span><span style="display:flex;"><span>&lt;
+</span></span><span style="display:flex;"><span>* Connection #0 to host api.prolific.com left intact
+</span></span><span style="display:flex;"><span>{&#34;id&#34;:&#34;&lt;redacted&gt;&#34;,&#34;email&#34;:&#34;redacted@prolific.com&#34;,&#34;date_joined&#34;:&#34;2022-04-21T10:29:49.967000Z&#34;,&#34;first_name&#34;:&#34;Ben&#34;,&#34;last_name&#34;:&#34;Selby&#34;,&#34;name&#34;:&#34;Ben Selby&#34;,&#34;username&#34;:&#34;redacted@prolific.com&#34;,&#34;user_type&#34;:&#34;Researcher&#34;,&#34;currency_code&#34;:&#34;GBP&#34;,&#34;balance&#34;:0,&#34;available_balance&#34;:0,&#34;is_email_verified&#34;:true,&#34;billing_address&#34;:null,&#34;has_password&#34;:true,&#34;datetime_created&#34;:&#34;2022-04-21T10:29:49&#34;,&#34;last_login&#34;:&#34;2022-11-18T09:34:34&#34;,&#34;address&#34;:null,&#34;fees_percentage&#34;:0.0,&#34;service_margin_percentage&#34;:0.0,&#34;fees_per_submission&#34;:0.0,&#34;vat_percentage&#34;:0.2,&#34;country&#34;:&#34;GB&#34;,&#34;referral_url&#34;:&#34;https://app.prolific.com/register/researcher?ref=redacted&#34;,&#34;vat_number&#34;:null,&#34;email_preferences&#34;:{&#34;bonus_payments&#34;:true,&#34;just_published&#34;:true,&#34;referrals&#34;:true,&#34;marketing&#34;:true,&#34;pre_publish&#34;:true},&#34;terms_and_conditions&#34;:true,&#34;beta_tester&#34;:false,&#34;privacy_policy&#34;:true,&#34;experimental_group&#34;:10,&#34;representative_sample_credits&#34;:0,&#34;redeemable_referral_coupon&#34;:null,&#34;minimum_reward_per_hour&#34;:60000,&#34;status&#34;:&#34;OK&#34;,&#34;on_hold&#34;:false,&#34;can_topup_3d&#34;:true,&#34;has_answered_vat_number&#34;:true,&#34;balance_breakdown&#34;:{&#34;project_funds&#34;:0,&#34;service_fees&#34;:0},&#34;can_oidc_login&#34;:false,&#34;topups_over_referral_threshold&#34;:false,&#34;is_staff&#34;:true,&#34;referral_incentive&#34;:{&#34;minimum_topup&#34;:0.0,&#34;recipient_credit&#34;:0.0,&#34;recipient_rep_sample_credit&#34;:0.0,&#34;referrer_credit&#34;:0.0,&#34;referrer_rep_sample_credit&#34;:0},&#34;needs_to_confirm_US_state&#34;:false,&#34;mua_beta_user&#34;:true,&#34;current_project_id&#34;:&#34;redacted&#34;,&#34;has_accepted_survey_builder_terms&#34;:true,&#34;can_cashout_enabled&#34;:true,&#34;can_contact_support_enabled&#34;:true,&#34;can_instant_cashout_enabled&#34;:false,&#34;invoice_usage_enabled&#34;:true,&#34;can_oidc_login_enabled&#34;:false,&#34;can_run_pilot_study_enabled&#34;:false,&#34;_links&#34;:{&#34;self&#34;:{&#34;href&#34;:&#34;https://api.prolific.com/api/v1/users/redacted/&#34;,&#34;title&#34;:&#34;Current&#34;}}}%
+</span></span></code></pre></div><p>This response can be broken down into the <code>HTTP Response Headers</code>, and the <code>HTTP Body</code>. Let&rsquo;s start to understand some of the headers.</p>
+<ul>
+<li><code>HTTP/2 200</code> This gives us the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP Response Code</a> of 200, which means &ldquo;Successful/OK&rdquo;. It&rsquo;s worth understanding the Response codes and agreeing on what codes should be used for your API. This provides context to your API consumers on what is happening/happened with their request. The consumers of your API can understand what you&rsquo;re saying just by the response code. For example, if you requested a document that didn&rsquo;t exist, you would get an HTTP Response code of <code>404</code>. I&rsquo;m sure you&rsquo;ve all seen a <code>404</code> page before.</li>
+<li><code>content-type: application/json</code>. We talked about this above, this is the API telling us it&rsquo;s responding to our request with JSON. It could have been any other format too.</li>
+</ul>
+<p>After the headers, we can then see the JSON data we wanted. This could be HTML, XML, Text, JSON, or a raft of other things, such as image data etc.</p>
+<p>We should all strive to make the API responses consistent across our API endpoints. This makes it easier for systems to talk to us in a consistent way.</p>
+<h2 id="specifications">Specifications</h2>
+<p>So, in the last section, we talked about consistency. Well, there are specification frameworks out there that help us do just that.</p>
+<ul>
+<li><a href="https://jsonapi.org">JSON API</a></li>
+<li><a href="https://www.odata.org">OData</a></li>
+<li>Potentially an in-house specification</li>
+</ul>
+<p>I would highly recommend following an existing specification, as there will be libraries out there to help both the providers of the API and the consumers of the API. Does it add value to your customers if you write an in-house specification?</p>
+<p>Lastly, you can document your APIs, using something called an <a href="https://www.openapis.org">Open API Specification</a>. This is a specification or blueprint that the API authors write, and publish to consumers. At the beginning of this post, I mentioned the <a href="https://docs.prolific.com/docs/api-docs/public/">Prolific API Open API Specification</a>. This is defined in YAML (other formats are available), and we use a tool called <a href="https://redocly.com/redoc/">Redoc</a> to build a website we host showcasing how to use our API.</p>
+<h2 id="connecting-to-apis">Connecting to APIs</h2>
+<p>So, we have gone into some key areas of building and talking to an API. More than likely, you&rsquo;re wanting to integrate an API into your product somehow. There are several ways you can do this.</p>
+<ul>
+<li>Roll your own code to talk to the API.</li>
+<li>SDKs, such as the <a href="https://github.com/google/jsonapi"><code>google/jsonapi</code> Go library</a> et al.</li>
+<li>Generic clients that build out code from your Open API Specification.
+<ul>
+<li>Within my team, as a proof of concept we built a generic client of our API using <a href="https://github.com/ferdikoomen/openapi-typescript-codegen">openapi-typescript-codegen</a>.</li>
+<li>This takes the Open API Specification mentioned above and then generates classes/functions to drop into your project to call the API.</li>
+<li>In this case, it produced a TypeScript client we could start using straight away. All the boilerplate code was already built for us.</li>
+</ul>
+</li>
+</ul>
+<p>There are, as with everything, pros and cons for each approach. For example, writing your own gives you full control. By generating code from the specification you get to focus on your product and the value that brings, rather than writing standard code to hit an API. It&rsquo;s a team decision on where the value is. Different teams will decide on different outcomes based on their experience and desired outcomes.</p>
+<h2 id="summary">Summary</h2>
+<p>There is a lot more to APIs than what is mentioned above. For example, you could dedicate an entire post to Authentication, and the different types out there nowadays. However, the above should get you going at least.</p>
+<p>I would like to say one last thing though. Nothing is perfect, and something is better than nothing.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

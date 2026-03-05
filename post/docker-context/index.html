@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Use Docker Context to switch between different solutions">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Use Docker Context to switch between different solutions &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Use Docker Context to switch between different solutions">
+  <meta name="twitter:description"
+    content="Use Docker Context to switch between different solutions">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Use Docker Context to switch between different solutions">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Use Docker Context to switch between different solutions">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="Use Docker Context to switch between different solutions">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Use Docker Context to switch between different solutions</h1>
+  <span class="posts__item-date">Nov 15, 2021 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/docker" title="Posts related to docker">#docker</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p>You may be on the lookout for a replacement to Docker Desktop <a href="https://www.docker.com/blog/roi-of-docker-desktop-vs-diy-considerations-risks-and-benefits-for-business/">at the moment</a>. If you are, you may be wanting to trial the different solutions. You&rsquo;re going to need to know what is involved, and what the different cost models include. This post is going to show you how you can use <code>docker context</code> to run the different systems in parallel. The two solutions this post will cover are <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> and <a href="https://multipass.run">multipass</a>.</p>
+<h2 id="getting-minikube-up-and-running">Getting minikube up and running</h2>
+<p>This post assumes the host machine is a Mac. Therefore, we can use <a href="https://brew.sh/">brew.sh</a> to install the necessary packages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install hyperkit
+</span></span><span style="display:flex;"><span>brew install minikube
+</span></span><span style="display:flex;"><span>brew install docker
+</span></span><span style="display:flex;"><span>brew install docker-compose
+</span></span></code></pre></div><p>Once this is complete, you can start the <code>minikube</code> application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minikube start --driver hyperkit
+</span></span></code></pre></div><p>This will now be running a Virtual Machine we can use for Docker.</p>
+<h2 id="getting-multipass-up-and-running">Getting multipass up and running</h2>
+<p>Let&rsquo;s use <a href="https://brew.sh/">brew.sh</a> again to install the necessary packages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install multipass
+</span></span></code></pre></div><p>Multipass allows us to use <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> to define a the environment we can use. This will configure the virtual machine for you. The definition I use is defined below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">users</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- <span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>ubuntu<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">sudo</span>:<span style="color:#666"> </span>ALL=(ALL) NOPASSWD:ALL<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">ssh-authorized-keys</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">      </span>- ssh-rsa .....<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package_update</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">packages</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- apt-transport-https<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- avahi-daemon<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- ca-certificates<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- curl<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- docker<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- gnupg<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- lsb-release<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">runcmd</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- sudo curl -fsSL https://get.docker.com | sudo bash<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- sudo systemctl enable docker<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- sudo systemctl enable -s HUP ssh<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- sudo groupadd docker<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>- sudo usermod -aG docker ubuntu<span style="color:#666">
+</span></span></span></code></pre></div><p>It is saved to <code>$HOME/git/github/benmatselby/dotfiles/common/multipass-docker.yml</code>. You can save this file where you want. Add the contents of your <code>~/.ssh/id_rsa.pub</code> file to the <code>ssh-authorized-keys</code> array above. This allows your host machine to <code>ssh</code> into the virtual machine multipass will create.</p>
+<p>Now we want to spin up the multipass environment:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#24909d">cd</span> <span style="color:#40ffff">$HOME</span>/git/github/benmatselby/dotfiles/common/
+</span></span><span style="display:flex;"><span>multipass launch -c <span style="color:#3677a9">2</span> -m 2G -d 10G -n docker-multipass 20.04 --cloud-init multipass-docker.yml
+</span></span></code></pre></div><p>Make sure you <code>cd</code> into the directory where you saved the <code>cloud-init</code> script. This command will launch a virtual machine using Ubuntu 20.04, with 10GB of disk space (<code>-d</code>), 2GB of RAM (<code>-m</code>), 2 CPUs (<code>-c</code>), and named <code>docker-multipass</code>. You can change the values as you see fit. You will need the name of the instance for later.</p>
+<p>You may also want to mount some local folders to make life a little easier:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>multipass mount /Users docker-multipass
+</span></span><span style="display:flex;"><span>multipass mount /Volumes docker-multipass
+</span></span></code></pre></div><p>You can see the information about the VM you created by running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>multipass info docker-multipass
+</span></span><span style="display:flex;"><span>Name:           docker-multipass
+</span></span><span style="display:flex;"><span>State:          Running
+</span></span><span style="display:flex;"><span>IPv4:           192.168.64.5
+</span></span><span style="display:flex;"><span>                172.17.0.1
+</span></span><span style="display:flex;"><span>Release:        Ubuntu 20.04.3 LTS
+</span></span><span style="display:flex;"><span>Image hash:     a83b747df657 (Ubuntu 20.04 LTS)
+</span></span><span style="display:flex;"><span>Load:           0.19 0.14 0.05
+</span></span><span style="display:flex;"><span>Disk usage:     1.8G out of 9.5G
+</span></span><span style="display:flex;"><span>Memory usage:   232.8M out of 1.9G
+</span></span><span style="display:flex;"><span>Mounts:         /Volumes =&gt; /Volumes
+</span></span><span style="display:flex;"><span>                    UID map: 501:default
+</span></span><span style="display:flex;"><span>                    GID map: 20:default
+</span></span><span style="display:flex;"><span>                /Users   =&gt; /Users
+</span></span><span style="display:flex;"><span>                    UID map: 501:default
+</span></span><span style="display:flex;"><span>                    GID map: 20:default
+</span></span></code></pre></div><h2 id="using-docker-context">Using docker context</h2>
+<p>We now have two environments that can be used instead of Docker Desktop: <code>minikube</code> and <code>multipass</code>. The best way to switch between the two systems is to use <code>docker context</code>. Let&rsquo;s now create a context for multipass, and set it as the default.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker context create multipass <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --description <span style="color:#ed9d13">&#34;Multipass Docker Desktop&#34;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --docker <span style="color:#ed9d13">&#34;host=ssh://ubuntu@docker-multipass.local&#34;</span>
+</span></span><span style="display:flex;"><span>docker context use multipass
+</span></span></code></pre></div><p>The name provided in the <code>multipass launch</code> command, is what becomes the <code>ubuntu@[multipass name].local</code> value. So if you named your multipass instance &ldquo;lebowski&rdquo; you would use <code>host=ssh://ubuntu@lebowski.local</code> as your <code>--docker</code> context. I used <code>docker-multipass</code> in the examples above.</p>
+<p>The last thing we need to do is <code>ssh</code> into into the VM so we can accept the authenticity of the host.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh ubuntu@docker-multipass.local
+</span></span></code></pre></div><p>You can now leave the VM, <code>exit</code>.</p>
+<p>Now run <code>docker run hello-world</code>. This will run the <code>hello-world</code> container via <code>multipass</code>.</p>
+<p>You can see what contexts you have by running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker context ls
+</span></span><span style="display:flex;"><span>NAME            DESCRIPTION                               DOCKER ENDPOINT
+</span></span><span style="display:flex;"><span>default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock
+</span></span><span style="display:flex;"><span>desktop-linux                                             unix:///Users/Ben/.docker/run/docker.sock
+</span></span><span style="display:flex;"><span>multipass *     Multipass Docker Desktop                  ssh://ubuntu@docker-multipass.local
+</span></span></code></pre></div><p>Let&rsquo;s now add the <code>minikube</code> context. First, we need some data from minikube to build the context:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minikube -p minikube docker-env
+</span></span><span style="display:flex;"><span><span style="color:#24909d">export</span> <span style="color:#40ffff">DOCKER_TLS_VERIFY</span>=<span style="color:#ed9d13">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#24909d">export</span> <span style="color:#40ffff">DOCKER_HOST</span>=<span style="color:#ed9d13">&#34;tcp://192.168.64.10:2376&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#24909d">export</span> <span style="color:#40ffff">DOCKER_CERT_PATH</span>=<span style="color:#ed9d13">&#34;/Users/Ben/.minikube/certs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#24909d">export</span> <span style="color:#40ffff">MINIKUBE_ACTIVE_DOCKERD</span>=<span style="color:#ed9d13">&#34;minikube&#34;</span>
+</span></span></code></pre></div><p>We need this information for the context connection string. Let&rsquo;s run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker context create minikube <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --description <span style="color:#ed9d13">&#34;Minikube Docker Desktop&#34;</span> <span style="color:#ed9d13">\
+</span></span></span><span style="display:flex;"><span>  --docker <span style="color:#ed9d13">&#34;host=tcp://192.168.64.10:2376,cert=/Users/Ben/.minikube/certs/cert.pem,ca=/Users/Ben/.minikube/certs/ca.pem,key=/Users/Ben/.minikube/certs/key.pem&#34;</span>
+</span></span></code></pre></div><p>You can see how we have built up the <code>--docker</code> string by using the environment variables provided by the <code>minikube</code> command. Let&rsquo;s now check the contexts we have:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker context ls
+</span></span><span style="display:flex;"><span>NAME            DESCRIPTION                               DOCKER ENDPOINT
+</span></span><span style="display:flex;"><span>default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock
+</span></span><span style="display:flex;"><span>desktop-linux                                             unix:///Users/Ben/.docker/run/docker.soc
+</span></span><span style="display:flex;"><span>minikube        Minikube Docker Desktop                   tcp://192.168.64.10:2376
+</span></span><span style="display:flex;"><span>multipass *     Multipass Docker Desktop                  ssh://ubuntu@docker.local
+</span></span></code></pre></div><p>We can then use <code>docker context use [name]</code> to switch between the contexts. Let&rsquo;s switch to <code>minikube</code> and run <code>hello-world</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker context use minikube
+</span></span><span style="display:flex;"><span>docker run hello-world
+</span></span></code></pre></div><p>You have now run the <code>hello-world</code> container using both docker contexts.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Docker Desktop is an easy to use system for the Mac. For personal projects, it is great. With the new licensing agreement, businesses may need to review how their engineers run containers during development. This post showed how you can use <code>docker context</code> to switch between different back ends to help trial alternatives to Docker Desktop.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/vscode-dev-containers-minikube/">Setting up a VS Code Dev Container - Minikube</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

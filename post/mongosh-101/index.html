@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Mongo shell commands to get you through the day">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Mongo shell commands to get you through the day &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Mongo shell commands to get you through the day">
+  <meta name="twitter:description"
+    content="Mongo shell commands to get you through the day">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Mongo shell commands to get you through the day">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Mongo shell commands to get you through the day">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Mongo shell commands to get you through the day">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Mongo shell commands to get you through the day</h1>
+  <span class="posts__item-date">May 1, 2022 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/mongo" title="Posts related to mongo">#mongo</a></span>
+    
+    <span class="tags__tag"><a href="/tags/mongosh" title="Posts related to mongosh">#mongosh</a></span>
+    
+    <span class="tags__tag"><a href="/tags/cli" title="Posts related to cli">#cli</a></span>
+    
+    <span class="tags__tag"><a href="/tags/database" title="Posts related to database">#database</a></span>
+    
+  </div>
+
+  <p>I recently started a new job. The data store is <a href="https://www.mongodb.com">MongoDB</a>, which I have barely used before. This post aims to document what I&rsquo;ve learnt to get me through the day. Please feel free to <a href="http://twitter.com/benmatselby/photo">tweet me</a> if there are discrepancies.</p>
+<p>The first thing that I became aware of, is that there are/were two cli tools:</p>
+<ul>
+<li>The legacy <code>mongo</code> shell, which <a href="https://www.mongodb.com/docs/manual/reference/program/mongo/">was deprecated in MongoDB v5.0</a>.</li>
+<li>The new, and active, <code>mongosh</code> shell, which replaced <code>mongo</code>. The documentation for this shell is <a href="https://www.mongodb.com/docs/mongodb-shell/">here</a>.</li>
+</ul>
+<p>This post will discuss <code>mongosh</code> and assume you have MongoDB running on your machine (or access to an instance).</p>
+<h2 id="connecting">Connecting</h2>
+<p>If you&rsquo;re wanting to connect to a local database instance, then by running <code>mongosh</code> it will connect to <code>localhost</code> as default.</p>
+<p>A more complete connection string would be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mongosh <span style="color:#ed9d13">&#34;mongodb://localhost:27017&#34;</span> -u [user]
+</span></span></code></pre></div><p>This will prompt for the password, so it&rsquo;s not stored in your <code>~/.[zsh|bash]_history</code> file.</p>
+<p>Once you have connected, you can run <code>help</code> to get some basic commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; <span style="color:#24909d">help</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Shell Help:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    use                Set current database
+</span></span><span style="display:flex;"><span>    show               <span style="color:#ed9d13">&#39;show databases&#39;</span>/<span style="color:#ed9d13">&#39;show dbs&#39;</span>: Print a list of all available databases.
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show collections&#39;</span>/<span style="color:#ed9d13">&#39;show tables&#39;</span>: Print a list of all collections <span style="color:#6ab825;font-weight:bold">for</span> current database.
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show profile&#39;</span>: Prints system.profile information.
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show users&#39;</span>: Print a list of all users <span style="color:#6ab825;font-weight:bold">for</span> current database.
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show roles&#39;</span>: Print a list of all roles <span style="color:#6ab825;font-weight:bold">for</span> current database.
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show log &lt;type&gt;&#39;</span>: log <span style="color:#6ab825;font-weight:bold">for</span> current connection, <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#24909d">type</span> is not <span style="color:#24909d">set</span> uses <span style="color:#ed9d13">&#39;global&#39;</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#ed9d13">&#39;show logs&#39;</span>: Print all logs.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">exit</span>               Quit the MongoDB shell with exit/exit()/.exit
+</span></span><span style="display:flex;"><span>    quit               Quit the MongoDB shell with quit/quit()
+</span></span><span style="display:flex;"><span>    Mongo              Create a new connection and <span style="color:#6ab825;font-weight:bold">return</span> the Mongo object. Usage: new Mongo(URI, options [optional])
+</span></span><span style="display:flex;"><span>    connect            Create a new connection and <span style="color:#6ab825;font-weight:bold">return</span> the Database object. Usage: connect(URI, username [optional], password [optional])
+</span></span><span style="display:flex;"><span>    it                 result of the last line evaluated; use to further iterate
+</span></span><span style="display:flex;"><span>    version            Shell version
+</span></span><span style="display:flex;"><span>    load               Loads and runs a JavaScript file into the current shell environment
+</span></span><span style="display:flex;"><span>    enableTelemetry    Enables collection of anonymous usage data to improve the mongosh CLI
+</span></span><span style="display:flex;"><span>    disableTelemetry   Disables collection of anonymous usage data to improve the mongosh CLI
+</span></span><span style="display:flex;"><span>    passwordPrompt     Prompts the user <span style="color:#6ab825;font-weight:bold">for</span> a password
+</span></span><span style="display:flex;"><span>    sleep              Sleep <span style="color:#6ab825;font-weight:bold">for</span> the specified number of milliseconds
+</span></span><span style="display:flex;"><span>    print              Prints the contents of an object to the output
+</span></span><span style="display:flex;"><span>    printjson          Alias <span style="color:#6ab825;font-weight:bold">for</span> print()
+</span></span><span style="display:flex;"><span>    cls                Clears the screen like console.clear()
+</span></span><span style="display:flex;"><span>    isInteractive      Returns whether the shell will enter or has entered interactive mode
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  For more information on usage: https://docs.mongodb.com/manual/reference/method
+</span></span></code></pre></div><h2 id="listing-the-databases">Listing the databases</h2>
+<p>Using the output from <code>help</code>, let&rsquo;s list all the databases stored in the instance we are running on.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; show dbs
+</span></span></code></pre></div><p>We want to be able to switch between the databases, so lets switch to the <code>admin</code> database.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; use admin
+</span></span></code></pre></div><h2 id="creating-a-database">Creating a database</h2>
+<p>So we have seen how to list databases, but we want to create a new one to store our data. To do this, we can run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; use entertainment
+</span></span></code></pre></div><p>You may notice that we are using the same <code>use</code> command. By switching to a non-existent database, the database will be created, when we create a collection.</p>
+<h2 id="deleting-a-database">Deleting a database</h2>
+<p><em>Note:</em> I <strong>do not</strong> recommend testing this on production!</p>
+<p>Make sure you are on the database you want to drop:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; use entertainment
+</span></span><span style="display:flex;"><span>switched to db entertainment
+</span></span></code></pre></div><p>And then let&rsquo;s drop the database.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.dropDatabase()
+</span></span><span style="display:flex;"><span>{ ok: 1, dropped: <span style="color:#ed9d13">&#39;entertainment&#39;</span> }
+</span></span></code></pre></div><h2 id="creating-a-collection">Creating a collection</h2>
+<p>Using the commands from above, create a database called <code>entertainment</code> again. Then switch to that database. We now want to create a collection. Let&rsquo;s just make sure we are on the same page again. Let&rsquo;s check the name of the database we are both on.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.getName()
+</span></span><span style="display:flex;"><span>entertainment
+</span></span></code></pre></div><p>Your output should match mine, <code>entertainment</code>. Now, let&rsquo;s create a collection called <code>films</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.createCollection(<span style="color:#ed9d13">&#34;films&#34;</span>)
+</span></span></code></pre></div><p>For further options/configuration on creating collections, please review <a href="https://www.mongodb.com/docs/manual/reference/method/db.createCollection/">the docs</a>.</p>
+<h2 id="showing-collections">Showing collections</h2>
+<p>Let&rsquo;s see what collections we have in the <code>entertainment</code> database.</p>
+<p><em>Note:</em> If you&rsquo;re coming from a SQL based background, <code>collections</code> are the MongoDB equivalent of <code>tables</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; show collections
+</span></span><span style="display:flex;"><span>films
+</span></span></code></pre></div><h2 id="inserting-documents">Inserting documents</h2>
+<p>Now we have a database (<code>entertainment</code>), and a collection (<code>films</code>), let&rsquo;s create some documents.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.insertOne({ title: <span style="color:#ed9d13">&#34;The Big Lebowski&#34;</span>, url: <span style="color:#ed9d13">&#34;https://en.wikipedia.org/wiki/The_Big_Lebowski&#34;</span> })
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  acknowledged: true,
+</span></span><span style="display:flex;"><span>  insertedId: ObjectId(<span style="color:#ed9d13">&#34;626eaad80dd6e8884b86fda3&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This has created a document in the <code>films</code> collection with two attributes: <code>title</code>, and <code>url</code>. Behind the scenes, MongoDB will add an additional attribute: <code>_id</code> which cannot be changed.</p>
+<p>You can also create many documents at the same time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.insertMany([{ title: <span style="color:#ed9d13">&#34;How to loose a guy in 10 days&#34;</span>, url: <span style="color:#ed9d13">&#34;https://en.wikipedia.org/wiki/How_to_Lose_a_Guy_in_10_Days&#34;</span> },
+</span></span><span style="display:flex;"><span>{ title: <span style="color:#ed9d13">&#34;Father of the Bride&#34;</span>, url: <span style="color:#ed9d13">&#34;https://www.imdb.com/title/tt0101862/&#34;</span> }])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  acknowledged: true,
+</span></span><span style="display:flex;"><span>  insertedIds: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#39;0&#39;</span>: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda4&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#39;1&#39;</span>: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For further options/configuration on inserting documents, please review <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne/">the docs</a>.</p>
+<h2 id="getting-documents">Getting documents</h2>
+<p>We should now have three documents in our <code>films</code> collection, within the <code>entertainment</code> database. Let&rsquo;s check:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.find({})
+</span></span><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaad80dd6e8884b86fda3&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;The Big Lebowski&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://en.wikipedia.org/wiki/The_Big_Lebowski&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda4&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;How to loose a guy in 10 days&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://en.wikipedia.org/wiki/How_to_Lose_a_Guy_in_10_Days&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;Father of the Bride&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://www.imdb.com/title/tt0101862/&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h2 id="filtering-documents">Filtering documents</h2>
+<p>It&rsquo;s unlikely that we always want to get all of the documents, so let&rsquo;s filter films with the word <code>the</code> in them:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.find({ title: { <span style="color:#40ffff">$regex</span>: /the/i }})
+</span></span></code></pre></div><p>You can see we have introduced a <code>$regex</code> keyword to provide a <code>SQL LIKE</code> command, if you&rsquo;re use to SQL.</p>
+<p>If you know the id of the document:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.find({ _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>) })
+</span></span><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;Father of the Bride&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://www.imdb.com/title/tt0101862/&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>You can see that we are returning an array of documents. But what if we just want the one document?</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.findOne({ _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>) })
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>),
+</span></span><span style="display:flex;"><span>  title: <span style="color:#ed9d13">&#39;Father of the Bride&#39;</span>,
+</span></span><span style="display:flex;"><span>  url: <span style="color:#ed9d13">&#39;https://www.imdb.com/title/tt0101862/&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For further options/configuration on finding documents, please review <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.findOne/">the docs</a>.</p>
+<h2 id="updating-documents">Updating documents</h2>
+<p>Let&rsquo;s say we want to give a film a rating. We can do this via an update.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>db.films.updateOne({ title: <span style="color:#ed9d13">&#34;The Big Lebowski&#34;</span> }, { <span style="color:#40ffff">$set</span>: { rating: <span style="color:#3677a9">5</span> }})
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  acknowledged: true,
+</span></span><span style="display:flex;"><span>  insertedId: null,
+</span></span><span style="display:flex;"><span>  matchedCount: 1,
+</span></span><span style="display:flex;"><span>  modifiedCount: 1,
+</span></span><span style="display:flex;"><span>  upsertedCount: <span style="color:#3677a9">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The benefit of a NoSQL data store is the fact that documents can have varying fields. Let&rsquo;s checkout what the documents look like now:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.find({})
+</span></span><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaad80dd6e8884b86fda3&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;The Big Lebowski&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://en.wikipedia.org/wiki/The_Big_Lebowski&#39;</span>,
+</span></span><span style="display:flex;"><span>    rating: <span style="color:#3677a9">5</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda4&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;How to loose a guy in 10 days&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://en.wikipedia.org/wiki/How_to_Lose_a_Guy_in_10_Days&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>),
+</span></span><span style="display:flex;"><span>    title: <span style="color:#ed9d13">&#39;Father of the Bride&#39;</span>,
+</span></span><span style="display:flex;"><span>    url: <span style="color:#ed9d13">&#39;https://www.imdb.com/title/tt0101862/&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>You can see that only one film document has a <code>rating</code> field.</p>
+<p>For further options/configuration on updating documents, please review <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne/">the docs</a>.</p>
+<h2 id="deleting-documents">Deleting documents</h2>
+<p>Deleting documents is very much akin to finding documents. So let&rsquo;s say we want to delete one document:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; db.films.deleteOne({_id: ObjectId(<span style="color:#ed9d13">&#34;626eaae00dd6e8884b86fda5&#34;</span>)})
+</span></span><span style="display:flex;"><span>{ acknowledged: true, deletedCount: <span style="color:#3677a9">1</span> }
+</span></span></code></pre></div><p>For further options/configuration on deleting documents, please review <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteOne/">the docs</a>.</p>
+<h2 id="configuration-file">Configuration file</h2>
+<p>We can create a configuration file called <code>~/.mongoshrc.js</code> to customise the prompt. An example could be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  prompt = () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#ed9d13">`</span><span style="color:#ed9d13">${</span>db.getName()<span style="color:#ed9d13">}</span><span style="color:#ed9d13"> with </span><span style="color:#ed9d13">${</span>db.stats().objects<span style="color:#ed9d13">}</span><span style="color:#ed9d13"> documents&gt; `</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If you save this file, and then reconnect you should see your prompt as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>entertainment with <span style="color:#3677a9">2</span> documents&gt;
+</span></span></code></pre></div><p>For further information on the configuration file, please review <a href="https://www.mongodb.com/docs/mongodb-shell/mongoshrc/">the docs</a>.</p>
+<h2 id="tidbits">Tidbits</h2>
+<ul>
+<li><code>mongosh</code> has tab completion, which really helps discoverability of commands. If you run <code>db.[tab][tab]</code> you will see a list of commands on the <code>db</code> object. Likewise, if you do <code>db.films.[tab][tab]</code> you will see a list of commands on the <code>collections</code> object.</li>
+</ul>
+<hr>
+<p>I hope this provides some useful knowledge to get you through your day using MongoDB. It should provide a grounding of basic commands, and provide links to give you further reading for more advanced commands/options.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/shell-101/">Shell commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/terraform-101/">Terraform knowledge to get you through the day</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

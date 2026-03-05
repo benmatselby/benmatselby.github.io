@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Some thoughts about why development environments should be automated and nurtured.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Development environments &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Development environments">
+  <meta name="twitter:description"
+    content="Some thoughts about why development environments should be automated and nurtured.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Development environments">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Development environments">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Some thoughts about why development environments should be automated and nurtured.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Development environments</h1>
+  <span class="posts__item-date">Sep 19, 2018 &middot; 7 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/environments" title="Posts related to environments">#environments</a></span>
+    
+    <span class="tags__tag"><a href="/tags/automation" title="Posts related to automation">#automation</a></span>
+    
+  </div>
+
+  <blockquote>
+<p>It works on my machine</p>
+</blockquote>
+<p>We have all heard it, and secretly, we have all probably said it too. Setting up your development environment really is a thing. About 10 years ago, I remember spending about two weeks getting a full ISP platform up and running on my host machine. There were a lot of moving parts I didn’t understand in my first week. I was fairly junior at the time, and this was the first time I was doing development, to this level, on a Linux platform. There was a wiki page with step by step instructions, updated by each new starter along the way. The people with the least knowledge of the platform were the passing guardians of one of the most fundamental documents in the department. About 4 weeks later we had an offsite where I had to stand up and give a talk about my experience of joining the department and business. When I stood there, rabbit in headlights, I explained that the first two weeks were a complete waste of time. There were some shocked faces. I was so new, I was just blindly entering commands from a wiki page, not really understanding the why. It really did not add much value to me, nor the company. I would have rather fixed my first software bug in those two weeks, and then started to learn the mammoth platform, when I had more context.</p>
+<p>Fast forward a little bit. The tooling around development environments has moved on some what since those days.</p>
+<h2 id="what-do-we-need">What do we need</h2>
+<p>That wiki page was great, in the sense there was one. And to be fair, there were one or two dedicated senior engineers who did try and keep it up to date. But, it does get out of date. If you can define your development environment and version control it, you are going to be better off. This applies for every single software environment in the pipeline, be it development, staging, training, pre-production, production etc. It all still applies, but for this blog post, let’s just focus on the development environment.</p>
+<p>So, what do we want from a development environment?</p>
+<ul>
+<li>We want it to be as similar to production as possible. It should have all the components that production has, but scaled down appropriately. If that means having some mocked components in there, that’s fine. This will really depend on the applications you are building and the scale at which your company operates</li>
+<li>Easy to spin up and tear down, one or two commands</li>
+<li>Fast to build. Doing this shouldn’t be “a thing”, it should just be happening whenever it’s needed</li>
+<li>Useful data, appropriate to the environment</li>
+<li>Automatically built for you via some provisioning system</li>
+<li>The platform to be defined as configuration</li>
+</ul>
+<h3 id="parity-with-production">Parity with Production</h3>
+<p>Why is this important? Because “It works on my machine” isn’t acceptable, and it’s the easy way out. If your development environment does not look like production, then you have no idea if your software works in production. If your development environment does not look like production, why not?</p>
+<h3 id="ease-of-use">Ease of use</h3>
+<p>Development environments need to be transient&hellip; Spin them up, tear them down&hellip; It should not feel like you are pushing an elephant up the stairs to use them, so you probably want some kind of provisioning service such as Ansible, Chef, Puppet, or Docker Compose etc. If it’s an overhead to use them, people will do anything to make their lives easier and will stop using them, therefore reverting to type, “It works on my machine”</p>
+<h3 id="fast">Fast</h3>
+<p><img src="/img/xkcd-compiling.png" alt="My code&rsquo;s compiling">￼You should be able to spin up your development environments in minutes. If it takes longer than getting a cup of coffee, something feels wrong to me. Maybe you are pulling down too many components to provision the Virtual Machine, for example. If you are using Vagrant, maybe you could use <a href="https://www.packer.io">Packer</a> to build a better base image of the components that do not change very often: Runtimes, Message Queues, database etc.</p>
+<p>The aim with all of this is to be productive as possible, and focus on what matters: Building great software</p>
+<h3 id="the-data">The data</h3>
+<p>It shouldn’t be live data, so what then?</p>
+<p>This will depend what industry you are in I suspect, so cannot really comment too much. However, I suspect having access to live data may be problematic, so your development environments should have useful anonymised data. If you can seed the data into your applications in a way that also helps test them, that’s a win. For example, you could use <code>newman</code> to pump <code>Postman</code> data into API end points, therefore proving APIs work.</p>
+<p>It is the responsibility of the team to generate the appropriate seed data for the applications you are developing. If there is a bug, and it requires certain data, then there should be a script to seed the same data into the development environments moving forward, so you always can test that issue (Automatically, of course)</p>
+<h3 id="automatic-for-the-people">Automatic for the people</h3>
+<p>I couldn’t imagine being given a wiki page again, and told to “set up your machine”. If this happened, I would immediately start to automate the build out, and then get it under version control. I do not really mind what automation/tools are used, as long as they are used, maintained, and ingrained into the development teams. This isn’t something you give to one person to own, it’s the team that own it, and they should be empowered to change, adapt, add components where the team sees fits. This then goes up-stream to production, but it started in the right place, in my opinion, the team.</p>
+<p>For extra “sharing is caring” points, if you could use the same provisioning scripts for your staging and production systems, you really are in the money. Depending on your organisation, there may be two or more different departments managing the different environments, so this may not always be possible, which is a shame.</p>
+<p>I’m currently using <a href="https://github.com/benmatselby/mac-box">Ansible to provision all my host machines</a>, so I have consistency (Great, if you like things just so). My current team at work use Vagrant/VirtualBox to look after the development machine. In the past, we’ve used Chef and Puppet, but Ansible fits better in the team due to experience.</p>
+<p>Sharing provisioning scripts for the host machine can also be very beneficial for the team. This will clearly depend on the level of engineer you have in your teams, and their thought process. Some folks will love the fact their host machine can also be provisioned: IDEs, Tools, Languages etc. Other folks will hate it, as the host is their machine, their domain. I am in the middle. My team have Ansible scripts to provision the host, but I also have my own scripts for my personal machines. Luckily, these play well together, so bear that in mind when deciding whether to do this. It’s a great way to get team members up and running.</p>
+<h3 id="configuration-in-a-version-control-system">Configuration in a version control system</h3>
+<p>So, we have an automatically provisioned development environment, which is fast and easy to use. It now needs to be version controlled with all the other code the team are managing. This is key. Otherwise you will get one engineer in the team who wants to maintain this. This is not scaleable in the long run, nor helpful for the people in the team wanting to learn and progress their skills.</p>
+<h2 id="summary">Summary</h2>
+<p>We are in the business of building software, not setting up our machines. You should be spending more time focusing on your core business model than anything else. Therefore manually configuring your machine seems wasteful at best and negligent at worst.</p>
+<ul>
+<li>Having to setup and maintain all development environments could be the difference between shipping on time, or not</li>
+<li>Adding a new component into your platform, takes one engineer, not all the engineers doing it their way, on their machine. Again, this could be the difference of getting the product to market, or not</li>
+</ul>
+<p>With a common development environment both on the host and the guest, you can onboard and support new team members more efficiently. Sure, folks may want to have more control over their host, and I agree with that. But at least there is a standard to deviate away from, when they are more comfortable in doing so.</p>
+<p>I came across this slide from a work presentation I did about three 3 years ago. Still love it, and still relevant. We are now actively looking at growing our docker tooling and potentially replacing some of our vagrant machines, but the principles outlined above are the same.</p>
+<p>Define, Automate, Version Control.</p>
+<p><img src="/img/development-environment-slide.png" alt="Development Environment Slide">￼￼</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

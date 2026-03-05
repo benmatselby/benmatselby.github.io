@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Terraform knowledge to get you through the day">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Terraform knowledge to get you through the day &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Terraform knowledge to get you through the day">
+  <meta name="twitter:description"
+    content="Terraform knowledge to get you through the day">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Terraform knowledge to get you through the day">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Terraform knowledge to get you through the day">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="Terraform knowledge to get you through the day">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Terraform knowledge to get you through the day</h1>
+  <span class="posts__item-date">Apr 11, 2021 &middot; 12 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/terraform" title="Posts related to terraform">#terraform</a></span>
+    
+    <span class="tags__tag"><a href="/tags/iac" title="Posts related to iac">#iac</a></span>
+    
+    <span class="tags__tag"><a href="/tags/infrastructure" title="Posts related to infrastructure">#infrastructure</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tutorial" title="Posts related to tutorial">#tutorial</a></span>
+    
+    <span class="tags__tag"><a href="/tags/beginner" title="Posts related to beginner">#beginner</a></span>
+    
+  </div>
+
+  <p>As part of the &ldquo;<a href="#see-also">Getting through the day</a>&rdquo; series, this post is going to provide basic Terraform knowledge. We are going to setup a Terraform project that allows you to manage your repos in GitHub.</p>
+<p>I didn&rsquo;t want to assume that you had an AWS, Azure, or Google Cloud account, but a GitHub account seemed more realistic.</p>
+<p>This post assumes that you have <a href="https://www.terraform.io/downloads.html">installed Terraform on your system</a>.</p>
+<h2 id="cli">CLI</h2>
+<p>Now that you have Terraform installed, you should be able to run <code>terraform</code> in your terminal. For this tutorial I am running the following version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ terraform version
+</span></span><span style="display:flex;"><span>Terraform v0.14.10
+</span></span></code></pre></div><h2 id="providers">Providers</h2>
+<p><a href="https://www.terraform.io/docs/providers/index.html">Terraform Providers</a> are like extension packs to allow you to integrate with third party vendors. There is a <a href="https://registry.terraform.io/browse/providers">registry</a> you can view in order to pick the provider you need for your project. As you would expect, all the main cloud providers are in there.</p>
+<p>For this tutorial, we are going to use the <a href="https://registry.terraform.io/providers/integrations/github/latest">GitHub provider</a>.</p>
+<p>So let&rsquo;s go ahead and create a folder, so we can start to add some Terraform code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir tf-github-admin
+</span></span></code></pre></div><p>In this folder, we want to create a file called <code>provider.tf</code> and define the GitHub provider. Let&rsquo;s create the file with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">provider</span> <span style="color:#ed9d13">&#34;github&#34;</span> {
+</span></span><span style="display:flex;"><span>  token = <span style="color:#24909d">var</span>.github_token
+</span></span><span style="display:flex;"><span>  owner = <span style="color:#24909d">var</span>.github_org
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here you can see the <code>provider</code> keyword with the value of <code>github</code>. Inside this resource block, we are defining two identifiers (left hand side), and their values come from two variables (right hand side). More on <a href="#variables">variables</a> later.</p>
+<p>If you now run <code>terraform init</code>, you will see that Terraform will download the necessary provider code and present the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ terraform init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Initializing the backend...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Initializing provider plugins...
+</span></span><span style="display:flex;"><span>- Finding latest version of hashicorp/github...
+</span></span><span style="display:flex;"><span>- Installing hashicorp/github v4.6.0...
+</span></span><span style="display:flex;"><span>- Installed hashicorp/github v4.6.0 (signed by HashiCorp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Terraform has created a lock file .terraform.lock.hcl to record the provider
+</span></span><span style="display:flex;"><span>selections it made above. Include this file in your version control repository
+</span></span><span style="display:flex;"><span>so that Terraform can guarantee to make the same selections by default when
+</span></span><span style="display:flex;"><span>you run <span style="color:#ed9d13">&#34;terraform init&#34;</span> in the future.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Terraform has been successfully initialized!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>You may now begin working with Terraform. Try running <span style="color:#ed9d13">&#34;terraform plan&#34;</span> to see
+</span></span><span style="display:flex;"><span>any changes that are required <span style="color:#6ab825;font-weight:bold">for</span> your infrastructure. All Terraform commands
+</span></span><span style="display:flex;"><span>should now work.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>If you ever <span style="color:#24909d">set</span> or change modules or backend configuration <span style="color:#6ab825;font-weight:bold">for</span> Terraform,
+</span></span><span style="display:flex;"><span>rerun this <span style="color:#24909d">command</span> to reinitialize your working directory. If you forget, other
+</span></span><span style="display:flex;"><span>commands will detect it and remind you to <span style="color:#6ab825;font-weight:bold">do</span> so <span style="color:#6ab825;font-weight:bold">if</span> necessary.
+</span></span></code></pre></div><p>I&rsquo;m assuming you will commit this code to a version control repo, so follow the advice of committing the <code>.terraform.lock.hcl</code> file.</p>
+<p>At this point, you should have the following files and folders:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ ls -1a
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>..
+</span></span><span style="display:flex;"><span>.terraform
+</span></span><span style="display:flex;"><span>.terraform.lock.hcl
+</span></span><span style="display:flex;"><span>provider.tf
+</span></span></code></pre></div><p>If you now run <code>terraform plan</code> as it said in the output from <code>init</code>, you should see a response of <strong>No changes. Infrastructure is up-to-date.</strong></p>
+<p>Let&rsquo;s start to define some variables.</p>
+<h2 id="variables">Variables</h2>
+<p>Variable blocks allow you to define a variable that can be used within your code. Let&rsquo;s create a <code>vars.tf</code> file with the following configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">variable</span> <span style="color:#ed9d13">&#34;github_token&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        = string
+</span></span><span style="display:flex;"><span>  description = <span style="color:#ed9d13">&#34;The access token to GitHub&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">variable</span> <span style="color:#ed9d13">&#34;github_org&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        = string
+</span></span><span style="display:flex;"><span>  description = <span style="color:#ed9d13">&#34;The GitHub organisation&#34;</span>
+</span></span><span style="display:flex;"><span>  default     = <span style="color:#ed9d13">&#34;benmatselby&#34;</span><span style="color:#999;font-style:italic"> # You should change this to your username!
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">variable</span> <span style="color:#ed9d13">&#34;github_repos&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        =<span style="color:#24909d"> map</span>
+</span></span><span style="display:flex;"><span>  description = <span style="color:#ed9d13">&#34;All our repos we want to manage using Terraform&#34;</span>
+</span></span><span style="display:flex;"><span>  default = {
+</span></span><span style="display:flex;"><span>    tfgithubadmin = {
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">&#34;name&#34;</span> : <span style="color:#ed9d13">&#34;tf-github-admin&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">&#34;description&#34;</span> : <span style="color:#ed9d13">&#34;The Terraform configuration to manage GitHub repos&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">&#34;topics&#34;</span> : [<span style="color:#ed9d13">&#34;terraform&#34;</span>, <span style="color:#ed9d13">&#34;automation&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">&#34;archived&#34;</span>: <span style="color:#6ab825;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above configuration is defining three variables:</p>
+<ul>
+<li><code>github_token</code> - This is the <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Personal Access Token (PAT)</a> to auth you into GitHub.</li>
+<li><code>github_org</code> - This is the owner of the repos, it can either be an organisation (e.g. <a href="https://github.com/github">github</a>), or a user (e.g. <a href="https://github.com/benmatselby">benmatselby</a>). Be sure to change this to your GitHub account.</li>
+<li><code>github_repos</code> - This is a slightly more complicated variable. This is a <strong>map</strong> variable type. It has the configuration for all the repos we want to manage.</li>
+</ul>
+<p>You can see that we are defining the <code>type</code>, <code>description</code>, and <code>default</code> attributes. None of these attributes need to be defined, you can define a variable with an empty block. However, try and ensure that you clearly describe the variable in the <code>description</code> field, it will help you in the future.</p>
+<p>Now we have the variables we need, let&rsquo;s start to define the resource blocks to manage the GitHub repos.</p>
+<h2 id="resource-blocks">Resource Blocks</h2>
+<p>The aim of this tutorial is to have the ability to manage GitHub repos via Terraform, and control the settings via the <code>github_repos</code> variable defined above. So we now need to define the resource block that can iterate over the <code>github_repos</code> variable and communicate with GitHub.</p>
+<p>Let&rsquo;s create a file called <code>repos.tf</code> and put the following content in:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">resource</span> <span style="color:#ed9d13">&#34;github_repository&#34;</span> <span style="color:#ed9d13">&#34;repos&#34;</span> {
+</span></span><span style="display:flex;"><span>  for_each = <span style="color:#24909d">var</span>.github_repos
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  name        = <span style="color:#24909d">each</span>.value[<span style="color:#ed9d13">&#34;name&#34;</span>]
+</span></span><span style="display:flex;"><span>  description = <span style="color:#24909d">each</span>.value[<span style="color:#ed9d13">&#34;description&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  archived = <span style="color:#24909d">each</span>.value[<span style="color:#ed9d13">&#34;archived&#34;</span>]<span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">  // Settings
+</span></span></span><span style="display:flex;"><span>  visibility           = <span style="color:#ed9d13">&#34;private&#34;</span>
+</span></span><span style="display:flex;"><span>  has_downloads        = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  has_issues           = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  has_wiki             = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  vulnerability_alerts = <span style="color:#6ab825;font-weight:bold">true</span><span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">  // Merge settings
+</span></span></span><span style="display:flex;"><span>  allow_merge_commit     = <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  allow_squash_merge     = <span style="color:#6ab825;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>  allow_rebase_merge     = <span style="color:#6ab825;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>  delete_branch_on_merge = <span style="color:#6ab825;font-weight:bold">true</span><span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">  // Topics
+</span></span></span><span style="display:flex;"><span>  topics = <span style="color:#24909d">each</span>.value[<span style="color:#ed9d13">&#34;topics&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Let&rsquo;s break this resource block down a little bit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">resource</span> <span style="color:#ed9d13">&#34;github_repository&#34;</span> <span style="color:#ed9d13">&#34;repos&#34;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This defines a <code>resource</code> of type <code>github_repository</code> with a name of <code>repos</code>.</p>
+<ul>
+<li>The <code>resource</code> is a language construct.</li>
+<li>The <code>github_repository</code> type comes from the <code>github</code> provider we <a href="#providers">defined earlier</a>.</li>
+<li>Lastly, <code>repos</code> is the name we have given to the resource. We can reference this name elsewhere in our codebase.</li>
+</ul>
+<p>Next up, we should talk about the control statement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span>  for_each = <span style="color:#24909d">var</span>.github_repos
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  name        = <span style="color:#24909d">each</span>.value[<span style="color:#ed9d13">&#34;name&#34;</span>]
+</span></span></code></pre></div><p>I don&rsquo;t know why, but I struggled with this when I first started using Terraform. Maybe it&rsquo;s the lack of brackets? The first line is creating a loop and it&rsquo;s using the <code>github_repos</code> variable we defined in <code>vars.tf</code>.</p>
+<p>You can then see that the <code>name</code> identifier has a value of <code>each.value[&quot;name&quot;]</code>. So based on our variables, the first iteration of the loop, name will equal <code>tf-github-admin</code>.</p>
+<p>The other identifiers defined in the resource block are made available by the <code>github</code> provider. If you use VS Code, I recommend you install the <a href="https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform">HashiCorp Terraform</a> plugin, so you get some code completion features. In fact, any editor that handles the <a href="https://github.com/hashicorp/terraform-ls">Terraform Language Server</a> will provide the same functionality. Having code completion will make learning this stuff a lot easier in my opinion.</p>
+<p>Right, now we have the main components defined, let&rsquo;s try and run this.</p>
+<h2 id="running-this-thing">Running this thing</h2>
+<p>There are two commands we want to touch on here: <code>plan</code> and <code>apply</code>.</p>
+<h3 id="plan">Plan</h3>
+<p>The <code>plan</code> command will explain what Terraform intends to do when you <code>apply</code> it. Let&rsquo;s go ahead now and run <code>terraform plan</code> in the folder where your code is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ terraform plan
+</span></span><span style="display:flex;"><span>var.github_token
+</span></span><span style="display:flex;"><span>  The access token to GitHub
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value: your-pat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>An execution plan has been generated and is shown below.
+</span></span><span style="display:flex;"><span>Resource actions are indicated with the following symbols:
+</span></span><span style="display:flex;"><span>  + create
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Terraform will perform the following actions:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># github_repository.repos[&#34;tfgithubadmin&#34;] will be created</span>
+</span></span><span style="display:flex;"><span>  + resource <span style="color:#ed9d13">&#34;github_repository&#34;</span> <span style="color:#ed9d13">&#34;repos&#34;</span> {
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_merge_commit</span>     = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_rebase_merge</span>     = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_squash_merge</span>     = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">archived</span>               = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">default_branch</span>         = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">delete_branch_on_merge</span> = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">description</span>            = <span style="color:#ed9d13">&#34;The Terraform configuration to manage GitHub repos&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">etag</span>                   = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">full_name</span>              = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">git_clone_url</span>          = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_downloads</span>          = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_issues</span>             = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_wiki</span>               = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">html_url</span>               = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">http_clone_url</span>         = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">id</span>                     = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">name</span>                   = <span style="color:#ed9d13">&#34;tf-github-admin&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">node_id</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">private</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">repo_id</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">ssh_clone_url</span>          = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">svn_url</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">topics</span>                 = [
+</span></span><span style="display:flex;"><span>          + <span style="color:#ed9d13">&#34;automation&#34;</span>,
+</span></span><span style="display:flex;"><span>          + <span style="color:#ed9d13">&#34;terraform&#34;</span>,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">visibility</span>             = <span style="color:#ed9d13">&#34;private&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">vulnerability_alerts</span>   = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Plan: <span style="color:#3677a9">1</span> to add, <span style="color:#3677a9">0</span> to change, <span style="color:#3677a9">0</span> to destroy.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Note: You didn<span style="color:#ed9d13">&#39;t specify an &#34;-out&#34; parameter to save this plan, so Terraform
+</span></span></span><span style="display:flex;"><span><span style="color:#ed9d13">can&#39;</span>t guarantee that exactly these actions will be performed <span style="color:#6ab825;font-weight:bold">if</span>
+</span></span><span style="display:flex;"><span><span style="color:#ed9d13">&#34;terraform apply&#34;</span> is subsequently run.
+</span></span></code></pre></div><p>There are three bits I want to cover here:</p>
+<ul>
+<li><code>var.github_token</code> - We defined a variable in <code>vars.tf</code> called <code>github_token</code> that did not have a default value. Therefore the <code>terraform plan</code> command is going to ask you what the value is. Luckily, we are running this from a terminal so we can provide the value. If you want to run this in an automation server, then you can run <code>terraform plan --var github_token=your-token</code>. This will stop the pause, waiting for input.</li>
+<li>The plan - You can then see a &ldquo;diff&rdquo; of what will happen when we run <code>apply</code>. In our output you can see everything is a <code>+</code> because we are creating the repo for the first time.</li>
+<li>The note - At the bottom of the output you can see it&rsquo;s talking about guaranteeing the actions. You can produce a plan, save it to a file, and execute it later if you wish.</li>
+</ul>
+<p>For more options run <code>terraform plan --help</code> to see what else you can do.</p>
+<h3 id="apply">Apply</h3>
+<p>The <code>apply</code> command, by default, will also output a Plan, so you don&rsquo;t necessarily have to run <code>terraform plan</code> each time.</p>
+<p>Let&rsquo;s run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ terraform apply
+</span></span><span style="display:flex;"><span>var.github_token
+</span></span><span style="display:flex;"><span>  The access token to GitHub
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value: your-pat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>An execution plan has been generated and is shown below.
+</span></span><span style="display:flex;"><span>Resource actions are indicated with the following symbols:
+</span></span><span style="display:flex;"><span>  + create
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Terraform will perform the following actions:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># github_repository.repos[&#34;tfgithubadmin&#34;] will be created</span>
+</span></span><span style="display:flex;"><span>  + resource <span style="color:#ed9d13">&#34;github_repository&#34;</span> <span style="color:#ed9d13">&#34;repos&#34;</span> {
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_merge_commit</span>     = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_rebase_merge</span>     = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">allow_squash_merge</span>     = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">archived</span>               = <span style="color:#24909d">false</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">default_branch</span>         = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">delete_branch_on_merge</span> = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">description</span>            = <span style="color:#ed9d13">&#34;The Terraform configuration to manage GitHub repos&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">etag</span>                   = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">full_name</span>              = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">git_clone_url</span>          = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_downloads</span>          = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_issues</span>             = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">has_wiki</span>               = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">html_url</span>               = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">http_clone_url</span>         = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">id</span>                     = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">name</span>                   = <span style="color:#ed9d13">&#34;tf-github-admin&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">node_id</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">private</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">repo_id</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">ssh_clone_url</span>          = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">svn_url</span>                = (known after apply)
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">topics</span>                 = [
+</span></span><span style="display:flex;"><span>          + <span style="color:#ed9d13">&#34;automation&#34;</span>,
+</span></span><span style="display:flex;"><span>          + <span style="color:#ed9d13">&#34;terraform&#34;</span>,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">visibility</span>             = <span style="color:#ed9d13">&#34;private&#34;</span>
+</span></span><span style="display:flex;"><span>      + <span style="color:#40ffff">vulnerability_alerts</span>   = <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Plan: <span style="color:#3677a9">1</span> to add, <span style="color:#3677a9">0</span> to change, <span style="color:#3677a9">0</span> to destroy.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Do you want to perform these actions?
+</span></span><span style="display:flex;"><span>  Terraform will perform the actions described above.
+</span></span><span style="display:flex;"><span>  Only <span style="color:#ed9d13">&#39;yes&#39;</span> will be accepted to approve.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value:
+</span></span></code></pre></div><p>You can see the first two sections are the same. Asking for the token, and providing the plan. However, now we are asked if we want to actually perform these actions.</p>
+<p>Please type <strong>yes</strong> and <strong>press enter</strong>.</p>
+<p>If the token is valid, and we have defined everything correctly, we should get the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Do you want to perform these actions?
+</span></span><span style="display:flex;"><span>  Terraform will perform the actions described above.
+</span></span><span style="display:flex;"><span>  Only <span style="color:#ed9d13">&#39;yes&#39;</span> will be accepted to approve.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value: yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>github_repository.repos[<span style="color:#ed9d13">&#34;tfgithubadmin&#34;</span>]: Creating...
+</span></span><span style="display:flex;"><span>github_repository.repos[<span style="color:#ed9d13">&#34;tfgithubadmin&#34;</span>]: Creation <span style="color:#24909d">complete</span> after 9s [<span style="color:#40ffff">id</span>=tf-github-admin]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Apply complete! Resources: <span style="color:#3677a9">1</span> added, <span style="color:#3677a9">0</span> changed, <span style="color:#3677a9">0</span> destroyed.
+</span></span></code></pre></div><p>If you now browse to your GitHub account, you should see a new repo called <code>tf-github-admin</code>.</p>
+<p><img src="/img/terraform-github-repo.png" alt="GitHub Terraform Repo created"></p>
+<p>Well done, you just created a GitHub repo using Terraform.</p>
+<p>For more options run <code>terraform apply --help</code> to see what else you can do.</p>
+<h2 id="updating-the-configuration">Updating the configuration</h2>
+<p>Let&rsquo;s see what files we now have:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ la -1a
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>..
+</span></span><span style="display:flex;"><span>.terraform
+</span></span><span style="display:flex;"><span>.terraform.lock.hcl
+</span></span><span style="display:flex;"><span>provider.tf
+</span></span><span style="display:flex;"><span>repos.tf
+</span></span><span style="display:flex;"><span>terraform.tfstate
+</span></span><span style="display:flex;"><span>vars.tf
+</span></span></code></pre></div><p>You can now see that we have a <code>terraform.tfstate</code> file. To dive into state is too much for this post, so please read the <a href="https://www.terraform.io/docs/language/state/index.html">official documentation</a>. Just note, for the purposes of this post, that we are using &ldquo;Local State&rdquo;. State stores all the information about the resources we create. In this case, the state file is stored on your machine. If you lost this state file, you would need to import the state again to manage the repos. You can commit this file into your version control system for the purposes of this post.</p>
+<p>With that being said, let&rsquo;s see if we can now archive this repo, so we can see a change in action.</p>
+<p>Open the <code>vars.tf</code> file and change <code>&quot;archived&quot;: false</code> to <code>&quot;archived&quot;: true</code>.</p>
+<p>Now run <code>terraform apply</code>. You should see the following plan:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ terraform apply
+</span></span><span style="display:flex;"><span>var.github_token
+</span></span><span style="display:flex;"><span>  The access token to GitHub
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value: your-pat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>github_repository.repos[<span style="color:#ed9d13">&#34;tfgithubadmin&#34;</span>]: Refreshing state... [<span style="color:#40ffff">id</span>=tf-github-admin]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>An execution plan has been generated and is shown below.
+</span></span><span style="display:flex;"><span>Resource actions are indicated with the following symbols:
+</span></span><span style="display:flex;"><span>  ~ update in-place
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Terraform will perform the following actions:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># github_repository.repos[&#34;tfgithubadmin&#34;] will be updated in-place</span>
+</span></span><span style="display:flex;"><span>  ~ resource <span style="color:#ed9d13">&#34;github_repository&#34;</span> <span style="color:#ed9d13">&#34;repos&#34;</span> {
+</span></span><span style="display:flex;"><span>      ~ <span style="color:#40ffff">archived</span>               = <span style="color:#24909d">false</span> -&gt; <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#40ffff">id</span>                     = <span style="color:#ed9d13">&#34;tf-github-admin&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#40ffff">name</span>                   = <span style="color:#ed9d13">&#34;tf-github-admin&#34;</span>
+</span></span><span style="display:flex;"><span>      ~ <span style="color:#40ffff">vulnerability_alerts</span>   = <span style="color:#24909d">false</span> -&gt; <span style="color:#24909d">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># (24 unchanged attributes hidden)</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Plan: <span style="color:#3677a9">0</span> to add, <span style="color:#3677a9">1</span> to change, <span style="color:#3677a9">0</span> to destroy.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Do you want to perform these actions?
+</span></span><span style="display:flex;"><span>  Terraform will perform the actions described above.
+</span></span><span style="display:flex;"><span>  Only <span style="color:#ed9d13">&#39;yes&#39;</span> will be accepted to approve.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Enter a value:
+</span></span></code></pre></div><p>You can see in the diff that it will now archive the repo. Go ahead and type <strong>yes</strong> and <strong>press enter</strong>.</p>
+<p>This will now have archived your repo, and updated your local state.</p>
+<h2 id="deleting-the-repo">Deleting the repo</h2>
+<p>The last step for this tutorial is to delete the repo. Open <code>vars.tf</code> and update the <code>github_repos</code> variable to be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">variable</span> <span style="color:#ed9d13">&#34;github_repos&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        =<span style="color:#24909d"> map</span>
+</span></span><span style="display:flex;"><span>  description = <span style="color:#ed9d13">&#34;All our repos we want to manage using Terraform&#34;</span>
+</span></span><span style="display:flex;"><span>  default = {}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This essentially will tell Terraform to remove the repo.</p>
+<p>Now run <code>terraform apply</code>. When prompted, answer <strong>yes</strong> and <strong>press enter</strong> to apply the changes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>github_repository.repos[<span style="color:#ed9d13">&#34;tfgithubadmin&#34;</span>]: Destroying... [<span style="color:#40ffff">id</span>=tf-github-admin]
+</span></span><span style="display:flex;"><span>github_repository.repos[<span style="color:#ed9d13">&#34;tfgithubadmin&#34;</span>]: Destruction <span style="color:#24909d">complete</span> after 0s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Apply complete! Resources: <span style="color:#3677a9">0</span> added, <span style="color:#3677a9">0</span> changed, <span style="color:#3677a9">1</span> destroyed.
+</span></span></code></pre></div><p>Well done, you&rsquo;ve now done the full lifecycle of resource management in Terraform: create, update, and delete.</p>
+<h2 id="next-level">Next level</h2>
+<p>If you want to take this to the next level, then you could:</p>
+<ul>
+<li>Get this running in your CI/CD tool of choice.
+<ul>
+<li>You will need to understand <a href="https://www.terraform.io/docs/language/state/remote.html">Remote State</a>.</li>
+</ul>
+</li>
+<li>If you manage GitHub teams, you could define those teams in Terraform.</li>
+<li>Does your company have a standard for branch protection in GitHub? If so, you could define that in a central place.</li>
+</ul>
+<h2 id="tidbits">Tidbits</h2>
+<ul>
+<li>If you&rsquo;re a mac user, I recommend you install Terraform via <a href="https://brew.sh">brew</a>.</li>
+<li>If you need to be able to switch between versions easily, then take a look at <a href="https://github.com/tfutils/tfenv">tfenv</a>.</li>
+<li>If you start to get a large Terraform project, you may want to look into <a href="https://terragrunt.gruntwork.io">Terragrunt</a>.</li>
+<li><a href="https://github.com/github/gitignore/blob/master/Terraform.gitignore">This is a good link</a> if you want to know what the <code>.gitignore</code> file should look like for Terraform.</li>
+<li>The code used in this post, is also <a href="https://gist.github.com/benmatselby/e56b9d95d14358b6fc8361988e13c252">a gist</a>.</li>
+</ul>
+<hr>
+<p>I hope this post has provided you with enough knowledge to be able to work on a Terraform project. If you have followed along, you also now have a codebase that can look after your GitHub repos.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/git-101/">Git commands to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/shell-101/">Shell commands to get you through the day</a></li>
+<li><a href="https://www.terraform.io/docs/language/index.html">Terraform language overview</a></li>
+<li><a href="https://spacelift.io/blog/terraform-functions-expressions-loops">Terraform Functions, Expressions, Loops (Examples)</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

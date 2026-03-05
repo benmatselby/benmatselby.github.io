@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Getting Jstarted with Jenkins">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Getting started with Jenkins &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Getting started with Jenkins">
+  <meta name="twitter:description"
+    content="Getting Jstarted with Jenkins">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Getting started with Jenkins">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Getting started with Jenkins">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-chinatown-share.jpg">
+  <meta property="og:description"
+    content="Getting Jstarted with Jenkins">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-chinatown.jpg); background-position: center top;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Getting started with Jenkins</h1>
+  <span class="posts__item-date">Apr 3, 2021 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/jenkins" title="Posts related to jenkins">#jenkins</a></span>
+    
+    <span class="tags__tag"><a href="/tags/basics" title="Posts related to basics">#basics</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workshop" title="Posts related to workshop">#workshop</a></span>
+    
+  </div>
+
+  <p><a href="https://www.jenkins.io/">Jenkins</a> is an automation application, that is heavily used for <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration (CI)</a> and <a href="https://en.wikipedia.org/wiki/Continuous_delivery">Continuous Deployment/Delivery (CD)</a>. This post is going to get Jenkins up and running, on your machine, and configuring a basic job. This can be handy if you are wanting to learn more about Jenkins, without using a hosted solution. It&rsquo;s useful to be able to test Jenkins configurations in a disposable way. It&rsquo;s not intended for this post to guide you on running a productionised Jenkins solution.</p>
+<p>You will need <a href="https://www.docker.com">Docker</a> to complete this tutorial.</p>
+<h2 id="running-jenkins-locally-with-docker">Running Jenkins locally with Docker</h2>
+<p>The easiest way to get Jenkins up and running, is via Docker. Let&rsquo;s run the Long Term Support (lts) version with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm -p 8080:8080 -v <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span><span style="color:#40ffff">HOME</span><span style="color:#ed9d13">}</span><span style="color:#ed9d13">/.jenkins:/var/jenkins_home&#34;</span> jenkins/jenkins:lts
+</span></span></code></pre></div><p>To break this command down, we are going to:</p>
+<ul>
+<li>Run the <code>jenkins/jenkins:lts</code> docker image as a container.</li>
+<li>We are going to remove the container once finished via the <code>--rm</code> flag.</li>
+<li>Map port <code>8080</code> inside the running container, with port <code>8080</code> on our machine. This means we can access Jenkins on <code>http://localhost:8080</code>.</li>
+<li>Share a folder called <code>~/.jenkins</code> with the Jenkins application folder <code>/var/jenkins_home</code> inside the container.
+<ul>
+<li>This means we can reuse the folder when we stop and start Jenkins.</li>
+</ul>
+</li>
+</ul>
+<p>If you now browse to <a href="http://localhost:8080">http://localhost:8080</a>, you will be presented with this page:</p>
+<p><img src="/img/jenkins-login-admin.png" alt="Jenkins Login Screen"></p>
+<p>As you can see, we need a password. If you go back to where you are running the Docker command, you should see some terminal output. We are looking for the initial password, which will look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>*************************************************************
+</span></span><span style="display:flex;"><span>*************************************************************
+</span></span><span style="display:flex;"><span>*************************************************************
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Jenkins initial setup is required. An admin user has been created and a password generated.
+</span></span><span style="display:flex;"><span>Please use the following password to proceed to installation:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>39dfegkae9f215288d4a1cb8d83716d9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>*************************************************************
+</span></span><span style="display:flex;"><span>*************************************************************
+</span></span><span style="display:flex;"><span>*************************************************************
+</span></span></code></pre></div><p>Go ahead and copy the password. Go back to your browser, and paste the password in. Once you have done that you are going to be presented with some options around plugins.</p>
+<p><img src="/img/jenkins-install-plugins.png" alt="Installation of Jenkins plugins"></p>
+<p>For now, please go ahead and select <strong>Install suggested plugins</strong>. In your own time, maybe play around with selecting your own, and see what happens. I&rsquo;ve found that plugins are likely to depend on the languages, frameworks, and tools you are using.</p>
+<p>The installation process will now install the suggested plugins. Once that is complete, it will ask you for the admin user details.</p>
+<p><img src="/img/jenkins-admin-user.png" alt="Jenkins Admin User Details request"></p>
+<p>You can, if you want, click <strong>Skip and continue as admin</strong>. If you do this, you will need to remember the initial password. If you forget, you can get the initial password by running the following command on your host machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat ~/.jenkins/secrets/initialAdminPassword
+</span></span></code></pre></div><p>Readers choice.</p>
+<p>The final installation screen confirms the URL that will be used to access the Jenkins instance.</p>
+<p><img src="/img/jenkins-url.png" alt="Jenkins instance URL"></p>
+<p>Click <strong>Save and Finish</strong>.</p>
+<h2 id="managing-jenkins">Managing Jenkins</h2>
+<p>You now have an instance of Jenkins running locally.</p>
+<p><img src="/img/jenkins-home.png" alt="Jenkins home page"></p>
+<p>Managing Jenkins, can be a post all by itself, which I&rsquo;m hoping to write up soon. For now, click on <strong>Manage Jenkins</strong> on the left hand side. Peruse over the options you can see. Note you can install plugins from this page.</p>
+<p>In your own time, you can review what the different options give you.</p>
+<h2 id="configuring-your-first-job">Configuring your first job</h2>
+<p>Let&rsquo;s delve into creating our first job. Just to make sure we are on the same page, click the Jenkins logo on the top left. This should bring us all back to the home page.</p>
+<p>Let&rsquo;s create a Freestyle job that runs <code>echo &quot;Hello World&quot;</code>.</p>
+<p>Click on <strong>New Item</strong> on the top left of the screen. Call the item &ldquo;hello-world&rdquo;, and select <strong>Freestyle project</strong>. Then click <strong>OK</strong>.</p>
+<p><img src="/img/jenkins-hello-world.png" alt="Jenkins new project"></p>
+<p>This will now take us to a screen to configure the job.</p>
+<p>We will leave everything as default, except the the <strong>Build</strong> section. Scroll down to the <strong>Build</strong> section. Click on the <strong>Add Build Step</strong> drop down, and select <strong>Execute shell</strong>.</p>
+<p><img src="/img/jenkins-hello-world-build-step.png" alt="Jenkins add a build step"></p>
+<p>This will present us with a text box we can enter <code>echo &quot;Hello World&quot;</code>.</p>
+<p><img src="/img/jenkins-hello-world-echo.png" alt="Jenkins add a build step"></p>
+<p>Click <strong>Save</strong>.</p>
+<p>Now we are on the Job page, click <strong>Build Now</strong>. After a few seconds, you should see an item appear in the <strong>Build History</strong> panel on the left hand side. If all went well, you should see a blue ball icon with a <code>#1</code> link next to it.</p>
+<p><img src="/img/jenkins-build-history.png" alt="Jenkins build history"></p>
+<p>You now have two options:</p>
+<ol>
+<li>If you click on the blue ball, you will be taken to the console output. This is the screen with all the output from running your job.</li>
+<li>If you click on <code>#1</code>, you will be taken to the build summary, which is an overview page. The overview page will get more details, if you add more plugins, and run more build steps.</li>
+</ol>
+<p>Go ahead, and click on the blue ball.</p>
+<p>You should have something similar to this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Started by user admin
+</span></span><span style="display:flex;"><span>Running as SYSTEM
+</span></span><span style="display:flex;"><span>Building in workspace /var/jenkins_home/workspace/hello-world
+</span></span><span style="display:flex;"><span>[hello-world] $ /bin/sh -xe /tmp/jenkins3083551409195262471.sh
+</span></span><span style="display:flex;"><span>+ <span style="color:#24909d">echo</span> Hello World
+</span></span><span style="display:flex;"><span>Hello World
+</span></span><span style="display:flex;"><span>Finished: SUCCESS
+</span></span></code></pre></div><p>Well done for running your first Jenkins job.</p>
+<h2 id="controller-and-agents">Controller and agents</h2>
+<p>Jenkins is a distributed solution. It is split in terms of the controller web application and the agents that run your build. Currently, we are executing builds on the controller container, which has limited software installed.</p>
+<p>We have a few options available to us.</p>
+<ol>
+<li>Install the software as part of the job.
+<ul>
+<li>This is time consuming for each job execution, and leaves software lying around on the controller.</li>
+</ul>
+</li>
+<li>Override the controller Dockerfile, and install out own software.
+<ul>
+<li>More to manage in terms of configuration, and still leaves software lying around on the controller.</li>
+</ul>
+</li>
+<li>Run agents in their own docker container.
+<ul>
+<li>More to manage, but scales better.</li>
+<li>You can have different types of agents for differing languages/frameworks.</li>
+<li>More secure as we can have nothing but the web application of Jenkins running on the controller.</li>
+</ul>
+</li>
+</ol>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>If you are adventurous, then the next steps would be:</p>
+<ul>
+<li>Run a Jenkins agent as another Docker container.</li>
+<li>Use something like <code>ngrok</code> to expose your installation back to GitHub, to get GitHub Events.</li>
+</ul>
+<p>If you want to go through the installation process again, delete the <code>~/.jenkins</code> folder on your host machine.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rm -fr ~/.jenkins
+</span></span></code></pre></div><h2 id="summary">Summary</h2>
+<p>This was a quick overview for getting Jenkins running locally.</p>
+<p>Jenkins is a great CI/CD tool, which I&rsquo;ve used for over a decade. It&rsquo;s a transferable skill, agnostic of Cloud Providers, and can easily be run on premise, if you desire.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/jenkins-basic-agent/">Getting started with Jenkins: Agents</a></li>
+<li><a href="https://benmatselby.dev/post/docker-101/">Docker knowledge to get you through the day</a></li>
+<li><a href="https://benmatselby.dev/post/build-tool-comparison/">Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</a></li>
+</ul>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

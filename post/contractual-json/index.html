@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Define a contract between autonomous teams">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Define a contract between autonomous teams &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="Define a contract between autonomous teams">
+  <meta name="twitter:description"
+    content="Define a contract between autonomous teams">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/winter-gardens-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Define a contract between autonomous teams">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="Define a contract between autonomous teams">
+  <meta property="og:image" content="https://benmatselby.dev/img/winter-gardens-share.jpg">
+  <meta property="og:description"
+    content="Define a contract between autonomous teams">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/winter-gardens.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>Define a contract between autonomous teams</h1>
+  <span class="posts__item-date">Mar 1, 2022 &middot; 6 min read</span>
+  <div class="tags">
+    
+  </div>
+
+  <p>So you have a bunch of autonomous engineering teams that are allowed to work in their own way. Fantastic. However, maybe you want to provide centralised support or build tooling that exposes things in a certain way. For example, maybe you want to build a department wide Open API documentation site for engineering teams and partners. You don&rsquo;t want to enforce anything on the teams, such as making them all create specific folders in their repo. You do, however, need to know where certain files are.</p>
+<p>One solution that a couple of us came up with over the last two years was called <code>[acme]-json</code>. Note, I&rsquo;ve used ACME here rather than the name of the company I worked for. We created an <code>acme.json</code> file in the root of every git repo. This was the only mandate, the file had to exist. This single file provided a contract between all teams and automated tooling.</p>
+<quote class="pullquote">
+  This single file provided a contract between all teams and automated tooling.
+</quote>
+
+<h2 id="the-project">The project</h2>
+<p>The project had the following scope:</p>
+<ul>
+<li>Define a <a href="https://json-schema.org">JSON Schema</a> that was open to contributions from the community in the business. Teams were encouraged to add to the schema. We used conditional validation based on defined attributes, so we didn&rsquo;t have many breaking changes.</li>
+<li>Provide an npm package that had a validator for the <code>acme.json</code> file. This allowed teams to validate their <code>acme.json</code> files were syntactically correct.</li>
+<li>Rich documentation to explain what each attribute in the schema was used for.</li>
+<li>Ideally, do the heavy lifting in the first instance. We didn&rsquo;t want teams to have a hurdle to adoption.</li>
+</ul>
+<p>We defined a mission statement:</p>
+<blockquote>
+<p>The <code>acme-json</code> project should be seen as a public contract between a team and the rest of the engineering department. The schema is there to expose internals (the way your team wants to work) to other teams, and tooling, so they can consistently understand information they need, without dictating an implementation to you.</p>
+</blockquote>
+<h3 id="the-schema">The schema</h3>
+<p>The schema was iterated on over a number of weeks, by many of the engineering teams. A cut down version (for brevity and intellectual property reasons) is shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;$schema&#34;</span>: <span style="color:#ed9d13">&#34;http://json-schema.org/draft-07/schema#&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;$id&#34;</span>: <span style="color:#ed9d13">&#34;https://company-url.com/schemas/acme-json/v1#&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;accounts&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;This describes all of your AWS accounts that you look after or use for this module.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;items&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">&#34;$ref&#34;</span>: <span style="color:#ed9d13">&#34;https://company-url.com/schemas/acme-json/v1#account&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;apiDocPaths&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;An array of locations that expose your Open API documentation files.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;items&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;ci&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;The details of your CI/CD instance.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;anyOf&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#6ab825;font-weight:bold">&#34;$ref&#34;</span>: <span style="color:#ed9d13">&#34;https://company-url.com/schemas/acme-json/v1#ci&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;integrations&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;A list of integrations that consume this module.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;items&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">&#34;$ref&#34;</span>: <span style="color:#ed9d13">&#34;https://company-url.com/schemas/acme-json/v1#integration&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;moduleName&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;The official short name of the module.&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;anyOf&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#6ab825;font-weight:bold">&#34;$ref&#34;</span>: <span style="color:#ed9d13">&#34;https://company-url.com/schemas/acme-json/v1#moduleNames&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;productionBranch&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;The name of the branch where your production code resides. For example, in a GitFlow scenario where you have a &#39;develop&#39; and &#39;main&#39; branch, this would be &#39;main&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;required&#34;</span>: [<span style="color:#ed9d13">&#34;moduleName&#34;</span>, <span style="color:#ed9d13">&#34;productionBranch&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I won&rsquo;t go over each item, but some call outs:</p>
+<ul>
+<li>We could provide diagrams of all AWS account interactions via this file, in an automated way.</li>
+<li>We could build Open API reference documentation web sites based on the paths to the specifications in a repo.
+<ul>
+<li>We had automated scripts to clone all the repos, use the <code>acme.json</code> contract to understand where the Open API Specifications sat in the repo, and scraped them into a website showing all the API endpoints.</li>
+</ul>
+</li>
+<li>We could document module interactions using config as code.
+<ul>
+<li>Rather than manually updating Architecture diagrams, we could rely on teams to complete the information.</li>
+<li>For example we had the Tracking Product Team use <code>integrations</code> to onboard other modules into their system. The <code>acme.json</code> file was consumed by their Infrastructure as Code. This made the <code>acme.json</code> file the driving force for contracts between teams.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-validator">The validator</h3>
+<p>As engineers we lint and validate everything. This was no different. We wanted the <code>acme.json</code> file for a reason. Therefore we also needed those files to be &ldquo;correct&rdquo;. Therefore we created a validator that could be added to the CI/CD tooling the teams used. So, we created an npm package, written in JavaScript that validated the JSON file against the schema.</p>
+<p>We followed semver release processes for the Schema and the Validator.</p>
+<h3 id="the-documentation">The documentation</h3>
+<p>We wanted to clearly document the intent of every attribute in the schema. So whilst we provided comments directly in the schema, we also made use of the GitHub wiki for the repo. Every attribute was explained in depth as to why it was there, what options were available, and how the attribute could be used.</p>
+<p>Documentation can often be overlooked, but I firmly believe it can save you time and effort in the long run.</p>
+<h3 id="the-mindset">The mindset</h3>
+<p>Getting engineering teams to agree on things is hard. Getting them to do something they don&rsquo;t want to do can be harder. When we started this project, there were around 300 repos in GitHub for our business. Trying to identify and co-ordinate all the owners for those repos was going to be a tall order. We agreed it would be easier to create the <code>acme.json</code> file, populate where we could (based on other data points at our disposal), and raise a pull request.</p>
+<p>We therefore set off to write a load of bash scripts to:</p>
+<ul>
+<li>Clone each repo in GitHub.</li>
+<li>Produce the <code>acme.json</code> file.</li>
+<li>Add the validator to the <code>package.json</code> file.</li>
+<li>Raise a Pull Request, linking to a centralised issue in our repo.
+<ul>
+<li>This was a good idea, as it provided one long list of linked pull requests we could check were being merged.</li>
+</ul>
+</li>
+</ul>
+<p>With wide communication in the department, by the time the Pull Requests were raised, engineering teams just knew to approve and merge them.</p>
+<h2 id="adoption">Adoption</h2>
+<p>What did we end up using this project for? Here&rsquo;s a few things:</p>
+<ul>
+<li>A full detailed list of AWS accounts owned by teams, that could be verified by our AWS Account Management team.
+<ul>
+<li>This included what type of account it was: testing, production, etc.</li>
+</ul>
+</li>
+<li>A schema that could show &ldquo;flow&rdquo; in our platforms. You could determine who had integrated with each module, and which AWS accounts talked to which AWS accounts.</li>
+<li>It provided a centralised touch point that allowed teams to structure their repos internally how they wanted, but still expose key details, such as their Open API Specifications for the API Documentation site.</li>
+<li>A common file that allowed our GitHub auditing CLI tool to understand what branches to audit in GitHub.
+<ul>
+<li>It also had data points that allowed us to route failures in the audit to Engineering Directors.</li>
+</ul>
+</li>
+<li>Teams consumed the file in AWS CDK to help build and deploy their infrastructure.</li>
+<li>The automated release processes used the file for the <code>productionBranch</code> knowledge.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This post provided a summary of what we did in order to allow teams to be autonomous and work in their own ways, whilst still providing enough structure to automate department wide initiatives. As with all things in life, it wasn&rsquo;t as straight forward as the post makes out, but that&rsquo;s half the fun isn&rsquo;t it!</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

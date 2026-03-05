@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="An introduction to the Prolific CLI and what you can do with it.">
+  <meta name="generator" content="Hugo 0.157.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>The Prolific CLI &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@benmatselby">
+  <meta name="twitter:creator" content="@benmatselby">
+  <meta name="twitter:title"
+    content="The Prolific CLI">
+  <meta name="twitter:description"
+    content="An introduction to the Prolific CLI and what you can do with it.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="The Prolific CLI">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev">
+  <meta property="og:title"
+    content="The Prolific CLI">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-sf-pier-share.jpg">
+  <meta property="og:description"
+    content="An introduction to the Prolific CLI and what you can do with it.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-sf-pier.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      <article class="posts__item">
+  <h1>The Prolific CLI</h1>
+  <span class="posts__item-date">Jun 28, 2024 &middot; 6 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/automation" title="Posts related to automation">#automation</a></span>
+    
+    <span class="tags__tag"><a href="/tags/cli" title="Posts related to cli">#cli</a></span>
+    
+    <span class="tags__tag"><a href="/tags/ai" title="Posts related to ai">#ai</a></span>
+    
+  </div>
+
+  <p>This post is going to be an introduction to the <a href="https://github.com/prolific-oss/cli">Prolific CLI</a> for data collectors/researchers.</p>
+<p>So <a href="https://www.prolific.com/">Prolific</a> have this to say on their website:</p>
+<blockquote>
+<ul>
+<li>Easily find vetted research participants and AI taskers at scale.</li>
+<li>An unrivalled participant pool.</li>
+<li>Data quality you can depend on.</li>
+</ul>
+</blockquote>
+<p>OK, so you want to collect some data to train your AI model (I mean, who doesn&rsquo;t nowadays?), then Prolific is the place to start. The CLI is aimed at:</p>
+<ul>
+<li>Software engineers working for companies that integrate with Prolific.</li>
+<li>Early integrators who want to scale with Prolific, but haven&rsquo;t developed against the API yet.</li>
+<li>Power users who like to automate their workload as much as possible.</li>
+</ul>
+<p>The rest of this post assumes you know about Prolific, and how it works.</p>
+<h2 id="the-project">The project</h2>
+<p>The project is hosted on <a href="https://github.com/prolific-oss/cli">GitHub</a> and provides <a href="https://github.com/prolific-oss/cli?tab=readme-ov-file#installation">3 simple ways to run the application</a>. Follow the README for your preferred installation method. This post is now going to assume you have it running in a manner you prefer.</p>
+<p>As per the <a href="https://github.com/prolific-oss/cli?tab=readme-ov-file#configuration">README</a>, you will need to generate your API token via the web application. Once you have the token, go ahead and define your <code>PROLIFIC_TOKEN</code> environment variable. Once that is done, let&rsquo;s run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific whoami
+</span></span><span style="display:flex;"><span>Ben Selby
+</span></span><span style="display:flex;"><span>ID:                xxxxxxxxx
+</span></span><span style="display:flex;"><span>Email:             ben.selby@xx.com
+</span></span></code></pre></div><p>This will prove that your connection and installation is working fine.</p>
+<h2 id="creating-a-study">Creating a study</h2>
+<p>Let&rsquo;s go ahead and create a study. We are going to write a JSON document that defines our study. You can checkout the <a href="https://docs.prolific.com/docs/api-docs/public/#tag/Studies">API docs</a> to understand what the fields are, and which to define. This is my study. I&rsquo;m going to collect some views on UK Politics, and use an application I&rsquo;ve built myself and hosted on Netlify (The site is not live now). Prolific has a <a href="https://partners.prolific.com/marketplace">marketplace</a> that could help you decide which tool to use.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>: <span style="color:#ed9d13">&#34;Political views in the UK&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;internal_name&#34;</span>: <span style="color:#ed9d13">&#34;UK Politics June 2024&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;description&#34;</span>: <span style="color:#ed9d13">&#34;This study aims to understand the political views of the public&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;external_study_url&#34;</span>: <span style="color:#ed9d13">&#34;https://bms-uk-pols.netlify.app/study/?id=xxxx&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;prolific_id_option&#34;</span>: <span style="color:#ed9d13">&#34;question&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;completion_code&#34;</span>: <span style="color:#ed9d13">&#34;ABC123&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;completion_codes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;code&#34;</span>: <span style="color:#ed9d13">&#34;ABC123&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;code_type&#34;</span>: <span style="color:#ed9d13">&#34;COMPLETED&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;actions&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#6ab825;font-weight:bold">&#34;action&#34;</span>: <span style="color:#ed9d13">&#34;AUTOMATICALLY_APPROVE&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;total_available_places&#34;</span>: <span style="color:#3677a9">2000</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;estimated_completion_time&#34;</span>: <span style="color:#3677a9">5</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;reward&#34;</span>: <span style="color:#3677a9">100</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;device_compatibility&#34;</span>: [<span style="color:#ed9d13">&#34;desktop&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;peripheral_requirements&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;filters&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;filter_id&#34;</span>: <span style="color:#ed9d13">&#34;current-country-of-residence&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#6ab825;font-weight:bold">&#34;selected_values&#34;</span>: [<span style="color:#ed9d13">&#34;0&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">&#34;submissions_config&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;max_submissions_per_participant&#34;</span>: <span style="color:#3677a9">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;max_concurrent_submissions&#34;</span>: <span style="color:#3677a9">-1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I&rsquo;m going to save the JSON above to <code>/tmp/uk-pol-june-2024.json</code>. We can now run the create command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific study create -t /tmp/uk-pol-june-2024.json
+</span></span><span style="display:flex;"><span>Political views in the UK
+</span></span><span style="display:flex;"><span>This study aims to understand the political views of the public
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID:                        66802cd4681e8e9e1eaa28a0
+</span></span><span style="display:flex;"><span>Status:                    UNPUBLISHED
+</span></span><span style="display:flex;"><span>Type:                      SINGLE
+</span></span><span style="display:flex;"><span>Total cost:                £2200.00
+</span></span><span style="display:flex;"><span>Reward:                    £1.00
+</span></span><span style="display:flex;"><span>Hourly rate:               £12.00
+</span></span><span style="display:flex;"><span>Estimated completion time: <span style="color:#3677a9">5</span>
+</span></span><span style="display:flex;"><span>Maximum allowed time:      <span style="color:#3677a9">19</span>
+</span></span><span style="display:flex;"><span>Study URL:                 https://bms-uk-pols.netlify.app/study/?id=xxxx
+</span></span><span style="display:flex;"><span>Places taken:              <span style="color:#3677a9">0</span>
+</span></span><span style="display:flex;"><span>Available places:          <span style="color:#3677a9">2000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Submissions configuration
+</span></span><span style="display:flex;"><span>Max submissions per participant: <span style="color:#3677a9">1</span>
+</span></span><span style="display:flex;"><span>Max concurrent submissions:      -1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Filters
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>current-country-of-residence
+</span></span><span style="display:flex;"><span>- <span style="color:#3677a9">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>View study in the application: https://app.prolific.com/researcher/studies/668029f3681e8e9e1eaa287d
+</span></span></code></pre></div><p>Once created, the study will be displayed on your screen. It also displays a link back to the web application if you want to view it there. If you want to create and publish at the same time, you can use the <code>-p</code> flag on the create above.</p>
+<p>With a little bit of bash, you can start to see how we could scale interactions with Prolific, just by using the CLI. Checkout the script below which will create and publish all the studies defined. Nifty.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#40ffff">STUDIES</span>=(
+</span></span><span style="display:flex;"><span>  /tmp/prolific/ai-ethics.json
+</span></span><span style="display:flex;"><span>  /tmp/prolific/llm-train-2.json
+</span></span><span style="display:flex;"><span>  /tmp/prolific/llm-train-3.json
+</span></span><span style="display:flex;"><span>  /tmp/prolific/image-categorisation-1.json
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">for</span> study in <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span><span style="color:#40ffff">STUDIES</span>[@]<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>; <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Creating study for </span><span style="color:#ed9d13">${</span><span style="color:#40ffff">study</span><span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">if</span> prolific study create -t <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">${</span><span style="color:#40ffff">study</span><span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span> -p -s ; <span style="color:#6ab825;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34; Created&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34; Error&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">done</span>
+</span></span></code></pre></div><h2 id="list-all-your-studies">List all your studies</h2>
+<p>To list all of your studies created on the Prolific Platform, you can run the <code>prolific study list</code> command. This comes with a variety of methods to see the data:</p>
+<ul>
+<li><strong>Interactive</strong> (Default) - You will get a searchable view of the data. This can become very useful when you&rsquo;re working with lots of data, and have hundreds or maybe thousands of studies in your project.</li>
+<li><strong>Non-interactive</strong> - With the <code>-n</code> flag you will get a list of studies in your terminal, where you can use paging options to page through the data.</li>
+<li><strong>CSV</strong> - With the <code>-csv</code> flag you can decide which fields to render in your terminal. You can do this by using the <code>-f</code> option. This is handy if you want to export the data.</li>
+</ul>
+<p>Let&rsquo;s take a closer look at the interactive view for studies.</p>
+<p><img src="/img/post/2024/06/prolific-study-interactive.png" alt="A view of studies in interactive mode"></p>
+<p>You can see we have three studies: two active, and one in draft. Let&rsquo;s now try to filter this. As per the instructions at the bottom of the window, let&rsquo;s use <code>/</code> to start filtering. Let&rsquo;s search for <strong>France</strong>.</p>
+<p><img src="/img/post/2024/06/prolific-study-search-france.png" alt="Searching studies in interactive mode"></p>
+<p>Now we have selected the study we want to view, let&rsquo;s press enter to see the details.</p>
+<p><img src="/img/post/2024/06/prolific-study-view.png" alt="Study detail view"></p>
+<p>If you know the study ID, you can simply run <code>prolific study view 66802cd4681e8e9e1eaa28a0</code> to get the same data.</p>
+<p>Let&rsquo;s list the studies we have, but only show the total cost for each study.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific study list -n -f TotalCost
+</span></span><span style="display:flex;"><span>TotalCost
+</span></span><span style="display:flex;"><span><span style="color:#3677a9">219999</span>
+</span></span><span style="display:flex;"><span><span style="color:#3677a9">220000</span>
+</span></span><span style="display:flex;"><span><span style="color:#3677a9">220000</span>
+</span></span></code></pre></div><p>Handy if we want to tot up how much we have spent.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific study list -n -f TotalCost | grep -Eo <span style="color:#ed9d13">&#39;[0-9]+&#39;</span> | awk <span style="color:#ed9d13">&#39;{sum+=$1} END {printf &#34;£%.2f\n&#34;, sum/100}&#39;</span>
+</span></span><span style="display:flex;"><span>£6599.99
+</span></span></code></pre></div><h2 id="submission-data">Submission data</h2>
+<p>OK, so your studies are active, and participants are answering your questions or training your model. Now it&rsquo;s time to view the submissions.</p>
+<p>Let&rsquo;s list out the submissions we have in non-interactive mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific submission list -s 66802cd4681e8e9e1eaa28a0
+</span></span><span style="display:flex;"><span>ParticipantID            StartedAt                         TimeTaken StudyCode Status
+</span></span><span style="display:flex;"><span>667fe40be716f92cab75e52d 2024-06-29 15:48:45.535 +0000 UTC <span style="color:#3677a9">19</span>        ABC123    AWAITING REVIEW
+</span></span><span style="display:flex;"><span>667fe414e716f92cab75e606 2024-06-29 15:48:45.535 +0000 UTC <span style="color:#3677a9">29</span>        ABC123    AWAITING REVIEW
+</span></span><span style="display:flex;"><span>667fe413e716f92cab75e5f2 2024-06-29 15:48:45.535 +0000 UTC <span style="color:#3677a9">45</span>        ABC123    AWAITING REVIEW
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Showing <span style="color:#3677a9">3</span> records of <span style="color:#3677a9">3</span>
+</span></span></code></pre></div><p>As with all the list views in the CLI, you can use the flags <code>-o</code> and <code>-l</code> to offset and limit, respectively. So we can page the information:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific submission list -s 66802cd4681e8e9e1eaa28a0 -o <span style="color:#3677a9">1</span> -l <span style="color:#3677a9">1</span>
+</span></span><span style="display:flex;"><span>ParticipantID            StartedAt                         TimeTaken StudyCode Status
+</span></span><span style="display:flex;"><span>667fe414e716f92cab75e606 2024-06-29 15:48:45.535 +0000 UTC <span style="color:#3677a9">29</span>        ABC123    AWAITING REVIEW
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Showing <span style="color:#3677a9">1</span> record of <span style="color:#3677a9">3</span>
+</span></span></code></pre></div><p>This may help when dealing with that quantity of data. Lastly, let&rsquo;s get a CSV file, and render specific fields.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>❯ prolific submission list -c -s 66802cd4681e8e9e1eaa28a0 -f ParticipantID,Status,Reward
+</span></span><span style="display:flex;"><span>ParticipantID,Status,Reward,
+</span></span><span style="display:flex;"><span>667fe40be716f92cab75e52d,AWAITING REVIEW,10000,
+</span></span><span style="display:flex;"><span>667fe414e716f92cab75e606,AWAITING REVIEW,10000,
+</span></span><span style="display:flex;"><span>667fe413e716f92cab75e5f2,AWAITING REVIEW,10000,
+</span></span></code></pre></div><p>You can use the <code>--help</code> option on any command to get further details about what you can do.</p>
+<h2 id="summary">Summary</h2>
+<p>There are many other commands in the application, I recommend having a play around with it.</p>
+<p>Other main features include:</p>
+<ul>
+<li>Ability to get your user account details.</li>
+<li>Ability to list your webhook subscriptions, and events Prolific has sent to it.</li>
+<li>Ability to send and retrieve messages.</li>
+<li>Ability to list and view your filter sets</li>
+<li>Ability to list and view your participant groups</li>
+</ul>
+<p>I hope you enjoy using the Prolific CLI. If you have any feedback or requests, please raise an <a href="https://github.com/prolific-oss/cli/issues">issue in GitHub</a>. Thank you.</p>
+
+</article>
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/utils/">Utils</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/the-prolific-cli/">The Prolific CLI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2024/ubuntu-with-mac-keyboard-combo/">Running Ubuntu on a MacBook Pro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
