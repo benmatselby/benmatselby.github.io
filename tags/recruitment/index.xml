@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recruitment on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/recruitment/</link>
+    <description>Recent content in Recruitment on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 May 2019 06:30:41 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/recruitment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Onboarding</title>
+      <link>https://benmatselby.dev/post/onboarding/</link>
+      <pubDate>Wed, 01 May 2019 06:30:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/onboarding/</guid>
+      <description>&lt;p&gt;My aim with this blog is to document how I like to run my teams, and note the various things I&amp;rsquo;ve seen during my career. When meeting new people, there is a tendency to cover old ground (I&amp;rsquo;m skilled at this), which is useful in the sense you have a common understanding, but it can be time consuming. A few times recently I&amp;rsquo;ve wanted to provide substantial opinions, but the communication format doesn&amp;rsquo;t lend itself well to that style. With this in mind, I&amp;rsquo;m writing my thoughts down, so folks can read in an async manner, comfortable to them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

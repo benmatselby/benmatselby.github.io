@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Ben Selby</title>
+    <link>https://benmatselby.dev/tidbits/kubernetes/</link>
+    <description>Recent content in Kubernetes on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tidbits/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Authenticate with gcloud</title>
+      <link>https://benmatselby.dev/tidbits/kubernetes/authenticate-with-gcloud/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/kubernetes/authenticate-with-gcloud/</guid>
+      <description>&lt;p&gt;When using Google Kubernetes Engine (GKE), you often need to authenticate your &lt;code&gt;kubectl&lt;/code&gt; command-line tool with Google Cloud to manage your Kubernetes clusters. This is typically done using the &lt;code&gt;gcloud&lt;/code&gt; command-line tool.&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-gcloud-cli&#34;&gt;Install gcloud CLI&lt;/h2&gt;&#xA;&lt;p&gt;Install the SDK&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;brew install google-cloud-sdk&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;add-to-shell-configuration-file&#34;&gt;Add to shell configuration file&lt;/h2&gt;&#xA;&lt;p&gt;For me, this is adding to &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source &amp;#34;$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc&amp;#34;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source &amp;#34;$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc&amp;#34;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we can initialise &lt;code&gt;gcloud init&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;authenticate&#34;&gt;Authenticate&lt;/h2&gt;&#xA;&lt;p&gt;Get credentials for the clusters in different projects (&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl&#34;&gt;documentation&lt;/a&gt;):&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

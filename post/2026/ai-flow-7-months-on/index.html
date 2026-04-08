@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="After 7 months since my last AI post, I discuss my current flow and how it has evolved.">
+  <meta name="generator" content="Hugo 0.160.1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>From AI cloud agents to local flows &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content="From AI cloud agents to local flows">
+  <meta name="twitter:description"
+    content="After 7 months since my last AI post, I discuss my current flow and how it has evolved.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-ai-human-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="From AI cloud agents to local flows">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev/post/2026/ai-flow-7-months-on">
+  <meta property="og:title"
+    content="From AI cloud agents to local flows">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-ai-human-share.jpg">
+  <meta property="og:description"
+    content="After 7 months since my last AI post, I discuss my current flow and how it has evolved.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-ai-human.jpg); background-position: center center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      
+<article class="posts__item">
+  <h1>From AI cloud agents to local flows</h1>
+  <span class="posts__item-date">Mar 11, 2026 &middot; 5 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/ai" title="Posts related to ai">#ai</a></span>
+    
+    <span class="tags__tag"><a href="/tags/process" title="Posts related to process">#process</a></span>
+    
+  </div>
+
+  <p>It is hard to believe that it&rsquo;s been 7 months since I wrote &ldquo;<a href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>&rdquo;. That post tried to document my findings after working two weeks with GitHub Copilot. This post is a quick follow on, to continue documenting my journey with AI agents in my engineering flow.</p>
+<h2 id="what-has-changed">What has changed?</h2>
+<p>I&rsquo;ve completely stopped using the hosted agentic flows from GitHub. I&rsquo;ve been running an engineering community session at work recently, and oddly found that most engineers had also stopped using hosted flows - although we couldn&rsquo;t quite articulate why. Let me try to do so here.</p>
+<p>I&rsquo;d boil this down to feedback loops. For over 20 years we&rsquo;ve wanted to have &ldquo;quicker feedback loops&rdquo;. If you engage with AI agents on your machine, the feedback loop is there in your terminal. With hosted web application flows, there&rsquo;s just more friction.</p>
+<p>If I want to have a back and forth with an agent about a feature or bug, it&rsquo;s like a chat conversation in Slack, but in your terminal. With the Copilot hosted flows (I cannot comment on other vendors), it all feels so much slower. I have to keep switching to my browser, whereas locally, I flick between <code>tmux</code> windows.</p>
+<p>The upside of hosted flows is still the team-based aspect, e.g. we can share the PR and feedback to the AI agent. This isn&rsquo;t really achievable locally (that I am aware of).</p>
+<h2 id="what-is-my-current-flow">What is my current flow?</h2>
+<p>I&rsquo;m using <a href="https://opencode.ai/">opencode</a> as my CLI tool of choice. It&rsquo;s vendor agnostic which is right up my street. The AI world is moving so quickly, I&rsquo;m not sure I want to keep changing the tools I use, just the models. <code>opencode</code> is open source, and currently has wide support for the models I want to use. I&rsquo;ve found the way it formats the output to be very clear and concise. The different modes of build and plan are intuitive.</p>
+<p>I&rsquo;m finding that I am using <a href="https://git-scm.com/docs/git-worktree">git worktrees</a> more and more. I&rsquo;ve been aware of them previously, but it wasn&rsquo;t until <a href="https://github.com/captainsafia">Safia</a> kept mentioning them on <a href="https://bsky.app/profile/captainsafia.com">BlueSky</a> that I really started taking note. It turns out that they are perfect for AI agent work, as you can work on different branches in parallel without cloning the repo multiple times.</p>
+<p>I&rsquo;m a <code>tmux</code> user, so I have a bash alias that fires up a tmux window with a certain pane layout. I&rsquo;ve coupled that to the creation of git worktrees for projects too. I have a pane for <code>opencode</code>, a pane for <code>neovim</code>, and then a pane left for anything I need to do on the CLI.</p>
+<p>I&rsquo;ve found myself &ldquo;pairing&rdquo; with AI agents more to plan out work, investigate bugs, and find new ways of solving issues. It&rsquo;s common for me to be pairing with an agent, whilst also delivering some value for product work. This can all happen in the worktrees, whilst I still can do other work in the main branch.</p>
+<p>The main addition for my flow is Skills. <code>opencode</code> supports the same <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Skills</a> as Claude. Skills are documents written in Markdown that define a task and how to complete it. They are a bit like a playbook for the agent. You can have them do anything you like, but they are particularly useful for things that require multiple steps, or require some sort of formatting.</p>
+<p>The best thing I&rsquo;ve found about skills is how easy they are to create. My flow normally looks like this.</p>
+<ul>
+<li>Get into something deep with AI.</li>
+<li>Realise this is something I do often, or would like to do again.</li>
+<li>Ask AI to create the skill and save it for me.</li>
+<li>Rinse and repeat.</li>
+</ul>
+<p>I <em>generally</em> advocate that the skills use CLI tools, over MCPs. I don&rsquo;t want to be running all the local MCPs, when a CLI is more than capable! They simply consume too many resources on my machine. MCPs also feel separate to my flow. If I use a <code>jira</code> CLI for example, I want the Skills to use the same tools I do. I don&rsquo;t want to set up something specifically for an AI agent, when there is no need.</p>
+<h2 id="what-have-i-learned">What have I learned?</h2>
+<p>Quite simply, the tech is evolving so much, you have to keep trying things.</p>
+<p>Be daft, be playful, and see what sticks. I certainly feel like I try to embed AI flows into the way I want to work, rather than changing the way I work for AI flows. A local CLI flow is how I work. Having conversations and instructing AI agents to do things in the browser isn&rsquo;t really my vibe.</p>
+<p>When I originally thought about this second post in the series, I was going to show how the stats differed since my last post. But you know what? It&rsquo;s just not realistic. At this point AI is so embedded in my flows, most of the work has had AI involvement in some way. Maybe this is another thing I prefer about local flows. It&rsquo;s my work, and I happen to use AI tools. Hosted flows feel like it&rsquo;s AI work, and I review it. Subtly different.</p>
+<p>I&rsquo;m looking forward to seeing how AI agents evolve and how that impacts my flow.</p>
+<hr>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a></li>
+<li><a href="https://github.com/benmatselby/dotfiles/tree/main/agents/skills">My dotfiles for skills</a></li>
+<li><a href="https://opencode.ai/">opencode</a></li>
+</ul>
+
+</article>
+
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/tidbits/">Tidbits</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/a-week-in-seville/">Seville in April: What to expect during Holy Week</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/ai-flow-7-months-on/">From AI cloud agents to local flows</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/managing-dependencies/">Dependency Management</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
