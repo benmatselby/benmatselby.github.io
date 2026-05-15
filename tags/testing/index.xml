@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/testing/</link>
+    <description>Recent content in Testing on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Nov 2022 10:52:58 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using Terratest to test your infrastructure</title>
+      <link>https://benmatselby.dev/post/terratest/</link>
+      <pubDate>Sun, 18 Apr 2021 20:01:51 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/terratest/</guid>
+      <description>&lt;p&gt;This post is going to get you started with using &lt;a href=&#34;https://terratest.gruntwork.io&#34;&gt;Terratest&lt;/a&gt; to help test your infrastructure changes. Terratest describes itself as:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A Go library that provides patterns and helper functions for testing infrastructure, with 1st-class support for Terraform, Packer, Docker, Kubernetes, AWS, GCP, and more.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Now that infrastructure is becoming code and configuration, we want to write tests that check that our infrastructure code works as intended. This is where Terratest can help. What I personally like about Terratest is the fact it can test many different systems. This means my team can utilise one tool for many testing scenarios.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>&lt;!-- markdownlint-disable MD033 --&gt;&#xA;&lt;div class=&#34;buildtool&#34;&gt;&#xA;  &lt;img src=&#34;https://benmatselby.dev/img/logo-aws-codepipeline.png&#34; alt=&#34;AWS CodePipeline&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-github.png&#34; alt=&#34;GitHub&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-jenkins.png&#34; alt=&#34;Jenkins&#34; class=&#34;buildtool__logo buildtool__logo-jenkins&#34; /&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.&lt;/p&gt;&#xA;&lt;p&gt;The tools this post is going to compare are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/codepipeline/&#34;&gt;AWS CodePipeline&lt;/a&gt; (As I happen to be working in the AWS space at the moment)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.jenkins.io&#34;&gt;Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A couple of things to note:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running pa11y in Jenkins for accessibility testing</title>
+      <link>https://benmatselby.dev/post/pa11y-accessibility-ci/</link>
+      <pubDate>Wed, 24 Apr 2019 18:21:44 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/pa11y-accessibility-ci/</guid>
+      <description>&lt;p&gt;The best thing about being a software engineer is all the learning you can do. I&amp;rsquo;m now working on a web based product where accessibility is critical to the success of the team, and therefore I&amp;rsquo;m in full learning mode at the moment.&lt;/p&gt;&#xA;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Web &lt;a href=&#34;https://twitter.com/hashtag/a11y?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#a11y&lt;/a&gt; is my new passion it seems. Don’t get me wrong it’s like day 4 of learning, but what a new world I find myself in! Raised two PRs into the project I’m working on. It’s rather overwhelming, but fun.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>&lt;p&gt;As mentioned &lt;a href=&#34;https://benmatselby.dev/post/technology-radar/&#34;&gt;previously&lt;/a&gt;, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?&lt;/p&gt;&#xA;&lt;p&gt;Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw &lt;a href=&#34;https://twitter.com/rowan_m&#34;&gt;my boss&lt;/a&gt; do a talk at &lt;a href=&#34;https://conference.phpnw.org.uk/&#34;&gt;PHPNW&lt;/a&gt; back in 2008 / 9. However, two factors have always stopped me:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

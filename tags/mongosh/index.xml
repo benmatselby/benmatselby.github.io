@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongosh on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/mongosh/</link>
+    <description>Recent content in Mongosh on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 May 2022 15:35:41 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/mongosh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mongo shell commands to get you through the day</title>
+      <link>https://benmatselby.dev/post/mongosh-101/</link>
+      <pubDate>Sun, 01 May 2022 15:35:41 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/mongosh-101/</guid>
+      <description>&lt;p&gt;I recently started a new job. The data store is &lt;a href=&#34;https://www.mongodb.com&#34;&gt;MongoDB&lt;/a&gt;, which I have barely used before. This post aims to document what I&amp;rsquo;ve learnt to get me through the day. Please feel free to &lt;a href=&#34;http://twitter.com/benmatselby/photo&#34;&gt;tweet me&lt;/a&gt; if there are discrepancies.&lt;/p&gt;&#xA;&lt;p&gt;The first thing that I became aware of, is that there are/were two cli tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The legacy &lt;code&gt;mongo&lt;/code&gt; shell, which &lt;a href=&#34;https://www.mongodb.com/docs/manual/reference/program/mongo/&#34;&gt;was deprecated in MongoDB v5.0&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The new, and active, &lt;code&gt;mongosh&lt;/code&gt; shell, which replaced &lt;code&gt;mongo&lt;/code&gt;. The documentation for this shell is &lt;a href=&#34;https://www.mongodb.com/docs/mongodb-shell/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This post will discuss &lt;code&gt;mongosh&lt;/code&gt; and assume you have MongoDB running on your machine (or access to an instance).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

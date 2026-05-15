@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineering-Management on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/engineering-management/</link>
+    <description>Recent content in Engineering-Management on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Apr 2021 19:02:17 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/engineering-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Technical Roadmaps and Dev Sustainability</title>
+      <link>https://benmatselby.dev/post/technical-roadmaps/</link>
+      <pubDate>Wed, 14 Apr 2021 19:02:17 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/technical-roadmaps/</guid>
+      <description>&lt;p&gt;At a high level, most engineers are working on product backlogs, in some way, shape, or form. What happens if that product backlog dries up? Or, as a manager or leader, you need to fill a period of uncertainty? This post is going to take you on my journey over the years, and put forward a solution that can be applied to small projects, large projects, and even at an organisational unit level.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

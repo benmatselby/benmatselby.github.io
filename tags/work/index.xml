@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Work on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/work/</link>
+    <description>Recent content in Work on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Nov 2022 10:52:58 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The last few years</title>
+      <link>https://benmatselby.dev/post/the-last-few-years/</link>
+      <pubDate>Mon, 10 Jan 2022 21:19:57 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/the-last-few-years/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s nice to reflect on what you&amp;rsquo;ve achieved over a certain period of time. I switched roles within the same business in 2018. I went from managing and coding in a software engineering team I built from scratch, to an Individual Contributor role in a few other engineering teams. This post aims to show at a high level what I&amp;rsquo;ve been working on during this time. It&amp;rsquo;s just about in chronological order (from memory!). I&amp;rsquo;ve written this as a positive way to reflect on different achievements that would otherwise be forgotten. This isn&amp;rsquo;t everything I did, but certainly some highlights. Some of these items have been very tough to work on and see through to completion.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software-Engineering on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/software-engineering/</link>
+    <description>Recent content in Software-Engineering on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 May 2020 19:21:13 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Burndown reporting</title>
+      <link>https://benmatselby.dev/post/burndown-reporting/</link>
+      <pubDate>Sat, 02 May 2020 19:21:13 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/burndown-reporting/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re happy with the automated burndown reports from tools like &lt;a href=&#34;https://www.atlassian.com/software/jira&#34;&gt;Jira&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com/en-gb/services/devops/&#34;&gt;Azure Devops&lt;/a&gt;, then this post is &lt;em&gt;probably&lt;/em&gt; not for you (except maybe the &lt;a href=&#34;#cli-tools&#34;&gt;CLI tools section&lt;/a&gt;). If you prefer to manually generate a burndown report, or use a tool that doesn&amp;rsquo;t have that feature built in, then read on.&lt;/p&gt;&#xA;&lt;p&gt;My first foray into the world of work management tools starting about 13 years ago, and my team used &lt;a href=&#34;https://trac.edgewall.org&#34;&gt;Trac&lt;/a&gt;. At the time, if my memory is correct, it did not produce a burndown report. A colleague of mine, &lt;a href=&#34;https://twitter.com/stuartjsmith&#34;&gt;Stuart Smith&lt;/a&gt; introduced me to a manual spreadsheet burndown report, which I&amp;rsquo;ve tweaked and used pretty much ever since.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

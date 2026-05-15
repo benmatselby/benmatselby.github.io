@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tmux on Ben Selby</title>
+    <link>https://benmatselby.dev/tidbits/tmux/</link>
+    <description>Recent content in tmux on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tidbits/tmux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding a window</title>
+      <link>https://benmatselby.dev/tidbits/tmux/finding-a-window/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/tmux/finding-a-window/</guid>
+      <description>&lt;p&gt;You may be running multiple tmux sessions, each with multiple windows. To find a specific window across all sessions, you can use the following command:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;prefix&amp;gt; :find-window wibble&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;prefix&amp;gt; f&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both of these options will filter the list of windows to those matching &amp;ldquo;wibble&amp;rdquo;. You can then navigate through the filtered list to select the desired window.&lt;/p&gt;&#xA;&lt;p&gt;To provide a full list of windows without filtering, you can use:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Layout explanations</title>
+      <link>https://benmatselby.dev/tidbits/tmux/layout-explanations/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/tmux/layout-explanations/</guid>
+      <description>&lt;p&gt;When defining layouts for tmux/tmuxinator there are a few named layouts you can use. Here are explanations of what each layout does:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;main-vertical&lt;/li&gt;&#xA;&lt;li&gt;main-horizontal&lt;/li&gt;&#xA;&lt;li&gt;even-vertical&lt;/li&gt;&#xA;&lt;li&gt;even-horizontal&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;main-vertical&#34;&gt;main-vertical&lt;/h2&gt;&#xA;&lt;p&gt;It will look like this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|------------------------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |---------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|------------------------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;main-horizontal&#34;&gt;main-horizontal&lt;/h2&gt;&#xA;&lt;p&gt;It will look like this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|------------------------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|                              |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|                              |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|--------------|---------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|              |               |&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|------------------------------|&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;even-vertical&#34;&gt;even-vertical&lt;/h2&gt;&#xA;&lt;p&gt;It will look like this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Move windows between sessions</title>
+      <link>https://benmatselby.dev/tidbits/tmux/move-window-between-sessions/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/tmux/move-window-between-sessions/</guid>
+      <description>&lt;p&gt;You may be running multiple sessions in tmux, for example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(0) + work: 5 windows (attached)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(1) + box: 7 windows&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I want to move a window from my &lt;code&gt;work&lt;/code&gt; session, to my &lt;code&gt;box&lt;/code&gt; session. You can do this with the following command:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;prefix&amp;gt; :move-window -t box:8&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will place the current window in &lt;code&gt;work&lt;/code&gt; to the 8th window in &lt;code&gt;box&lt;/code&gt;. You can also use &lt;code&gt;-s&lt;/code&gt; to specify the source window, for example:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unset an environment variable</title>
+      <link>https://benmatselby.dev/tidbits/tmux/unset-environment-variable/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/tmux/unset-environment-variable/</guid>
+      <description>&lt;p&gt;When you start a tmux session, it inherits environment variables from your shell. These variables are stored in the tmux server&amp;rsquo;s global environment and are passed to new windows and panes.&lt;/p&gt;&#xA;&lt;p&gt;The problem arises when you unset a variable in your shell (e.g., &lt;code&gt;unset ANTHROPIC_API_KEY&lt;/code&gt;). This only affects your current shell process. The tmux server still has the variable in its environment, so any new windows or panes will still receive it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

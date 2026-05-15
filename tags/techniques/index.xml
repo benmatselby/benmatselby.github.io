@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Techniques on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/techniques/</link>
+    <description>Recent content in Techniques on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 May 2019 14:45:29 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/techniques/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design Authority</title>
+      <link>https://benmatselby.dev/post/design-authority/</link>
+      <pubDate>Sun, 12 May 2019 14:45:29 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/design-authority/</guid>
+      <description>&lt;p&gt;This post aims to cover off how to drive quality in your software products, by defining and using a &amp;ldquo;Design Authority&amp;rdquo;. It tries to call out what the problem is, and how you can use a self assessment to set the standard within your organisation, as to what is acceptable levels of quality within your product.&lt;/p&gt;&#xA;&lt;p&gt;There are many ways to assess software quality, be it using automation tools, top down assessments from a governance board, or peer reviewed assessments. As with most things in life, the best solution is probably a blend of many methodologies to get the desired outcome. This post will focus on peer reviewed assessments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Feature Toggling</title>
+      <link>https://benmatselby.dev/post/feature-toggling/</link>
+      <pubDate>Tue, 19 Mar 2019 17:34:38 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/feature-toggling/</guid>
+      <description>&lt;p&gt;As mentioned &lt;a href=&#34;https://benmatselby.dev/post/technology-radar/&#34;&gt;previously&lt;/a&gt;, we are documenting a whole bunch of stuff at my current gig. Documenting what tools and languages we should be using for our new products and platforms, but also what techniques we should be using. Techniques is an interesting area to be documenting, because how far do you go?&lt;/p&gt;&#xA;&lt;p&gt;Taking a step back, I&amp;rsquo;ve always wanted to be a conference speaker, ever since I saw &lt;a href=&#34;https://twitter.com/rowan_m&#34;&gt;my boss&lt;/a&gt; do a talk at &lt;a href=&#34;https://conference.phpnw.org.uk/&#34;&gt;PHPNW&lt;/a&gt; back in 2008 / 9. However, two factors have always stopped me:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Technology Radar</title>
+      <link>https://benmatselby.dev/post/technology-radar/</link>
+      <pubDate>Sun, 10 Feb 2019 19:06:55 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/technology-radar/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s all of a buzz at my current job at the moment. Change is in the air.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Stacks.&lt;/li&gt;&#xA;&lt;li&gt;Tools.&lt;/li&gt;&#xA;&lt;li&gt;Paradigms.&lt;/li&gt;&#xA;&lt;li&gt;The way we work.&lt;/li&gt;&#xA;&lt;li&gt;The way we deploy.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://benmatselby.dev/post/communication-tools/&#34;&gt;The way we communicate.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There is a lot to take in, and a lot to learn. Recently, I was one of two people who presented to our Project Management Office (PMO) on what was happening in our department. The main aspect of this presentation, and my life at work at the moment, was the Technology Radar.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

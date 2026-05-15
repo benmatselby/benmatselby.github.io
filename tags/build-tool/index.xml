@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build-Tool on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/build-tool/</link>
+    <description>Recent content in Build-Tool on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 09:19:38 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/build-tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparison: AWS CodePipeline, GitHub Actions, and Jenkins</title>
+      <link>https://benmatselby.dev/post/build-tool-comparison/</link>
+      <pubDate>Thu, 14 May 2020 09:19:38 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/build-tool-comparison/</guid>
+      <description>&lt;!-- markdownlint-disable MD033 --&gt;&#xA;&lt;div class=&#34;buildtool&#34;&gt;&#xA;  &lt;img src=&#34;https://benmatselby.dev/img/logo-aws-codepipeline.png&#34; alt=&#34;AWS CodePipeline&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-github.png&#34; alt=&#34;GitHub&#34; class=&#34;buildtool__logo&#34; /&gt; &lt;img src=&#34;https://benmatselby.dev/img/logo-jenkins.png&#34; alt=&#34;Jenkins&#34; class=&#34;buildtool__logo buildtool__logo-jenkins&#34; /&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;This post has come about as I&amp;rsquo;ve written up this content in different formats multiple times, and it&amp;rsquo;s easier to write this up once, and just reference back. The comparison is valid as of May 2020. If you visit this page after that, the comparison table may be different.&lt;/p&gt;&#xA;&lt;p&gt;The tools this post is going to compare are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/codepipeline/&#34;&gt;AWS CodePipeline&lt;/a&gt; (As I happen to be working in the AWS space at the moment)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.jenkins.io&#34;&gt;Jenkins&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A couple of things to note:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

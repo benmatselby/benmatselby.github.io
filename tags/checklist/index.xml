@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Checklist on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/checklist/</link>
+    <description>Recent content in Checklist on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Jun 2019 21:44:23 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/checklist/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Joining a new engineering team</title>
+      <link>https://benmatselby.dev/post/joining-a-new-engineering-team/</link>
+      <pubDate>Mon, 24 Jun 2019 21:44:23 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/joining-a-new-engineering-team/</guid>
+      <description>&lt;p&gt;This post aims to cover off a simple checklist 📝 to work through when joining a new engineering team 👩🏾‍💻👨‍💻. Whilst this is aimed at senior or technical lead positions, these tips can help everyone.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve recently switched teams at work, and something dawned on me. Over the last 8 or so years I&amp;rsquo;ve generally built teams, and not really joined an existing team. So joining an existing team, with their own established ways of working, and existing decisions is something rather 👽 to me. This is also the first time, in the same period, where I am the only remote engineer on the team 😬.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

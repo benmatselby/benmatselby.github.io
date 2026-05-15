@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deployment on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/deployment/</link>
+    <description>Recent content in Deployment on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Feb 2020 20:31:58 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Deploy GitHub Action</title>
+      <link>https://benmatselby.dev/post/hugo-deploy-github-action/</link>
+      <pubDate>Sat, 15 Feb 2020 20:31:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/hugo-deploy-github-action/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just released version &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages/releases/tag/v1.2.1&#34;&gt;v1.2.1&lt;/a&gt; of the &lt;a href=&#34;https://github.com/benmatselby/hugo-deploy-gh-pages&#34;&gt;Hugo Deploy to GitHub Pages&lt;/a&gt; GitHub Action.&lt;/p&gt;&#xA;&lt;p&gt;This means it now fully conforms to the metadata specification as defined &lt;a href=&#34;https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this action back when GitHub Actions were still in beta, and there were very few actions out there. It turns out there are a plethora of GitHub Actions to now deploy a &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo site&lt;/a&gt; to GitHub Pages, but where is the fun in using someone else&amp;rsquo;s?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SugarCRM deployment process</title>
+      <link>https://benmatselby.dev/post/sugarcrm-deployment-process/</link>
+      <pubDate>Sun, 26 Aug 2018 21:09:28 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/sugarcrm-deployment-process/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.sugarcrm.com&#34;&gt;SugarCRM&lt;/a&gt; is a Customer Relationship Management system for both Enterprise and small business. I’ve worked on SugarCRM for around 6 years, and this post is going to cover off how we release/deploy the software on a 2 week cycle.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-aim&#34;&gt;The Aim&lt;/h2&gt;&#xA;&lt;p&gt;As with any software, the aim is to have an automated release process first and foremost. We wanted this process to be simple and allow for a completely automated release to our staging platform on a nightly basis. We wanted the release to the production platform to have some manual intervention so there was ownership and accountability.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Ben Selby</title>
+    <link>https://benmatselby.dev/tags/development/</link>
+    <description>Recent content in Development on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Mar 2023 18:24:57 +0100</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up k9s skins for different Kubernetes clusters</title>
+      <link>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</link>
+      <pubDate>Fri, 31 Mar 2023 18:24:57 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/2023/setting-up-k9s-skins-for-environments/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post was updated on June 19th 2024, to document the latest way to do this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This post is going to show you how to define different skins for &lt;a href=&#34;https://k9scli.io&#34;&gt;k9s&lt;/a&gt;, so you can quickly see which environment you&amp;rsquo;re working on.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;k9s&lt;/code&gt; is a terminal application that allows you to manage your &lt;a href=&#34;https://kubernetes.io&#34;&gt;Kubernetes&lt;/a&gt; clusters. So if you&amp;rsquo;re managing your production cluster, for example, you probably want to take extra care of what you&amp;rsquo;re doing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating custom metrics from a trace in Datadog</title>
+      <link>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</link>
+      <pubDate>Tue, 07 Mar 2023 19:23:42 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2023/creating-custom-metric-from-trace-in-datadog/</guid>
+      <description>&lt;p&gt;Recently, I wanted to create a monitor from a trace in &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt;. When creating an APM monitor, you can specify the service, and the resource, but nothing else. This didn&amp;rsquo;t cater for what I wanted to do. So this post is going to show you how you can create a custom metric, and then use that in your monitor.&lt;/p&gt;&#xA;&lt;p&gt;Once logged into Datadog, you want to navigate to &lt;code&gt;APM&lt;/code&gt; and then &lt;code&gt;Setup &amp;amp; Configuration&lt;/code&gt;. On the top bar, you should be able to see &lt;code&gt;Generate Metrics&lt;/code&gt;. Go ahead and click on that link.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to APIs</title>
+      <link>https://benmatselby.dev/post/2022/introduction-to-apis/</link>
+      <pubDate>Mon, 14 Nov 2022 11:24:37 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/introduction-to-apis/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve written this post to help some of my colleagues, who traditionally don&amp;rsquo;t work with APIs to understand some foundations. They are designers, product managers etc. If you&amp;rsquo;ve used APIs before, this post &lt;em&gt;is probably not for you&lt;/em&gt; ;-).&lt;/p&gt;&#xA;&lt;p&gt;An &amp;ldquo;Application Programming Interface&amp;rdquo; (API) allows two software systems to communicate in an agreed manner, set out by open specifications.&lt;/p&gt;&#xA;&lt;p&gt;We are going to focus on basic concepts to allow us to be able to communicate effectively about APIs, in an engineering product team. There will be a plethora of links to other sites with better content than this if you want to learn more.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How useful are code coverage reports?</title>
+      <link>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</link>
+      <pubDate>Sat, 05 Nov 2022 10:52:58 +0000</pubDate>
+      <guid>https://benmatselby.dev/post/2022/code-coverage-as-a-tool/</guid>
+      <description>&lt;p&gt;This post is going to talk about code coverage reports from unit tests. However, to provide some context first, I&amp;rsquo;m going to reminisce about 2010.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-story&#34;&gt;A story&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2010, I was working for &lt;a href=&#34;https://www.plus.net&#34;&gt;Plusnet, an ISP in the UK&lt;/a&gt; (&lt;a href=&#34;https://www.plus.net/refer.php?strReferralsUid=f612ba7d23963c179e27ccabe44ecc45c38e8a51542adc4e0602250fdc677760&#34;&gt;Referral link&lt;/a&gt;). The engineering team were still getting to grips with unit testing our code. What we saw time and time again was many tests being written, high coverage reports, and management was happy. However, if you checked out a test, we saw that tests were running, and executing code, but they were not asserting anything. This meant the tests were more of a linter. So &lt;a href=&#34;https://github.com/sebastianbergmann/phpunit/commit/19feb8e3cd6c88dab46aebbd053fa26ecb8e3ea7&#34;&gt;I wrote&lt;/a&gt; the &lt;code&gt;--assert-strict&lt;/code&gt; feature in &lt;a href=&#34;https://phpunit.de&#34;&gt;PHPUnit&lt;/a&gt; (which has subsequently become &lt;code&gt;fail-on-incomplete&lt;/code&gt;). This helped us raise the quality of our tests at Plusnet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Technical Roadmaps and Dev Sustainability</title>
+      <link>https://benmatselby.dev/post/technical-roadmaps/</link>
+      <pubDate>Wed, 14 Apr 2021 19:02:17 +0100</pubDate>
+      <guid>https://benmatselby.dev/post/technical-roadmaps/</guid>
+      <description>&lt;p&gt;At a high level, most engineers are working on product backlogs, in some way, shape, or form. What happens if that product backlog dries up? Or, as a manager or leader, you need to fill a period of uncertainty? This post is going to take you on my journey over the years, and put forward a solution that can be applied to small projects, large projects, and even at an organisational unit level.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

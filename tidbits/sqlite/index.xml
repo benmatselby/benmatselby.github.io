@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQLite on Ben Selby</title>
+    <link>https://benmatselby.dev/tidbits/sqlite/</link>
+    <description>Recent content in SQLite on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tidbits/sqlite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Define the configuration file</title>
+      <link>https://benmatselby.dev/tidbits/sqlite/define-configuration-file/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/sqlite/define-configuration-file/</guid>
+      <description>&lt;p&gt;You can define a &lt;code&gt;~/.sqliterc&lt;/code&gt; configuration file to customise the SQLite behaviour.&lt;/p&gt;&#xA;&lt;p&gt;e.g.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.headers on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.mode table&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Set the render mode</title>
+      <link>https://benmatselby.dev/tidbits/sqlite/set-render-mode/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/sqlite/set-render-mode/</guid>
+      <description>&lt;p&gt;Connect to an SQLite database and run&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sqlite&amp;gt; .mode ?&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Error: mode should be one of: ascii box column csv html insert json line list markdown qbox quote table tabs tcl&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Render a record vertically</title>
+      <link>https://benmatselby.dev/tidbits/sqlite/render-record-vertically/</link>
+      <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/sqlite/render-record-vertically/</guid>
+      <description>&lt;p&gt;By default, SQLite displays records in a tabular format. However, if you want to&#xA;see a record rendered vertically, especially when it has many columns, you can&#xA;use the &lt;code&gt;.mode&lt;/code&gt; command to change the output format.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;mode&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;line&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sqlite&amp;gt;&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;*&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;from&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;feeds;&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;      &lt;/span&gt;id&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;=&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;     &lt;/span&gt;url&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;=&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;https://www.theguardian.com/uk/rss&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;   &lt;/span&gt;title&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;=&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;The&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;Guardian&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;added_at&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;=&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#3677a9&#34;&gt;2025&lt;/span&gt;-&lt;span style=&#34;color:#3677a9&#34;&gt;07&lt;/span&gt;-&lt;span style=&#34;color:#3677a9&#34;&gt;31&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#3677a9&#34;&gt;20&lt;/span&gt;:&lt;span style=&#34;color:#3677a9&#34;&gt;53&lt;/span&gt;:&lt;span style=&#34;color:#3677a9&#34;&gt;18&lt;/span&gt;.&lt;span style=&#34;color:#3677a9&#34;&gt;59036&lt;/span&gt;+&lt;span style=&#34;color:#3677a9&#34;&gt;00&lt;/span&gt;:&lt;span style=&#34;color:#3677a9&#34;&gt;00&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To go back to the default tabular format, you can set the mode back to &lt;code&gt;table&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

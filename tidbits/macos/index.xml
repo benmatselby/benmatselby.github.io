@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on Ben Selby</title>
+    <link>https://benmatselby.dev/tidbits/macos/</link>
+    <description>Recent content in macOS on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tidbits/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix broken access to sudo</title>
+      <link>https://benmatselby.dev/tidbits/macos/fix-broken-access-to-sudo/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/macos/fix-broken-access-to-sudo/</guid>
+      <description>&lt;p&gt;Oh, I don&amp;rsquo;t know when this might be handy [&lt;a href=&#34;./touch-id-for-sudo.md&#34;&gt;1&lt;/a&gt;][&lt;a href=&#34;./touch-id-for-sudo-with-tmux.md&#34;&gt;2&lt;/a&gt;]!&lt;/p&gt;&#xA;&lt;p&gt;If you get this error:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo: unable to initialize PAM: No such file or directory&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do not panic, it is likely that there is some drama with the &lt;code&gt;/etc/pam.d/sudo_local&lt;/code&gt;&#xA;file. I had this when I made a mess of the links above. The file was owned by &lt;code&gt;root&lt;/code&gt; and I could not &lt;code&gt;sudo vim&lt;/code&gt; to fix it.&lt;/p&gt;&#xA;&lt;p&gt;To resolve this, open the folder in the terminal to Finder:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Open an app from the command line in macOS</title>
+      <link>https://benmatselby.dev/tidbits/macos/open-app-from-cli/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/macos/open-app-from-cli/</guid>
+      <description>&lt;p&gt;To open an application from the command line in macOS, you can use the &lt;code&gt;open&lt;/code&gt;&#xA;command followed by the &lt;code&gt;-a&lt;/code&gt; flag and the name of the application. F&#xA;or example, to open Safari, you would use the following command:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open -a &lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;Safari&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also open files or directories with the &lt;code&gt;open&lt;/code&gt; command.&#xA;For example, to open a specific PDF file in Preview, you would use:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open -a &lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;Preview&amp;#34;&lt;/span&gt; /path/to/your/file.pdf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I find this handy when I&amp;rsquo;ve generated coverage reports and want to quickly view&#xA;them in a browser.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Apple Watch for sudo</title>
+      <link>https://benmatselby.dev/tidbits/macos/apple-watch-for-sudo/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/macos/apple-watch-for-sudo/</guid>
+      <description>&lt;p&gt;Follow &lt;a href=&#34;./touch-id-for-sudo.md&#34;&gt;&amp;ldquo;Use Touch ID for sudo&amp;rdquo;&lt;/a&gt; to set up Apple Watch for &lt;code&gt;sudo&lt;/code&gt; on macOS.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Touch ID for sudo</title>
+      <link>https://benmatselby.dev/tidbits/macos/touch-id-for-sudo/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/macos/touch-id-for-sudo/</guid>
+      <description>&lt;p&gt;Thanks to Mark Lightfoot for this.&lt;/p&gt;&#xA;&lt;p&gt;You can use Touch ID for &lt;code&gt;sudo&lt;/code&gt; on macOS, which allows you to authenticate with your fingerprint instead of entering your password.&lt;/p&gt;&#xA;&lt;p&gt;Create a file &lt;code&gt;/etc/pam.d/sudo_local&lt;/code&gt; with the following content:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;auth       sufficient     pam_tid.so&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This does not work in &lt;code&gt;tmux&lt;/code&gt;. See &lt;a href=&#34;./touch-id-for-sudo-with-tmux.md&#34;&gt;Use Touch ID for sudo in tmux&lt;/a&gt; for how to set it up in &lt;code&gt;tmux&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Touch ID for sudo in tmux</title>
+      <link>https://benmatselby.dev/tidbits/macos/touch-id-for-sudo-with-tmux/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/macos/touch-id-for-sudo-with-tmux/</guid>
+      <description>&lt;p&gt;See &lt;a href=&#34;macos/touch-id-for-sudo.md&#34;&gt;Use Touch ID for sudo&lt;/a&gt; for the basic setup.&lt;/p&gt;&#xA;&lt;p&gt;Follow the instructions from the &lt;a href=&#34;https://github.com/fabianishere/pam_reattach&#34;&gt;pam_reattach repo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;As of August 2025, it looks like this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install pam-reattach&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, create/update &lt;code&gt;/etc/pam.d/sudo_local&lt;/code&gt; with the following content:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;auth       optional       /opt/homebrew/lib/pam/pam_reattach.so&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;optional&lt;/code&gt; means if there are any issues with the Touch ID authentication, it&#xA;will fall back to the password prompt.&lt;/p&gt;&#xA;&lt;p&gt;Ensure that this line is above the line that contains &lt;code&gt;pam_tid.so&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

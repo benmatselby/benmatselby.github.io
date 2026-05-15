@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Ben Selby</title>
+    <link>https://benmatselby.dev/tidbits/git/</link>
+    <description>Recent content in Git on Ben Selby</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://benmatselby.dev/tidbits/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add files interactively</title>
+      <link>https://benmatselby.dev/tidbits/git/add-files-interactively/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/git/add-files-interactively/</guid>
+      <description>&lt;p&gt;If you want to add files to the staging area interactively, you can use the &lt;code&gt;git add -i&lt;/code&gt; command.&#xA;This command allows you to select which changes you want to stage.&lt;/p&gt;&#xA;&lt;p&gt;Another way you can do this is by using &lt;code&gt;git add -p&lt;/code&gt;, which allows you to stage&#xA;changes in a patch-like manner.&lt;/p&gt;&#xA;&lt;p&gt;This is handy if you have multiple changes in a file and you want to stage only&#xA;some of them. This aides the concept of &lt;a href=&#34;https://benmatselby.dev/post/logical-commits/&#34;&gt;Logically atomic commits&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Checkout the previous branch</title>
+      <link>https://benmatselby.dev/tidbits/git/checkout-the-previous-branch/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/git/checkout-the-previous-branch/</guid>
+      <description>&lt;p&gt;Thanks to Matt Ellis for this.&lt;/p&gt;&#xA;&lt;p&gt;Switching branches frequently, and want to get to the last branch you were on.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout -&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Find commit where a string was added</title>
+      <link>https://benmatselby.dev/tidbits/git/find-commit-string-introduced/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://benmatselby.dev/tidbits/git/find-commit-string-introduced/</guid>
+      <description>&lt;p&gt;So &lt;code&gt;git blame&lt;/code&gt; will tell you the last person who touched a line of code, but they might not have introduced it. What if you want to know who added the line?&lt;/p&gt;&#xA;&lt;p&gt;You can use &lt;code&gt;git log -S&lt;/code&gt; to find the commit that introduced a specific string. For example, if you want to find the commit that added the string &amp;ldquo;wibble&amp;rdquo; to your codebase, you can run:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git log -S &lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#39;wibble&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to see all changes, you can use &lt;code&gt;git log -G &#39;wibble&#39;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
