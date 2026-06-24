@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="Introducing Wibble as a new RSS TUI application.">
+  <meta name="generator" content="Hugo 0.163.3">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>Wibble: An RSS TUI &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content="Wibble: An RSS TUI">
+  <meta name="twitter:description"
+    content="Introducing Wibble as a new RSS TUI application.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="Wibble: An RSS TUI">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev/post/2026/wibble-an-rss-tui">
+  <meta property="og:title"
+    content="Wibble: An RSS TUI">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="Introducing Wibble as a new RSS TUI application.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      
+<article class="posts__item">
+  <h1>Wibble: An RSS TUI</h1>
+  <span class="posts__item-date">May 14, 2026 &middot; 4 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/terminal" title="Posts related to terminal">#terminal</a></span>
+    
+    <span class="tags__tag"><a href="/tags/rss" title="Posts related to rss">#rss</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tui" title="Posts related to tui">#tui</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tools" title="Posts related to tools">#tools</a></span>
+    
+    <span class="tags__tag"><a href="/tags/cli" title="Posts related to cli">#cli</a></span>
+    
+  </div>
+
+  <p>This post is because Google killed Google Reader 13 years ago. I&rsquo;m not bitter.</p>
+<p>With that out of the way, let&rsquo;s move on. Since Google Reader, I&rsquo;ve mainly been using <a href="https://feedly.com/">Feedly</a>. But 6 months ago, I switched over to <a href="https://newsboat.org/index.html">Newsboat</a> - A CLI application. This was mainly for two reasons:</p>
+<ol>
+<li>Being more in control of my own data.</li>
+<li>Wanting to have my news in my terminal.</li>
+</ol>
+<p>Probably in that order actually. Newsboat is a lovely, feature rich application. I had one nitpick:</p>
+<ol>
+<li>My OS appearance changes from light to dark mode throughout the day. <a href="https://ghostty.org/">Ghostty</a> takes this onboard, newsboat does not. So the theming was a little awkward.</li>
+</ol>
+<p>Since I can code, and love building CLI applications, I took a punt.</p>
+<p>I wanted the following:</p>
+<ul>
+<li>A modern UI, that allowed theming.</li>
+<li>Management of the application should configuration files so I can save them to my dotfiles repo.</li>
+<li>The use of vim keybindings, with the aim to allow users to override this.</li>
+</ul>
+<p>The result is <a href="https://github.com/benmatselby/wibble">Wibble</a> - a simple Terminal User Interface (TUI) for RSS feeds, written in Go.</p>
+<p>The name. Yes, well, it needed a name, and reading the news nowadays feels like madness. Edmund Blackadder sums that up really well in Blackadder Goes Forth, when he says &ldquo;Wibble&rdquo;. So I thought that was a fitting name for an RSS reader in 2026.</p>
+<p><img src="/img/post/2026/wibble.jpg" alt="Blackadder saying Wibble"></p>
+<h2 id="why-a-tui-rss-reader">Why a TUI RSS reader?</h2>
+<p>I blog a lot about the fact I&rsquo;m terminal based, all running in <code>tmux</code>. It felt natural to copy the <code>newsboat</code> vibe, and have a TUI. I can style this the way I want, and allow others to define the theme they want. Wibble is using SQLite as the datastore, so it&rsquo;s easy to backup.</p>
+<p>There are no hosting costs, as it all runs neat and tidy on my machine.</p>
+<p>The best thing - No phone application, no doom scrolling the bleak news late at night. It&rsquo;s a plus, believe me.</p>
+<h2 id="what-can-wibble-do">What can Wibble do?</h2>
+<p>Wibble is deliberately simple. The feature set covers what I need day-to-day:</p>
+<ul>
+<li><strong>Register feeds</strong> via a YAML configuration file - no UI for adding feeds, just edit the config file.</li>
+<li><strong>Mark articles as read</strong> either individually, or for an entire feed.</li>
+<li><strong>Open an article in the browser</strong> when you want the full thing.</li>
+<li><strong>Modal article summary</strong> - read a quick summary without leaving the terminal.</li>
+<li><strong>Full colour theming</strong> - every colour used in the UI can be overridden via the config file.</li>
+<li><strong>Auto-refresh</strong> every 10 minutes by default, configurable to whatever interval suits you.</li>
+</ul>
+<p>Without a doubt, right now, it is not as feature rich as <code>newsboat</code>. But I don&rsquo;t miss any of those features, and have been using this consistently now for 2 weeks.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Clone the repository and build:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/benmatselby/wibble.git
+</span></span><span style="display:flex;"><span><span style="color:#24909d">cd</span> wibble
+</span></span><span style="display:flex;"><span>make build
+</span></span></code></pre></div><p>Wibble requires Go 1.26+. Once built, run <code>./wibble --help</code> to see where it expects the configuration file to live. You can also point it at a custom location with the <code>--config</code> flag.</p>
+<p>The configuration file is YAML and is where you register your feeds. There are example configs in the <a href="https://github.com/benmatselby/wibble/tree/main/docs/examples"><code>docs/examples/</code></a> directory to get you started.</p>
+<p>One day, I&rsquo;m hoping to set up binary releases, so you won&rsquo;t even need Go installed to build the application yourself.</p>
+<h2 id="theming">Theming</h2>
+<p>One thing I wanted from the start was the ability to make the UI feel at home in whatever terminal theme I&rsquo;m using. Every colour in Wibble can be overridden, and the repo ships with several ready-made themes: Nord, Gruvbox, Rose Pine, Solarized, Delek, Desert, Elflord, Peachpuff, and a standard default.</p>
+<p>Here&rsquo;s how it looks with Rose Pine Day:</p>
+<p><img src="/img/post/2026/wibble-rose-pine-day.png" alt="Wibble with the Rose Pine Day theme"></p>
+<p>And Rose Pine Night:</p>
+<p><img src="/img/post/2026/wibble-rose-pine-night.png" alt="Wibble with the Rose Pine Night theme"></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>The code is all on GitHub at <a href="https://github.com/benmatselby/wibble">benmatselby/wibble</a>. If you try it out and something is missing, feel free to open an issue.</p>
+<p>I&rsquo;m wanting to:</p>
+<ul>
+<li>Provide a <code>clean</code> command so it can remove redundant feeds if not in the config file.</li>
+<li>Allow you to trim the records stored in the database in some way.</li>
+</ul>
+<p>I&rsquo;m pretty happy with what I have so far, it feels clean, snappy, and does what I need.</p>
+
+</article>
+
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/tidbits/">Tidbits</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/wibble-an-rss-tui/">Wibble: An RSS TUI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/a-week-in-seville/">Seville in April: What to expect during Holy Week</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/ai-flow-7-months-on/">From AI cloud agents to local flows</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2025/working-with-agentic-coding-agent/">Two weeks with the GitHub Coding Agent</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
