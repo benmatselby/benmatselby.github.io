@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Description"
+    content="A quick thought on the burden of responsibility when reviewing AI generated change sets, and the surface level knowledge of codebases when AI is heavily involved.">
+  <meta name="generator" content="Hugo 0.168.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+
+  <title>The Burden &middot; Ben Selby</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://benmatselby.dev/css/bms.css?v3.0.0">
+
+  
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ben Selby" />
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content="The Burden">
+  <meta name="twitter:description"
+    content="A quick thought on the burden of responsibility when reviewing AI generated change sets, and the surface level knowledge of codebases when AI is heavily involved.">
+  <meta name="twitter:image:src" content="https://benmatselby.dev/img/hero-home-share.jpg">
+
+  
+  <meta property="og:site_name"
+    content="The Burden">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benmatselby.dev/post/2026/the-burden">
+  <meta property="og:title"
+    content="The Burden">
+  <meta property="og:image" content="https://benmatselby.dev/img/hero-home-share.jpg">
+  <meta property="og:description"
+    content="A quick thought on the burden of responsibility when reviewing AI generated change sets, and the surface level knowledge of codebases when AI is heavily involved.">
+</head>
+
+  <body>
+    
+
+
+
+
+
+<div class="header">
+  <div class="header__hero" style="background-image: url(/img/hero-home.jpg); background-position: center;">
+    <a class="header__home" href="https://benmatselby.dev/" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 0 160c0 35.3-28.7 64-64 64l-320 0c-35.3 0-64-28.7-64-64l0-160-32 0c-18 0-32-14.3-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  </div>
+  
+</div>
+
+
+    <main class="content">
+      
+<article class="posts__item">
+  <h1>The Burden</h1>
+  <span class="posts__item-date">Aug 16, 2026 &middot; 2 min read</span>
+  <div class="tags">
+    
+    <span class="tags__tag"><a href="/tags/ai" title="Posts related to ai">#ai</a></span>
+    
+    <span class="tags__tag"><a href="/tags/workflow" title="Posts related to workflow">#workflow</a></span>
+    
+    <span class="tags__tag"><a href="/tags/tooling" title="Posts related to tooling">#tooling</a></span>
+    
+    <span class="tags__tag"><a href="/tags/collaboration" title="Posts related to collaboration">#collaboration</a></span>
+    
+    <span class="tags__tag"><a href="/tags/people" title="Posts related to people">#people</a></span>
+    
+  </div>
+
+  <p>This short post is a coalescing of two thoughts in my brain at the moment:</p>
+<ol>
+<li>The burden of responsibility when reviewing an AI generated change set from a colleague.</li>
+<li>The surface level understanding of codebases when AI is heavily involved.</li>
+</ol>
+<p>You could write essays upon essays for those statements. But I&rsquo;m going to be quick.</p>
+<h2 id="burden-of-responsibility">Burden of responsibility</h2>
+<p>I happened to land on the <a href="https://github.com/dlvhdr/gh-dash/blob/main/AI_POLICY.md">AI Policy</a> for <a href="https://www.gh-dash.dev/">Dash</a>, the GitHub CLI Dashboard extension. It hit the nail on the head for me with this paragraph:</p>
+<blockquote>
+<p>Every discussion, issue, and pull request is read and reviewed by humans. It is a boundary point at which people interact with each other and the work done. It is rude and disrespectful to approach this boundary with low-effort, unqualified work, since it puts the burden of validation on the maintainer.</p>
+</blockquote>
+<p>Time <em>may</em> prove us wrong on this point, but I think I&rsquo;m currently very much aligned to this thinking. Historically, you had some level of confidence that the author had written, and understood, the code being presented for review (Give or take some Stack Overflow involvement). You roughly had an understanding of the skillset from the author too etc. With AI, more and more I wonder if the author has read the change set before asking for a review. Even worse, do they understand it themselves? This seemingly, puts even more burden on the reviewer to validate everything about the change. Is this slowing a team down overall?</p>
+<p>AI is a great tool, when used appropriately, but I&rsquo;d love to have the confidence back that changes are understood before being sent for review. It&rsquo;s unclear how this can be achieved, with the current tooling/processes. Maybe annotating the changeset with some rationale is a good start?</p>
+<h2 id="surface-level-understanding">Surface level understanding</h2>
+<p>I&rsquo;ve been vibe coding a little <a href="https://github.com/benmatselby/wibble">CLI tool</a> for myself to read RSS articles. I&rsquo;ve reviewed each change the robot has created. The other day I wanted to hand code something myself, and it dawned on me that I just didn&rsquo;t have the solution in my head. Many other projects I have, I can dip in and out and remember exactly how it all works. That wasn&rsquo;t the case with this AI driven project. It took an awfully long time to be in a position to code the feature I wanted to implement. Overall, I started to wonder if using AI has really been saving me time in the long run.</p>
+<hr>
+<p>And that is all I have to write at the moment. The journey continues!</p>
+
+</article>
+
+    </main>
+
+    <footer class="footer">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3 class="footer__title">Content</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="/about">About</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/post">Blog</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recipes">Recipes</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/recommendations">Recommendations</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/links">Links</a>
+        </li><li class="footer__nav-item">
+          <a class="footer__nav-link" href="/tidbits/">Tidbits</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Social</h3>
+      <ul class="footer__links">
+        <li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="/index.xml">RSS</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://bsky.app/profile/benmatselby.bsky.social">BlueSky</a>
+        </li><li class="footer__nav-item">
+          <a rel="me" class="footer__nav-link" href="https://github.com/benmatselby">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__title">Recent</h3>
+      <ul class="footer__links">
+        
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/the-burden/">The Burden</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/wibble-an-rss-tui/">Wibble: An RSS TUI</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/a-week-in-seville/">Seville in April: What to expect during Holy Week</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/ai-flow-7-months-on/">From AI cloud agents to local flows</a>
+        </li>
+        <li class="footer__nav-item">
+          <a class="footer__nav-link" href="https://benmatselby.dev/post/2026/flow-where-did-it-go/">Flow state - Where did it go?</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

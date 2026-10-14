@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Collaboration on Ben Selby</title>
+		<link>https://benmatselby.dev/tags/collaboration/</link>
+		<description>Recent content in Collaboration on Ben Selby</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 16 Aug 2026 20:30:44 +0100</lastBuildDate>
+		
+			<atom:link href="https://benmatselby.dev/tags/collaboration/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>The Burden</title>
+				<link>https://benmatselby.dev/post/2026/the-burden/</link>
+				<pubDate>Sun, 16 Aug 2026 20:30:44 +0100</pubDate>
+				<guid>https://benmatselby.dev/post/2026/the-burden/</guid>
+				<description>&lt;p&gt;This short post is a coalescing of two thoughts in my brain at the moment:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;The burden of responsibility when reviewing an AI generated change set from a colleague.&lt;/li&gt;&#xA;&lt;li&gt;The surface level understanding of codebases when AI is heavily involved.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You could write essays upon essays for those statements. But I&amp;rsquo;m going to be quick.&lt;/p&gt;&#xA;&lt;h2 id=&#34;burden-of-responsibility&#34;&gt;Burden of responsibility&lt;/h2&gt;&#xA;&lt;p&gt;I happened to land on the &lt;a href=&#34;https://github.com/dlvhdr/gh-dash/blob/main/AI_POLICY.md&#34;&gt;AI Policy&lt;/a&gt; for &lt;a href=&#34;https://www.gh-dash.dev/&#34;&gt;Dash&lt;/a&gt;, the GitHub CLI Dashboard extension. It hit the nail on the head for me with this paragraph:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Working with Zed for a week</title>
+				<link>https://benmatselby.dev/post/2024/working-with-zed/</link>
+				<pubDate>Tue, 30 Jan 2024 18:48:56 +0000</pubDate>
+				<guid>https://benmatselby.dev/post/2024/working-with-zed/</guid>
+				<description>&lt;p&gt;I took &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; for a spin this week, and this post covers what I noticed whilst using it as my day-to-day editor.&lt;/p&gt;&#xA;&lt;blockquote class=&#34;pullquote&#34;&gt;&#xA;  I love it, and I&#39;m probably going to stay with it (but I miss a debugger).&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;p&gt;This is what Zed is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It&amp;rsquo;s also open source.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;projects-worked-on&#34;&gt;Projects worked on:&lt;/h2&gt;&#xA;&lt;p&gt;These are the projects I managed to work on this week with Zed:&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
